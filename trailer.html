@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="vi"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pet Drink: Scale & Soul — Trailer</title>
+<style>
+:root{--forest:#0f2e28;--deep:#0a1f1b;--cream:#efd9a4;--gold:#c8973f;--teal:#1f6b5e;
+  --paper:#fbf8f0;--ink:#17231f;--warn:#c25a3c;
+  --disp:Georgia,'Times New Roman',serif;--mono:ui-monospace,Menlo,monospace;
+  --body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#05100d;font-family:var(--body);display:grid;place-items:center;min-height:100vh}
+#stage{position:relative;width:min(92vw,420px);aspect-ratio:9/16;overflow:hidden;
+  border-radius:20px;background:var(--deep);box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.sc{position:absolute;inset:0;display:grid;place-items:center;text-align:center;
+  padding:28px 26px;opacity:0;pointer-events:none}
+.sc.on{opacity:1}
+.sc .in{width:100%}
+.kicker{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:12px;opacity:0}
+.head{font-family:var(--disp);font-size:30px;font-weight:600;color:var(--cream);
+  line-height:1.2;opacity:0}
+.head.sm{font-size:23px}
+.sub{font-size:15px;line-height:1.6;color:rgba(239,217,164,.8);margin-top:12px;opacity:0}
+.quote{font-family:var(--disp);font-size:21px;font-style:italic;color:var(--cream);
+  line-height:1.45;opacity:0}
+.by{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(239,217,164,.55);margin-top:14px;opacity:0}
+.up{animation:up .7s cubic-bezier(.2,.9,.3,1) forwards}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.fadein{animation:fi .8s ease forwards}
+@keyframes fi{to{opacity:1}}
+/* nền cảnh quán */
+.room{position:absolute;inset:0;background:linear-gradient(#1a4038,#0c1f1a)}
+.room:after{content:"";position:absolute;left:0;right:0;bottom:0;height:30%;
+  background:linear-gradient(#8a6f52,#6b5540)}
+.counter{position:absolute;left:0;width:58%;bottom:30%;height:7%;
+  background:linear-gradient(#c9a06a,#a8804e);box-shadow:0 3px 8px rgba(0,0,0,.3)}
+.pet{position:absolute;left:50%;bottom:31%;width:112px;transform:translateX(-50%);z-index:3}
+.pet svg{width:100%;height:auto;display:block}
+.breathe{animation:br 2.6s ease-in-out infinite}
+@keyframes br{50%{transform:translateX(-50%) translateY(-5px) scale(1.02)}}
+.bubble{position:absolute;left:50%;bottom:58%;transform:translateX(-50%);
+  background:var(--paper);color:var(--ink);border-radius:14px;padding:11px 15px;
+  font-size:14.5px;line-height:1.45;max-width:78%;opacity:0;z-index:4;
+  box-shadow:0 5px 18px rgba(0,0,0,.34)}
+.bubble:after{content:"";position:absolute;left:50%;bottom:-7px;margin-left:-7px;
+  border:7px solid transparent;border-top-color:var(--paper);border-bottom:0}
+.card{background:var(--paper);color:var(--ink);border-radius:15px;padding:15px 17px;
+  text-align:left;border:1.5px solid var(--gold);opacity:0;
+  box-shadow:0 6px 22px rgba(0,0,0,.3)}
+.card .cl{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:#8a9a92}
+.card .ct{font-size:16px;line-height:1.45;margin-top:5px}
+.card .cb{display:flex;gap:8px;margin-top:12px}
+.card .cb span{flex:1;text-align:center;padding:9px;border-radius:10px;font-size:13.5px;font-weight:600}
+.card .cb .y{background:var(--gold);color:#2b1d14}
+.card .cb .n{border:1px solid #d8d2c4;color:#5e6b64}
+.stats{display:flex;gap:9px;margin-top:14px;opacity:0}
+.stats div{flex:1;background:rgba(251,248,240,.95);color:var(--ink);border-radius:11px;padding:9px 11px;text-align:left}
+.stats .l{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:#8a9a92}
+.stats .v{font-size:19px;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:6px}
+.grid i{display:grid;place-items:center;aspect-ratio:1;background:rgba(239,217,164,.07);
+  border:1px solid rgba(239,217,164,.16);border-radius:12px;opacity:0}
+.grid i svg{width:62%;height:62%}
+.boss{width:130px;margin:0 auto;opacity:0}
+.boss svg{width:100%;height:auto}
+.logo{width:96px;margin:0 auto 16px;opacity:0}
+.logo svg{width:100%;height:auto}
+.bar{position:absolute;left:0;bottom:0;height:3px;background:var(--gold);width:0;z-index:9}
+.ctrl{margin-top:14px;display:flex;gap:8px;justify-content:center}
+.ctrl button{background:none;border:1px solid rgba(239,217,164,.3);color:var(--cream);
+  border-radius:99px;padding:7px 16px;font-family:var(--mono);font-size:11px;cursor:pointer}
+.ctrl button:hover{background:rgba(239,217,164,.1)}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important}}
+</style></head>
+<body>
+<div>
+<div id="stage">
+  <div class="bar" id="bar"></div>
+
+  <!-- 1 -->
+  <div class="sc" id="s1"><div class="in">
+    <div class="logo" id="s1logo"></div>
+    <div class="kicker">Một con thú ảo sống trong quán của bạn</div>
+    <div class="head">Pet Drink</div>
+    <div class="head sm" style="color:var(--gold);margin-top:2px">Scale &amp; Soul</div>
+  </div></div>
+
+  <!-- 2 -->
+  <div class="sc" id="s2">
+    <div class="room"></div><div class="counter"></div>
+    <div class="pet breathe" id="s2pet"></div>
+    <div class="bubble" id="s2b">Sáng rồi. Mở cửa thôi.</div>
+    <div class="in" style="position:absolute;top:32px;left:0;right:0;padding:0 26px">
+      <div class="kicker" style="color:rgba(239,217,164,.7)">07:16 · Ngày 12 · trông quầy</div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="sc" id="s3"><div class="in">
+    <div class="kicker">Nó biết mình muốn gì</div>
+    <div class="card" id="s3c">
+      <div class="cl">❤️ Miso muốn…</div>
+      <div class="ct">Mình muốn kiểm kho cùng bạn. Hình như có thứ sắp hết.</div>
+      <div class="cb"><span class="y">Đi cùng</span><span class="n">Hôm nay bận</span></div>
+    </div>
+    <div class="stats" id="s3s">
+      <div><div class="l">Gắn bó</div><div class="v">82</div></div>
+      <div><div class="l">Tâm trạng</div><div class="v">91</div></div>
+    </div>
+  </div></div>
+
+  <!-- 4 -->
+  <div class="sc" id="s4"><div class="in">
+    <div class="kicker">Và nó nhớ</div>
+    <div class="quote" id="s4q">“Bạn còn nhớ ngày 5 không?<br>Hôm đó hạ được Hắc Tinh Ga.”</div>
+    <div class="by" id="s4b">Cuốn đời · 40 mốc theo ngày</div>
+  </div></div>
+
+  <!-- 5 -->
+  <div class="sc" id="s5"><div class="in">
+    <div class="kicker">42 kỹ năng, mỗi cái một hiệu ứng riêng</div>
+    <div class="grid" id="s5g"></div>
+  </div></div>
+
+  <!-- 6 -->
+  <div class="sc" id="s6"><div class="in">
+    <div class="kicker">110 tầng tháp</div>
+    <div class="boss" id="s6b"></div>
+    <div class="head sm" id="s6h" style="margin-top:12px">Bản Chuẩn</div>
+    <div class="quote" id="s6q" style="font-size:17px;margin-top:12px">
+      “Tôi đã thử ba tỉ công thức.<br>Vì sao cậu vẫn muốn pha tay?”</div>
+  </div></div>
+
+  <!-- 7 -->
+  <div class="sc" id="s7"><div class="in">
+    <div class="quote" id="s7q">“Vì hôm nay trời nóng hơn hôm qua.”</div>
+    <div class="by" id="s7b">Quy mô · đối · Tâm hồn</div>
+  </div></div>
+
+  <!-- 8 -->
+  <div class="sc" id="s8"><div class="in">
+    <div class="logo" id="s8logo"></div>
+    <div class="head sm">Pet Drink: Scale &amp; Soul</div>
+    <div class="sub" id="s8s">110 tầng tháp · 42 công thức đồ uống thật<br>
+      25 thẻ quản trị quán · Cuốn đời và dòng dõi</div>
+    <div class="by" id="s8b">Chạy offline · một file · không quảng cáo</div>
+  </div></div>
+</div>
+<div class="ctrl">
+  <button onclick="play()">Chạy lại</button>
+  <button onclick="location.reload()">Về đầu</button>
+</div>
+</div>
+
+<script>
+/* pet Matcha — cùng đường dẫn thân với trong game */
+function matcha(scale){
+  return `<svg viewBox="-60 -60 120 140">
+    <ellipse cx="0" cy="68" rx="34" ry="7" fill="#050f0c" opacity=".35"/>
+    <path d="M0 -38q-4 -16 -20 -22 2 18 20 22z" fill="#3f8a4a" stroke="#233b2c" stroke-width="2.4"/>
+    <path d="M0 -38q6 -18 24 -20 -4 18 -24 20z" fill="#5db067" stroke="#233b2c" stroke-width="2.4"/>
+    <path d="M0 -38C18 -18 42 4 42 26C42 50 22 66 0 66C-22 66 -42 50 -42 26C-42 4 -18 -18 0 -38Z"
+      fill="#7fc47c" stroke="#233b2c" stroke-width="3"/>
+    <ellipse cx="0" cy="44" rx="24" ry="18" fill="#cdeec2" opacity=".6"/>
+    <g transform="translate(0 12)">
+      <path d="M-16 -2q4.5 -7 9 0" stroke="#233b2c" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+      <path d="M7 -2q4.5 -7 9 0" stroke="#233b2c" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+      <ellipse cx="-23" cy="8" rx="6.5" ry="4.2" fill="#e88a8a" opacity=".6"/>
+      <ellipse cx="23" cy="8" rx="6.5" ry="4.2" fill="#e88a8a" opacity=".6"/>
+      <path d="M-6 9q6 6 12 0" stroke="#233b2c" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </g></svg>`;
+}
+function logo(){
+  return `<svg viewBox="0 0 120 120">
+    <rect width="120" height="120" rx="26" fill="#0f2e28" stroke="#c8973f" stroke-width="2.5" opacity=".95"/>
+    <g transform="translate(60 66) scale(.62)">${matcha()}</g>
+    <g stroke="#cdeec2" stroke-width="3" fill="none" stroke-linecap="round" opacity=".5"
+       transform="translate(60 24)">
+      <path d="M-11 4q4 -6 0 -12"/><path d="M0 0q4 -6 0 -12"/><path d="M11 4q4 -6 0 -12"/></g>
+  </svg>`;
+}
+/* boss Bản Chuẩn — khối lõi bát giác */
+function banChuan(){
+  return `<svg viewBox="-60 -50 120 130">
+    <ellipse cx="0" cy="70" rx="40" ry="8" fill="#050f0c" opacity=".4"/>
+    <path d="M-20 -34h40l20 20v40l-20 20h-40l-20-20v-40z" fill="#dfe8ec" stroke="#2b3733" stroke-width="3"/>
+    <ellipse cx="0" cy="34" rx="22" ry="13" fill="#f6fafb" opacity=".7"/>
+    <g transform="translate(0 2)">
+      <rect x="-19" y="-4" width="13" height="4" rx="2" fill="#2b3733"/>
+      <rect x="6" y="-4" width="13" height="4" rx="2" fill="#2b3733"/>
+      <rect x="-9" y="12" width="18" height="3" rx="1.5" fill="#2b3733" opacity=".8"/>
+    </g>
+    <g stroke="#8fb8cc" stroke-width="2" opacity=".55" fill="none">
+      <path d="M-40 6h-12M40 6h12M0 -34v-12"/></g>
+  </svg>`;
+}
+/* 10 biểu tượng kỹ năng, lấy đúng từ bộ 42 trong game */
+const GLYPHS=[
+  ['#3f9a5c','<path d="M14 2q-9 0-12 7 3.4 4.6 8 3.6Q14 11 14 2z" fill="C"/><path d="M14 2L4.5 11.5" stroke="#1d3a25" stroke-width="1.3"/>'],
+  ['#9fd8f0','<path d="M8 0l3.4 5.4L8 16 4.6 5.4z" fill="C"/>'],
+  ['#5e3a1e','<rect x="1" y="6" width="14" height="3.5" rx="1.75" fill="C"/><circle cx="14" cy="7.75" r="2.4" fill="C"/>'],
+  ['#ffffff','<circle cx="5" cy="10" r="3.6" fill="none" stroke="C" stroke-width="1.7"/><circle cx="11" cy="8" r="2.8" fill="none" stroke="C" stroke-width="1.7"/><circle cx="8.5" cy="13" r="2" fill="none" stroke="C" stroke-width="1.5"/>'],
+  ['#3a1f2e','<g fill="C"><ellipse cx="8" cy="3.6" rx="2.2" ry="3.6"/><ellipse cx="8" cy="3.6" rx="2.2" ry="3.6" transform="rotate(72 8 8)"/><ellipse cx="8" cy="3.6" rx="2.2" ry="3.6" transform="rotate(144 8 8)"/><ellipse cx="8" cy="3.6" rx="2.2" ry="3.6" transform="rotate(216 8 8)"/><ellipse cx="8" cy="3.6" rx="2.2" ry="3.6" transform="rotate(288 8 8)"/></g><circle cx="8" cy="8" r="1.8" fill="#f2d36a"/>'],
+  ['#e8e04a','<path d="M8 1v5M8 10v5M1 8h5M10 8h5M3 3l3.4 3.4M9.6 9.6L13 13M13 3L9.6 6.4M6.4 9.6L3 13" stroke="C" stroke-width="2" stroke-linecap="round"/>'],
+  ['#cfeaff','<g stroke="C" stroke-width="1.6" stroke-linecap="round"><path d="M8 1v14M2 4.5l12 7M14 4.5l-12 7"/><path d="M8 4l-2-2M8 4l2-2M8 12l-2 2M8 12l2 2"/></g>'],
+  ['#e0a44f','<path d="M4 3h7v6a3.5 3.5 0 01-7 0z" fill="C"/><path d="M11 4.5q3 0 3 2.5t-3 2.5" fill="none" stroke="C" stroke-width="1.6"/><path d="M6 1.5q1 1.5 0 3M9 1.5q1 1.5 0 3" stroke="C" stroke-width="1.4" fill="none"/>'],
+  ['#ffd24a','<path d="M2 12q3-9 12-10-1 9-10 12z" fill="C"/><path d="M14 2L5 11" stroke="#8a6a1a" stroke-width="1.2"/>'],
+  ['#6a4020','<path d="M8 1l2 4 4 .6-3 3 .8 4.4L8 11l-3.8 2 .8-4.4-3-3L6 5z" fill="C"/>']
+];
+document.getElementById('s2pet').innerHTML=matcha();
+document.getElementById('s1logo').innerHTML=logo();
+document.getElementById('s8logo').innerHTML=logo();
+document.getElementById('s6b').innerHTML=banChuan();
+document.getElementById('s5g').innerHTML=GLYPHS.slice(0,9).map(([c,d],i)=>
+  `<i style="animation-delay:${i*90}ms"><svg viewBox="0 0 16 16">${d.replace(/C/g,c)}</svg></i>`).join('');
+
+/* kịch bản: [id cảnh, thời lượng ms, các phần tử hiện dần] */
+const SCRIPT=[
+  ['s1', 3400, [['s1logo',200],['.kicker',700],['.head',1000],['.head.sm',1300]]],
+  ['s2', 4200, [['.kicker',300],['s2b',1400]]],
+  ['s3', 4400, [['.kicker',200],['s3c',600],['s3s',1700]]],
+  ['s4', 3800, [['.kicker',200],['s4q',600],['s4b',1800]]],
+  ['s5', 3600, [['.kicker',200],['grid',500]]],
+  ['s6', 4600, [['.kicker',200],['s6b',600],['s6h',1400],['s6q',2100]]],
+  ['s7', 3800, [['s7q',400],['s7b',1700]]],
+  ['s8', 4600, [['s8logo',200],['.head.sm',700],['s8s',1300],['s8b',2100]]]
+];
+const TOTAL=SCRIPT.reduce((a,s)=>a+s[1],0);
+let timers=[];
+function reset(){
+  timers.forEach(clearTimeout); timers=[];
+  document.querySelectorAll('.sc').forEach(s=>s.classList.remove('on'));
+  document.querySelectorAll('.up,.fadein').forEach(e=>e.classList.remove('up','fadein'));
+  document.getElementById('bar').style.transition='none';
+  document.getElementById('bar').style.width='0';
+}
+function play(){
+  reset();
+  const bar=document.getElementById('bar');
+  setTimeout(()=>{ bar.style.transition=`width ${TOTAL}ms linear`; bar.style.width='100%' },40);
+  let t=0;
+  SCRIPT.forEach(([id,dur,parts])=>{
+    timers.push(setTimeout(()=>{
+      document.querySelectorAll('.sc').forEach(s=>s.classList.remove('on'));
+      const sc=document.getElementById(id); sc.classList.add('on');
+      parts.forEach(([sel,delay])=>{
+        timers.push(setTimeout(()=>{
+          const el = sel.startsWith('.') ? sc.querySelector(sel) : document.getElementById(sel);
+          if(!el) return;
+          if(el.classList.contains('grid')) el.querySelectorAll('i').forEach(x=>x.classList.add('fadein'));
+          else el.classList.add('up');
+        }, delay));
+      });
+      if(id==='s5') timers.push(setTimeout(()=>
+        sc.querySelectorAll('.grid i').forEach(x=>x.classList.add('fadein')), 500));
+    }, t));
+    t += dur;
+  });
+}
+play();
+</script>
+</body></html>

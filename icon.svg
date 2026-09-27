@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Pet Drink — Scale & Soul. Biểu tượng là pet loài Matcha:
+       thân hình giọt trà xanh, hai lá trên đầu, mặt hiền. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a4038"/>
+      <stop offset="1" stop-color="#0c1f1a"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8fd48a"/>
+      <stop offset="1" stop-color="#4f9a56"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="42%" r="52%">
+      <stop offset="0" stop-color="#2d6b58" stop-opacity=".85"/>
+      <stop offset="1" stop-color="#2d6b58" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <circle cx="256" cy="248" r="188" fill="url(#glow)"/>
+
+  <!-- vòng vàng mỏng: nhắc lại viền gold của giao diện -->
+  <rect x="26" y="26" width="460" height="460" rx="92"
+        fill="none" stroke="#c8973f" stroke-width="6" opacity=".42"/>
+
+  <g transform="translate(256 268) scale(2.5)">
+    <!-- bóng dưới chân -->
+    <ellipse cx="0" cy="72" rx="40" ry="9" fill="#050f0c" opacity=".38"/>
+
+    <!-- thân giọt trà, đúng đường dẫn của loài matcha trong game -->
+    <path d="M0 -38C18 -18 42 4 42 26C42 50 22 66 0 66C-22 66 -42 50 -42 26C-42 4 -18 -18 0 -38Z"
+          fill="url(#body)" stroke="#233b2c" stroke-width="3.2"/>
+    <!-- bụng sáng -->
+    <ellipse cx="0" cy="44" rx="24" ry="18" fill="#cdeec2" opacity=".55"/>
+
+    <!-- hai lá trên đầu -->
+    <path d="M0 -38q-4 -16 -20 -22 2 18 20 22z" fill="#3f8a4a" stroke="#233b2c" stroke-width="2.4"/>
+    <path d="M0 -38q6 -18 24 -20 -4 18 -24 20z" fill="#5db067" stroke="#233b2c" stroke-width="2.4"/>
+
+    <!-- mặt -->
+    <g transform="translate(0 12)">
+      <path d="M-15 -2q4 -6 8 0" stroke="#233b2c" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+      <path d="M7 -2q4 -6 8 0" stroke="#233b2c" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+      <ellipse cx="-22" cy="7" rx="6" ry="4" fill="#e88a8a" opacity=".62"/>
+      <ellipse cx="22" cy="7" rx="6" ry="4" fill="#e88a8a" opacity=".62"/>
+      <path d="M-6 8q6 6 12 0" stroke="#233b2c" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </g>
+
+    <!-- hơi nóng bốc lên: nhắc đây là đồ uống -->
+    <g stroke="#cdeec2" stroke-width="3" fill="none" stroke-linecap="round" opacity=".5">
+      <path d="M-14 -52q5 -8 0 -16"/>
+      <path d="M0 -58q5 -8 0 -16"/>
+      <path d="M14 -52q5 -8 0 -16"/>
+    </g>
+  </g>
+</svg>
