@@ -7,11 +7,13 @@
      mất mạng mới dùng bản trong bộ đệm — vẫn chạy offline được
    - ảnh, manifest vẫn lấy bộ đệm trước cho nhanh
    KHI PHÁT HÀNH BẢN MỚI: tăng VER dưới đây. */
-const VER='1.5.0';
+const VER='1.1.0';
 const C='petdrink-'+VER;
 const ASSETS=['./','./index.html','./manifest.webmanifest','./icon.svg'];
 self.addEventListener('install',e=>{
-  e.waitUntil(caches.open(C).then(c=>c.addAll(ASSETS.map(u=>new Request(u,{cache:'reload'}))))
+  // nhạc nền tải riêng: thiếu file (bản chỉ có một file HTML) thì không được làm hỏng cả bước cài
+  e.waitUntil(caches.open(C).then(c=>c.addAll(ASSETS.map(u=>new Request(u,{cache:'reload'})))
+      .then(()=>c.add(new Request('./nhac-nen.mp3',{cache:'reload'})).catch(()=>{})))
     .then(()=>self.skipWaiting()));
 });
 self.addEventListener('activate',e=>{

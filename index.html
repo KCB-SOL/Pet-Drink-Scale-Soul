@@ -1728,6 +1728,40 @@ body.stagefull .hero,body.stagefull #acts{opacity:.25;pointer-events:none;transi
 .expbar{position:relative;height:8px;border-radius:99px;background:rgba(23,35,31,.1);overflow:hidden}
 .expbar i{position:absolute;left:0;top:0;bottom:0;border-radius:99px;background:rgba(200,151,63,.45)}
 .expbar i.o{background:var(--gold)}
+
+/* ============ bản 1.0 ============ */
+.q .qmw{display:block;color:var(--teal);font-size:11px;margin-top:2px}
+.pnhead{margin:2px 0 8px}
+.pnver{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.pntitle{font-family:var(--disp);font-size:20px;font-weight:700;line-height:1.2;margin-top:2px}
+.pnlist{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.pnit{display:flex;gap:11px;align-items:flex-start}
+.pnic{width:34px;height:34px;flex:0 0 auto;border-radius:10px;display:grid;place-items:center;font-size:18px;background:rgba(200,151,63,.12)}
+.pnt{font-size:14px;font-weight:600;line-height:1.3}
+.pnd{font-size:12.5px;color:var(--ink-2);line-height:1.45;margin-top:1px}
+.pnsep{border:0;border-top:1px dashed var(--line);margin:16px 0}
+
+/* ============ bản 1.1.0 ============ */
+#miniRow{display:none !important}                     /* ngủ đông đã chuyển vào Cài đặt */
+.agechip{font-weight:700;letter-spacing:.02em;border-color:rgba(239,217,164,.45) !important}
+#termscr{position:fixed;inset:0;z-index:6000;background:linear-gradient(#1a4038,#0a1d19);display:grid;place-items:center;padding:20px;overflow:auto}
+#termscr .tbox{width:100%;max-width:440px;color:#f3ead4}
+#termscr .ilogo{width:60px;height:60px;margin:0 auto 8px}
+#termscr h2{font-family:var(--disp);text-align:center;margin:0;color:#f3e4bd}
+.tage{display:table;margin:8px auto 10px;border:1.5px solid #e0a44f;color:#e0a44f;border-radius:8px;padding:2px 10px;font-weight:800}
+.tlist{max-height:46vh;overflow:auto;background:rgba(0,0,0,.22);border:1px solid rgba(239,217,164,.18);border-radius:12px;padding:10px 14px;text-align:left}
+#sheet .tlist{max-height:none;background:none;border:0;padding:0;color:var(--ink)}
+.tit b{font-size:13.5px}.tit p{margin:3px 0 10px;font-size:13px;line-height:1.5;opacity:.85}
+.tagree{display:flex;gap:10px;align-items:flex-start;margin:14px 0 10px;font-size:14px;line-height:1.45;cursor:pointer}
+.tagree input{width:22px;height:22px;flex:0 0 22px;margin-top:1px;accent-color:#c8973f}
+#termscr .btn{width:100%}
+#termscr .btn:disabled{opacity:.45}
+.iidea{display:flex;flex-direction:column;gap:7px;margin:4px auto 14px;max-width:420px;text-align:left}
+.iidea div{display:flex;gap:9px;align-items:flex-start;font-size:13px;line-height:1.45;opacity:.9}
+.iidea span{flex:0 0 auto;font-size:16px}
+.pick.psur .pa{display:grid;place-items:center}
+.pick.psur .pq{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;font-size:32px;font-weight:800;
+  font-family:var(--disp);color:var(--gold);border:2px dashed var(--gold)}
 @media(prefers-reduced-motion:reduce){
   main.vin,.panel,.sheetbox,.tutcard,.memtoast{animation:none !important}
   .dlg,.bnr,.intro,.evo,.sheet{animation-duration:.01ms !important}
@@ -1746,8 +1780,9 @@ body.nofx .actor .in{animation:none}
   <div class="hibbar hide" id="hibbar">Đang ngủ đông — hao hụt tạm dừng</div>
   <header class="hdr">
     <div class="brandmark" id="brandmark"></div>
-    <div><h1>Pet Drink</h1><div class="sub" id="hdrsub">Scale &amp; Soul · v1.5</div></div>
+    <div><h1>Pet Drink</h1><div class="sub" id="hdrsub">Scale &amp; Soul · v1.1.0</div></div>
     <div class="purse">
+      <div class="chip agechip" title="Dành cho người chơi từ 12 tuổi trở lên">12+</div>
       <div class="chip" id="chipCoin">0 xu</div>
       <div class="chip" id="chipDay">N0</div>
     </div>
@@ -7270,12 +7305,17 @@ function paintIntro(){
       <h1>${DB.intro.title}</h1>
       <div class="itag">${DB.intro.tag}</div>
       <p class="ilead">${DB.intro.lead}</p>
+      <div class="iidea">
+        <div><span>🐾</span>Nuôi một pet sống trong quán. Nó lớn lên và tiến hoá theo con đường bạn cùng nó đi.</div>
+        <div><span>🏪</span>Việc thật ở quán — mở ca, kiểm kho, chốt sổ — đổi thành xu, vé và quà.</div>
+        <div><span>🗼</span>Leo tháp 110 tầng: tay nghề đối đầu hàng công nghiệp. Quy mô đối Tâm hồn.</div>
+      </div>
       <div class="ipreview">${DB.speciesList.map((s,i)=>{
         const g=introGhost(s); g.stage='baby';
         return `<span style="animation-delay:${i*0.12}s">${renderPet(g,{scale:.6,static:1,mood:'happy',tag:'ip'+s})}</span>`}).join('')}</div>
       <button class="btn gold" onclick="introNext()">Bắt đầu</button>
       <div class="ifoot">Toàn bộ chạy ngoại tuyến. Dữ liệu lưu trên máy bạn.<br>
-        v1.5</div>
+        v${APP_VER}</div>
     </div>`;
   }
   else if(INTRO.step===1){
@@ -7284,7 +7324,7 @@ function paintIntro(){
       <p class="ilead">${DB.intro.pickLead}</p>
       <div class="picks">${DB.speciesList.map(s=>{
         const sp=DB.species[s], g=introGhost(s); g.stage='adult';
-        const on=INTRO.species===s;
+        const on=INTRO.species===s && !INTRO.surprise;
         return `<div class="pick ${on?'on':''}" onclick="pickSpecies('${s}')">
           <div class="pa">${renderPet(g,{scale:.72,static:1,mood:'ok',tag:'pk'+s})}</div>
           <div class="pn">${sp.name}</div>
@@ -7292,15 +7332,20 @@ function paintIntro(){
           <div class="pbars">${[['HP','hp'],['ATK','atk'],['DEF','def'],['SPD','spd'],['INT','int'],['LK','luck']].map(([l,k])=>{
             const v=sp.base[k], max=k==='hp'?120:52;
             return `<div class="pb"><span>${l}</span><i><b style="width:${Math.round(v/max*100)}%"></b></i></div>`}).join('')}</div>
-        </div>`}).join('')}</div>
-      ${INTRO.species?`<div class="note" style="text-align:left">${DB.species[INTRO.species].quirk}</div>`:''}
+        </div>`}).join('')}
+        <div class="pick psur ${INTRO.surprise?'on':''}" onclick="pickSurprise()">
+          <div class="pa"><div class="pq">?</div></div>
+          <div class="pn">Ngẫu nhiên</div><div class="pv">Để trứng quyết định</div>
+          <div class="note" style="margin:6px 0 0;font-size:11px">Một trong sáu loài. Biết khi trứng nở.</div>
+        </div></div>
+      ${INTRO.species?`<div class="note" style="text-align:left">${INTRO.surprise?'Bạn sẽ biết pet của mình là loài nào khi trứng nở.':DB.species[INTRO.species].quirk}</div>`:''}
       <button class="btn gold" ${INTRO.species?'':'disabled'} onclick="introNext()">
-        ${INTRO.species?`Chọn ${DB.species[INTRO.species].name}`:'Chạm để chọn một loài'}</button>
+        ${INTRO.species?(INTRO.surprise?'Để trứng quyết định':`Chọn ${DB.species[INTRO.species].name}`):'Chạm để chọn một loài'}</button>
     </div>`;
   }
   else if(INTRO.step===2){
     const sp=DB.species[INTRO.species];
-    const hue=Math.round((sp.hue[0]+sp.hue[1])/2);
+    const hue=INTRO.surprise ? 40 : Math.round((sp.hue[0]+sp.hue[1])/2);   // trứng bất ngờ không lộ màu loài
     const left=DB.intro.taps-INTRO.taps;
     e.innerHTML=`<div class="ibox">
       <h2>${DB.intro.eggTitle}</h2>
@@ -7367,7 +7412,7 @@ function introNext(){
   if(INTRO.step===2) INTRO.taps=0;
   paintIntro();
 }
-function pickSpecies(s){ INTRO.species=s; paintIntro() }
+function pickSpecies(s){ INTRO.species=s; INTRO.surprise=false; paintIntro() }
 function tapEgg(){
   if(INTRO.taps>=DB.intro.taps) return;
   INTRO.taps++;
@@ -9128,9 +9173,10 @@ function aboutHTML(){
   return `<h3 class="sec">Về game</h3>
     <div class="aboutbox">
       <div class="abname">Pet Drink: Scale &amp; Soul</div>
-      <div class="abver">Phiên bản 1.5</div>
+      <div class="abver">Phiên bản ${APP_VER}</div>
       <div class="kv"><span>Tác giả</span><b>Minh Đào</b></div>
       <div class="kv"><span>Thực hiện</span><b>KCB SOL</b></div>
+      <div class="kv"><span>Nhạc nền</span><b>8-Bit Morning Sun — Turning_Pages (Pixabay)</b></div>
       <div class="abtag">Định vị · Chiến lược · Vận hành</div>
       <div class="note" style="margin-top:8px">Một trò chơi nuôi thú gắn với công việc vận hành
         quán đồ uống. Chạy ngoại tuyến, dữ liệu lưu trên máy bạn.</div>
@@ -9189,10 +9235,21 @@ function musicStart(){
   if(!SND.ready || !sndState().music || SND.playing) return;
   if(mmOn()){
     SND.playing=true;
+    if(typeof audioRoute==='function'){ audioRoute(MYMUSIC.el, 0.5); if(MYMUSIC.el.__route) MYMUSIC.el.volume=1 }
     const p=MYMUSIC.el.play(); if(p && p.catch) p.catch(()=>{ SND.playing=false });
     return;
   }
-  SND.playing = true; SND.chord = 0; SND.step = 0;
+  if(typeof bgmWanted==='function' && bgmWanted()){
+    const a=bgmEl(); audioRoute(a, DB.bgm.gain); SND.playing=true;
+    SND.mode='bgm';
+    const p=a.play(); if(p && p.catch) p.catch(err=>{
+      // NotAllowedError: người chơi chưa chạm — chờ lần chạm sau, không đổi nhạc.
+      // Lỗi khác (không có file, không đọc được): dự phòng sang chiptune.
+      if(err && err.name==='NotAllowedError'){ if(SND.mode==='bgm') SND.playing=false }
+      else bgmFail() });
+    return;
+  }
+  SND.playing = true; SND.mode='chip'; SND.chord = 0; SND.step = 0;
   const c = SND.ctx, M = MUSIC[musicMood()];
   if(!SND.musFilter){
     const f=c.createBiquadFilter(); f.type='lowpass'; f.frequency.value=M.cut; f.Q.value=0.4;
@@ -9210,6 +9267,7 @@ function musicStart(){
 }
 function musicStop(){
   if(MYMUSIC.el){ try{ MYMUSIC.el.pause() }catch(e){} }
+  if(typeof BGM!=='undefined' && BGM.el){ try{ BGM.el.pause() }catch(e){} }
   if(!SND.ready) return;
   const c = SND.ctx;
   SND.musBus.gain.cancelScheduledValues(c.currentTime);
@@ -11812,9 +11870,21 @@ function weekKey(d){ d=d||new Date(); const t=new Date(Date.UTC(d.getFullYear(),
   return t.getUTCFullYear()+'-W'+String(Math.ceil(((t-y0)/864e5+1)/7)).padStart(2,'0') }
 const monthKey=()=>new Date().toISOString().slice(0,7);
 function load(){
-  try{ const raw=localStorage.getItem(KEY); S = raw? JSON.parse(raw) : fresh(); }
-  catch(e){ S=fresh() }
-  if(!S.pet) S=fresh();
+  /* Bản lưu đọc lỗi: trước đây tạo bản mới ngay và lần lưu kế tiếp GHI ĐÈ lên tiến
+     độ thật. Nay cất bản hỏng sang chỗ riêng, tự khôi phục bản sao lưu gần nhất nếu
+     có; không có mới bắt đầu lại — và vẫn giữ bản hỏng. */
+  let raw=null, bad=false;
+  try{ raw=localStorage.getItem(KEY); S = raw ? JSON.parse(raw) : fresh() }catch(e){ bad=true }
+  if(!bad && raw && (!S || !S.pet)) bad=true;
+  if(bad){
+    try{ localStorage.setItem(KEY+'.hong', JSON.stringify({ at:Date.now(), data:raw })) }catch(e){}
+    let rec=null;
+    try{ const L=(typeof bakList==='function')?bakList():[];
+      for(const b of L){ try{ const o=JSON.parse(b.data); if(o && o.pet){ rec={o,b}; break } }catch(e){} } }catch(e){}
+    if(rec){ S=rec.o; S._loadNote={ kind:'restored', at:rec.b.at } }
+    else { S=fresh(); S.lic={ grand:true, at:Date.now() }; S._loadNote={ kind:'lost' } }
+  }
+  if(!S || !S.pet) S=fresh();
   if(S.frame===undefined) S.frame=null;
   if(S.drink===undefined) S.drink=null;
   if(!S.theme) S.theme='forest';
@@ -11842,6 +11912,7 @@ function floaty(txt,color){
 /* ---------- boot: offline simulation ---------- */
 function boot(){
   load();
+  if(typeof saveUpgrade==='function') saveUpgrade();   // sao lưu TRƯỚC mọi bước sửa dữ liệu
   const hib = S.hib && S.hib.on;
   const hours=(Date.now()-S.last)/36e5;
   const r = hib ? {hours:0,notes:[]} : simulate(S.pet, hours);
@@ -11869,8 +11940,15 @@ function boot(){
   sndState(); sndUnlockOnce(); sndVisibility();
   if(typeof evRegisterAll==='function') evRegisterAll();
   if(typeof licGate==='function') licGate();
+  if(typeof termsGate==='function') termsGate();
   if(typeof unlInit==='function') unlInit();
   if(typeof evFromLink==='function') evFromLink();
+  if(S._loadNote){ const n=S._loadNote; delete S._loadNote;
+    setTimeout(()=>toast(n.kind==='restored'
+      ? `Tiến độ bị lỗi khi đọc — đã tự khôi phục bản sao lưu lúc ${new Date(n.at).toLocaleString('vi-VN')}.`
+      : 'Không đọc được tiến độ cũ. Bản hỏng vẫn được cất giữ, chưa bị xoá.'), 2200) }
+  if(typeof whatsNewCheck==='function') whatsNewCheck();
+  if(typeof replayPending==='function') replayPending();
   mmLoad().then(()=>{ if(mmOn() && SND.playing){ musicStop(); musicStart() } });
   if(typeof lifeAdd==='function' && !lifeState().length) lifeAdd('born', 'Gặp '+S.pet.name, (typeof petDay==='function')?petDay(S.pet):1);
   if(typeof lifeFixBorn==='function') lifeFixBorn();
@@ -12280,9 +12358,9 @@ function renderQuest(){
       return `<div class="q ${done?'done':''} ${(!done&&typeof questLock==='function'&&questLock(x.id))?'qlock':''}" onclick="bumpQuest('${per}','${x.id}')">
         <div class="box">✓</div>
         <span class="qi">${DB.questIcon[x.id]||'•'}</span>
-        <div class="txt">${x.name}<small>${x.hint} · ${pr}/${x.need}</small>${(!done&&typeof questLock==='function'&&questLock(x.id))?`<small class="qlk">${questLock(x.id)}</small>`:''}</div>
+        <div class="txt">${x.name}<small>${x.hint} · ${pr}/${x.need}</small>${(!done&&typeof questLock==='function'&&questLock(x.id))?`<small class="qlk">${questLock(x.id)}</small>`:''}${(per==='M'&&!done&&typeof monthNeed==='function'&&monthNeed(x.id))?(()=>{const n=monthNeed(x.id);return `<small class="qmw">Tuần đạt ${n.have}/${n.need} · ${n.wname}</small>`})():''}</div>
         <div class="rw">+${x.coin}${x.egg?' 🥚':''}${x.furn?' 🪑':''}</div></div>` }).join('')
-    + `<div class="note">Mỗi việc ghi nhận tối đa một lần mỗi ngày. Việc cuối ngày ghi từ ${(typeof eodHour==='function')?eodHour():17}:00, việc cuối tháng mở từ ngày 25. Khi nối với công cụ quản lý, tiến độ tự đếm từ dữ liệu thật.</div>`;
+    + `<div class="note">Mỗi việc ghi nhận tối đa một lần mỗi ngày. Việc cuối ngày ghi từ ${(typeof eodHour==='function')?eodHour():17}:00, việc cuối tháng mở từ ngày 25${tab==='m'?' và cần việc tuần cùng loại đạt ít nhất 3 tuần trong tháng (tuần ngủ đông không tính)':''}. Khi nối với công cụ quản lý, tiến độ tự đếm từ dữ liệu thật.</div>`;
   }
   $('v-quest').innerHTML=`<div class="panel">
     <h2>Nhiệm vụ</h2>
@@ -12294,6 +12372,7 @@ function renderQuest(){
 `;
 }
 function claim(id){
+  if(typeof periodRoll==='function' && periodRoll({fn:'claim',a:[id]})) return;
   if(S.hib&&S.hib.on) return toast('Đang ngủ đông — quán nghỉ thì không có việc để ghi nhận.');
   const x=DB.quests.find(q=>q.id===id); if(!x) return;
   if(S.quest.done.includes(id)) return toast('Hôm nay đã ghi nhận rồi.');
@@ -12330,6 +12409,7 @@ function claim(id){
   toast(msg); save(); mount();
 }
 function bumpQuest(per,id){
+  if(typeof periodRoll==='function' && periodRoll({fn:'bump',a:[per,id]})) return;
   if(S.hib&&S.hib.on) return toast('Đang ngủ đông — tạm dừng ghi nhận nhiệm vụ.');
   const list = per==='W'?DB.questsW:DB.questsM;
   const st   = per==='W'?S.questW:S.questM;
@@ -12340,6 +12420,7 @@ function bumpQuest(per,id){
   st.prog[id]=(st.prog[id]||0)+1;
   if(st.prog[id]>=x.need){
     st.done.push(id);
+    if(per==='W' && typeof qhistMark==='function') qhistMark(id);
     const coin=Math.round(x.coin*perkOf('coin')*(S.perks.includes('coin5')?1.05:1));
     S.coin+=coin;
     statsOf(); S.stats.questDone=(S.stats.questDone||0)+1;
@@ -12683,9 +12764,14 @@ function settingsHTML(){
         <div class="n">${t.name}${S.theme===t.id?' · đang dùng':''}</div>
       </div>`).join('')}</div>
 
+    ${(typeof notesSettingsHTML==='function')?notesSettingsHTML():''}
+    ${(typeof hibSettingsHTML==='function')?hibSettingsHTML():''}
+    ${(typeof termsHTML==='function')?termsHTML():''}
     ${(typeof questSetHTML==='function')?questSetHTML():''}
+    ${(typeof backupHTML==='function')?backupHTML():''}
     ${(typeof evSettingsHTML==='function')?evSettingsHTML():''}
 
+    ${(typeof musicChoiceHTML==='function')?musicChoiceHTML():''}
     ${myMusicHTML()}
 
     <h3 class="sec">Trên máy tính</h3>
@@ -13329,7 +13415,7 @@ function mount(){
   $('chipCoin').textContent=S.coin+' xu';
   $('hibbar').classList.toggle('hide', !(S.hib&&S.hib.on));
   $('chipDay').textContent='Ngày '+dayNo();
-  $('hdrsub').innerHTML=`${S.pet.name} · ${bondTier(S.pet.bond).name} <span class="vtag">v1.5</span>`+(devOn()?'<span class="devmark">THỬ</span>':'');
+  $('hdrsub').innerHTML=`${S.pet.name} · ${bondTier(S.pet.bond).name} <span class="vtag">v${APP_VER}</span>`+(devOn()?'<span class="devmark">THỬ</span>':'');
   TABS.forEach(t=>$('v-'+t.id).classList.toggle('hide', t.id!==VIEW));
   if(VIEW==='home') renderHome();
   if(VIEW==='quest') renderQuest();
@@ -14931,6 +15017,318 @@ function evPetLine(p, k){
     return out;
   };
 })();
+
+
+/* ==========================================================
+   BẢN PHÁT HÀNH 1.0 — số phiên bản game
+   ========================================================== */
+const APP_VER='1.1.0';
+
+/* ==========================================================
+   QUA NGÀY, QUA TUẦN KHI GAME ĐANG MỞ
+   Việc ngày, chuỗi ngày, việc tuần, việc tháng chỉ được làm mới trong boot().
+   Game để mở qua nửa đêm (tab trên máy quầy để cả tuần là chuyện thường) thì
+   sáng hôm sau bấm "Mở ca" chỉ thấy "Hôm nay đã ghi nhận rồi". Khi phát hiện
+   đã sang kỳ mới, game tải lại chính nó để chạy ĐÚNG các bước của boot() —
+   không viết lại logic chuỗi ngày ở chỗ thứ hai. Không tải lại giữa trận đấu;
+   có chốt chống tải lại liên tục.
+   ========================================================== */
+function periodStale(){ return !!(S && S.quest && (S.quest.date!==today() || (S.questW&&S.questW.key!==weekKey()) || (S.questM&&S.questM.key!==monthKey()))) }
+function periodRoll(pending){
+  if(!S || !S.onboarded || !periodStale()) return false;
+  if(typeof SC!=='undefined' && SC.busy) return false;
+  if(VIEW==='battle') return false;
+  let t=0; try{ t=+sessionStorage.getItem('pdroll')||0 }catch(e){}
+  if(Date.now()-t<15000) return false;
+  try{ sessionStorage.setItem('pdroll', String(Date.now()));
+    // nhớ cú bấm của người chơi — tải lại xong làm tiếp, không để mất
+    if(pending) sessionStorage.setItem('pdpend', JSON.stringify(pending)) }catch(e){}
+  save(); location.reload(); return true;
+}
+function replayPending(){
+  let p=null; try{ p=JSON.parse(sessionStorage.getItem('pdpend')||'null'); sessionStorage.removeItem('pdpend') }catch(e){}
+  if(!p || !S.onboarded) return;
+  setTimeout(()=>{ if(p.fn==='claim') claim(p.a[0]); else if(p.fn==='bump') bumpQuest(p.a[0],p.a[1]) }, 400);
+}
+document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) periodRoll() });
+setInterval(()=>{ if(!document.hidden && (VIEW==='home'||VIEW==='quest')) periodRoll() }, 60000);
+
+
+/* ==========================================================
+   VIỆC THÁNG CẦN SỰ ĐỀU ĐẶN — 3 TRONG 4 TUẦN
+   Trước đây (bản thử 1.5) việc tháng mở từ ngày 25 rồi tick một lần là nhận
+   trọn thưởng cả tháng. Nay mỗi việc tháng đòi việc tuần cùng bản chất đã
+   xong ở ít nhất 3 tuần của tháng. Luôn cho lỡ một tuần; tuần ngủ đông và
+   tuần trước ngày bắt đầu chơi không tính.
+   ========================================================== */
+DB.monthLink = {
+  m_close:'w_pnl',     // Chốt P&L tháng        ← Khoá số liệu 6/7 ngày
+  m_count:'w_stock',   // Kiểm kê cuối tháng    ← Kiểm kho 3 lần trong tuần
+  m_kpi:'w_hr',        // Đánh giá KPI nhân sự  ← Không ca nào thiếu chấm công
+  m_cost:'w_waste'     // Cập nhật giá vốn      ← Ghi nhận hao hụt mỗi ngày
+  // m_train (đào tạo nội bộ) không gắn — việc một lần trong tháng
+};
+function qhist(){ S.qhist=S.qhist||{}; return S.qhist }
+function qhistMark(wid){ const k=weekKey(), H=qhist(); H[k]=H[k]||[]; if(!H[k].includes(wid)) H[k].push(wid) }
+/* tuần của tháng = tuần có thứ Hai nằm trong tháng */
+function monthWeeks(d){
+  d=d||new Date(); const y=d.getFullYear(), m=d.getMonth(), out=[];
+  for(let day=1; day<=31; day++){ const x=new Date(y,m,day); if(x.getMonth()!==m) break;
+    if(x.getDay()===1) out.push({ key:weekKey(x), start:x.getTime(), end:x.getTime()+7*864e5 }) }
+  return out;
+}
+/* ngủ đông từ 4 ngày trở lên trong tuần thì tuần đó không tính */
+function hibLog(){ const h=(typeof hibState==='function')?hibState():(S.hib||{}); h.log=h.log||[]; return h }
+function weekHibDays(w){
+  const h=hibLog(), iv=h.log.slice(); if(h.on && h.since) iv.push({from:h.since, to:Date.now()});
+  let ms=0; iv.forEach(r=>{ const a=Math.max(r.from,w.start), b=Math.min(r.to,w.end); if(b>a) ms+=b-a }); return ms/864e5;
+}
+function monthNeed(mid){
+  const wid=DB.monthLink[mid]; if(!wid) return null;
+  const started=S.started||0;
+  const all=monthWeeks().filter(w=>w.end>started && weekHibDays(w)<4);
+  const need=Math.min(3, Math.max(1, all.length-1));
+  const have=all.filter(w=>(qhist()[w.key]||[]).includes(wid)).length;
+  return { wid, need, have, ok:have>=need, wname:(DB.questsW.find(q=>q.id===wid)||{}).name||wid };
+}
+(function(){
+  const ql=window.questLock;
+  if(typeof ql==='function') window.questLock=function(id){
+    const r=ql.apply(this,arguments); if(r) return r;
+    const n=/^m_/.test(id) ? monthNeed(id) : null;
+    if(n && !n.ok) return `Cần “${n.wname}” đủ ${n.need} tuần trong tháng — đã có ${n.have}`;
+    return null;
+  };
+})();
+
+/* ==========================================================
+   BẢN LƯU CÓ SỐ PHIÊN BẢN + TỰ SAO LƯU TRƯỚC KHI NÂNG CẤP
+   Trước đây không có đường lùi: một bản cập nhật lỗi làm hỏng tiến độ thì
+   không khôi phục được. Nay mỗi lần lên bản game mới, game sao lưu bản cũ
+   trước rồi mới chạy các bước nâng cấp — mỗi bước đúng một lần, đúng thứ tự.
+   Bản sao lưu KHÔNG BAO GIỜ được làm hỏng việc lưu chính: bộ nhớ đầy thì
+   bỏ bản sao lưu cũ nhất trước.
+   ========================================================== */
+const BAK_KEY=KEY+'.bak', BAK_MAX=3;
+DB.migrations = [
+  { to:1, name:'Đánh số bản lưu; ghi lại tuần hiện tại cho luật việc tháng',
+    run:()=>{ (S.questW && S.questW.done||[]).forEach(id=>{ const k=S.questW.key, H=qhist(); H[k]=H[k]||[]; if(!H[k].includes(id)) H[k].push(id) });
+      hibLog() } }
+];
+DB.saveVer = DB.migrations[DB.migrations.length-1].to;
+function bakList(){ try{ return JSON.parse(localStorage.getItem(BAK_KEY)||'[]') }catch(e){ return [] } }
+function bakWrite(list){
+  while(list.length){ try{ localStorage.setItem(BAK_KEY, JSON.stringify(list)); return true }
+    catch(e){ list.pop() } }       // đầy bộ nhớ: bỏ bản cũ nhất (cuối danh sách) rồi thử lại
+  try{ localStorage.removeItem(BAK_KEY) }catch(e){} return false;
+}
+function backupNow(reason){
+  const raw=localStorage.getItem(KEY); if(!raw) return false;
+  const list=bakList(); list.unshift({ at:Date.now(), reason, app:S.appVer||'thử', data:raw });
+  return bakWrite(list.slice(0,BAK_MAX));
+}
+function saveUpgrade(){
+  const fromApp=S.appVer, fromVer=S.saveVer||0;
+  if(S.onboarded && (fromApp!==APP_VER || fromVer<DB.saveVer))
+    backupNow(fromApp ? `Trước khi lên bản ${APP_VER} (từ bản ${fromApp})` : `Trước khi lên bản ${APP_VER}`);
+  DB.migrations.filter(m=>m.to>fromVer).sort((a,b)=>a.to-b.to).forEach(m=>{
+    try{ m.run(); S.saveVer=m.to }catch(e){ console.error('Bước nâng cấp lỗi:', m.name, e) }
+  });
+  // KHÔNG gọi save() ở đây: save() ghi S.last=bây giờ, mà dòng kế tiếp của boot()
+  // dùng S.last để tính pet đói bao lâu khi người chơi vắng mặt. Boot tự lưu sau.
+  S.appVer=APP_VER;
+}
+function restoreBackup(i){
+  const b=bakList()[i]; if(!b) return;
+  if(!confirm(`Khôi phục tiến độ lúc ${new Date(b.at).toLocaleString('vi-VN')}? Tiến độ hiện tại sẽ được sao lưu trước.`)) return;
+  backupNow('Trước khi khôi phục');
+  try{ localStorage.setItem(KEY, b.data) }catch(e){ return toast('Không khôi phục được — bộ nhớ trình duyệt đầy.') }
+  location.reload();
+}
+function backupHTML(){
+  const L=bakList();
+  return `<h3 class="sec">Bản sao lưu tự động</h3>
+    <div class="note">Game tự sao lưu trước mỗi lần cập nhật, giữ ${BAK_MAX} bản gần nhất trên máy này. Muốn chuyển sang máy khác thì dùng mục Sao lưu tiến độ ở trên.</div>
+    ${L.length ? L.map((b,i)=>`<div class="kv"><span>${evcEsc(b.reason)}<br><small style="color:var(--ink-3)">${new Date(b.at).toLocaleString('vi-VN')}</small></span>
+      <button class="btn ghost" style="width:auto;padding:6px 12px;min-height:40px" onclick="restoreBackup(${i})">Khôi phục</button></div>`).join('')
+      : '<div class="note">Chưa có bản sao lưu nào.</div>'}`;
+}
+/* lưu chính hỏng mà người chơi không biết là mất tiến độ. Hàm lưu cũ nuốt lỗi
+   im lặng — bộ nhớ đầy thì tiến độ không lưu mà không ai hay. Nay: lưu hỏng thì
+   dọn bản sao lưu rồi thử lại; vẫn hỏng thì báo người chơi. */
+let SAVE_WARN=0;
+window.save=function(){
+  S.last=Date.now(); const s=JSON.stringify(S);
+  try{ localStorage.setItem(KEY,s); return true }catch(e){}
+  try{ localStorage.removeItem(BAK_KEY); localStorage.setItem(KEY,s);
+    if(SAVE_WARN<1){ SAVE_WARN=1; setTimeout(()=>toast('Bộ nhớ trình duyệt gần đầy — đã dọn bản sao lưu cũ để giữ tiến độ.'),200) }
+    return true }catch(e){}
+  if(SAVE_WARN<2){ SAVE_WARN=2; setTimeout(()=>toast('Không lưu được tiến độ — bộ nhớ trình duyệt đầy. Vào Cài đặt → Sao lưu tiến độ để giữ lại.'),200) }
+  return false;
+};
+/* ngủ đông: ghi lại khoảng thời gian để trừ tuần ngủ đông khỏi luật việc tháng */
+(function(){
+  const th=window.toggleHib;
+  if(typeof th==='function') window.toggleHib=function(){
+    const h=hibLog(); if(h.on && h.since) h.log.push({from:h.since, to:Date.now()});
+    if(h.log.length>40) h.log=h.log.slice(-40);
+    return th.apply(this,arguments);
+  };
+})();
+
+/* ==========================================================
+   CÓ GÌ MỚI — hiện một lần cho người chơi cũ khi lên bản mới
+   ========================================================== */
+DB.patchNotes = [
+  { ver:'1.1.0', date:'1/10/2026', title:'Ra mắt cộng đồng F&B',
+    lead:'Bản đầu tiên gửi tới bạn bè trong ngành. Cảm ơn bạn đã chơi thử.',
+    items:[
+      ['📜','Điều khoản trước khi chơi','Đọc và đồng ý một lần. Xem lại bất cứ lúc nào trong Cài đặt.'],
+      ['🎲','Để trứng quyết định','Khi bắt đầu, chọn Ngẫu nhiên để nhận một trong sáu loài — biết khi trứng nở.'],
+      ['🎵','Nhạc nền mới','“8-Bit Morning Sun” của Turning_Pages. Đổi về chiptune của game trong Cài đặt.'],
+      ['🌙','Ngủ đông vào Cài đặt','Trang Nhà gọn hơn, thông tin pet hiện rõ hơn.'],
+      ['🎃','Sự kiện Halloween','Nhận mã từ người phát hành, nhập ở Khác → Cài đặt → Nhập mã.']
+    ] },
+  { ver:'1.0', date:'1/10/2026', title:'Bản chính thức đầu tiên',
+    lead:'Cảm ơn bạn đã chơi thử. Đây là những thay đổi so với bản thử.',
+    items:[
+      ['📅','Việc tháng cần sự đều đặn','Mỗi việc tháng cần việc tuần cùng loại hoàn thành ít nhất 3 tuần trong tháng. Tuần ngủ đông không tính.'],
+      ['🗓️','Việc tuần làm qua nhiều ngày','Mỗi việc tuần ghi nhận một lần mỗi ngày — không tick dồn được nữa.'],
+      ['🕔','Việc cuối ngày từ 17:00','Nhập P&L, kiểm kho cuối ngày, đóng ca ghi nhận từ 17 giờ. Quán đóng sớm thì đổi giờ trong Cài đặt.'],
+      ['🐾','Chuồng và Kho tách riêng','Chạm vào pet để cho ăn hạt kinh nghiệm và xem trước lên tới cấp mấy.'],
+      ['🥚','Trứng vàng mở bán','Hoàn thành đủ Sổ sưu tầm để mua Trứng vàng trong cửa hàng.'],
+      ['💾','Tự sao lưu khi cập nhật','Game giữ bản sao tiến độ trước mỗi lần cập nhật. Khôi phục trong Cài đặt.'],
+      ['🎉','Sự kiện theo mùa','Nhận mã sự kiện từ người phát hành, nhập ở Khác → Cài đặt → Nhập mã.']
+    ] }
+];
+function notesHTML(n){
+  return `<div class="pnhead"><div class="pnver">Bản ${evcEsc(n.ver)} · ${evcEsc(n.date)}</div><div class="pntitle">${evcEsc(n.title)}</div></div>
+    ${n.lead?`<p class="lead">${evcEsc(n.lead)}</p>`:''}
+    <div class="pnlist">${n.items.map(([ic,t,d])=>`<div class="pnit"><span class="pnic">${ic}</span>
+      <div><div class="pnt">${evcEsc(t)}</div><div class="pnd">${evcEsc(d)}</div></div></div>`).join('')}</div>`;
+}
+function openNotes(all, prev){
+  let L=DB.patchNotes;
+  if(!all){ const i=prev ? DB.patchNotes.findIndex(n=>n.ver===prev) : -1; L = i>0 ? DB.patchNotes.slice(0,i) : (i===0 ? [] : DB.patchNotes) }
+  if(!L.length) return;
+  openSheet(`<h3>${all?'Các bản cập nhật':'Có gì mới'}</h3>${L.map(notesHTML).join('<hr class="pnsep">')}
+    <button class="btn gold" style="margin-top:12px" onclick="closeSheet()">Vào chơi</button>`);
+}
+/* người mới xem màn mở đầu thì thôi; người cũ thấy một lần, khi màn hình trống */
+function whatsNewCheck(){
+  if(!S.onboarded){ S.seenVer=APP_VER; save(); return }
+  if(S.seenVer===APP_VER) return;
+  let tries=0;
+  const t=()=>{ if(document.querySelector('#termscr,#lockscr,#intro,.bnr,#sheet,#dlg')){ if(++tries<60) setTimeout(t,1500); return }   // thẻ hướng dẫn chỉ là gợi ý nhỏ, không chặn
+    const prev=S.seenVer; S.seenVer=APP_VER; save(); openNotes(false, prev) };
+  setTimeout(t,1800);
+}
+function notesSettingsHTML(){
+  return `<h3 class="sec">Có gì mới</h3><div class="kv"><span>Đang dùng bản ${APP_VER}</span>
+    <button class="btn ghost" style="width:auto;padding:6px 12px;min-height:40px" onclick="openNotes(true)">Xem các bản cập nhật</button></div>`;
+}
+
+
+/* ==========================================================
+   BẢN 1.1.0 — ĐIỀU KHOẢN, CHỌN PET NGẪU NHIÊN, NHẠC NỀN, NGỦ ĐÔNG VÀO CÀI ĐẶT
+   ========================================================== */
+
+/* ---------- điều khoản: đọc và đồng ý trước khi chơi ---------- */
+DB.terms = {
+  v: 1,
+  title: 'Điều khoản sử dụng',
+  items: [
+    ['Về trò chơi', 'Pet Drink: Scale & Soul là trò chơi nuôi thú ảo gắn với công việc vận hành quán đồ uống. Đây là bản trải nghiệm, phát hành miễn phí trong cộng đồng ngành F&B.'],
+    ['Độ tuổi', 'Dành cho người chơi từ 12 tuổi trở lên. Game có đối kháng hoạt hình, không có máu, không có nội dung người lớn.'],
+    ['Dữ liệu của bạn', 'Toàn bộ tiến độ lưu trên chính thiết bị của bạn. Game không thu thập và không gửi dữ liệu cá nhân đi đâu. Xoá dữ liệu trình duyệt là mất tiến độ — hãy dùng Sao lưu tiến độ trong Cài đặt.'],
+    ['Không mua bán', 'Không nạp tiền, không quảng cáo. Xu và vật phẩm trong game không có giá trị quy đổi ra tiền.'],
+    ['Mã và key', 'Chỉ dùng mã sự kiện, mã quà và key do người phát hành cung cấp. Không chia sẻ key ra ngoài nhóm được cấp.'],
+    ['Chơi lành mạnh', 'Nghỉ ngơi hợp lý, không nên chơi quá 180 phút mỗi ngày. Game được thiết kế để mở vài phút giữa giờ làm, không để chơi liền nhiều giờ.'],
+    ['Bản quyền', 'Nội dung game thuộc tác giả Minh Đào · KCB SOL. Nhạc nền “8-Bit Morning Sun” của Turning_Pages, sử dụng theo Giấy phép nội dung của Pixabay.'],
+    ['Cập nhật', 'Bản trải nghiệm có thể còn lỗi. Tác giả có thể cập nhật và thay đổi nội dung; game tự sao lưu tiến độ trước mỗi lần cập nhật.']
+  ],
+  agree: 'Tôi đã đọc kĩ các điều khoản, tôi đủ 12+ tuổi trở lên và đồng ý hoàn toàn với các điều khoản.'
+};
+function termsGate(){
+  if(S.terms && S.terms.v>=DB.terms.v) return;
+  if(document.getElementById('termscr')) return;
+  const e=document.createElement('div'); e.id='termscr';
+  e.innerHTML=`<div class="tbox">
+    <div class="ilogo">${brandSVG()}</div>
+    <h2>${DB.terms.title}</h2>
+    <div class="tage">12+</div>
+    <div class="tlist">${DB.terms.items.map(([t,d],i)=>`<div class="tit"><b>${i+1}. ${t}</b><p>${d}</p></div>`).join('')}</div>
+    <label class="tagree"><input type="checkbox" id="termchk"> <span>${DB.terms.agree}</span></label>
+    <button class="btn gold" id="termbtn" disabled>Đồng ý và bắt đầu</button>
+  </div>`;
+  document.body.appendChild(e);
+  const chk=document.getElementById('termchk'), btn=document.getElementById('termbtn');
+  chk.onchange=()=>{ btn.disabled=!chk.checked };
+  btn.onclick=()=>{ if(!chk.checked) return; S.terms={ v:DB.terms.v, at:Date.now() }; save(); e.remove() };
+}
+function termsHTML(){
+  return `<h3 class="sec">Điều khoản</h3><div class="kv"><span>${S.terms?'Đã đồng ý ngày '+new Date(S.terms.at).toLocaleDateString('vi-VN'):'Chưa đồng ý'}</span>
+    <button class="btn ghost" style="width:auto;padding:6px 12px;min-height:40px" onclick="openTerms()">Xem điều khoản</button></div>`;
+}
+function openTerms(){
+  openSheet(`<h3>${DB.terms.title}</h3><div class="sub">Dành cho người chơi từ 12 tuổi trở lên</div>
+    <div class="tlist">${DB.terms.items.map(([t,d],i)=>`<div class="tit"><b>${i+1}. ${t}</b><p>${d}</p></div>`).join('')}</div>`);
+}
+
+/* ---------- chọn pet: thêm "để trứng quyết định" ---------- */
+function pickSurprise(){
+  INTRO.species=pick(DB.speciesList); INTRO.surprise=true; sfx('tap'); paintIntro();
+}
+
+/* ---------- nhạc nền mặc định ----------
+   Phát qua bộ âm lượng của game (Web Audio), không qua âm lượng của thẻ nhạc:
+   trên iPhone âm lượng thẻ nhạc bị máy bỏ qua, nhạc sẽ to hơn tiếng hiệu ứng.
+   Thiếu file (bản chỉ có một file HTML) thì tự quay về nhạc chiptune của game. */
+DB.bgm = { src:'nhac-nen.mp3', title:'8-Bit Morning Sun', by:'Turning_Pages', from:'Pixabay', gain:0.5 };
+var BGM = { el:null, ok:null };   // var, không const: musicStop() ở đầu file có thể chạm tới trước khi dòng này được đọc
+function bgmEl(){
+  if(BGM.el) return BGM.el;
+  const a=new Audio(); a.loop=true; a.preload='auto';
+  // không có file: bật chiptune. Lệnh phát có thể báo lỗi TRƯỚC sự kiện này và đã đặt
+  // SND.playing=false — nên không dựa vào SND.playing để quyết định.
+  a.addEventListener('error', bgmFail);
+  a.addEventListener('canplay', ()=>{ BGM.ok=true });
+  a.src=DB.bgm.src; BGM.el=a; return a;
+}
+function audioRoute(el, gain){
+  if(!el || el.__route || !SND.ready || !SND.ctx) return;
+  try{ const s=SND.ctx.createMediaElementSource(el), g=SND.ctx.createGain(); g.gain.value=gain; s.connect(g); g.connect(SND.master); el.__route=g }catch(e){}
+}
+/* MỘT hàm dự phòng, chạy MỘT lần. Trước đây cả lệnh phát lẫn sự kiện lỗi đều tự
+   bật chiptune; tuỳ thứ tự hai sự kiện mà chiptune bị bật hai lần chồng lên nhau. */
+function bgmFail(){
+  if(BGM.failed) return; BGM.failed=true; BGM.ok=false;
+  if(BGM.el){ try{ BGM.el.pause() }catch(e){} }   // thẻ lỗi vẫn báo 'đang phát' dù không phát gì — dừng hẳn cho nhất quán
+  if(SND.mode==='bgm'){ SND.playing=false; SND.mode=null }
+  if(sndState().music && (sndState().track||'bgm')==='bgm' && !mmOn()) setTimeout(musicStart,50);
+}
+function bgmWanted(){ return (sndState().track||'bgm')==='bgm' && BGM.ok!==false }
+function musicChoiceHTML(){
+  const t=sndState().track||'bgm';
+  return `<h3 class="sec">Nhạc nền</h3>
+    <div class="row">
+      <button class="btn ${t==='bgm'?'gold':'ghost'}" onclick="setTrack('bgm')">${DB.bgm.title}</button>
+      <button class="btn ${t==='chip'?'gold':'ghost'}" onclick="setTrack('chip')">Chiptune của game</button>
+    </div>
+    ${BGM.ok===false?'<div class="note">Máy này chưa tải được file nhạc nền — đang dùng chiptune.</div>':''}
+    <div class="note">“${DB.bgm.title}” — ${DB.bgm.by}, ${DB.bgm.from}.</div>`;
+}
+function setTrack(t){ const s=sndState(); s.track=t; save(); musicStop(); setTimeout(()=>{ if(s.music) musicStart() },300); mount() }
+
+/* ---------- ngủ đông chuyển vào Cài đặt ---------- */
+function hibSettingsHTML(){
+  const on=S.hib&&S.hib.on, sv=(typeof saverState==='function')?saverState():{used:false};
+  return `<h3 class="sec">Chế độ ngủ đông</h3>
+    <div class="hib ${on?'on':''}"><div class="t">${on?'Đang bật':'Đang tắt'}
+      <small>${on?'Hao hụt dừng, chuỗi giữ nguyên, không nhận xu.':'Bật khi quán nghỉ lễ hoặc bạn đi vắng dài ngày.'}</small>
+      <small>Cứu chuỗi tháng này: ${sv.used?'đã dùng':'còn 1 lượt'}</small></div>
+      <div class="sw ${on?'on':''}" onclick="toggleHib();mount()"></div></div>`;
+}
 
 boot();
 if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>{});
