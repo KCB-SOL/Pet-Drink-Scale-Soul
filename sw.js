@@ -7,7 +7,7 @@
      mất mạng mới dùng bản trong bộ đệm — vẫn chạy offline được
    - ảnh, manifest vẫn lấy bộ đệm trước cho nhanh
    KHI PHÁT HÀNH BẢN MỚI: tăng VER dưới đây. */
-const VER='1.1.0';
+const VER='1.1.1-b';
 const C='petdrink-'+VER;
 const ASSETS=['./','./index.html','./manifest.webmanifest','./icon.svg'];
 self.addEventListener('install',e=>{
@@ -26,6 +26,13 @@ function isPage(req){
 self.addEventListener('fetch',e=>{
   const req=e.request;
   if(req.method!=='GET') return;
+  // kênh sự kiện: LUÔN lấy mạng trước — không thì người chơi đọc mãi bản danh sách cũ.
+  // Mất mạng mới dùng bản đã lưu (bỏ qua ?t= chống bộ nhớ đệm trình duyệt).
+  if(new URL(req.url).pathname.indexOf('/su-kien/')>=0){
+    e.respondWith(fetch(req).then(res=>{ if(res.ok){ const cp=res.clone(); caches.open(C).then(c=>c.put(req.url.split('?')[0],cp)) } return res })
+      .catch(()=>caches.match(req.url.split('?')[0])));
+    return;
+  }
   if(isPage(req)){
     // mạng trước cho trang chính
     e.respondWith(fetch(req).then(res=>{

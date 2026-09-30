@@ -1762,6 +1762,97 @@ body.stagefull .hero,body.stagefull #acts{opacity:.25;pointer-events:none;transi
 .pick.psur .pa{display:grid;place-items:center}
 .pick.psur .pq{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;font-size:32px;font-weight:800;
   font-family:var(--disp);color:var(--gold);border:2px dashed var(--gold)}
+
+/* ============ v1.1.1 ============ */
+
+.supg{display:flex;gap:6px;align-items:stretch;margin:6px 0}
+.supg .sgn{flex:0 0 72px;display:flex;align-items:center;font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis}
+.supg button{flex:1;text-align:left;border:1px solid var(--line);background:none;border-radius:10px;padding:5px 9px;font:inherit;font-size:12.5px;color:var(--ink);min-height:44px;cursor:pointer}
+.supg button small{display:block;font-size:10px;color:var(--ink-3)}
+
+
+
+
+/* ---- thư cuối tuần, mốc ngày ---- */
+.letter{background:repeating-linear-gradient(#fbf6ea 0 27px,#eadfca 27px 28px);border:1px solid #e0d2b6;border-radius:6px;padding:18px 18px 14px;
+  font-family:var(--disp);color:#3a2a18;box-shadow:0 6px 18px rgba(0,0,0,.12);position:relative}
+.letter p{margin:0 0 8px;font-size:15.5px;line-height:1.75;font-weight:400}
+.lhead{font-size:17px;font-weight:700;margin-bottom:8px}
+.lsign{text-align:right;font-size:17px;font-style:italic;margin-top:6px}
+.lwk{text-align:right;font-family:var(--mono);font-size:10px;color:#8a7a60;letter-spacing:.08em;margin-top:2px}
+.lnew{position:absolute;right:12px;top:-10px;background:var(--gold);color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:99px}
+.mile{text-align:center}
+.mnum{font-family:var(--disp);font-size:64px;font-weight:800;line-height:1;color:var(--gold)}
+.mlbl{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
+.mpet{width:140px;height:140px;margin:6px auto}.mpet svg{width:100%;height:100%}
+.mline{font-size:15px;line-height:1.6;margin:4px 0 12px}.mline small{color:var(--ink-3)}
+/* ---- hành trình 7 ngày ---- */
+.jny{border:1.5px solid var(--gold);border-radius:14px;padding:10px 12px;margin:0 0 12px;background:rgba(200,151,63,.07)}
+.jh{display:flex;justify-content:space-between;align-items:baseline;font-size:14px}.jh span{font-family:var(--mono);font-size:11px;color:var(--gold)}
+.jdays{display:flex;gap:6px;margin:8px 0}
+.jdays i{flex:1;height:26px;border-radius:8px;display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:700;background:rgba(0,0,0,.06);color:var(--ink-3)}
+.jdays i.op{background:rgba(200,151,63,.15);color:var(--ink-2)}
+.jdays i.on{background:var(--gold);color:#fff}
+.jdays i.ok{background:var(--teal-2);color:#fff}
+.jg{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.jg .jt{font-size:14px;font-weight:600}.jg small{color:var(--ink-3);font-size:11.5px}
+/* ---- bảng tên ---- */
+.np{display:inline-block;position:relative;padding:1px 14px 3px;border-radius:12px;border:2px solid;line-height:1.15}
+.np.npc{padding:0 8px 1px;border-width:1.5px;border-radius:8px;font-size:.92em}
+.nptitle{display:block;text-align:center;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-top:3px}
+.np-kraft{background:#efe0c0;border-color:#a47a44;color:#4a3318;border-style:dashed}
+.np-heart{background:linear-gradient(#fff0f3,#ffdbe4);border-color:#e0708f;color:#7a2a40}
+.np-heart:after{content:'♥';position:absolute;right:-8px;top:-9px;font-size:13px;color:#e0708f}
+.np-ember{background:linear-gradient(135deg,#ffe3c2,#ffb27a);border-color:#d0602a;color:#5a2408;box-shadow:0 0 10px rgba(240,120,50,.35)}
+.np-ledger{background:repeating-linear-gradient(#f4f8ef 0 7px,#dfead4 7px 8px);border-color:#5f8a4a;color:#2f4a24}
+.np-dex{background:#e6f5f2;border-color:#2e8a7a;border-style:dotted;border-width:3px;color:#1d4d45}
+.np-summit{background:linear-gradient(#233b34,#12241f);border-color:#d8b25a;color:#f3dfa6;box-shadow:inset 0 0 0 1px rgba(216,178,90,.4)}
+.np-summit:before{content:'▲';position:absolute;left:50%;top:-11px;transform:translateX(-50%);font-size:10px;color:#d8b25a}
+.np-silver{background:linear-gradient(#fbfcfd,#e2e8ee);border-color:#9aa8b6;color:#34414d}
+.np-gold{background:linear-gradient(#fff6d6,#f2d27a);border-color:#b98b2e;color:#4a3408}
+.np-year{background:linear-gradient(135deg,#fff6d6,#f7c9d8,#cfe8ff);border-color:#b98b2e;color:#3a2a10;box-shadow:0 0 12px rgba(242,201,76,.45)}
+.np-event{background:linear-gradient(#3b2a55,#2a1d3e);border-color:#e0782a;color:#ffd9a8}
+.np-event:after{content:'✦';position:absolute;right:-7px;top:-9px;font-size:12px;color:#e8c25a}
+.npgrid{display:flex;flex-direction:column;gap:6px}
+.npbtn{display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:none;border-radius:12px;padding:8px 10px;font:inherit;color:var(--ink);text-align:left;cursor:pointer;min-height:44px}
+.npbtn.on{border-color:var(--gold);background:rgba(200,151,63,.1)}
+.npbtn small{font-size:11.5px;color:var(--ink-3)}
+.nplock{margin-top:8px;font-size:13px}.nplock summary{cursor:pointer;color:var(--ink-3)}
+.nplock .kv small{color:var(--ink-3)}
+/* ---- trang Nhà gọn ---- */
+#receipt .gauges{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 14px}
+#receipt .rname .nm{cursor:pointer;text-decoration:underline dotted rgba(0,0,0,.25);text-underline-offset:6px}
+.homecrop:empty{display:none}
+.pdhead{display:flex;gap:12px;align-items:center;margin-bottom:6px}
+.pdpet{width:92px;height:92px;flex:0 0 92px}.pdpet svg{width:100%;height:100%}
+.pdname{font-family:var(--disp);font-size:24px;font-weight:700;line-height:1.1}
+#pdbody .fold, #pdbody{display:block}
+.pdname .nptitle{text-align:left;margin-top:4px}
+/* ---- thanh nộ, tuyệt chiêu, chiến thuật ---- */
+#ultbox{display:flex;gap:8px;align-items:center;margin:8px 0 2px}
+.rgbar{position:relative;flex:1;height:14px;border-radius:99px;background:rgba(0,0,0,.25);overflow:hidden;border:1px solid rgba(239,217,164,.3)}
+.rgbar i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#e0843a,#f2c94c);transition:width .25s}
+.rgbar span{position:absolute;left:8px;top:-1px;font-size:10px;font-weight:700;color:#fff;letter-spacing:.06em}
+#ultbtn{flex:0 0 auto;border:0;border-radius:12px;padding:0 12px;min-height:44px;font:inherit;font-size:13px;font-weight:700;
+  background:rgba(255,255,255,.12);color:rgba(255,255,255,.5)}
+#ultbtn.ready{background:linear-gradient(135deg,#e0843a,#f2c94c);color:#2a1a08;animation:ultpulse 1s ease-in-out infinite}
+@keyframes ultpulse{50%{transform:scale(1.05);box-shadow:0 0 16px rgba(242,201,76,.6)}}
+.bult{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);font-family:var(--disp);font-size:24px;font-weight:800;
+  color:#f2c94c;text-shadow:0 2px 12px rgba(0,0,0,.7);white-space:nowrap;animation:bultin 1.3s ease both;pointer-events:none;z-index:5}
+@keyframes bultin{0%{opacity:0;transform:translate(-50%,-50%) scale(.6)}20%{opacity:1;transform:translate(-50%,-50%) scale(1.1)}80%{opacity:1}100%{opacity:0}}
+.bwarn{position:absolute;left:50%;top:14%;transform:translateX(-50%);max-width:92%;text-align:center;font-size:12.5px;font-weight:700;
+  background:rgba(160,40,30,.85);color:#fff;border-radius:10px;padding:5px 10px;animation:bultin 1.8s ease both;pointer-events:none;z-index:5}
+.tacbar{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:6px 0 8px}
+.tacbar span{font-size:12px;color:var(--ink-3);margin-right:2px}
+.tacbar button{border:1px solid var(--line);background:none;border-radius:99px;padding:6px 12px;font:inherit;font-size:12.5px;color:var(--ink);min-height:36px;cursor:pointer}
+.tacbar button.on{border-color:var(--gold);background:rgba(200,151,63,.14);font-weight:700}
+@media(prefers-reduced-motion:reduce){#ultbtn.ready{animation:none}}
+
+.lifepets{display:flex;gap:6px;overflow-x:auto;padding:2px 0 8px;margin-bottom:4px}
+.lifepets button{flex:0 0 auto;display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:none;
+  border-radius:99px;padding:4px 12px 4px 4px;font:inherit;font-size:13px;color:var(--ink);min-height:40px;cursor:pointer}
+.lifepets button.on{border-color:var(--gold);background:rgba(200,151,63,.12);font-weight:600}
+.lifepets .lpa{width:32px;height:32px;display:block}.lifepets .lpa svg{width:100%;height:100%}
 @media(prefers-reduced-motion:reduce){
   main.vin,.panel,.sheetbox,.tutcard,.memtoast{animation:none !important}
   .dlg,.bnr,.intro,.evo,.sheet{animation-duration:.01ms !important}
@@ -1780,7 +1871,7 @@ body.nofx .actor .in{animation:none}
   <div class="hibbar hide" id="hibbar">Đang ngủ đông — hao hụt tạm dừng</div>
   <header class="hdr">
     <div class="brandmark" id="brandmark"></div>
-    <div><h1>Pet Drink</h1><div class="sub" id="hdrsub">Scale &amp; Soul · v1.1.0</div></div>
+    <div><h1>Pet Drink</h1><div class="sub" id="hdrsub">Scale &amp; Soul · v1.1.1</div></div>
     <div class="purse">
       <div class="chip agechip" title="Dành cho người chơi từ 12 tuổi trở lên">12+</div>
       <div class="chip" id="chipCoin">0 xu</div>
@@ -4851,7 +4942,7 @@ function checkStage(p){
   const d=ageDays(p); const before=p.stage;
   if(p.stage==='baby' && d>=2 && p.level>=4) p.stage='teen';
   else if(p.stage==='teen' && d>=5 && p.level>=10) p.stage='adult';
-  else if(p.stage==='adult' && d>=9 && p.level>=18 && !p.form){
+  else if(p.stage==='adult' && d>=9 && p.level>=18 && !p.form && !(DB.species[p.species]&&DB.species[p.species].wild)){   // v1.1.1: pet hoang không tiến hoá
     const ctx={...p, ageDays:d};
     // v29: hai nhánh mới xét trước — làm việc cùng chủ quán, và gắn bó tuyệt đối
     // v1.2: con đường cao nhất thắng (trước đây: nhánh đầu tiên đủ điều kiện theo thứ tự cố định)
@@ -4882,7 +4973,7 @@ function mkFighter(p, opt={}){
   STATK.forEach(k=>base[k]=Math.round(e[k]*mult*(sm[k]||1)));
   // pet phụ trợ góp 15% chỉ số mỗi con
   const team=(opt.team||[]).filter(Boolean);
-  team.forEach(t=>{ const te=effStats(t);
+  team.forEach(t=>{ const te=(typeof supStats==='function')?supStats(t):effStats(t);   // v1.1.1: cả trang bị của pet phụ
     // Automa chuyên ô phụ trợ: góp gấp đôi mức của pet thường
     const share = (t.species==='automa') ? DB.automa.share : DB.team.statShare;
     STATK.forEach(k=>base[k]+=Math.round(te[k]*share)) });
@@ -4912,73 +5003,21 @@ function typeMod(a,d){
   return 1;
 }
 function battle(A,B,oA,oB){
-  const f1=mkFighter(A,oA||{}), f2=mkFighter(B,oB||{});
-  f1.side='A'; f2.side='B';
-  f1.foe=f2; f2.foe=f1;   // cơ chế chuẩn hoá cần chạm được cả hai bên
-  const log=[];
-  // mỗi sự kiện kèm phe ra đòn và HP hai bên sau sự kiện, để phát lại thành hoạt cảnh
-  /* rút gọn danh sách buff thành mã biểu tượng để giao diện vẽ trên đầu đấu sĩ */
-  const tags=(f)=>{
-    const out=[];
-    (f.buffs||[]).forEach(b=>{
-      if(b.dot) out.push('dot');
-      else if(b.shield) out.push('shield');
-      else if(b.reflect) out.push('reflect');
-      else if(b.evade) out.push('evade');
-      else if(b.block) out.push('block');
-      else if(b.hot) out.push('hot');
-      else if(b.first) out.push('first');
-      else if(b.lowhp) out.push('lowhp');
-      else if(b.stat){
-        const up = b.flat ? b.val>0 : b.val>1;
-        out.push(b.stat + (up?'Up':'Down'));
-      }
-    });
-    if(f.stun) out.push('stun');
-    return [...new Set(out)].slice(0,4);
-  };
-  const L=(o)=>{ log.push(Object.assign({t:'sys'}, o, {
-    hp1:Math.max(0,f1.hp), hp2:Math.max(0,f2.hp), max1:f1.max, max2:f2.max,
-    b1:tags(f1), b2:tags(f2) })); };
-  const K=DB.battle;
-  L({t:'sys', m:`${f1.name} (${petPower(A)} PP) gặp ${f2.name} (${petPower(B)} PP)`, kind:'open'});
-  let turn=1, winner=null;
-  while(turn<=K.maxTurns && !winner){
-    let order = statOf(f1,'spd')+rnd(0,10) >= statOf(f2,'spd')+rnd(0,10) ? [f1,f2] : [f2,f1];
-    if(f1.buffs.some(b=>b.first)) order=[f1,f2];
-    if(f2.buffs.some(b=>b.first)) order=[f2,f1];
-    L({t:'sys', m:`— Lượt ${turn} —`, kind:'turn', turn});
-    for(const at of order){
-      const df = at===f1?f2:f1;
-      if(at.hp<=0||df.hp<=0) continue;
-      if(df.pendingBurst===undefined && at.pendingBurst){ at.pendingBurst=false;
-        df.stun=true; df.buffs.push({stat:'int',val:0.70,turns:3});
-        L({t:'sys', a:at.side, m:`${df.name} dính bọt: choáng và giảm INT`, kind:'debuff'}); }
-      if(at.stun){ at.stun=false; L({t:'sys', a:at.side, m:`${at.name} không cử động được`, kind:'stun'}); continue }
-      act(at,df,L,turn);
-      if(df.hp<=0){
-        if(df.revive){ df.revive=false; df.hp=Math.round(df.max*0.35);
-          L({t:'heal', a:df.side, m:`${df.name} gượng dậy nhờ sợi dây gắn bó`, kind:'revive'}); }
-        else { winner = at===f1?'A':'B'; break }
-      }
-    }
-    tick(f1,L); tick(f2,L);
-    if(f1.hp<=0&&!winner) winner='B'; if(f2.hp<=0&&!winner) winner='A';
-    turn++;
-  }
-  if(!winner) winner = f1.hp/f1.max >= f2.hp/f2.max ? 'A':'B';
-  L({t:'sys', m:`Kết thúc sau ${turn-1} lượt — ${winner==='A'?f1.name:f2.name} thắng`, kind:'end', win:winner});
-  return {winner, log, f1, f2};
+  // v1.1.1: tách thành battleInit + battleStep; trận tự động tự tung tuyệt chiêu khi đầy nộ
+  return battleAuto(A,B,Object.assign({tactic:(typeof tacticNow==='function')?tacticNow():'bal'},oA||{}),oB);
 }
+
 function act(at,df,L,turn){
   const K=DB.battle;
   let pool=at.pet.equipped.map(id=>DB.skillById[id]).filter(Boolean)
     .filter(s=>s.cost<=at.st && !(s.fx&&s.fx.once&&at.usedOnce[s.id]));
   let sk, fromTeam=null;
-  if(at.teamSkills && at.teamSkills.length && at.hp/at.max < DB.team.trigger){
+  if(at.ultNow && at.ult){ at.ultNow=false; at.rage=0; sk=at.ult;
+    L({t:'sys', a:at.side, sk:sk.id, m:`${at.name} tung tuyệt chiêu: ${sk.name}`, kind:'ult'}); }
+  else if(at.teamSkills && at.teamSkills.length && at.hp/at.max < DB.team.trigger){
     const t=at.teamSkills.shift(); sk=t.sk; fromTeam=t.from;
   } else {
-    sk = pool.length ? chooseSkill(at,df,pool) : DB.skillById.tackle;
+    sk = pool.length ? chooseSkillSmart(at,df,pool) : DB.skillById.tackle;
     if(sk.cost>at.st) sk=DB.skillById.tackle;
   }
   if(fromTeam) L({t:'sys', a:at.side, sk:sk.id, m:`${fromTeam} tiếp ứng: ${sk.name}`, kind:'team'});
@@ -5021,8 +5060,11 @@ function act(at,df,L,turn){
       const capD=df.max*(df.mechP.cap||0.12);
       if(dmg>capD){ dmg=capD;
         L({t:'sys', a:df.side, m:`${df.name} dai, chỉ ăn ${Math.round(capD)}`, kind:'mech'}) } }
+    if(sk.ult) dmg=Math.min(dmg, df.max*DB.rage.capPct);        // tuyệt chiêu không hạ đối thủ trong một đòn
     dmg=Math.max(1,Math.round(dmg));
     df.hp-=dmg;
+    if(at.rage!=null && !sk.ult) at.rage=Math.min(100, at.rage+DB.rage.hit*(at.rageMul||1));
+    if(df.rage!=null) df.rage=Math.min(100, df.rage+dmg/df.max*100*DB.rage.taken*(df.rageMul||1));
     L({t:'hit', a:at.side, sk:sk.id, dmg, crit, adv:(tm>1?1:tm<1?-1:0),
        m:`${at.name} dùng ${sk.name}${crit?' — CHÍ MẠNG':''}, gây ${dmg}`, kind:'hit'});
     const refl=df.buffs.find(b=>b.reflect);
@@ -5110,6 +5152,9 @@ function tick(f,L){
       }
     }
   }
+  // v1.1.1: báo trước một lượt — người chơi có thời gian tung tuyệt chiêu đỡ đòn
+  if(f.bossSkill && f.hp>0 && f.bossSkill.every>1 && (f.turnN+1) % f.bossSkill.every === 0)
+    L({t:'sys', a:f.side, m:`${f.name} đang tụ lực — lượt sau tung ${f.bossSkill.name}`, kind:'warn', sk:f.bossSkill.id});
   /* Chiêu riêng của boss: cứ N lượt tung một lần, có tên và có tác động thật. */
   if(f.bossSkill && f.hp>0 && f.turnN>0 && f.turnN % f.bossSkill.every === 0){
     const B=f.bossSkill, e=B.eff||{}, fo=f.foe;
@@ -5347,6 +5392,7 @@ function renderPet(p, opt={}){
       `<path d="M100 ${116-70*s} l6 12 -12 0z" transform="rotate(${a} 100 116)"/>`).join('')}</g>`:''}
   <g transform="translate(100 ${116}) scale(${s})">
     ${gearLayers(opt.gear, true)}
+      ${(typeof evoLayers==='function')?evoLayers(p,true):''}
     ${(typeof fashLayers==='function')?fashLayers(opt.fash, true):''}
     ${ind?'' : Array.from({length:tails}).map((_,i)=>`<g transform="translate(${i*-6} ${i*6})">${P.tail}</g>`).join('')}
     ${ind ? indusTop(c) : `<g transform="scale(${earScale})">${P.ears}</g>`}
@@ -5360,7 +5406,8 @@ function renderPet(p, opt={}){
     <g clip-path="url(#cb${id})">${ind?'':P.accent}</g>
     <g class="fg" transform="translate(0 ${B.face.y})">${ind ? indusEyes(m) : eyes(m,c,eyeCol)+mouth(m)}</g>
     ${(!ind && m==='happy')?`<g fill="hsl(0 60% 70%)" opacity=".5"><ellipse cx="-28" cy="14" rx="7" ry="4.5"/><ellipse cx="28" cy="14" rx="7" ry="4.5"/></g>`:''}
-    ${gearLayers(opt.gear, false)}
+    ${(typeof evoLayers==='function')?evoLayers(p,false):''}
+      ${gearLayers(opt.gear, false)}
     ${(typeof fashLayers==='function')?fashLayers(opt.fash, false):''}
   </g></svg>`;
 }
@@ -6314,7 +6361,7 @@ function ringHTML(A,B){
       <div class="sk">${renderPet(A,{scale:.95,static:1,mood:'ok',tag:'b1',
         gear:(typeof equipped==='function')?equipped().map(g=>g.id):null})}</div>
       <div class="bhud">
-        <div class="row2"><span class="nm2" id="bn1">${A.name}</span><span class="num" id="bq1"></span></div>
+        <div class="row2"><span class="nm2" id="bn1">${(typeof plateWrap==='function')?plateWrap(A,A.name,true):A.name}</span><span class="num" id="bq1"></span></div>
         <div class="hp"><i id="bh1" style="width:100%"></i></div>
         <div class="st"><i id="bs1" style="width:100%"></i></div></div></div>
     <div class="bf right${(B._boss&&!B._mini)?' boss':''}" id="bf2">${(B._boss&&!B._mini)?'<div class="aura2"></div>':''}
@@ -6381,19 +6428,19 @@ function bhp(res,ev){
   bstats(ev);
 }
 const BD=ms=>wait(ms/BSPEED);
-async function playBattle(res){
-  BSKIP=false;
-  const f1=$('bf1'), f2=$('bf2');
-  for(const ev of res.log){
-    if(BSKIP) break;
+async function playEv(res, ev, f1, f2){
     const side=ev.a, me = side==='A'?f1:f2, foe = side==='A'?f2:f1;
+    if(ev.kind==='ult'){ const r=$('ring'); if(r){ const t=document.createElement('div'); t.className='bult'; t.textContent=(DB.skillById[ev.sk]||{}).name||'Tuyệt chiêu';
+        r.appendChild(t); setTimeout(()=>t.remove(),1300) } sfx('crit'); await BD(700) }
+    if(ev.kind==='warn'){ const r=$('ring'); if(r){ const t=document.createElement('div'); t.className='bwarn'; t.textContent='⚠ '+ev.m;
+        r.appendChild(t); setTimeout(()=>t.remove(),1800) } await BD(650); return }
     const dirCls = side==='A'?'left':'right';
     if(ev.kind==='turn'){
       const r=$('ring'); if(r){ const t=document.createElement('div'); t.className='bturn';
         t.textContent='Lượt '+ev.turn; r.appendChild(t); setTimeout(()=>t.remove(),1000) }
-      await BD(520); continue;
+      await BD(520); return;
     }
-    if(ev.kind==='open'){ await BD(400); continue }
+    if(ev.kind==='open'){ await BD(400); return }
     if(ev.kind==='bskill' && ev.sk){
       const B=Object.values(DB.bossSkills).find(x=>x.id===ev.sk);
       if(B){
@@ -6427,7 +6474,22 @@ async function playBattle(res){
       (ev.win==='A'?f1:f2).classList.add('lunge'); await BD(300);
       (ev.win==='A'?f1:f2).classList.remove('lunge'); await BD(400);
     } else await BD(250);
+  
+}
+async function playBattle(res){
+  BSKIP=false;
+  const f1=$('bf1'), f2=$('bf2');
+  const c=res.live; let i=0;
+  if(c) ultUIInit(c);
+  while(true){
+    for(; i<res.log.length; i++){ if(BSKIP) break; await playEv(res,res.log[i],f1,f2); if(c) ultUIUpdate(c,res.log[i]) }
+    if(!c) break;
+    if(BSKIP){ c.f1.autoUlt=true; while(!battleStep(c)); break }   // bỏ qua: tính nốt, tuyệt chiêu tự tung
+    if(c.done) break;
+    await ultWait(c);
+    battleStep(c);
   }
+  if(c){ res.winner=c.winner; ultUIDone() }
   const last=res.log[res.log.length-1];
   bhp(res,last);
   (res.winner==='A'?f2:f1).classList.add('down');
@@ -7691,6 +7753,9 @@ function finishTrip(t){
     a.synth=Math.min(DB.adv.synthPenaltyCap, (a.synth||0)+DB.adv.synthPenaltyPer);
   }
   const rg = (typeof regAfterTrip==='function') ? regAfterTrip(t.map, found) : null;
+  if(rg && rg.wild && typeof wildFull==='function' && wildFull()){   // v1.1.1: tối đa 3 pet hoang
+    toast(`Gặp ${rg.wild.name} nhưng chuồng đã đủ ${DB.wildMax} pet hoang — bạn ấy quay về rừng, để lại một hộp gỗ.`);
+    encState().boxes.push('thuong'); rg.wild=null; }
   if(rg && rg.wild){ S.stash=S.stash||[]; S.stash.push(rg.wild); noteRarity(rg.wild);
     const k=dexKey(rg.wild); if(!S.dex[k]){ S.dex[k]=1; S.coin+=DB.dexNewEntryCoin } }
   if(S.pet.hist) S.pet.hist.trip=(S.pet.hist.trip||0)+1;
@@ -8120,6 +8185,7 @@ function equipped(){
 function equipGear(id){
   const g=gearState(), m=DB.gearById[id]; if(!m) return;
   if(!g.owned[id] || g.owned[id].n<1) return toast('Chưa sở hữu món này.');
+  if(g.equip[m.slot]!==id && typeof gearFree==='function' && gearFree(id, S.pet)<1) return toast('Món này đang được pet khác mặc hết — cần thêm một món.');
   g.equip[m.slot] = (g.equip[m.slot]===id) ? null : id;
   save();
   if(typeof SC!=='undefined' && SC.built) paintPet();   // vẽ lại cả pet, không chỉ khuôn mặt
@@ -9453,7 +9519,7 @@ async function runRegionBoss(id, foe){
   S._foe=foe; S._btab='quick'; go('battle');
   await wait(300);
   S.pet.care.energy=clamp(S.pet.care.energy-10);
-  const r=battle(S.pet, foe,
+  const r=battleLive(S.pet, foe,
     { team:teamPets(), gearCrit:gb.crit, gearCleanse:gb.cleanse, autoPassive:automaPassive() },
     { mech:b.mech, mechP:b.mechP, mult:b.mult, name:b.name, bossSkill: DB.bossSkills[b.name]||null });
   await playBattle(r);
@@ -9462,7 +9528,7 @@ async function runRegionBoss(id, foe){
   if(won){
     const rg=regState()[id];
     const first=!rg.boss; rg.boss++;
-    const coin=Math.round((first?600:180)*perkOf('coin'));
+    const coin=Math.round((first?600:180)*perkOf('coin')*(((DB.diff||{})[typeof diffNow==='function'?diffNow():'easy']||{}).reward||1));
     S.coin+=coin; addExp(S.pet, first?120:40);
     const inv=invOf();
     (DB.mapById[id].seeds||[]).forEach(s=>inv.seeds[s]=(inv.seeds[s]||0)+3);
@@ -9515,16 +9581,17 @@ function knowListHTML(){
 
 /* ---------- TRA CỨU: PET LỚN LÊN THẾ NÀO ---------- */
 function guideHTML(){
-  const st=DB.stages.map((s,i)=>`<div class="kv"><span>${s.name}</span><b>${
-    i===0?'0–1 ngày':i===1?'1–3 ngày':i===2?'3–9 ngày':'từ 9 ngày'}</b></div>`).join('');
+  // v1.1.1: lấy mốc ngày từ cơ chế thật — bảng viết tay cũ lệch (ghi Thiếu niên 3–9 ngày, thật là ngày 2–5)
+  const G=DB.stages.filter(s=>s.id!=='egg');
+  const st=G.map((s,i)=>{ const nx=G[i+1]; return `<div class="kv"><span>${s.name}</span><b>${
+    nx ? `ngày ${s.days}–${nx.days}` : `từ ngày ${s.days}, cấp 18`}</b></div>` }).join('');
   return `<h3 class="sec">Bốn giai đoạn</h3>
     <div class="note">Pet lớn theo <b>ngày thật</b>, không theo số lần chăm. Bỏ vài hôm thì nó vẫn lớn, chỉ là yếu đi.</div>
     ${st}
-    <h3 class="sec">Bốn nhánh tiến hoá</h3>
-    <div class="note">Tới ngày thứ 9, pet chọn nhánh theo <b>việc bạn đã làm với nó</b>, không phải bạn bấm chọn.</div>
-    ${DB.evoRules.map(r=>{
-      const nm={care:'Chăm sóc',battle:'Chiến',mind:'Trí',hidden:'Ẩn'}[r.path]||r.path;
-      return `<div class="kv"><span>${nm}</span><b style="font-weight:500;font-size:11.5px">${r.label}</b></div>`}).join('')}
+    <h3 class="sec">${DB.lifePath.length+(DB.lifePath.some(x=>x.id==='hidden')?0:1)} con đường tiến hoá</h3>
+    <div class="note">Từ ngày thứ 9 và cấp 18, pet tiến hoá theo <b>việc bạn đã làm với nó</b>, không phải bạn bấm chọn. Mỗi con đường cho một dáng vẻ và một tuyệt chiêu riêng.</div>
+    ${DB.lifePath.map(r=>`<div class="kv"><span>${r.name}</span><b style="font-weight:500;font-size:11.5px">${r.hint||''}</b></div>`).join('')}
+    ${DB.lifePath.some(x=>x.id==='hidden')?'':`<div class="kv"><span>Ẩn</span><b style="font-weight:500;font-size:11.5px">Nhánh bí mật — tự tìm ra</b></div>`}
     <h3 class="sec">Lai tạo</h3>
     <div class="kv"><span>Điều kiện mỗi con</span><b>Trưởng thành trở lên, Gắn bó ≥ 60</b></div>
     <div class="kv"><span>Kết quả</span><b>Trứng đời sau, gen trộn từ hai bố mẹ</b></div>
@@ -9601,8 +9668,8 @@ function sellPrice(id){
 function sellGear(id, all){
   const g=gearState(), o=g.owned[id], it=DB.gearById[id];
   if(!o || o.n<1) return;
-  const equipped = g.equip[it.slot]===id;
-  const keep = equipped ? 1 : 0;
+  const keep = (typeof gearUsedBy==='function') ? gearUsedBy(id, null) : (g.equip[it.slot]===id?1:0);   // mọi pet đang mặc
+  const equipped = keep>0;
   const n = all ? Math.max(0, o.n-keep) : 1;
   if(n<1) return toast('Món này đang mang, giữ lại ít nhất một.');
   if(o.n - n < keep) return toast('Món này đang mang, giữ lại ít nhất một.');
@@ -10324,6 +10391,7 @@ function openPetInfo(i){
     ${t.like?kv('Khẩu vị', `thích ${t.like} · ngại ${t.hate}`):''}
     <div class="note">${sp.quirk}</div>
     ${(typeof houseHTML==='function')?houseHTML(p):''}
+    ${(typeof platePickHTML==='function')?platePickHTML(p):''}
     ${(typeof expBoxHTML==='function')?(EXPN=1,expBoxHTML(i)):''}
     ${(typeof lifePathHTML==='function')?lifePathHTML(p):''}
     <div class="row" style="margin-top:12px">
@@ -11557,27 +11625,30 @@ function workNote(){
    CUỐN ĐỜI — dòng thời gian theo ngày
    ========================================================== */
 function lifeState(){ S.life = S.life || []; return S.life }
-function lifeAdd(kind, text, dayOverride){
+function lifeAdd(kind, text, dayOverride, pidOverride){
   const L=lifeState();
   const day=dayOverride || ((typeof dayNo==='function')?dayNo():1);
-  // mỗi loại mốc chỉ ghi một lần cho mỗi ngày
-  if(L.some(e=>e.k===kind && e.d===day)) return;
-  L.push({ k:kind, d:day, at:Date.now(), t:text||'' });
+  // v1.1.1: mốc của pet gắn với pet đó; mốc của quán vào Nhật ký quán
+  const pid = pidOverride!==undefined ? pidOverride : ((DB.lifePetKinds||[]).includes(kind) ? S.pet.id : null);
+  // mỗi loại mốc chỉ ghi một lần cho mỗi ngày, cho mỗi pet
+  if(L.some(e=>e.k===kind && e.d===day && (e.pid||null)===pid)) return;
+  L.push({ k:kind, d:day, at:Date.now(), t:text||'', pid });
   // v1.2: đầy thì bỏ mốc cũ nhất KHÔNG nằm trong album — trước đây bỏ mốc cũ nhất,
   // tức là mốc "Gặp nhau" bị đẩy ra đầu tiên
   while(L.length>DB.lifeMax){
-    const keep=new Set((typeof albumPicks==='function'?albumPicks(10):[]).map(x=>x.e));
+    const keep=(typeof lifeKeepSet==='function') ? lifeKeepSet() : new Set();
     const i=L.findIndex(e=>!keep.has(e)); L.splice(i>=0?i:0,1);
   }
   save();
 }
 function lifeTimelineHTML(){
-  const L=lifeState();
+  const L=(typeof lifeView==='function')?lifeView():lifeState();
+  const VP=[S.pet,...(S.stash||[])].find(x=>x&&x.id===((typeof lifeViewPid==='function')?lifeViewPid():S.pet.id))||S.pet;
   if(!L.length) return `<div class="note">Cuốn đời chưa có trang nào. Cứ sống rồi sẽ có.</div>`;
   const byDay={};
   L.forEach(e=>{ (byDay[e.d]=byDay[e.d]||[]).push(e) });
   const days=Object.keys(byDay).map(Number).sort((a,b)=>a-b);
-  return `<p class="lead">${L.length} mốc qua ${days.length} ngày. ${S.pet.name} vẫn nhớ hết.</p>
+  return `<p class="lead">${L.length} mốc qua ${days.length} ngày. ${VP.name} vẫn nhớ hết.</p>
     <button class="btn gold" style="margin:4px 0 12px" onclick="shareLifeCard()">Tạo thẻ chia sẻ</button>
     <div class="lifeline">${days.map(d=>`
       <div class="lday">
@@ -11590,7 +11661,8 @@ function lifeTimelineHTML(){
 }
 /* pet nhắc lại một mốc trong cuốn đời */
 function lifeRecallOld(){
-  const L=lifeState();
+  // v1.1.1: pet chính chỉ nhắc chuyện của chính nó và chuyện của quán, không nhắc chuyện pet khác
+  const L=(typeof lifeView==='function') ? lifeView(S.pet.id).concat(lifeView(null)) : lifeState();
   const old=L.filter(e=>(typeof dayNo==='function'?dayNo():1) - e.d >= 2);
   if(!old.length) return null;
   const e=pick(old), K=DB.lifeKinds[e.k]||{t:e.k};
@@ -11745,6 +11817,7 @@ function floorReward(floor){
   } else if(Math.random()<R.seedChance) out.seeds.push(pick(pool));
   const lk=DB.loreOfFloor(floor);
   if(lk){ S.lore=S.lore||[]; if(!S.lore.includes(lk)){ S.lore.push(lk); out.lore=lk } }
+  out.coin = (typeof diffCoin==='function') ? diffCoin(out.coin) : out.coin;   // thưởng theo độ khó
   S.coin += out.coin;
   inv.expSeed += out.expSeed;
   out.seeds.forEach(s=>inv.seeds[s]=(inv.seeds[s]||0)+1);
@@ -11769,7 +11842,7 @@ function useExpSeed(n){
 }
 
 /* ---------- giải một tầng ---------- */
-function climbOne(floor){
+function climbOne(floor, live){
   const foe = makeFloorFoe(floor);
   const b = foe._boss;
   const gb=gearBonus();
@@ -11780,7 +11853,7 @@ function climbOne(floor){
   const optB = b ? { mech:b.mech, mechP:b.mechP, mult:(b.mult||1)*pr, name:b.name,
                      bossSkill: DB.bossSkills[b.name] || null }
                  : (pr>1 ? { mult:pr, name:foe.name } : {});
-  const res = battle(S.pet, foe, optA, optB);
+  const res = (live ? battleLive : battle)(S.pet, foe, optA, Object.assign({ai:Math.min(1,0.3+floor/60)}, optB));   // tầng thấp đối thủ còn ngây ngô
   return { res, foe, boss:b };
 }
 function applyClimb(floor, won){
@@ -11949,6 +12022,8 @@ function boot(){
       : 'Không đọc được tiến độ cũ. Bản hỏng vẫn được cất giữ, chưa bị xoá.'), 2200) }
   if(typeof whatsNewCheck==='function') whatsNewCheck();
   if(typeof replayPending==='function') replayPending();
+  if(typeof channelPull==='function'){ setTimeout(()=>channelPull(false), 3000);
+    setInterval(()=>{ if(!document.hidden) channelPull(false) }, 60000) }   // người mới xong màn mở đầu cũng được kiểm trong vòng một phút
   mmLoad().then(()=>{ if(mmOn() && SND.playing){ musicStop(); musicStart() } });
   if(typeof lifeAdd==='function' && !lifeState().length) lifeAdd('born', 'Gặp '+S.pet.name, (typeof petDay==='function')?petDay(S.pet):1);
   if(typeof lifeFixBorn==='function') lifeFixBorn();
@@ -12186,7 +12261,7 @@ function renderReceipt(){
   $('receipt').innerHTML=`
   <div class="rhead">
     <div class="rname" id="rname">
-      <span class="nm" onclick="startRename()">${p.name}</span>
+      <span class="nm" onclick="openPetDetail()" title="Xem chi tiết">${p.name}</span>
       <button onclick="startRename()" aria-label="Đổi tên">
         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9a2.8 2.8 0 10-4-4L4 16z"/></svg></button>
     </div>
@@ -12198,19 +12273,33 @@ function renderReceipt(){
       <span class="tag">Lv ${p.level}</span>
     </div>
   </div>
-  <div class="gauges">${rows.slice(0,3).map(([k,l])=>{
+  <div class="gauges">${rows.map(([k,l])=>{
     const v=Math.round(p.care[k]), low=v<32;
     const col = v<32?'var(--warn)':v<60?'var(--gold)':'var(--teal-2)';
     return `<div class="gau ${low?'low':''}"><div class="gl">${l}</div><div class="gv">${v}</div>
       <div class="gb"><i style="width:${v}%;background:${col}"></i></div></div>`}).join('')}</div>
   <div class="total"><span class="lbl">Pet Power</span><span class="num">${petPower(p)}</span></div>
-  <button class="foldbtn ${open?'open':''}" onclick="toggleFold()">
-    ${open?'Thu gọn':'Xem chi tiết'}
-    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
-  <div class="fold ${open?'open':''}" id="foldbox">
+  <div class="homecrop">${(()=>{ const cr=invCrop()||{}; const ids=Object.keys(cr).filter(k=>cr[k]>0);
+      if(!ids.length) return '<div class="note">Chưa có nông sản. Trồng ở Vườn sau.</div>';
+      const t=tasteOf(S.pet);
+      return `<div class="croprow">${ids.map(id=>{
+        const s=DB.seedById[id]; if(!s) return '';
+        const cls = s.tag===t.like?'like' : s.tag===t.hate?'hate' : '';
+        return `<div class="cropc ${cls}" onclick="feedCrop('${id}')">
+          ${itemIcon(id)}<div class="cq2">×${cr[id]}</div>
+          <div class="cn3">${s.name}</div></div>`}).join('')}</div>`;
+    })()}</div>
+  `;
+  if(typeof plateDecorate==='function') plateDecorate();
+}
+function petDetailInner(){
+  const p=S.pet, e=effStats(p), pot=potential(p), R=DB.rarityById[p.rarity], bt=bondTier(p.bond);
+  const rows=[['hunger','No'],['energy','Năng lượng'],['happy','Vui'],['clean','Sạch'],['mental','Tinh thần'],['health','Sức khoẻ']];
+  const bar=v=>`<div class="track"><i class="fill ${v<25?'low':v<55?'mid':''}" style="width:${v}%"></i></div>`;
+  const open=true;
+  return `
     <hr class="dash">
-    ${rows.slice(3).map(([k,l])=>`<div class="line"><span class="k">${l}</span>${bar(Math.round(p.care[k]))}<span class="v">${Math.round(p.care[k])}</span></div>`).join('')}
-    <hr class="dash">
+    
     <div class="kv"><span>Gắn bó · ${bt.name}</span><b>${Math.round(p.bond)}/100</b></div>
     <div class="kv"><span>Kinh nghiệm</span><b>${p.exp}/${expNeed(p.level)}</b></div>
     <div class="kv"><span>Tuổi</span><b>${ageDays(p).toFixed(1)} ngày</b></div>
@@ -12225,16 +12314,7 @@ function renderReceipt(){
     ${tasteHTML()}
     ${(()=>{ const f=(typeof favFood==='function')?favFood():null;
       return f?`<div class="note">Món ruột: <b>${f.name}</b> — cho ăn món này thì Gắn bó tăng gấp ${DB.favFoodBonus}×.</div>`:'' })()}
-    ${(()=>{ const cr=invCrop()||{}; const ids=Object.keys(cr).filter(k=>cr[k]>0);
-      if(!ids.length) return '<div class="note">Chưa có nông sản. Trồng ở Vườn sau.</div>';
-      const t=tasteOf(S.pet);
-      return `<div class="croprow">${ids.map(id=>{
-        const s=DB.seedById[id]; if(!s) return '';
-        const cls = s.tag===t.like?'like' : s.tag===t.hate?'hate' : '';
-        return `<div class="cropc ${cls}" onclick="feedCrop('${id}')">
-          ${itemIcon(id)}<div class="cq2">×${cr[id]}</div>
-          <div class="cn3">${s.name}</div></div>`}).join('')}</div>`;
-    })()}
+    
 
     ${(typeof lifePathHTML==='function')?lifePathHTML(S.pet):''}
     ${(typeof houseHTML==='function')?houseHTML(S.pet):''}
@@ -12248,9 +12328,9 @@ function renderReceipt(){
     })()}
 
     <h3 class="sec">Kỷ niệm ${memState().length}/${DB.memories.length}</h3>
-    ${memListHTML(4)}
-  </div>`;
+    ${memListHTML(4)}`;
 }
+
 function toggleFx(){
   S.fx = (S.fx===false);
   document.body.classList.toggle('nofx', S.fx===false);
@@ -12331,7 +12411,7 @@ function renderQuest(){
   if(tab==='ev'){ body=evHTML(); }
   else if(tab==='d'){
     const q=S.quest;
-    body=`<p class="lead">Xu chỉ đến từ việc thật. Tick khi bạn đã hoàn tất thao tác đó trong công cụ quản lý. Việc cuối ngày ghi từ ${(typeof eodHour==='function')?eodHour():17}:00.</p>`
+    body=`${(typeof journeyHTML==='function')?journeyHTML():''}<p class="lead">Xu chỉ đến từ việc thật. Tick khi bạn đã hoàn tất thao tác đó trong công cụ quản lý. Việc cuối ngày ghi từ ${(typeof eodHour==='function')?eodHour():17}:00.</p>`
     + DB.quests.map(x=>{ const done=q.done.includes(x.id);
       return `<div class="q ${done?'done':''} ${(!done&&typeof questLock==='function'&&questLock(x.id))?'qlock':''}" onclick="claim('${x.id}')"><div class="box">✓</div>
         <span class="qi">${DB.questIcon[x.id]||'•'}</span>
@@ -12421,6 +12501,7 @@ function bumpQuest(per,id){
   if(st.prog[id]>=x.need){
     st.done.push(id);
     if(per==='W' && typeof qhistMark==='function') qhistMark(id);
+    if(per==='M'){ S.mhist=S.mhist||{}; const mk=monthKey(); S.mhist[mk]=S.mhist[mk]||[]; if(!S.mhist[mk].includes(id)) S.mhist[mk].push(id) }
     const coin=Math.round(x.coin*perkOf('coin')*(S.perks.includes('coin5')?1.05:1));
     S.coin+=coin;
     statsOf(); S.stats.questDone=(S.stats.questDone||0)+1;
@@ -12587,6 +12668,9 @@ function swapPet(i){
   if(isAutoma(S.stash[i])) return toast('Automa chỉ đứng ô phụ trợ, không làm pet chính được.');
   if(typeof isSpirit==='function' && isSpirit(S.stash[i])) return toast('Linh hồn vùng chỉ đứng ô phụ trợ.');
   if(S.stash[i] && S.stash[i].evpet) return toast('Pet sự kiện chỉ đứng ô phụ trợ.');
+  { const g=gearState(), nw=S.stash[i];                       // v1.1.1: bộ đồ đi theo pet
+    S.pet.gearSet=Object.assign({}, g.equip);
+    g.equip=Object.assign({weapon:null,armor:null,shield:null,cloak:null}, nw.gearSet||{}); delete nw.gearSet; }
   const old=S.pet; S.pet=S.stash[i]; S.stash[i]=old;
   S.pet.ailments=S.pet.ailments||[]; refreshSkills(S.pet);
   rebuildScene();
@@ -12601,6 +12685,7 @@ function breedOk(x){
   if(typeof isAutoma==='function' && isAutoma(x)) return 'Automa không lai tạo được';
   if(typeof isSpirit==='function' && isSpirit(x)) return 'Linh hồn vùng không lai tạo được';
   if(x.evpet) return 'Pet sự kiện không lai tạo được';
+  if(typeof isWild==='function' && isWild(x)) return 'Pet hoang không lai tạo được';
   if(x.stage!=='adult' && x.stage!=='evo') return 'chưa Trưởng thành';
   if((x.bond||0) < 60) return 'Gắn bó ' + Math.round(x.bond||0) + '/60';
   return null;
@@ -12764,11 +12849,14 @@ function settingsHTML(){
         <div class="n">${t.name}${S.theme===t.id?' · đang dùng':''}</div>
       </div>`).join('')}</div>
 
+    ${(typeof diffHTML==='function')?diffHTML():''}
     ${(typeof notesSettingsHTML==='function')?notesSettingsHTML():''}
+    ${(typeof guideBookHTML==='function')?guideBookHTML():''}
     ${(typeof hibSettingsHTML==='function')?hibSettingsHTML():''}
     ${(typeof termsHTML==='function')?termsHTML():''}
     ${(typeof questSetHTML==='function')?questSetHTML():''}
     ${(typeof backupHTML==='function')?backupHTML():''}
+    ${(typeof channelHTML==='function')?channelHTML():''}
     ${(typeof evSettingsHTML==='function')?evSettingsHTML():''}
 
     ${(typeof musicChoiceHTML==='function')?musicChoiceHTML():''}
@@ -13063,21 +13151,21 @@ function renderBattle(){
   const a=advState();
   const head=`<div class="cats">${T('quick','Đấu nhanh')}${T('tower','Leo tháp'+(t.tickets?` · ${t.tickets} vé`:''))}${T('adv','Phiêu lưu'+(a.passes?` · ${a.passes} lượt`:''))}${T('gear','Trang bị')}${T('fash','Thời trang')}${T('team','Tổ đội')}${T('shop','Quán '+shopStaffed()+'/6')}${(typeof lockedSubCount==='function'&&lockedSubCount())
       ?`<button class="sublock" onclick="lockedSubHint()">🔒 ${lockedSubCount()} mục sắp mở</button>`:''}</div>`;
-  if(tab==='shop')  return ($('v-battle').innerHTML=`<div class="panel"><h2>Quán của chúng ta</h2>${head}
+  if(tab==='shop')  return ($('v-battle').innerHTML=`<div class="panel"><h2>Quán của chúng ta</h2>${head}${((tab==='quick'||tab==='tower')&&typeof tacticHTML==='function')?tacticHTML():''}
     <div class="fbar" style="justify-content:center">
       <button class="${S._shopv!=='list'?'on':''}" onclick="S._shopv='scene';mount()">Mặt cắt</button>
       <button class="${S._shopv==='list'?'on':''}" onclick="S._shopv='list';mount()">Danh sách</button>
     </div>${(S._shopv==='list') ? shopHTML() : shopSceneHTML()}</div>`);
-  if(tab==='fash')  return ($('v-battle').innerHTML=`<div class="panel"><h2>Phòng thay đồ</h2>${head}${wardrobeHTML()}</div>`);
+  if(tab==='fash')  return ($('v-battle').innerHTML=`<div class="panel"><h2>Phòng thay đồ</h2>${head}${((tab==='quick'||tab==='tower')&&typeof tacticHTML==='function')?tacticHTML():''}${wardrobeHTML()}</div>`);
   if(tab==='gear')  return renderGear(head);
   if(tab==='adv')   return renderAdventure(head);
-  if(tab==='tower') return renderTower(head);
+  if(tab==='tower') return renderTower(head+((typeof tacticHTML==='function')?tacticHTML():''));
   if(tab==='team')  return renderTeam(head);
   const p=S.pet;
   const foe=S._foe||(S._foe=makeOpponent());
   const slots=skillSlots(p);
   $('v-battle').innerHTML=`<div class="panel">
-    <h2>Đấu trường</h2>${head}
+    <h2>Đấu trường</h2>${head}${((tab==='quick'||tab==='tower')&&typeof tacticHTML==='function')?tacticHTML():''}
     ${(()=>{ const op=opinion('fight');
       return op?`<div class="petsay"><span class="pa2">${renderPet(S.pet,{scale:.85,static:1,mood:'ok',tag:'qs'})}</span>
         <span><b>${S.pet.name}:</b> ${op}</span></div>`:'' })()}
@@ -13117,6 +13205,7 @@ function renderTeam(head){
     <div class="tm">${card(S.pet,'main')}${teamPets().map(p=>card(p,'sub')).join('')}
       ${Array.from({length:teamSize()-teamPets().length}).map(()=>
         `<div class="tmc" style="display:grid;place-items:center;color:var(--ink-3);font-family:var(--mono);font-size:22px">+</div>`).join('')}</div>
+    ${(typeof supGearHTML==='function')?supGearHTML():''}
     <div class="grid2" style="margin-top:10px">
       <div class="mini"><div class="l">Sức mạnh cộng thêm</div><div class="v">+${boost}</div></div>
       <div class="mini"><div class="l">Kỹ năng tiếp ứng</div><div class="v">${teamPets().length}</div></div>
@@ -13263,7 +13352,7 @@ async function climbAnimated(){
   const f=t.floor;
   t.tickets--; S.pet.care.energy=clamp(S.pet.care.energy-6);
   const dk=drinkBuffFor(f);
-  const {res, foe, boss}=climbOne(f);
+  const {res, foe, boss}=climbOne(f, true);
   if(dk) consumeDrink();
   $('towerRing').innerHTML=`<div style="margin-top:10px">${ringHTML(S.pet,foe)}</div>
     <div class="bctl" style="margin-top:8px">
@@ -13365,12 +13454,12 @@ async function runBattle(){
   const gb=gearBonus();
   const btn=$('btnFight'); if(btn){ btn.setAttribute('disabled',''); btn.textContent='Đang đấu…' }
   p.care.energy=clamp(p.care.energy-15);
-  const r=battle(p,foe,{gearCrit:gb.crit,gearCleanse:gb.cleanse,team:teamPets(),autoPassive:automaPassive()});
+  const r=battleLive(p,foe,{gearCrit:gb.crit,gearCleanse:gb.cleanse,team:teamPets(),autoPassive:automaPassive()});
   await playBattle(r);
   const won=r.winner==='A';
   if(won){ p.hist.win++; p.bond=clamp(p.bond+DB.bondGain.win); addExp(p,26);
     statsOf(); S.stats.wins=p.hist.win;
-    const c=quickReward(); if(c) S.coin+=c;
+    const c=(typeof diffCoin==='function')?diffCoin(quickReward()):quickReward(); if(c) S.coin+=c;
     const st=qbState();
     toast(c? `Thắng! +${c} xu (${st.coin}/${DB.quickBattle.capDay} hôm nay)`
            : `Thắng! Đã chạm trần ${DB.quickBattle.capDay} xu hôm nay — xu thật đến từ nhiệm vụ vận hành.`);
@@ -13582,7 +13671,7 @@ function spaced(x,text,cx,y,gap){
 function rrect(x,X,Y,W,H,R){ x.beginPath(); x.moveTo(X+R,Y); x.arcTo(X+W,Y,X+W,Y+H,R);
   x.arcTo(X+W,Y+H,X,Y+H,R); x.arcTo(X,Y+H,X,Y,R); x.arcTo(X,Y,X+W,Y,R); x.closePath() }
 async function makeLifeCard(){
-  const W=1080,H=1350, p=S.pet;
+  const W=1080,H=1350, p=[S.pet,...(S.stash||[])].find(x=>x&&x.id===((typeof lifeViewPid==='function')?lifeViewPid():S.pet.id))||S.pet;
   const c=document.createElement('canvas'); c.width=W; c.height=H;
   const x=c.getContext('2d');
   const SERIF='Georgia,"Times New Roman",serif', SANS='-apple-system,"Segoe UI",Roboto,sans-serif',
@@ -13611,8 +13700,8 @@ async function makeLifeCard(){
   await new Promise(r=>{ img.onload=r; img.onerror=r; img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg) });
   if(img.width||img.naturalWidth) x.drawImage(img, W/2-265, 296, 530, 530);
   // ba ô số
-  const L=(typeof lifeState==='function')?lifeState():[];
-  const days=(typeof dayNo==='function')?dayNo():1;
+  const L=(typeof lifeView==='function')?lifeView(p.id):lifeState();
+  const days = p===S.pet ? ((typeof dayNo==='function')?dayNo():1) : Math.max(1, Math.floor(ageDays(p))+1);   // pet khác: tính từ ngày nó ra đời
   const boxes=[['NGÀY BÊN NHAU',String(days)],['GẮN BÓ',String(Math.round(p.bond||0))],['MỐC ĐÃ QUA',String(L.length)]];
   const bw=280,bh=130,gap=30,bx=(W-(bw*3+gap*2))/2;
   boxes.forEach(([l,v],i)=>{
@@ -13786,8 +13875,8 @@ DB.album = [
   { k:'decor',   t:'Có góc riêng',             cap:'Chỗ này là của mình.',
     rec:e=>`Cái góc bạn làm cho mình hôm ngày ${e.d} ấy — mình thích lắm.` }
 ];
-function albumPicks(max){
-  const L=(typeof lifeState==='function')?lifeState():[];
+function albumPicks(max, list){
+  const L=list || ((typeof lifeView==='function')?lifeView():lifeState());
   const out=[];
   DB.album.forEach(A=>{
     const e=L.filter(x=>x.k===A.k && (!A.only || A.only.test(x.t||''))).sort((a,b)=>a.d-b.d)[0];
@@ -14034,11 +14123,13 @@ function wishHTML(){
 function lifeHTML(){
   const v=S._lifev||'album';
   const B=(id,l)=>`<button class="${v===id?'on':''}" onclick="S._lifev='${id}';mount()">${l}</button>`;
-  const bar=`<div class="fbar">${B('album','Album')}${B('line','Dòng thời gian')}</div>`;
-  if(v==='album') return `<p class="lead">Những ngày lớn nhất của ${S.pet.name}.</p>
+  const bar=`<div class="fbar">${B('album','Album')}${B('line','Dòng thời gian')}${B('shop','Nhật ký quán')}</div>`;
+  if(v==='shop') return `<p class="lead">Hành trình của quán — chương cốt truyện, đồ trang trí, những lần đầu tiên.</p>${bar}${(typeof lettersHTML==='function')?lettersHTML():''}${shopLogHTML()}`;
+  const VP=[S.pet,...(S.stash||[])].find(x=>x&&x.id===lifeViewPid())||S.pet;
+  if(v==='album') return `${lifePetPick()}<p class="lead">Những ngày lớn nhất của ${VP.name}.</p>
     <button class="btn gold" style="margin:4px 0 12px" onclick="shareLifeCard()">Tạo thẻ chia sẻ</button>
     ${bar}${albumHTML()}`;
-  return bar + lifeTimelineHTML();
+  return lifePetPick() + bar + lifeTimelineHTML();
 }
 function lifeRecall(){
   const today=dayNo();
@@ -14047,7 +14138,7 @@ function lifeRecall(){
     const m=DB.memoryById && DB.memoryById[pick(inh)];
     if(m) return `Bố mẹ mình từng kể về chuyện “${m.t.toLowerCase()}”. Mình chưa gặp mà như nhớ.`;
   }
-  const P=albumPicks(10).filter(x=>today-x.e.d>=2);
+  const P=albumPicks(10, (typeof lifeView==='function')?lifeView(S.pet.id):undefined).filter(x=>today-x.e.d>=2);
   if(P.length && Math.random()<0.75){ const x=pick(P); return x.A.rec(x.e) }
   return lifeRecallOld();
 }
@@ -14527,7 +14618,7 @@ async function evBossRun(eid, foe){
   await wait(300);
   S.pet.care.energy=clamp(S.pet.care.energy-10);
   e.boss.tries++;
-  const r=battle(S.pet, foe, { team:teamPets(), gearCrit:gb.crit, gearCleanse:gb.cleanse, autoPassive:automaPassive() },
+  const r=battleLive(S.pet, foe, { team:teamPets(), gearCrit:gb.crit, gearCleanse:gb.cleanse, autoPassive:automaPassive() },
     { mult:EVC.LEVEL[B.level]||1, name:B.name });
   await playBattle(r);
   const won=r.winner==='A'; consumeGear(won);
@@ -15022,7 +15113,7 @@ function evPetLine(p, k){
 /* ==========================================================
    BẢN PHÁT HÀNH 1.0 — số phiên bản game
    ========================================================== */
-const APP_VER='1.1.0';
+const APP_VER='1.1.1';
 
 /* ==========================================================
    QUA NGÀY, QUA TUẦN KHI GAME ĐANG MỞ
@@ -15180,6 +15271,21 @@ window.save=function(){
    CÓ GÌ MỚI — hiện một lần cho người chơi cũ khi lên bản mới
    ========================================================== */
 DB.patchNotes = [
+  { ver:'1.1.1', date:'10/2026', title:'Pet lớn lên, quán có chuyện để kể',
+    lead:'Bản cập nhật lớn nhất từ khi ra mắt — cảm ơn những góp ý của bạn.',
+    items:[
+      ['💌','Thư cuối tuần','Tối Chủ nhật, pet viết cho bạn một lá thư về tuần làm việc thật của bạn.'],
+      ['🎂','Mốc ngày bên nhau','7, 30, 100, 365 ngày — mỗi mốc một khoảnh khắc nhỏ để nhớ.'],
+      ['🏷️','Bảng tên thành tựu','Khung quanh tên pet cho những cột mốc lớn. Đeo ở bảng chi tiết — chạm tên pet trên trang Nhà.'],
+      ['🏠','Trang Nhà gọn','Sáu thanh chăm sóc một chỗ. Chạm tên pet để xem mọi thứ về nó.'],
+      ['🧬','Tiến hoá có ngoại hình riêng','Mỗi loài một dấu ấn theo con đường đã đi — 42 kiểu, hiện cả trong trận.'],
+      ['🔥','Tuyệt chiêu và chiến thuật','Pet tiến hoá có thanh nộ — đầy thì bạn tự bấm. Chọn chiến thuật trước trận. Quái khôn hơn, boss báo trước chiêu lớn.'],
+      ['⚖️','Ba mức độ khó','Dễ, Trung bình, Khó trong Cài đặt — khó hơn thì xu từ trận nhiều hơn.'],
+      ['🎒','Trang bị riêng từng pet','Đổi pet chính thì bộ đồ đi theo. Pet phụ trợ có vũ khí và áo giáp riêng.'],
+      ['🌿','Pet hoang và cuốn đời riêng','Pet hoang có chiêu riêng, tối đa 3 con. Mỗi pet có cuốn đời của riêng nó, quán có Nhật ký quán.'],
+      ['📘','Sổ tay tân thủ','Pet tự kể về game đúng lúc từng tính năng mở. Người mới có hành trình 7 ngày đầu.'],
+      ['📡','Sự kiện tự đến','Mở game có mạng là tự nhận sự kiện và quà — không cần dán mã.']
+    ] },
   { ver:'1.1.0', date:'1/10/2026', title:'Ra mắt cộng đồng F&B',
     lead:'Bản đầu tiên gửi tới bạn bè trong ngành. Cảm ơn bạn đã chơi thử.',
     items:[
@@ -15209,10 +15315,11 @@ function notesHTML(n){
 }
 function openNotes(all, prev){
   let L=DB.patchNotes;
-  if(!all){ const i=prev ? DB.patchNotes.findIndex(n=>n.ver===prev) : -1; L = i>0 ? DB.patchNotes.slice(0,i) : (i===0 ? [] : DB.patchNotes) }
+  if(!all) L = (prev===APP_VER) ? [] : DB.patchNotes.slice(0,1);   // chỉ bản mới nhất — nhảy nhiều bản thì danh sách quá dài
   if(!L.length) return;
   openSheet(`<h3>${all?'Các bản cập nhật':'Có gì mới'}</h3>${L.map(notesHTML).join('<hr class="pnsep">')}
-    <button class="btn gold" style="margin-top:12px" onclick="closeSheet()">Vào chơi</button>`);
+    ${!all && DB.patchNotes.length>1 ? `<button class="btn ghost" style="margin-top:12px" onclick="openNotes(true)">Xem các bản trước</button>` : ''}
+    <button class="btn gold" style="margin-top:8px" onclick="closeSheet()">Vào chơi</button>`);
 }
 /* người mới xem màn mở đầu thì thôi; người cũ thấy một lần, khi màn hình trống */
 function whatsNewCheck(){
@@ -15329,6 +15436,865 @@ function hibSettingsHTML(){
       <small>Cứu chuỗi tháng này: ${sv.used?'đã dùng':'còn 1 lượt'}</small></div>
       <div class="sw ${on?'on':''}" onclick="toggleHib();mount()"></div></div>`;
 }
+
+
+/* ==========================================================
+   v1.1.1 — PET HOANG: tối đa 3 con, không tiến hoá, không lai tạo,
+   mỗi loài một chiêu riêng. Vẫn làm pet chính được.
+   ========================================================== */
+DB.wildMax = 3;
+function isWild(p){ return !!(p && DB.species[p.species] && DB.species[p.species].wild) }
+function wildCount(){ return [S.pet,...(S.stash||[])].filter(isWild).length }
+function wildFull(){ return wildCount()>=DB.wildMax }
+DB.skills.push(
+  SK('w_robu','Rễ bazan',0,14,{species:'robu',type:'buff',fx:{def:1.4,regenPct:5,turns:3},stage:0,desc:'DEF +40% và hồi 5% HP mỗi lượt trong 3 lượt.'}),
+  SK('w_suong','Màn sương sớm',0,12,{species:'suong',type:'buff',fx:{evade:0.35,cleanse:1,turns:2},stage:0,desc:'35% né đòn trong 2 lượt, xoá mọi debuff.'}),
+  SK('w_shan','Trà cổ thụ',0,13,{species:'shan',type:'heal',fx:{healPct:15,cleanse:1},stage:0,desc:'Hồi 15% HP và xoá mọi debuff.'}),
+  SK('w_dua','Vỏ dừa',0,13,{species:'dua',type:'buff',fx:{shield:22,def:1.2,turns:2},stage:0,desc:'Hấp thụ 22% sát thương và DEF +20% trong 2 lượt.'}),
+  SK('w_mia','Chặt mía',0.52,18,{species:'mia',fx:{hits:3},stage:0,desc:'Đánh 3 lần liên tiếp.'}),
+  SK('w_dautay','Gai dâu rừng',1.05,15,{species:'dautay',fx:{bleed:4,turns:3,lifesteal:0.15},stage:0,desc:'Gây chảy máu 4% HP mỗi lượt, hút 15% sát thương.'})
+);
+DB.skills.slice(-6).forEach(s=>{ DB.skillById[s.id]=s });
+[['w_robu','nourish'],['w_suong','peeldodge'],['w_shan','zen'],['w_dua','crema'],['w_mia','doubleshot'],['w_dautay','leafcut']]
+  .forEach(([id,base])=>{ if(DB.skillFx && DB.skillFx[base]) DB.skillFx[id]=DB.skillFx[base];
+    if(typeof FXG!=='undefined' && FXG[base] && !FXG[id]) FXG[id]=FXG[base] });
+
+/* ==========================================================
+   v1.1.1 — CUỐN ĐỜI RIÊNG TỪNG PET + NHẬT KÝ QUÁN
+   Trước đây một danh sách chung mang tên "Cuốn đời của [pet]" — thẻ chia sẻ
+   của Tủn có dòng "Miso ra đời", là chuyện của pet khác. Nay mỗi mốc gắn với
+   một pet (pid), hoặc thuộc Nhật ký quán (pid rỗng).
+   ========================================================== */
+DB.lifePetKinds = ['born','stage','evo','boss','trip','bond','wish','child'];
+var LIFE_PID = null;                         // pet đang xem trong Cuốn đời
+function lifeViewPid(){ const all=[S.pet,...(S.stash||[])]; return (LIFE_PID && all.some(p=>p.id===LIFE_PID)) ? LIFE_PID : S.pet.id }
+function lifeView(pid){
+  const id = pid===undefined ? lifeViewPid() : pid;
+  // mốc chưa gắn pet (dữ liệu chưa qua bước nâng cấp) không được biến mất:
+  // loại của pet thì coi là của pet chính, loại của quán thì vào nhật ký quán
+  const petKind=k=>(DB.lifePetKinds||[]).includes(k);
+  const L=lifeState().filter(e => {
+    if(e.pid===undefined) return id===null ? !petKind(e.k) : (id===S.pet.id && petKind(e.k));
+    return id===null ? !e.pid : e.pid===id; });
+  if(id===null) return L;
+  // pet sinh ra sau này chưa có mốc "gặp nhau" — dựng từ ngày nó ra đời, không lưu
+  if(!L.some(e=>e.k==='born')){ const p=[S.pet,...(S.stash||[])].find(x=>x&&x.id===id);
+    if(p) L.unshift({ k:'born', d:(typeof petDay==='function')?petDay(p):1, at:p.born||0, t:'Gặp '+p.name, pid:id, synth:true }) }
+  return L;
+}
+/* giữ khoảnh khắc lớn của MỌI pet khi cuốn đời đầy — không chỉ pet đang xem */
+function lifeKeepSet(){
+  const keep=new Set(), L=lifeState(), ids=new Set(L.map(e=>e.pid||null));
+  ids.forEach(pid=>{ albumPicks(10, L.filter(e=>(e.pid||null)===pid)).forEach(x=>keep.add(x.e)) });
+  return keep;
+}
+function lifePetPick(){
+  const all=[S.pet,...(S.stash||[])].filter(p=>p && !p.evpet && p.species!=='automa' && !(typeof isSpirit==='function'&&isSpirit(p)));
+  const cur=lifeViewPid();
+  return `<div class="lifepets">${all.map(p=>`<button class="${p.id===cur?'on':''}" onclick="LIFE_PID='${p.id}';mount()">
+    <span class="lpa">${renderPet(p,{scale:.5,static:1,mood:'happy',tag:'lp'+p.id})}</span>${evcEsc(p.name)}</button>`).join('')}</div>`;
+}
+function shopLogHTML(){
+  const L=lifeView(null);
+  if(!L.length) return `<div class="note">Nhật ký quán còn trống — chương cốt truyện, đồ trang trí, ly pha đầu tiên sẽ được ghi ở đây.</div>`;
+  return `<div class="lifeline">${L.slice().sort((a,b)=>a.d-b.d||a.at-b.at).map(e=>{ const K=DB.lifeKinds[e.k]||{ic:'•',t:e.k};
+    return `<div class="lday"><div class="ldn">Ngày ${e.d}</div><div class="ldb"><div class="lev"><span>${K.ic}</span>${evcEsc(e.t||K.t)}</div></div></div>` }).join('')}</div>`;
+}
+/* chuyển mốc cũ: gắn theo tên khi được, không rõ thì cho pet đang nuôi; mốc của quán vào nhật ký quán */
+function lifeMigratePid(){
+  const all=[S.pet,...(S.stash||[])];
+  lifeState().forEach(e=>{
+    if(e.pid!==undefined) return;
+    if(!DB.lifePetKinds.includes(e.k)){ e.pid=null; return }
+    if(e.k==='born'){ const nm=(e.t||'').replace(/^Gặp\s+/,''); const p=all.find(x=>x&&x.name===nm); e.pid=(p||S.pet).id; return }
+    e.pid=S.pet.id;
+  });
+}
+DB.migrations.push({ to:2, name:'Cuốn đời gắn theo từng pet; pet hoang học chiêu riêng',
+  run:()=>{ lifeMigratePid(); [S.pet,...(S.stash||[])].forEach(p=>{ if(isWild(p)) refreshSkills(p) }) } });
+DB.saveVer = DB.migrations[DB.migrations.length-1].to;
+
+
+/* ==========================================================
+   v1.1.1 — KÊNH SỰ KIỆN
+   Mã Halloween dài 4.660 ký tự — bắt người chơi chép dán là quá sức. Nay game
+   tự đọc file su-kien/kenh.txt nằm cạnh game trên GitHub, mỗi dòng một mã.
+   File công khai cũng không sao: mỗi dòng vẫn phải qua kiểm chữ ký — sửa một
+   chữ là game bỏ dòng đó. Key mở game KHÔNG đi qua kênh (nằm công khai là ai
+   cũng lấy được, mất tác dụng khoá) — dòng key bị bỏ qua.
+   ========================================================== */
+DB.channel = { url:'./su-kien/kenh.txt', every:10*60e3 };
+function chanState(){ S.chan=S.chan||{ at:0, ok:null, n:0 }; return S.chan }
+let CH_BUSY=false;
+async function channelPull(force){
+  const st=chanState();
+  if(CH_BUSY) return { skipped:'đang đọc' };
+  if(!/^https?:$/.test(location.protocol)) return { skipped:'không chạy qua web' };
+  if(!S.onboarded || document.getElementById('lockscr') || document.getElementById('termscr')) return { skipped:'chưa vào game' };
+  if(!force && Date.now()-st.at < DB.channel.every) return { skipped:'vừa đọc' };
+  if(typeof navigator!=='undefined' && navigator.onLine===false) return { skipped:'mất mạng' };
+  CH_BUSY=true;
+  const out={ events:[], gifts:[], bad:0, keys:0 };
+  try{
+    const res=await fetch(DB.channel.url+'?t='+Date.now(), { cache:'no-store' });
+    if(!res.ok){ st.at=Date.now(); st.ok=false; save(); return { error:'HTTP '+res.status } }
+    const lines=(await res.text()).split(/\r?\n/).map(s=>s.trim()).filter(s=>s && !s.startsWith('#'));
+    for(const code of lines.slice(0,40)){
+      const kind=(code.match(/^PD([EGK])/)||[])[1];
+      if(kind==='K'){ out.keys++; continue }
+      if(kind==='E'){
+        const r=await evImport(code);
+        if(r.ok) out.events.push({ name:r.e.d.name, upd:!!r.upd, e:r.e });
+        else if(!/đã có/.test(r.msg||'')) out.bad++;
+      } else if(kind==='G'){
+        const r=await giftRedeem(code);
+        if(r.ok) out.gifts.push(r);
+        else if(!/rồi|hết hạn|người chơi khác/.test(r.msg||'')) out.bad++;
+      } else out.bad++;
+    }
+    st.at=Date.now(); st.ok=true; st.n=lines.length; save();
+  }catch(e){ st.at=Date.now(); st.ok=false; save(); out.error=String(e&&e.message||e) }
+  finally{ CH_BUSY=false }
+  // báo người chơi: sự kiện MỚI và quà — cập nhật bản sửa thì im lặng
+  out.events.filter(x=>!x.upd).forEach(x=>{
+    showBanner({ sub:'Sự kiện mới', name:x.name, pet:renderPet(S.pet,{scale:1,static:1,mood:'happy',tag:'chev'}), rewards:[],
+      note:`${evcEsc(evWhen(x.e.d))}. ${x.e.d.intro?evcEsc(x.e.d.intro):''} Xem ở Việc → Sự kiện.`,
+      after:()=>{ S._qtab='ev'; go('quest') } });
+  });
+  out.gifts.forEach(r=>showBanner({ sub:r.d.to?'Quà tặng riêng':'Quà tặng', name:r.d.name,
+    pet:renderPet(S.pet,{scale:1,static:1,mood:'happy',tag:'chg'}), rewards:r.out, note:'Nhận từ kênh sự kiện.' }));
+  if(out.events.length || out.gifts.length) mount();
+  return out;
+}
+function channelHTML(){
+  if(!/^https?:$/.test(location.protocol)) return '';
+  const st=chanState();
+  return `<h3 class="sec">Kênh sự kiện</h3>
+    <div class="kv"><span>${st.at ? (st.ok ? `Đã kiểm lúc ${new Date(st.at).toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'})}` : 'Lần kiểm gần nhất không kết nối được') : 'Chưa kiểm'}</span>
+      <button class="btn ghost" style="width:auto;padding:6px 12px;min-height:40px" onclick="channelPull(true).then(r=>{toast(r.error?'Không kết nối được kênh sự kiện.':(r.events&&r.events.length||r.gifts&&r.gifts.length)?'Đã nhận nội dung mới.':'Chưa có gì mới.');mount()})">Kiểm tra ngay</button></div>
+    <div class="note">Game tự kiểm khi mở, lúc có mạng. Sự kiện và quà chung tự đến — không cần dán mã.</div>`;
+}
+document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) setTimeout(()=>channelPull(false), 1500) });
+
+
+/* ==========================================================
+   v1.1.1 — NGOẠI HÌNH TIẾN HOÁ
+   "Cùng một linh hồn, nhưng đã chọn một con đường và mang dấu vết của con
+   đường đó trên người." Giữ nguyên dáng và khuôn mặt; thêm một phụ kiện
+   theo con đường và chỉnh nhẹ màu DNA. Luôn hiện, kể cả trong trận.
+   ========================================================== */
+const EVO_GEO = {"beano": {"top": -30, "face": 6, "hw": 23, "nw": 37}, "milku": {"top": -28, "face": 4, "hw": 35, "nw": 41}, "matcha": {"top": -38, "face": 12, "hw": 7, "nw": 41.5}, "cacao": {"top": -36, "face": 8, "hw": 10.5, "nw": 33.5}, "citrus": {"top": -22, "face": 4, "hw": 27.5, "nw": 44.5}, "glacio": {"top": -36, "face": 8, "hw": 10, "nw": 34.5}};
+const EC = {   // màu riêng từng loài
+  beano:{a:'#6b4226',b:'#efe0c4',c:'#3a2415'}, milku:{a:'#f2d27a',b:'#fff6e0',c:'#b98b2e'},
+  matcha:{a:'#4f8a3e',b:'#a9d98f',c:'#2e5424'}, cacao:{a:'#8a5a3c',b:'#e7c9a6',c:'#3b1f12'},
+  citrus:{a:'#f09a2b',b:'#fff1c2',c:'#5aa84a'}, glacio:{a:'#6fb7e0',b:'#e6f6ff',c:'#2f6f93'} };
+const LN='#2a211c';
+const pth=(d,f,s,w,o)=>`<path d="${d}" fill="${f||'none'}" stroke="${s||'none'}" stroke-width="${w||0}" ${o!=null?`opacity="${o}"`:''} stroke-linejoin="round" stroke-linecap="round"/>`;
+const circ=(x,y,r,f,s,w,o)=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${f||'none'}" stroke="${s||'none'}" stroke-width="${w||0}" ${o!=null?`opacity="${o}"`:''}/>`;
+/* ---- khuôn dùng chung ---- */
+const EV={
+  scarf:(g,c1,c2)=>pth(`M${-g.nw*.78} ${g.face+20}Q0 ${g.face+32} ${g.nw*.78} ${g.face+20}L${g.nw*.72} ${g.face+29}Q0 ${g.face+41} ${-g.nw*.72} ${g.face+29}Z`,c1,LN,2)
+    +pth(`M${g.nw*.3} ${g.face+31}q5 12 1 22l8-1q3-11-3-22Z`,c1,LN,1.8)+pth(`M${-g.nw*.5} ${g.face+25}l6 2M${-g.nw*.2} ${g.face+28}l6 1`,null,c2,2),
+  band:(g,col,y)=>pth(`M${-g.hw-4} ${y}Q0 ${y-7} ${g.hw+4} ${y}L${g.hw+4} ${y+6}Q0 ${y-1} ${-g.hw-4} ${y+6}Z`,col,LN,1.8),
+  halo:(g,col)=>pth(`M${-g.hw-10} ${g.top-8}a${g.hw+10} 6 0 1 0 ${2*g.hw+20} 0a${g.hw+10} 6 0 1 0 ${-2*g.hw-20} 0`,null,col,2.4,.75),
+  wisp:(x,y,col)=>pth(`M${x} ${y}q-5-6 0-11q5-5 0-11`,null,col,2,.6),
+  flower:(x,y,petal,mid)=>[0,72,144,216,288].map(a=>`<ellipse cx="${x}" cy="${y-4.5}" rx="3" ry="4.6" fill="${petal}" stroke="${LN}" stroke-width="1" transform="rotate(${a} ${x} ${y})"/>`).join('')+circ(x,y,2.2,mid),
+  bow:(x,y,col)=>pth(`M${x} ${y}l-11-6q-3 6 0 12Z`,col,LN,1.6)+pth(`M${x} ${y}l11-6q3 6 0 12Z`,col,LN,1.6)+circ(x,y,3,col,LN,1.4),
+  leaf:(x,y,rot,col)=>`<g transform="rotate(${rot} ${x} ${y})">${pth(`M${x} ${y}q9-10 20-4q-9 11-20 4Z`,col,LN,1.5)}${pth(`M${x+2} ${y}q7-2 15-3`,null,LN,1,.6)}</g>`,
+  strap:(g,col)=>pth(`M${-g.nw*.62} ${g.face-8}L${g.nw*.66} ${g.face+44}`,null,col,5)+pth(`M${g.nw*.5} ${g.face+36}h16v13q0 4-4 4h-8q-4 0-4-4Z`,col,LN,1.8)+pth(`M${g.nw*.5} ${g.face+41}h16`,null,LN,1.2,.6),
+  apron:(g,col,emb)=>pth(`M${-g.nw*.34} ${g.face+24}L${g.nw*.34} ${g.face+24}L${g.nw*.48} ${g.face+54}Q0 ${g.face+60} ${-g.nw*.48} ${g.face+54}Z`,col,LN,1.8)
+    +pth(`M${-g.nw*.34} ${g.face+24}Q0 ${g.face+14} ${g.nw*.34} ${g.face+24}`,null,LN,1.6)+(emb||''),
+  heart:(x,y,col)=>pth(`M${x} ${y+5}c-7-5-9-10-5-13c2-2 5-1 5 2c0-3 3-4 5-2c4 3 2 8-5 13Z`,col,LN,1.2),
+  aura:(g,col)=>circ(0,g.face+8,58,null,col,5,.18)+circ(0,g.face+8,50,null,col,2.5,.3),
+  glow:(g,col)=>circ(0,g.face+10,56,col,null,0,.14)+circ(0,g.face+10,44,col,null,0,.12),
+  spikes:(g,col)=>[-1,0,1].map(i=>pth(`M${i*9-5} ${g.top+6}L${i*9} ${g.top-12-(i?0:6)}L${i*9+5} ${g.top+6}Z`,col,LN,1.5)).join(''),
+  horns:(g,col)=>pth(`M${-g.hw+4} ${g.top+6}q-6-12 2-18q-1 9 6 14Z`,col,LN,1.6)+pth(`M${g.hw-4} ${g.top+6}q6-12-2-18q1 9-6 14Z`,col,LN,1.6),
+  gem:(x,y,col)=>pth(`M${x} ${y-9}L${x+6} ${y}L${x} ${y+9}L${x-6} ${y}Z`,col,LN,1.4)+pth(`M${x-6} ${y}h12M${x} ${y-9}v18`,null,'#fff',.8,.7),
+};
+const EVO_ART = {
+  beano:{
+    care:   g=>({ front:EV.scarf(g,EC.beano.b,'#c9a57a')+pth(`M${-4} ${g.face+36}v6`,null,LN,1.2)+`<ellipse cx="-4" cy="${g.face+46}" rx="3.6" ry="4.8" fill="${EC.beano.a}" stroke="${LN}" stroke-width="1"/>` }),
+    battle: g=>({ front:EV.band(g,'#d9a86c',g.top+10)+pth(`M${-g.hw+2} ${g.top+11}l4 1M${-g.hw+10} ${g.top+9}l4 1M${g.hw-14} ${g.top+9}l4 1M${g.hw-6} ${g.top+11}l4-1`,null,'#7a4a2a',1.1)
+                  +`<ellipse cx="0" cy="${g.top+11}" rx="6" ry="4.4" fill="#2a1a10" stroke="#f0a060" stroke-width="1.4"/>`+pth(`M-1 ${g.top+8}q2 3 0 6`,null,'#f0a060',1.2) }),
+    mind:   g=>({ back:'', front:EV.halo(g,'#c8a27a')+EV.wisp(-8,g.top-2,'#e8d8c0')+EV.wisp(8,g.top-4,'#e8d8c0') }),
+    hidden: g=>({ back:EV.glow(g,'#f2c94c'), front:EV.flower(g.hw+2,g.top+10,'#fffdf5','#f2c94c') }),
+    explorer:g=>({ front:EV.strap(g,'#8a5a3c') }),
+    worker: g=>({ front:EV.apron(g,EC.beano.b,`<ellipse cx="0" cy="${g.face+40}" rx="4" ry="5.4" fill="${EC.beano.a}" stroke="${LN}" stroke-width="1"/>`) }),
+    soul:   g=>({ back:EV.aura(g,EC.beano.a), front:EV.heart(0,g.face+34,'#e8866a') })
+  },
+  milku:{
+    care:   g=>({ front:EV.bow(0,g.top+4,'#f6b7c6') }),
+    battle: g=>({ front:EV.horns(g,EC.milku.a) }),
+    mind:   g=>({ front:[[-18,g.face+30,4.5],[14,g.face+38,3.6],[-4,g.face+50,3]].map(([x,y,r])=>circ(x,y,r,'#e3b64a',null,0,.45)).join('') }),
+    hidden: g=>({ back:EV.glow(g,'#f2c94c'), front:pth(`M${-g.hw+4} ${g.top+3}Q0 ${g.top-8} ${g.hw-4} ${g.top+3}q-4 8-8 2q-3 9-7 2q-4 8-8 1q-4 7-8 0q-3 6-6 0Z`,'#f5cf5a',LN,1.6) }),
+    explorer:g=>({ front:pth(`M${g.nw+2} ${g.face+18}h9v6l3 4v18q0 3-3 3h-9q-3 0-3-3v-18l3-4Z`,'#fffdf5',LN,1.6)+pth(`M${g.nw+2} ${g.face+33}h9`,null,'#8ab8e0',2) }),
+    worker: g=>({ front:EV.apron(g,'#ffffff',pth(`M0 ${g.face+34}q-5 7 0 10q5-3 0-10Z`,'#9fd0f0',LN,1)) }),
+    soul:   g=>({ back:EV.aura(g,EC.milku.c), front:EV.heart(0,g.face+34,'#f28ab0') })
+  },
+  matcha:{
+    care:   g=>({ front:EV.leaf(10,g.top+22,-25,EC.matcha.b) }),
+    battle: g=>({ front:EV.band(g,EC.matcha.c,g.top+30)+pth(`M${-8} ${g.top+33}l4-3l4 3`,null,'#a9d98f',1.2) }),
+    mind:   g=>({ back:circ(0,g.top+14,26,null,EC.matcha.b,2.2,.55), front:EV.wisp(-14,g.face+2,'#dff2d6')+EV.wisp(16,g.face-2,'#dff2d6') }),
+    hidden: g=>({ back:EV.glow(g,'#caa86a'), front:EV.leaf(-8,g.top+24,200,'#8a5a2c')+EV.wisp(4,g.top+8,'#cfc6b8')+EV.wisp(12,g.top+12,'#cfc6b8') }),
+    explorer:g=>({ front:pth(`M-30 ${g.top+22}L0 ${g.top-6}L30 ${g.top+22}Q0 ${g.top+28} -30 ${g.top+22}Z`,'#e8d49a',LN,1.8)+pth(`M-18 ${g.top+11}L18 ${g.top+11}M-9 ${g.top+2}L9 ${g.top+2}`,null,'#b89a5a',1.1) }),
+    worker: g=>({ front:EV.apron(g,EC.matcha.b,'')+pth(`M${g.nw+4} ${g.face+10}v14M${g.nw+1} ${g.face+24}q3 12 6 0M${g.nw} ${g.face+24}h8`,null,'#c8a060',1.8) }),
+    soul:   g=>({ back:EV.aura(g,EC.matcha.a), front:EV.heart(0,g.face+34,'#e8866a') })
+  },
+  cacao:{
+    care:   g=>({ front:EV.bow(0,g.top+14,'#b77b52') }),
+    battle: g=>({ front:pth(`M${-g.nw*.55} ${g.face+24}Q0 ${g.face+16} ${g.nw*.55} ${g.face+24}L${g.nw*.45} ${g.face+46}Q0 ${g.face+54} ${-g.nw*.45} ${g.face+46}Z`,'#5a3322',LN,1.8)
+                  +pth(`M${-g.nw*.3} ${g.face+22}v26M0 ${g.face+20}v31M${g.nw*.3} ${g.face+22}v26`,null,'#8a5a3c',1.4)+pth(`M-4 ${g.face+30}l3 5l-2 5`,null,'#f0c090',1.1) }),
+    mind:   g=>({ front:pth(`M0 ${g.face-22}L7 ${g.face-10}L-7 ${g.face-10}Z`,null,'#f2c94c',1.6)+circ(0,g.face-14,3,null,'#f2c94c',1.2) }),
+    hidden: g=>({ back:EV.glow(g,'#1a0e08'), front:[[-14,g.face+26],[12,g.face+32],[-2,g.face+44],[18,g.face+18],[-20,g.face+40],[8,g.face+50]].map(([x,y])=>circ(x,y,2.3,'#f2c94c',LN,.6)).join('')
+                  +pth(`M${-g.nw*.7} ${g.face+10}Q${-g.nw*.9} ${g.face+36} ${-g.nw*.5} ${g.face+54}`,null,'#f2c94c',1.4,.7) }),
+    explorer:g=>({ front:pth(`M${-g.hw-10} ${g.top+26}Q0 ${g.top+14} ${g.hw+10} ${g.top+26}L${g.hw+6} ${g.top+32}Q0 ${g.top+22} ${-g.hw-6} ${g.top+32}Z`,'#c0392b',LN,1.6)
+                  +pth(`M${g.hw+8} ${g.top+28}l8 6l-9 2Z`,'#c0392b',LN,1.4)+circ(-3,g.top+26,1.4,'#fff')+circ(5,g.top+25,1.4,'#fff') }),
+    worker: g=>({ front:EV.apron(g,'#a0714f','') }),
+    soul:   g=>({ back:EV.aura(g,EC.cacao.a), front:EV.heart(0,g.face+34,'#e8866a') })
+  },
+  citrus:{
+    care:   g=>({ front:EV.flower(g.hw-6,g.top+6,'#ffffff','#f2c94c')+EV.leaf(g.hw-2,g.top+8,20,EC.citrus.c) }),
+    battle: g=>({ front:circ(g.nw*.42,g.face+30,8,'#fff1c2',LN,1.6)+pth(`M${g.nw*.42-5} ${g.face+30}q5-9 10 0q-5 5-10 0Z`,'#d63a2a',LN,1)+pth(`M${g.nw*.42} ${g.face+23}v-3`,null,EC.citrus.c,2) }),
+    mind:   g=>({ back:pth(`M${-g.hw-12} ${g.face}q-6-26 ${g.hw+12} -30q${g.hw+18} 2 ${g.hw+12} 30`,null,'#f2d27a',2.2,.55) }),
+    hidden: g=>({ back:EV.glow(g,'#e8553e'), front:[0,60,120,180,240,300].map(a=>pth(`M0 ${g.face+30}l3.5-9q-3.5-2-7 0Z`,'#c0392b',null,0,.35).replace('<path',`<path transform="rotate(${a} 0 ${g.face+30})"`)).join('') }),
+    explorer:g=>({ front:pth(`M${-g.hw+2} ${g.top+6}h14q2 7-7 7q-8 0-7-7ZM${g.hw-2} ${g.top+6}h-14q-2 7 7 7q8 0 7-7Z`,'#2b2b2b',LN,1.2)+pth(`M${-g.hw+16} ${g.top+8}h${2*g.hw-32}`,null,'#2b2b2b',1.6) }),
+    worker: g=>({ front:EV.apron(g,'#ffe07a','') }),
+    soul:   g=>({ back:EV.aura(g,EC.citrus.a), front:EV.heart(0,g.face+34,'#e8553e') })
+  },
+  glacio:{
+    care:   g=>({ front:pth(`M${g.nw+4} ${g.face+6}l2 26`,null,'#c0c7cc',2.4)+`<ellipse cx="${g.nw+3.5}" cy="${g.face+3}" rx="4.5" ry="6" fill="#dfe6ea" stroke="${LN}" stroke-width="1.2"/>`
+                  +pth(`M-8 ${g.top+10}q4-9 8-2q4-7 8 2q-8 5-16 0Z`,'#fffdf5',LN,1.3) }),
+    battle: g=>({ front:EV.spikes(g,'#dff4ff') }),
+    mind:   g=>({ front:EV.gem(0,g.top-14,'#bfe6f5') }),
+    hidden: g=>({ back:EV.glow(g,'#3fa8ff'), front:pth(`M-18 ${g.face+34}q18-12 36 0q-18 10-30 2`,null,'#9fdcff',2,.7)+pth(`M-12 ${g.face+44}q12-8 24 0`,null,'#9fdcff',1.6,.6) }),
+    explorer:g=>({ front:EV.scarf(g,'#c0392b','#f4e3d0') }),
+    worker: g=>({ front:EV.apron(g,'#cfeefa','') }),
+    soul:   g=>({ back:EV.aura(g,EC.glacio.c), front:EV.heart(0,g.face+34,'#7ab8f0') })
+  }
+};
+/* màu DNA chỉnh nhẹ theo con đường — vẫn "máu" của loài */
+DB.evoTint = { care:{sat:-4,light:6}, battle:{sat:8,light:-8}, mind:{sat:-10,light:2}, explorer:{sat:4,light:0},
+  worker:{sat:0,light:0}, soul:{sat:2,light:4}, hidden:{sat:12,light:-4} };
+function evoArt(p){
+  if(!p || p.stage!=='evo' || !p.form) return null;
+  const A=EVO_ART[p.species], g=EVO_GEO[p.species]; if(!A || !g || !A[p.form]) return null;
+  try{ return A[p.form](g) }catch(e){ return null }
+}
+function evoLayers(p, behind){ const a=evoArt(p); if(!a) return ''; return (behind ? a.back : a.front) || '' }
+(function(){
+  const pc=window.petColors; if(typeof pc!=='function') return;
+  window.petColors=function(p){
+    const t=p && p.stage==='evo' && p.form && EVO_ART[p.species] && DB.evoTint[p.form];
+    if(!t) return pc.apply(this,arguments);
+    return pc.call(this, Object.assign({}, p, { dna:Object.assign({}, p.dna, { sat:Math.max(5,Math.min(95,p.dna.sat+t.sat)), light:Math.max(14,Math.min(86,p.dna.light+t.light)) }) }));
+  };
+})();
+
+
+/* ==========================================================
+   v1.1.1 — THANH NỘ, TUYỆT CHIÊU, CHIẾN THUẬT
+   Pet đã tiến hoá có thanh nộ. Đầy thì người chơi TỰ BẤM tung tuyệt chiêu của
+   nhánh. Tuyệt chiêu gây tối đa 25% máu tối đa của đối thủ — không hạ boss
+   trong một đòn. Quái và boss không có thanh nộ; boss báo trước chiêu lớn.
+   ========================================================== */
+DB.rage = { hit:10, taken:0.6, capPct:0.25, waitMs:1600 };
+DB.tactics = {
+  bal:  { name:'Cân bằng',  note:'Không cộng trừ gì.' },
+  atk:  { name:'Tấn công',  note:'ATK +10%, DEF −10%.', buffs:[['atk',1.10],['def',0.90]] },
+  def:  { name:'Phòng thủ', note:'DEF +15%, ATK −5%.',  buffs:[['def',1.15],['atk',0.95]] },
+  rage: { name:'Giữ nộ',    note:'Vào trận với 30 nộ, nộ lên nhanh hơn 25%. ATK −5%.', buffs:[['atk',0.95]], rage0:30, rageMul:1.25 }
+};
+const ULT_DEF = {
+  care:    ['ult_care','Vòng tay ấm','💞',0,{type:'heal',fx:{healPct:30,cleanse:1,shield:20,turns:2},desc:'Hồi 30% HP, xoá debuff, chặn 20% sát thương 2 lượt.'}],
+  battle:  ['ult_battle','Đòn dứt điểm','⚔️',2.2,{fx:{pierce:0.5,acc:1},desc:'Đòn cực mạnh xuyên nửa DEF, không thể né.'}],
+  mind:    ['ult_mind','Tĩnh tâm','🌀',1.4,{scale:'int',fx:{stun:1,acc:1},desc:'Đòn tinh thần theo INT, chắc chắn làm choáng.'}],
+  explorer:['ult_explorer','Đường tắt','🧭',0,{type:'buff',fx:{evade:0.6,spd:1.4,turns:2},desc:'60% né và SPD +40% trong 2 lượt.'}],
+  worker:  ['ult_worker','Giờ cao điểm','☕',0.8,{fx:{hits:3},desc:'Đánh 3 lần liên tiếp.'}],
+  soul:    ['ult_soul','Gắn kết','✨',0,{type:'buff',fx:{def:1.3,int:1.3,healPct:12,turns:3},desc:'Hồi 12% HP, DEF và INT +30% trong 3 lượt.'}],
+  hidden:  ['ult_hidden','Bí truyền','🌟',1.8,{fx:{lifesteal:0.4,crit:0.3},desc:'Đòn mạnh, hút 40% sát thương, dễ chí mạng.'}]
+};
+DB.ult={};
+Object.entries(ULT_DEF).forEach(([form,[id,name,ic,pow,o]])=>{
+  const s=SK(id,name,pow,0,Object.assign({species:'none',stage:99},o)); s.ic=ic; s.ult=1;
+  DB.ult[form]=s; DB.skillById[id]=s;
+  const base={care:'nourish',battle:'bite',mind:'focus',explorer:'peeldodge',worker:'doubleshot',soul:'guard',hidden:'darkbloom'}[form];
+  if(DB.skillFx && DB.skillFx[base]) DB.skillFx[id]=DB.skillFx[base];
+});
+function ultOf(p){ return (p && p.stage==='evo' && p.form && DB.ult[p.form]) || null }
+function tacticNow(){ return (S.tactic && DB.tactics[S.tactic]) ? S.tactic : 'bal' }
+function tacticHTML(){
+  const t=tacticNow();
+  return `<div class="tacbar"><span>Chiến thuật</span>${Object.entries(DB.tactics).map(([k,v])=>
+    `<button class="${t===k?'on':''}" onclick="S.tactic='${k}';save();mount()" title="${v.note}">${v.name}</button>`).join('')}</div>
+    <div class="note" style="margin-top:-4px">Độ khó: <b>${DB.diff[diffNow()].name}</b> (đổi trong Cài đặt). ${DB.tactics[t].note}${ultOf(S.pet)?` Tuyệt chiêu của ${S.pet.name}: <b>${ultOf(S.pet).name}</b> — ${ultOf(S.pet).desc}`:' Pet tiến hoá mới có tuyệt chiêu.'}</div>`;
+}
+
+/* ---------- trận chạy từng lượt ----------
+   battle() cũ tính trọn trận rồi mới phát. Tách thành khởi tạo + chạy một lượt;
+   battle() giữ nguyên hành vi cho mọi chỗ tính tự động (leo tháp nhanh…). */
+/* ==========================================================
+   v1.1.1 — ĐỘ KHÓ: Dễ (mặc định) · Trung bình ×1,5 · Khó ×2
+   Nhân máu, công, thủ, trí của MỌI quái và boss. Giữ nguyên tốc độ và may
+   mắn: nhân đôi tốc độ thì quái luôn ra đòn trước và né gần tối đa — trận
+   thành vô vọng chứ không còn là chiến thuật.
+   ========================================================== */
+DB.diff = {
+  easy:{ name:'Dễ',         mult:1,   reward:1, note:'Phù hợp người mới. Mức mặc định.' },
+  mid: { name:'Trung bình', mult:1.5,  reward:1.25, note:'Quái và boss: máu, công, thủ, trí ×1,5. Xu từ trận ×1,25.' },
+  hard:{ name:'Khó',        mult:1.75, reward:1.5,  note:'Quái và boss: máu, công, thủ, trí ×1,75. Xu từ trận ×1,5. Cần tính chiến thuật và tuyệt chiêu.' }
+};
+DB.diffStats = ['hp','atk','def','int'];
+function diffNow(){ return (S.diff && DB.diff[S.diff]) ? S.diff : 'easy' }
+function diffCoin(n){ const D=DB.diff[diffNow()]; return Math.round(n*((D&&D.reward)||1)) }
+function diffOpt(oB){
+  const D=DB.diff[diffNow()]; if(!D || D.mult===1) return oB;
+  const sm=Object.assign({}, (oB&&oB.statMult)||{});
+  DB.diffStats.forEach(k=>sm[k]=(sm[k]||1)*D.mult);
+  return Object.assign({}, oB||{}, { statMult:sm });
+}
+function diffHTML(){
+  const d=diffNow();
+  return `<h3 class="sec">Độ khó</h3>
+    <div class="row">${Object.entries(DB.diff).map(([k,v])=>`<button class="btn ${d===k?'gold':'ghost'}" onclick="S.diff='${k}';save();mount()">${v.name}</button>`).join('')}</div>
+    <div class="note">${DB.diff[d].note} Áp cho tháp, đấu nhanh, boss vùng và boss sự kiện. Đổi được bất cứ lúc nào.</div>`;
+}
+function battleInit(A,B,oA,oB){
+  oB=(typeof diffOpt==='function')?diffOpt(oB):oB;          // độ khó chỉ nhân phe quái
+  const f1=mkFighter(A,oA||{}), f2=mkFighter(B,oB||{});
+  f1.side='A'; f2.side='B'; f1.foe=f2; f2.foe=f1;
+  const log=[];
+  const tags=(f)=>{ const out=[];
+    (f.buffs||[]).forEach(b=>{
+      if(b.tac) return;
+      if(b.dot) out.push('dot'); else if(b.shield) out.push('shield'); else if(b.reflect) out.push('reflect');
+      else if(b.evade) out.push('evade'); else if(b.block) out.push('block'); else if(b.hot) out.push('hot');
+      else if(b.first) out.push('first'); else if(b.lowhp) out.push('lowhp');
+      else if(b.stat){ const up = b.flat ? b.val>0 : b.val>1; out.push(b.stat + (up?'Up':'Down')) } });
+    if(f.stun) out.push('stun');
+    return [...new Set(out)].slice(0,4); };
+  const L=(o)=>{ log.push(Object.assign({t:'sys'}, o, { hp1:Math.max(0,f1.hp), hp2:Math.max(0,f2.hp), max1:f1.max, max2:f2.max,
+    b1:tags(f1), b2:tags(f2), r1:f1.rage!=null?Math.floor(f1.rage):null })) };   // làm tròn XUỐNG: 99,6 không được hiện là đầy
+  // thanh nộ + chiến thuật: chỉ pet của người chơi (phe A)
+  const tac=DB.tactics[(oA&&oA.tactic)||'bal']||DB.tactics.bal;
+  f1.ult=ultOf(A);
+  if(f1.ult){ f1.rage=tac.rage0||0; f1.rageMul=tac.rageMul||1 }
+  (tac.buffs||[]).forEach(([st,v])=>f1.buffs.push({stat:st,val:v,turns:999,tac:1}));
+  // trí khôn chọn chiêu của đối thủ: tầng thấp còn ngây ngô, boss thì tính toán
+  f2.ai = (oB&&oB.ai!=null) ? oB.ai : ((f2.bossSkill||f2.mech) ? 1 : 0.6);
+  f1.ai = 1;
+  L({t:'sys', m:`${f1.name} (${petPower(A)} PP) gặp ${f2.name} (${petPower(B)} PP)`, kind:'open'});
+  return { f1,f2,log,L,K:DB.battle,turn:1,winner:null,done:false };
+}
+function battleStep(c){
+  if(c.done) return true;
+  const {f1,f2,L,K}=c; const turn=c.turn;
+  let order = statOf(f1,'spd')+rnd(0,10) >= statOf(f2,'spd')+rnd(0,10) ? [f1,f2] : [f2,f1];
+  if(f1.buffs.some(b=>b.first)) order=[f1,f2];
+  if(f2.buffs.some(b=>b.first)) order=[f2,f1];
+  L({t:'sys', m:`— Lượt ${turn} —`, kind:'turn', turn});
+  for(const at of order){
+    const df = at===f1?f2:f1;
+    if(at.hp<=0||df.hp<=0) continue;
+    if(df.pendingBurst===undefined && at.pendingBurst){ at.pendingBurst=false;
+      df.stun=true; df.buffs.push({stat:'int',val:0.70,turns:3});
+      L({t:'sys', a:at.side, m:`${df.name} dính bọt: choáng và giảm INT`, kind:'debuff'}); }
+    if(at.stun){ at.stun=false; L({t:'sys', a:at.side, m:`${at.name} không cử động được`, kind:'stun'}); continue }
+    if(at.ult && at.rage>=100 && (at.autoUlt || at.ultQueued)){ at.ultNow=true; at.ultQueued=false }
+    act(at,df,L,turn);
+    if(df.hp<=0){
+      if(df.revive){ df.revive=false; df.hp=Math.round(df.max*0.35);
+        L({t:'heal', a:df.side, m:`${df.name} gượng dậy nhờ sợi dây gắn bó`, kind:'revive'}); }
+      else { c.winner = at===f1?'A':'B'; break }
+    }
+  }
+  tick(f1,L); tick(f2,L);
+  if(f1.hp<=0&&!c.winner) c.winner='B'; if(f2.hp<=0&&!c.winner) c.winner='A';
+  c.turn++;
+  if(c.winner || c.turn>K.maxTurns){
+    if(!c.winner) c.winner = f1.hp/f1.max >= f2.hp/f2.max ? 'A':'B';
+    L({t:'sys', m:`Kết thúc sau ${c.turn-1} lượt — ${c.winner==='A'?f1.name:f2.name} thắng`, kind:'end', win:c.winner});
+    c.done=true;
+  }
+  return c.done;
+}
+/* trận tự động (không ai bấm): tuyệt chiêu tự tung khi đầy */
+function battleAuto(A,B,oA,oB){ const c=battleInit(A,B,oA,oB); c.f1.autoUlt=true; while(!battleStep(c)); return {winner:c.winner, log:c.log, f1:c.f1, f2:c.f2} }
+/* trận người chơi xem: chạy từng lượt trong lúc phát */
+function battleLive(A,B,oA,oB){ const c=battleInit(A,B,Object.assign({tactic:tacticNow()},oA||{}),oB); c.f1.autoUlt=false;
+  return { live:c, log:c.log, f1:c.f1, f2:c.f2, winner:null } }
+
+/* ---------- trí khôn chọn chiêu ----------
+   Cũ: hồi khi yếu (75%), buff ngẫu nhiên 35%, còn lại chiêu mạnh nhất.
+   Mới: buff đầu trận, không buff trùng, giảm sức khi đối thủ đang được buff,
+   kết liễu khi đối thủ yếu, tiết kiệm sức khi cạn. Mức "khôn" theo f.ai. */
+function chooseSkillSmart(at,df,pool){
+  const ai=at.ai==null?0.6:at.ai, r=()=>Math.random();
+  const heals=pool.filter(s=>s.type==='heal'), atks=pool.filter(s=>s.type==='atk');
+  const hasStat=(f,st)=>(f.buffs||[]).some(b=>b.stat===st && (b.val>1||b.flat) && !b.tac);
+  const buffs=pool.filter(s=>s.type==='buff' && !(s.fx&&['def','spd','int'].some(k=>s.fx[k]&&hasStat(at,k))) && !(s.fx&&s.fx.shield&&at.buffs.some(b=>b.shield)));
+  const debuffs=pool.filter(s=>s.type==='debuff');
+  const strongest=()=>atks.length ? atks.reduce((b,s)=>(s.pow*(s.fx&&s.fx.hits||1))>(b.pow*(b.fx&&b.fx.hits||1))?s:b) : pick(pool);
+  const efficient=()=>atks.length ? atks.reduce((b,s)=>(s.pow*(1/(1+s.cost/60)) > b.pow*(1/(1+b.cost/60)) ? s:b)) : pick(pool);
+  if(at.hp/at.max<0.4 && heals.length && r()<0.6+0.3*ai) return pick(heals);
+  if(df.hp/df.max<0.25 && atks.length && r()<ai) return strongest();                         // kết liễu
+  const foeUp=(df.buffs||[]).some(b=>b.stat && b.val>1 && !b.tac);
+  if(foeUp && debuffs.length && r()<0.3+0.4*ai) return pick(debuffs);                       // đáp trả buff
+  if(buffs.length && at.buffs.filter(b=>!b.tac).length<2 && r()<((at.turnN||0)<=1 ? 0.35+0.35*ai : 0.25)){   // lượt đầu turnN chưa có giá trị
+    // buff nhiều tác dụng hơn thì dùng trước (Rễ bazan: DEF + hồi máu, hơn Thủ thế chỉ DEF); pet ngây ngô thì chọn bừa
+    const val=s=>Object.keys(s.fx||{}).filter(k=>k!=='turns').length;
+    if(r()<ai){ const best=Math.max(...buffs.map(val)); return pick(buffs.filter(s=>val(s)===best)) }
+    return pick(buffs) }
+  if(at.st<25 && ai>0.5) return efficient();                                                 // tiết kiệm sức
+  return r()<ai ? strongest() : efficient();
+}
+
+/* ---------- nút tuyệt chiêu và thanh nộ trong trận ---------- */
+function ultUIInit(c){
+  ultUIDone(); if(!c.f1.ult) return;
+  const ring=$('ring')||document.querySelector('.ring'); if(!ring) return;
+  const w=document.createElement('div'); w.id='ultbox';
+  w.innerHTML=`<div class="rgbar"><i id="rgfill" style="width:${c.f1.rage||0}%"></i><span>Nộ</span></div>
+    <button id="ultbtn" disabled onclick="ultPress()">${c.f1.ult.ic} ${c.f1.ult.name}</button>`;
+  ring.parentNode.insertBefore(w, ring.nextSibling); ULT_CTX=c;
+}
+var ULT_CTX=null;
+function ultPress(){ const c=ULT_CTX; if(!c||!c.f1.ult||c.f1.rage<100) return;
+  c.f1.ultQueued=true; const b=$('ultbtn'); if(b){ b.disabled=true; b.textContent='Sẵn sàng — lượt tới tung!' } sfx('tap') }
+function ultUIUpdate(c, ev){
+  const f=$('rgfill'), b=$('ultbtn'); if(!f||!b) return;
+  const r = ev && ev.r1!=null ? ev.r1 : Math.floor(c.f1.rage||0);
+  f.style.width=r+'%';
+  if(!c.f1.ultQueued){ b.disabled = r<100; b.classList.toggle('ready', r>=100); b.textContent=`${c.f1.ult.ic} ${c.f1.ult.name}` }
+}
+/* nộ vừa đầy mà chưa bấm: dừng một chút cho người chơi kịp quyết định */
+async function ultWait(c){
+  if(!c.f1.ult || c.f1.rage<100 || c.f1.ultQueued || c.f1.autoUlt) return;
+  if(c.f1.ultPaused) return; c.f1.ultPaused=true;
+  const t0=Date.now(); while(Date.now()-t0 < DB.rage.waitMs/(typeof BSPEED!=='undefined'?Math.max(1,BSPEED/2):1)){ if(c.f1.ultQueued||BSKIP) break; await new Promise(r=>setTimeout(r,80)) }
+}
+function ultUIDone(){ const w=$('ultbox'); if(w) w.remove(); ULT_CTX=null }
+
+
+/* ==========================================================
+   v1.1.1 — TRANG BỊ RIÊNG TỪNG PET
+   gearState().equip vẫn là bộ của PET CHÍNH — mọi hàm cũ giữ nguyên.
+   Pet khác cất bộ riêng ở p.gearSet; đổi pet chính thì bộ đồ đổi theo pet.
+   Pet phụ trợ có 2 ô (vũ khí, áo giáp), góp cùng tỉ lệ 15% như chỉ số, không hao mòn.
+   Một món mặc cho nhiều pet thì phải có đủ số lượng.
+   ========================================================== */
+DB.supGearSlots = ['weapon','armor'];
+function gearUsedBy(id, exceptPet){
+  const m=DB.gearById[id]; if(!m) return 0; const g=gearState(); let n=0;
+  if(exceptPet!==S.pet && g.equip[m.slot]===id) n++;
+  (S.stash||[]).forEach(p=>{ if(p!==exceptPet && p.gearSet && p.gearSet[m.slot]===id) n++ });
+  return n;
+}
+function gearFree(id, forPet){ const o=gearState().owned[id]; return (o?o.n:0) - gearUsedBy(id, forPet) }
+function supGearMult(p){
+  const out={}; if(!p || !p.gearSet) return out;
+  DB.supGearSlots.forEach(sl=>{ const id=p.gearSet[sl]; const g=id&&DB.gearById[id]; if(!g) return;
+    const S_=DB.gearSlots.find(s=>s.id===g.slot), mt=DB.gearMatById[g.mat];
+    const lvUp=1+DB.fuse.bonusPerLv*((typeof gearLv==='function')?gearLv(g.id):0);
+    for(const k in S_.buff) out[k]=(out[k]||1)+S_.buff[k]*mt.mult*lvUp });
+  return out;
+}
+DB.team.gearShare = 0.35;  // phần trang bị của pet phụ góp 35% — đo: 50% cho +13,5% ATK, quá mạnh; 35% ≈ +9% (chỉ số gốc vẫn 15%) — 15% làm đồ pet phụ gần như vô nghĩa (~1%)
+function supStats(p){ const e=effStats(p), m=supGearMult(p), sh=(p.species==='automa'?DB.automa.share:DB.team.statShare), o={};
+  STATK.forEach(k=>{ const g=e[k]*(m[k]||1); o[k]=e[k]+(g-e[k])*(DB.team.gearShare/sh) }); return o }
+function equipSup(pid, slot, id){
+  const p=(S.stash||[]).find(x=>x.id===pid); if(!p || !DB.supGearSlots.includes(slot)) return;
+  p.gearSet=p.gearSet||{};
+  if(id){ const m=DB.gearById[id]; if(!m || m.slot!==slot) return;
+    if(p.gearSet[slot]!==id && gearFree(id,p)<1) return toast('Món này đang được pet khác mặc hết — cần thêm một món.');
+    p.gearSet[slot]=id } else p.gearSet[slot]=null;
+  save(); closeSheet(); mount();
+}
+function openSupGear(pid, slot){
+  const p=(S.stash||[]).find(x=>x.id===pid); if(!p) return;
+  const g=gearState(), cur=p.gearSet&&p.gearSet[slot];
+  const list=Object.keys(g.owned).map(id=>DB.gearById[id]).filter(m=>m && m.slot===slot && g.owned[m.id].n>0);
+  const SL=DB.gearSlots.find(s=>s.id===slot);
+  openSheet(`<h3>${p.name} · ${SL?SL.name:slot}</h3><div class="sub">Pet phụ trợ góp ${Math.round(DB.team.statShare*100)}% chỉ số — cả phần trang bị</div>
+    ${list.length ? list.map(m=>{ const free=gearFree(m.id,p), on=cur===m.id;
+      return `<div class="kv"><span>${m.name}<br><small style="color:var(--ink-3)">${on?'đang mặc':free>0?`còn ${free} món rảnh`:'đang được pet khác mặc hết'}</small></span>
+        <button class="btn ${on?'gold':'ghost'}" style="width:auto;padding:6px 12px;min-height:40px" ${!on&&free<1?'disabled':''} onclick="equipSup('${pid}','${slot}',${on?'null':`'${m.id}'`})">${on?'Bỏ ra':'Mặc'}</button></div>` }).join('')
+      : '<div class="note">Chưa có món nào cho ô này. Mua hoặc chế ở thẻ Trang bị.</div>'}`);
+}
+function supGearHTML(){
+  const T=teamPets(); if(!T.length) return '';
+  const nm=id=>id&&DB.gearById[id]?DB.gearById[id].name:'Trống';
+  return `<h3 class="sec">Trang bị pet phụ trợ</h3>
+    ${T.map(p=>`<div class="supg"><div class="sgn">${p.name}</div>
+      ${DB.supGearSlots.map(sl=>{ const SL=DB.gearSlots.find(s=>s.id===sl)||{name:sl};
+        return `<button onclick="openSupGear('${p.id}','${sl}')"><small>${SL.name}</small>${nm(p.gearSet&&p.gearSet[sl])}</button>` }).join('')}</div>`).join('')}
+    <div class="note">Pet phụ trợ có 2 ô: vũ khí và áo giáp. Đồ của pet phụ không hao mòn. Đổi pet chính thì bộ đồ đi theo pet.</div>`;
+}
+
+
+/* ==========================================================
+   v1.1.1 — TRANG NHÀ GỌN: 6 thanh chăm sóc, chạm tên để xem chi tiết
+   ========================================================== */
+var PD_OPEN=false;
+function openPetDetail(){
+  const p=S.pet; PD_OPEN=true;
+  openSheet(`<div class="pdhead"><div class="pdpet">${renderPet(p,{scale:1,static:1,mood:'happy',tag:'pd'})}</div>
+      <div><div class="pdname">${(typeof plateWrap==='function')?plateWrap(p,evcEsc(p.name)):evcEsc(p.name)}</div>
+      <div class="sub">${formName(p)} · ${DB.species[p.species].vi} · ${petPower(p)} PP</div>
+      <button class="btn ghost" style="width:auto;padding:4px 12px;min-height:36px;margin-top:6px" onclick="closeSheet();startRename()">Đổi tên</button></div></div>
+    <div id="pdbody">${(typeof platePickHTML==='function')?platePickHTML(p)+plateLockedHTML():''}${petDetailInner()}</div>`);
+}
+(function(){
+  const cs=window.closeSheet; if(typeof cs==='function') window.closeSheet=function(){ PD_OPEN=false; return cs.apply(this,arguments) };
+  const mt=window.mount; if(typeof mt==='function') window.mount=function(){ const r=mt.apply(this,arguments);
+    if(PD_OPEN){ const b=document.getElementById('pdbody'); if(b) b.innerHTML=((typeof platePickHTML==='function')?platePickHTML(S.pet)+plateLockedHTML():'')+petDetailInner(); else PD_OPEN=false }
+    if(typeof plateCheck==='function') plateCheck(false);
+    if(typeof guideTick==='function') setTimeout(guideTick, 1200);
+    setTimeout(()=>{ if(typeof mileCheck==='function') mileCheck(); if(typeof letterCheck==='function') letterCheck() }, 2600);
+    return r };
+})();
+
+
+/* ==========================================================
+   v1.1.1 — BẢNG TÊN THÀNH TỰU
+   Khung quanh tên pet — dấu ấn thành tựu, mỗi pet đeo một bảng. Buff rất nhẹ,
+   chỉ trong trận. Bảng từ sự kiện KHÔNG mạnh hơn bảng từ thành tựu lâu dài:
+   nếu không, người lỡ sự kiện sẽ thấy bị bỏ lại — sự kiện thành áp lực.
+   ========================================================== */
+DB.plates = [
+  { id:'moi-vao-nghe', name:'Mới vào nghề',   from:'Xong hành trình 7 ngày đầu',          buff:['hp',0.02],   cls:'kraft',
+    has:()=>!!(S.journey&&S.journey.done) },
+  { id:'tri-ky',       name:'Tri kỷ',         from:'Gắn bó 100 lần đầu',                 buff:['def',0.02],  cls:'heart',
+    has:()=>[S.pet,...(S.stash||[])].some(p=>p&&p.bond>=100) },
+  { id:'giu-lua',      name:'Người giữ lửa',  from:'Chuỗi 30 ngày làm việc',             buff:['atk',0.02],  cls:'ember',
+    has:()=>((S.quest&&S.quest.streak)||0)>=30 },
+  { id:'deu-dan',      name:'Sổ sách đều tay', from:'Hoàn thành việc tháng 3 tháng',     buff:['int',0.02],  cls:'ledger',
+    has:()=>Object.keys(S.mhist||{}).length>=3 },
+  { id:'nha-suu-tam',  name:'Nhà sưu tầm',    from:'Đủ 100% Sổ sưu tầm',                 buff:['luck',0.02], cls:'dex',
+    has:()=>(S.perks||[]).includes('goldshop') },
+  { id:'dinh-thap',    name:'Đỉnh tháp',      from:'Qua tầng 110',                       buff:['atk',0.03],  cls:'summit',
+    has:()=>towerState().best>=110 },
+  { id:'bn30',         name:'Một tháng bên nhau', from:'30 ngày bên nhau',               buff:['spd',0.02],  cls:'silver',
+    has:()=>dayNo()>=30 },
+  { id:'bn100',        name:'Trăm ngày',      from:'100 ngày bên nhau',                  buff:['def',0.02],  cls:'gold',
+    has:()=>dayNo()>=100 },
+  { id:'bn365',        name:'Tròn một năm',   from:'365 ngày bên nhau',                  buff:['hp',0.03],   cls:'year',
+    has:()=>dayNo()>=365 }
+];
+DB.plateById = Object.fromEntries(DB.plates.map(x=>[x.id,x]));
+const STN = { hp:'Máu', atk:'Công', def:'Thủ', spd:'Tốc', int:'Trí', luck:'May mắn' };
+function plateState(){ S.plates=S.plates||{ owned:[], at:{} }; return S.plates }
+/* bảng từ sự kiện: danh hiệu đủ bộ thời trang của sự kiện */
+function plateOf(id){
+  if(DB.plateById[id]) return DB.plateById[id];
+  if(String(id).startsWith('ev:')){ const t=(S.titles||[]).find(x=>'ev:'+x.ev===id);
+    if(t) return { id, name:t.t, from:'Sự kiện '+(t.evn||''), buff:['int',0.02], cls:'event', ev:true } }
+  return null;
+}
+function platesOwned(){ const st=plateState(); return st.owned.map(plateOf).filter(Boolean) }
+let PLATE_AT=0;
+function plateCheck(force){
+  if(!S || !S.onboarded) return; if(!force && Date.now()-PLATE_AT<5000) return; PLATE_AT=Date.now();
+  const st=plateState(), fresh=[];
+  DB.plates.forEach(x=>{ if(!st.owned.includes(x.id)){ let ok=false; try{ ok=x.has() }catch(e){} if(ok){ st.owned.push(x.id); st.at[x.id]=Date.now(); fresh.push(x) } } });
+  (S.titles||[]).forEach(t=>{ const id='ev:'+t.ev; if(!st.owned.includes(id)){ st.owned.push(id); st.at[id]=Date.now(); fresh.push(plateOf(id)) } });
+  if(!fresh.length) return;
+  if(!S.pet.plate) S.pet.plate=fresh[0].id;          // bảng đầu tiên tự đeo cho pet chính
+  save();
+  fresh.forEach(x=>showBanner({ sub:'Bảng tên mới', name:x.name, pet:renderPet(S.pet,{scale:1,static:1,mood:'happy',tag:'npb'}), rewards:[],
+    note:`${x.from}. Trong trận: ${STN[x.buff[0]]} +${Math.round(x.buff[1]*100)}%. Đeo cho pet ở bảng chi tiết — chạm tên pet trên trang Nhà.` }));
+}
+function plateWrap(p, nameHtml, compact){
+  const x=p && p.plate && plateState().owned.includes(p.plate) && plateOf(p.plate);
+  if(!x) return nameHtml;
+  return `<span class="np np-${x.cls}${compact?' npc':''}">${nameHtml}</span>${compact?'':`<span class="nptitle">${evcEsc(x.name)}</span>`}`;
+}
+function plateDecorate(){
+  const el=document.querySelector('#rname .nm'); if(!el) return;
+  const x=S.pet.plate && plateState().owned.includes(S.pet.plate) && plateOf(S.pet.plate);
+  document.querySelectorAll('#receipt .nptitle').forEach(e=>e.remove());
+  if(!x) return;
+  el.classList.add('np','np-'+x.cls);
+  const t=document.createElement('div'); t.className='nptitle'; t.textContent=x.name;
+  el.parentNode.parentNode.insertBefore(t, el.parentNode.nextSibling);
+}
+function plateEquip(pid, id){
+  const p=[S.pet,...(S.stash||[])].find(x=>x&&x.id===pid); if(!p) return;
+  p.plate = (p.plate===id) ? null : id; save(); mount();
+  const b=document.getElementById('pdbody'); if(b && p===S.pet) openPetDetail();
+}
+function platePickHTML(p){
+  const L=platesOwned();
+  if(!L.length) return `<h3 class="sec">Bảng tên</h3><div class="note">Chưa có bảng tên nào. Nhận từ thành tựu lâu dài và sự kiện — ví dụ đủ 30 ngày bên nhau, gắn bó 100, qua tháp 110.</div>`;
+  return `<h3 class="sec">Bảng tên</h3><div class="npgrid">${L.map(x=>`<button class="npbtn ${p.plate===x.id?'on':''}" onclick="plateEquip('${p.id}','${x.id}')">
+      <span class="np np-${x.cls} npc">${evcEsc(x.name)}</span><small>${STN[x.buff[0]]} +${Math.round(x.buff[1]*100)}% · ${evcEsc(x.from)}</small></button>`).join('')}</div>
+    <div class="note">Mỗi pet đeo một bảng. Chạm lần nữa để tháo. Buff chỉ tính trong trận.</div>`;
+}
+function plateLockedHTML(){
+  const st=plateState(); const L=DB.plates.filter(x=>!st.owned.includes(x.id));
+  return L.length ? `<details class="nplock"><summary>Còn ${L.length} bảng tên chưa mở</summary>${L.map(x=>`<div class="kv"><span>${x.name}</span><small>${x.from}</small></div>`).join('')}</details>` : '';
+}
+/* buff trong trận */
+(function(){
+  const mk=window.mkFighter; if(typeof mk!=='function') return;
+  window.mkFighter=function(p,opt){
+    const x=p && p.plate && S && S.plates && S.plates.owned.includes(p.plate) && plateOf(p.plate);
+    if(!x) return mk.apply(this,arguments);
+    const o=Object.assign({}, opt||{}); const sm=Object.assign({}, o.statMult||{});
+    sm[x.buff[0]]=(sm[x.buff[0]]||1)*(1+x.buff[1]); o.statMult=sm;
+    return mk.call(this,p,o);
+  };
+})();
+
+
+/* ==========================================================
+   v1.1.1 — HƯỚNG DẪN TÂN THỦ (hội thoại, pet tự kể)
+   Không dồn hết vào lúc đầu: mỗi chương hiện ĐÚNG LÚC tính năng đó mở.
+   Mọi con số trong lời thoại lấy từ cơ chế thật của game.
+   ========================================================== */
+const PN=()=>`<b>${evcEsc(S.pet.name)}</b>`;
+DB.guide = [
+  { id:'viec', title:'Nuôi mình bằng việc thật',
+    when:()=>S.onboarded,
+    lines:()=>[
+      {who:'pet', text:`Chào bạn! Mình là ${PN()}. Mình sống nhờ… công việc thật ở quán của bạn.`},
+      {who:'pet', text:`Vào mục <b>Việc</b>, mỗi khi bạn mở ca, kiểm kho, chốt sổ xong thì tick một cái. Mỗi việc cho <b>xu</b> — xu mua đồ ăn, đồ chơi cho mình.`},
+      {who:'pet', text:`Việc cuối ngày như chốt sổ, đóng ca chỉ tick được <b>từ 17 giờ</b>. Quán bạn đóng sớm thì đổi giờ trong Cài đặt nhé.`},
+      {who:'pet', text:`Làm đều mỗi ngày thành <b>chuỗi</b>. Đủ 7 ngày có trứng hiếm, đủ 30 ngày có trứng cổ. Mình đếm đấy!`} ] },
+  { id:'cham', title:'Sáu chỉ số chăm sóc',
+    when:()=>((S.stats&&S.stats.careActs)||0)>=1,
+    lines:()=>[
+      {who:'pet', text:`Trên trang Nhà có 6 thanh của mình. <b>No</b> tụt nhanh nhất, rồi đến <b>Năng lượng</b>, <b>Sạch</b>, <b>Vui</b>, chậm nhất là <b>Tinh thần</b>.`},
+      {who:'pet', text:`<b>Sức khoẻ</b> thì khác: nó tụt khi mình đói, bẩn, kiệt sức hoặc căng thẳng — và hồi dần khi cả năm thanh kia từ <b>70</b> trở lên.`},
+      {who:'pet', text:`Bạn đi làm vắng thì yên tâm: 8 giờ đầu mình chỉ tụt một nửa, và không bao giờ tụt tới đáy khi bạn vắng mặt.`},
+      {who:'pet', text:`Chạm vào tên mình để xem hết mọi thứ về mình — tính cách, khẩu vị, món ruột. Cho ăn đúng vị thì mình gắn bó với bạn nhanh gấp đôi!`} ] },
+  { id:'lon', title:'Mình lớn lên thế nào',
+    when:()=>['teen','adult','evo'].includes(S.pet.stage),
+    lines:()=>[
+      {who:'pet', text:`Mình vừa lớn lên đó! Mình đi qua 4 giai đoạn: <b>Sơ sinh</b> → <b>Thiếu niên</b> (ngày 2) → <b>Trưởng thành</b> (ngày 5) → <b>Tiến hoá</b>.`},
+      {who:'pet', text:`Để tiến hoá mình cần ít nhất <b>ngày 9</b> và <b>cấp 18</b>. Cấp lên nhờ kinh nghiệm: chăm sóc, rèn luyện, đấu, và hạt kinh nghiệm.`},
+      {who:'pet', text:`Tiến hoá theo nhánh nào là do <b>cách bạn nuôi mình</b>: chăm nhiều thì nhánh Chăm sóc, đấu nhiều thì nhánh Chiến… Có cả nhánh ẩn đấy.`},
+      {who:'pet', text:`Mỗi nhánh cho mình một dáng vẻ riêng và một <b>tuyệt chiêu</b>. Vẫn là mình thôi — chỉ là mình đã chọn một con đường cùng bạn.`} ] },
+  { id:'chiso', title:'Sáu chỉ số chiến đấu và PP',
+    when:()=>typeof navLocked==='function' && !navLocked('battle'),
+    lines:()=>[
+      {who:'pet', text:`Mục <b>Đấu</b> mở rồi! Trước khi ra trận, bạn cần hiểu 6 chỉ số của mình.`},
+      {who:'pet', text:`<b>Máu</b> — trụ được bao lâu. <b>Công</b> — đánh đau cỡ nào. <b>Thủ</b> — đỡ đòn. <b>Tốc</b> — ai ra đòn trước, né đòn. <b>Trí</b> — chiêu tinh thần. <b>May mắn</b> — chí mạng.`},
+      {who:'pet', text:`Số <b>PP</b> là sức mạnh tổng. Mỗi điểm được tính khác nhau: Công nặng nhất (×1,6), rồi Thủ ×1,4, Tốc ×1,3, Trí ×1,2, May mắn ×0,8, Máu nhẹ nhất ×0,5 — vì Máu vốn có số lớn.`},
+      {who:'pet', text:`Chiêu mạnh mình đang mang cũng cộng thêm vào PP. Cho mình lên cấp và mặc trang bị là PP tăng.`} ] },
+  { id:'dau', title:'Chiến thuật và tuyệt chiêu',
+    when:()=>!!(S.guide&&S.guide.seen.includes('chiso')) && typeof VIEW!=='undefined' && VIEW==='battle',
+    lines:()=>[
+      {who:'pet', text:`Trước mỗi trận, chọn <b>chiến thuật</b>: Tấn công, Phòng thủ, Giữ nộ hoặc Cân bằng.`},
+      {who:'pet', text:`Khi mình đã tiến hoá, mình có <b>thanh nộ</b>. Nộ đầy thì nút tuyệt chiêu sáng lên — <b>bạn bấm</b>, mình tung. Chọn đúng lúc là cả trận!`},
+      {who:'pet', text:`Boss sẽ <b>báo trước chiêu lớn</b> một lượt. Thấy cảnh báo đỏ thì cân nhắc tung tuyệt chiêu ngay.`},
+      {who:'pet', text:`Thấy dễ quá? Đổi <b>độ khó</b> trong Cài đặt — khó hơn thì xu từ trận nhiều hơn.`} ] },
+  { id:'trung', title:'Trứng, lai tạo, pet hoang',
+    when:()=>typeof navLocked==='function' && !navLocked('egg'),
+    lines:()=>[
+      {who:'pet', text:`Mục <b>Trứng</b> mở rồi! Trứng đến từ chuỗi ngày, hộp bí ẩn, cửa hàng. Ấp xong là có bạn mới cho mình.`},
+      {who:'pet', text:`Hai pet trưởng thành có thể <b>lai tạo</b> — con sinh ra mang gen của cả hai.`},
+      {who:'pet', text:`Đi khám phá có khi gặp <b>pet hoang</b>. Mỗi loài có chiêu riêng, nhưng không tiến hoá — và chuồng chỉ chứa tối đa 3 bạn hoang.`},
+      {who:'pet', text:`Pet trong chuồng có thể làm <b>phụ trợ</b> cho mình khi đấu. Mỗi bạn mặc được vũ khí và áo giáp riêng.`} ] },
+  { id:'sukien', title:'Sự kiện và bảng tên',
+    when:()=>Object.keys((typeof evState==='function'?evState().list:{})||{}).length>0 || (S.plates&&S.plates.owned.length>0),
+    lines:()=>[
+      {who:'pet', text:`Thỉnh thoảng quán mình có <b>sự kiện theo mùa</b> — tự đến khi bạn mở game có mạng. Xem ở mục Việc.`},
+      {who:'pet', text:`Làm nhiệm vụ sự kiện để đổi đồ, khung lễ, có khi cả một pet mới.`},
+      {who:'pet', text:`Thành tựu lớn cho mình một <b>bảng tên</b> — khung quanh tên mình, kèm một chút sức mạnh trong trận. Chạm tên mình trên trang Nhà để đeo.`} ] }
+];
+function guideState(){ S.guide=S.guide||{ seen:[] }; return S.guide }
+let GUIDE_AT=0;
+function guideTick(){
+  if(!S || !S.onboarded || Date.now()-GUIDE_AT<3000) return; GUIDE_AT=Date.now();
+  if(document.querySelector('#termscr,#lockscr,#intro,.bnr,#sheet,#dlg')) return;
+  const st=guideState();
+  const c=DB.guide.find(g=>!st.seen.includes(g.id) && (()=>{ try{ return g.when() }catch(e){ return false } })());
+  if(!c) return;
+  st.seen.push(c.id); save();                              // đánh dấu trước: không bao giờ lặp
+  startDialogue(c.lines());
+}
+function guideRead(id){ const c=DB.guide.find(g=>g.id===id); if(!c) return; try{ closeSheet() }catch(e){} setTimeout(()=>startDialogue(c.lines()),250) }
+function guideBookHTML(){
+  const st=guideState();
+  return `<h3 class="sec">Sổ tay tân thủ</h3>
+    ${DB.guide.map(g=>`<div class="kv"><span>${g.title}${st.seen.includes(g.id)?'':' <small style="color:var(--ink-3)">· chưa mở</small>'}</span>
+      <button class="btn ghost" style="width:auto;padding:6px 12px;min-height:40px" ${st.seen.includes(g.id)?'':'disabled'} onclick="guideRead('${g.id}')">Đọc</button></div>`).join('')}
+    <div class="note">Mỗi chương tự hiện đúng lúc tính năng đó mở. Đọc lại bất cứ lúc nào ở đây.</div>`;
+}
+
+/* ==========================================================
+   v1.1.1 — HÀNH TRÌNH 7 NGÀY ĐẦU
+   Mỗi ngày mở một mục tiêu nhỏ, làm theo thứ tự. Ngày 7: bảng tên "Mới vào nghề".
+   Tuần đầu là lúc người chơi dễ bỏ nhất.
+   ========================================================== */
+DB.journey = [
+  { t:'Cho {pet} ăn 2 lần',          type:'feed',    n:2, reward:{coin:50},              rl:'50 xu' },
+  { t:'Làm 3 việc ở quán',           type:'quest',   n:3, reward:{box:'thuong'},         rl:'1 hộp gỗ' },
+  { t:'Chăm {pet} 4 lần',            type:'care',    n:4, reward:{expSeed:2},            rl:'2 hạt kinh nghiệm' },
+  { t:'Hái vườn 1 lần',              type:'harvest', n:1, reward:{coin:60},              rl:'60 xu' },
+  { t:'Thắng 1 trận',                type:'win',     n:1, reward:{tickets:2},            rl:'2 vé tháp' },
+  { t:'Đi 1 chuyến khám phá',        type:'trip',    n:1, reward:{box:'thuong'},         rl:'1 hộp gỗ' },
+  { t:'Làm 6 việc ở quán',           type:'quest',   n:6, reward:{egg:'rare', plate:1},  rl:'Trứng hiếm + bảng tên Mới vào nghề' }
+];
+function journeyState(){ if(!S.journey) S.journey={ d0:(typeof dayNo==='function'?dayNo():1), prog:{}, got:[], done:false }; return S.journey }
+function journeyDay(){ return (typeof dayNo==='function'?dayNo():1) - journeyState().d0 + 1 }
+function journeyActive(){ const J=journeyState(); if(J.done) return -1;
+  for(let i=0;i<DB.journey.length;i++){ if(J.got.includes(i)) continue; return i+1<=journeyDay() ? i : -1 } return -1 }
+function journeyTick(type,n){
+  const i=journeyActive(); if(i<0) return; const g=DB.journey[i]; if(g.type!==type) return;
+  const J=journeyState(); J.prog[i]=Math.min(g.n,(J.prog[i]||0)+(n||1)); save();
+}
+function journeyClaim(i){
+  const J=journeyState(), g=DB.journey[i]; if(!g || J.got.includes(i) || (J.prog[i]||0)<g.n) return;
+  const R=g.reward;
+  if(R.coin) S.coin+=R.coin;
+  if(R.box) encState().boxes.push(R.box);
+  if(R.expSeed) invOf().expSeed=(invOf().expSeed||0)+R.expSeed;
+  if(R.tickets) towerState().tickets+=R.tickets;
+  if(R.egg){ S.eggs=S.eggs||[]; S.eggs.push({ id:uid(), type:R.egg, start:Date.now() }) }
+  J.got.push(i); if(J.got.length>=DB.journey.length) J.done=true;
+  save(); toast(`Hành trình ngày ${i+1}: nhận ${g.rl}.`);
+  if(J.done && typeof plateCheck==='function') plateCheck(true);
+  mount();
+}
+function journeyHTML(){
+  const J=journeyState(); if(J.done) return '';
+  const day=journeyDay(), act=journeyActive(), nm=evcEsc(S.pet.name);
+  return `<div class="jny"><div class="jh"><b>Hành trình 7 ngày đầu</b><span>Ngày ${Math.min(day,7)}/7</span></div>
+    <div class="jdays">${DB.journey.map((g,i)=>`<i class="${J.got.includes(i)?'ok':i===act?'on':i+1<=day?'op':''}">${i+1}</i>`).join('')}</div>
+    ${act>=0 ? (()=>{ const g=DB.journey[act], pr=J.prog[act]||0, ok=pr>=g.n;
+      return `<div class="jg"><div><div class="jt">${g.t.replace('{pet}',nm)}</div><small>${pr}/${g.n} · Thưởng: ${g.rl}</small></div>
+        <button class="btn ${ok?'gold':'ghost'}" style="width:auto;padding:6px 14px;min-height:40px" ${ok?'':'disabled'} onclick="journeyClaim(${act})">Nhận</button></div>` })()
+      : `<div class="note" style="margin:6px 0 0">Mục tiêu tiếp theo mở vào ngày mai.</div>`}</div>`;
+}
+(function(){
+  const et=window.evTick;
+  window.evTick=function(type,n){ try{ journeyTick(type,n) }catch(e){} if(typeof et==='function') return et.apply(this,arguments) };
+})();
+/* người chơi cũ: không bắt đọc lại từ đầu các chương đã quá — sổ tay vẫn đọc được trong Cài đặt */
+DB.migrations.push({ to:3, name:'Hướng dẫn tân thủ: người chơi cũ đánh dấu các chương đã qua',
+  run:()=>{ if(S.onboarded && (typeof dayNo==='function'?dayNo():1)>2){ const st=guideState();
+    DB.guide.forEach(g=>{ let ok=false; try{ ok=g.when() }catch(e){} if(ok && !st.seen.includes(g.id)) st.seen.push(g.id) }) } } });
+DB.saveVer = DB.migrations[DB.migrations.length-1].to;
+
+
+/* ==========================================================
+   v1.1.1 — THƯ CUỐI TUẦN CỦA PET
+   Tối Chủ nhật (hoặc lần mở đầu tiên của tuần sau), pet viết một lá thư ngắn
+   từ DỮ LIỆU THẬT của tuần: ngày làm việc, ngày chăm nhất, hôm chốt sổ muộn,
+   việc tuần đã xong. Không game nuôi pet nào khác có dữ liệu công việc thật.
+   Thư chỉ viết khi tuần đó có ít nhất 2 ngày làm việc.
+   ========================================================== */
+const WD=['Chủ nhật','Thứ Hai','Thứ Ba','Thứ Tư','Thứ Năm','Thứ Sáu','Thứ Bảy'];
+function dlogState(){ S.dlog=S.dlog||{}; return S.dlog }
+function dlogTick(type,n){
+  const L=dlogState(), d=today(); L[d]=L[d]||{}; L[d][type]=(L[d][type]||0)+(n||1);
+  if(type==='quest'){ const t=new Date(); L[d].last=t.getHours()*60+t.getMinutes() }
+  const keys=Object.keys(L).sort(); if(keys.length>28) keys.slice(0,keys.length-28).forEach(k=>delete L[k]);
+}
+(function(){ const et=window.evTick; window.evTick=function(type,n){ try{ dlogTick(type,n) }catch(e){} return et.apply(this,arguments) } })();
+function dstr(dt){ return dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0') }
+function weekDays(anyDate){ const d=new Date(anyDate); d.setHours(12,0,0,0); const back=(d.getDay()+6)%7; d.setDate(d.getDate()-back);
+  return Array.from({length:7},(_,i)=>{ const x=new Date(d); x.setDate(d.getDate()+i); return x }) }
+function letterTarget(){
+  const now=new Date();
+  if(now.getDay()===0 && now.getHours()>=17) return now;                 // tối Chủ nhật: thư của tuần này
+  const p=new Date(now); p.setDate(now.getDate()-7); return p;           // còn lại: thư của tuần trước
+}
+function letterCompose(anyDate){
+  const days=weekDays(anyDate), L=dlogState(), p=S.pet, nm=p.name;
+  const rows=days.map(dt=>({ dt, r:L[dstr(dt)]||{} }));
+  const worked=rows.filter(x=>(x.r.quest||0)>0);
+  if(worked.length<2) return null;
+  const tot=k=>rows.reduce((s,x)=>s+(x.r[k]||0),0);
+  const best=worked.reduce((a,b)=>(b.r.quest>a.r.quest?b:a));
+  const late=worked.filter(x=>(x.r.last||0)>=21*60).sort((a,b)=>b.r.last-a.r.last)[0];
+  const wk=weekKey(days[0]), wdone=((S.qhist||{})[wk]||[]).map(id=>(DB.questsW.find(q=>q.id===id)||{}).name).filter(Boolean);
+  const hm=m=>`${Math.floor(m/60)}:${String(m%60).padStart(2,'0')}`;
+  const lines=[];
+  const n=worked.length;
+  lines.push(n>=6 ? `Tuần này bạn mở cửa ${n}/7 ngày — gần như không nghỉ ngày nào.`
+    : n>=4 ? `Tuần này bạn làm ${n}/7 ngày. Đều tay lắm.`
+    : `Tuần này bạn chỉ ghé ${n} ngày. Chắc bận nhiều việc khác — mình vẫn đợi.`);
+  if(worked.length>=2) lines.push(`${WD[best.dt.getDay()]} là ngày bạn chăm nhất — ${best.r.quest} việc.`);
+  if(late) lines.push(`${WD[late.dt.getDay()]} bạn tick việc cuối lúc ${hm(late.r.last)}. Muộn quá, nhớ nghỉ ngơi nhé.`);
+  lines.push(wdone.length ? `Bạn còn xong cả “${wdone[0]}”${wdone.length>1?` và ${wdone.length-1} việc tuần khác`:''}. Giỏi lắm.`
+    : `Tuần này chưa xong việc tuần nào. Không sao, tuần sau mình cùng cố.`);
+  const care=tot('care'), win=tot('win');
+  if(care) lines.push(`Bạn chăm mình ${care} lần${win?`, và mình thắng ${win} trận`:''}. Mình thấy hết đấy.`);
+  lines.push(p.bond>=75 ? 'Cảm ơn bạn đã ở đây. Tuần sau mình lại cùng mở ca nhé.' : 'Tuần sau mình cùng cố thêm chút nữa nhé.');
+  return { wk, from:dstr(days[0]), to:dstr(days[6]), pet:nm, pid:p.id, lines, at:Date.now() };
+}
+function letterState(){ S.letters=S.letters||{ got:[], skip:[] }; return S.letters }
+let LETTER_AT=0;
+function letterCheck(){
+  if(!S || !S.onboarded || Date.now()-LETTER_AT<8000) return; LETTER_AT=Date.now();
+  if(document.querySelector('#termscr,#lockscr,#intro,.bnr,#sheet,#dlg')) return;
+  const st=letterState(), tgt=letterTarget(), wk=weekKey(weekDays(tgt)[0]);
+  if(st.got.some(x=>x.wk===wk) || st.skip.includes(wk)) return;
+  const L=letterCompose(tgt);
+  if(!L){ st.skip.push(wk); if(st.skip.length>20) st.skip=st.skip.slice(-20); save(); return }
+  st.got.unshift(L); if(st.got.length>12) st.got.length=12; save();
+  openLetter(0, true);
+}
+function openLetter(i, fresh){
+  const L=letterState().got[i]; if(!L) return;
+  const f=s=>s.split('-').reverse().slice(0,2).join('/');
+  openSheet(`<div class="letter">${fresh?'<div class="lnew">Thư mới</div>':''}
+    <div class="lhead">Gửi bạn,</div>
+    ${L.lines.map(x=>`<p>${evcEsc(x)}</p>`).join('')}
+    <div class="lsign">— ${evcEsc(L.pet)}</div>
+    <div class="lwk">Tuần ${f(L.from)} – ${f(L.to)}</div></div>
+    <button class="btn gold" style="margin-top:10px" onclick="closeSheet()">Cất thư</button>`);
+}
+function lettersHTML(){
+  const G=letterState().got; if(!G.length) return `<h3 class="sec">Thư đã nhận</h3><div class="note">Tối Chủ nhật, pet sẽ viết cho bạn một lá thư về tuần làm việc.</div>`;
+  return `<h3 class="sec">Thư đã nhận</h3>${G.map((L,i)=>`<div class="kv"><span>Thư của ${evcEsc(L.pet)}<br><small style="color:var(--ink-3)">Tuần ${L.from.slice(8)}/${L.from.slice(5,7)}</small></span>
+    <button class="btn ghost" style="width:auto;padding:6px 12px;min-height:40px" onclick="openLetter(${i})">Đọc</button></div>`).join('')}`;
+}
+
+/* ==========================================================
+   v1.1.1 — MỐC NGÀY BÊN NHAU: 7 · 30 · 100 · 365
+   ========================================================== */
+DB.miles = [7,30,100,365];
+DB.lifeKinds.moc = DB.lifeKinds.moc || { ic:'🎂', t:'Mốc bên nhau' };
+if(!DB.lifePetKinds.includes('moc')) DB.lifePetKinds.push('moc');
+function mileCheck(){
+  if(!S || !S.onboarded) return; if(document.querySelector('#termscr,#lockscr,#intro,.bnr,#sheet,#dlg')) return;
+  S.miles=S.miles||[]; const d=(typeof dayNo==='function')?dayNo():1;
+  const m=DB.miles.find(x=>d>=x && !S.miles.includes(x)); if(!m) return;
+  S.miles.push(m); lifeAdd('moc', `${m} ngày bên nhau`); save();
+  const st=S.stats||{}, p=S.pet;
+  const say={7:'Một tuần rồi đó. Mình quen giọng bạn rồi.',30:'Một tháng. Mình nhớ từng ngày bạn mở ca.',100:'Trăm ngày. Quán mình đã khác nhiều lắm, bạn có thấy không?',365:'Tròn một năm. Cảm ơn bạn đã không bỏ mình ngày nào.'}[m];
+  openSheet(`<div class="mile"><div class="mnum">${m}</div><div class="mlbl">ngày bên nhau</div>
+    <div class="mpet">${renderPet(p,{scale:1.1,static:1,mood:'happy',tag:'mile'})}</div>
+    <p class="mline">“${say}”<br><small>— ${evcEsc(p.name)}</small></p>
+    <div class="grid2"><div class="mini"><div class="l">Việc đã làm</div><div class="v">${st.questDone||0}</div></div>
+      <div class="mini"><div class="l">Lần chăm sóc</div><div class="v">${st.careActs||0}</div></div></div></div>
+    <button class="btn gold" style="margin-top:10px" onclick="closeSheet();setTimeout(()=>{S._dtab='life';LIFE_PID=S.pet.id;S._lifev='album';go('dex')},250)">Xem Cuốn đời & tạo thẻ chia sẻ</button>
+    <button class="btn ghost" style="margin-top:8px" onclick="closeSheet()">Để sau</button>`);
+}
+/* người chơi cũ đã quá các mốc: ghi nhận lặng lẽ, không bật lễ muộn */
+DB.migrations.push({ to:4, name:'Mốc ngày bên nhau: người chơi cũ ghi nhận các mốc đã qua',
+  run:()=>{ S.miles=S.miles||[]; const d=(typeof dayNo==='function')?dayNo():1; DB.miles.forEach(m=>{ if(d>=m && !S.miles.includes(m)) S.miles.push(m) }) } });
+DB.saveVer = DB.migrations[DB.migrations.length-1].to;
+
+
+/* ==========================================================
+   v1.1.1 — HỘI THOẠI KHÔNG CHEN NGANG
+   Hội thoại cốt truyện từng bật đè lên lá thư cuối tuần — đúng khoảnh khắc
+   cảm xúc nhất lại bị phá. Nay mọi hội thoại chờ bảng đang mở đóng lại.
+   Mở hội thoại TỪ một bảng thì bảng đó phải tự đóng trước (như Sổ tay).
+   ========================================================== */
+(function(){
+  const sd=window.startDialogue; if(typeof sd!=='function') return;
+  window.startDialogue=function(lines,opt){
+    const args=arguments, self=this;
+    if(!document.getElementById('sheet') && !document.getElementById('dlg')) return sd.apply(self,args);
+    let n=0; const t=setInterval(()=>{ if(++n>480){ clearInterval(t); return }            // chờ tối đa 4 phút
+      if(!document.getElementById('sheet') && !document.getElementById('dlg')){ clearInterval(t); setTimeout(()=>sd.apply(self,args),350) } },500);
+  };
+})();
 
 boot();
 if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>{});
