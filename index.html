@@ -14373,11 +14373,58 @@ function evcB64u(bytes){ let s=''; for(let i=0;i<bytes.length;i++) s+=String.fro
 function evcUnB64u(str){ str=str.replace(/-/g,'+').replace(/_/g,'/'); while(str.length%4) str+='=';
   const bin=atob(str), u=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) u[i]=bin.charCodeAt(i); return u }
 function evcCrypto(){ const c=(typeof crypto!=='undefined') && crypto.subtle; return c||null }
+/* giải nén dự phòng bằng JS — Safari dưới iOS 16.4 không có DecompressionStream.
+   DEFLATE (RFC 1951) trong khung zlib (RFC 1950); chặn bom nén bằng trần max.
+   Không kiểm adler32: toàn vẹn dữ liệu đã được chữ ký ECDSA bảo đảm. */
+function evcInflateJS(data, max){
+  if(data.length<2 || (data[0]&15)!==8 || ((data[0]<<8)|data[1])%31 || (data[1]&32)) throw new Error('mã nén hỏng');
+  let pos=2, bb=0, bc=0, out=new Uint8Array(Math.min(max, Math.max(1024, data.length*4))), n=0;
+  const need=k=>{ if(n+k>max) throw new Error('quá lớn'); if(n+k>out.length){ const o=new Uint8Array(Math.min(max, Math.max(out.length*2, n+k))); o.set(out.subarray(0,n)); out=o } };
+  const bits=k=>{ while(bc<k){ if(pos>=data.length) throw new Error('mã nén hỏng'); bb|=data[pos++]<<bc; bc+=8 } const v=bb&((1<<k)-1); bb>>>=k; bc-=k; return v };
+  const build=(len,cnt)=>{ const count=new Uint16Array(16), offs=new Uint16Array(16), sym=new Uint16Array(cnt);
+    for(let i=0;i<cnt;i++) count[len[i]]++; count[0]=0; for(let i=1;i<16;i++) offs[i]=offs[i-1]+count[i-1];
+    for(let i=0;i<cnt;i++) if(len[i]) sym[offs[len[i]]++]=i; return {count,sym} };
+  const decode=h=>{ let code=0, first=0, index=0;
+    for(let l=1;l<16;l++){ code|=bits(1); const c=h.count[l]; if(code-c<first) return h.sym[index+(code-first)]; index+=c; first+=c; first<<=1; code<<=1 }
+    throw new Error('mã nén hỏng') };
+  const LB=[3,4,5,6,7,8,9,10,11,13,15,17,19,23,27,31,35,43,51,59,67,83,99,115,131,163,195,227,258],
+        LE=[0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,0],
+        DB_=[1,2,3,4,5,7,9,13,17,25,33,49,65,97,129,193,257,385,513,769,1025,1537,2049,3073,4097,6145,8193,12289,16385,24577],
+        DE=[0,0,0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13];
+  const codes=(lc,dc)=>{ for(;;){ const s=decode(lc);
+      if(s<256){ need(1); out[n++]=s; continue }
+      if(s===256) return;
+      const i=s-257; if(i>=29) throw new Error('mã nén hỏng');
+      const L=LB[i]+bits(LE[i]), ds=decode(dc); if(ds>=30) throw new Error('mã nén hỏng');
+      const D=DB_[ds]+bits(DE[ds]); if(D>n) throw new Error('mã nén hỏng');
+      need(L); for(let k=0;k<L;k++){ out[n]=out[n-D]; n++ } } };
+  let last;
+  do{ last=bits(1); const type=bits(2);
+    if(type===0){ bb=0; bc=0; if(pos+4>data.length) throw new Error('mã nén hỏng');
+      const len=data[pos]|(data[pos+1]<<8); pos+=4; if(pos+len>data.length) throw new Error('mã nén hỏng');
+      need(len); out.set(data.subarray(pos,pos+len),n); n+=len; pos+=len }
+    else if(type===1){ const l=new Uint8Array(288); for(let i=0;i<288;i++) l[i]=i<144?8:i<256?9:i<280?7:8;
+      const d=new Uint8Array(30).fill(5); codes(build(l,288),build(d,30)) }
+    else if(type===2){ const nl=bits(5)+257, nd=bits(5)+1, nc=bits(4)+4;
+      const ord=[16,17,18,0,8,7,9,6,10,5,11,4,12,3,13,2,14,1,15], cl=new Uint8Array(19);
+      for(let i=0;i<nc;i++) cl[ord[i]]=bits(3);
+      const ch=build(cl,19), lens=new Uint8Array(nl+nd); let i=0;
+      while(i<nl+nd){ const s=decode(ch);
+        if(s<16) lens[i++]=s;
+        else { let r, v=0; if(s===16){ if(!i) throw new Error('mã nén hỏng'); v=lens[i-1]; r=3+bits(2) } else if(s===17) r=3+bits(3); else r=11+bits(7);
+          if(i+r>nl+nd) throw new Error('mã nén hỏng'); while(r--) lens[i++]=v } }
+      codes(build(lens.subarray(0,nl),nl), build(lens.subarray(nl),nd)) }
+    else throw new Error('mã nén hỏng');
+  }while(!last);
+  return out.slice(0,n);
+}
 /* nén: mã có hình vẽ dài 15–20 nghìn ký tự, nén còn khoảng một phần ba */
 function evcCanZip(){ return typeof CompressionStream!=='undefined' && typeof DecompressionStream!=='undefined' }
 async function evcZip(bytes){ const cs=new CompressionStream('deflate'); const w=cs.writable.getWriter();
   w.write(bytes).catch(()=>{}); w.close().catch(()=>{}); return new Uint8Array(await new Response(cs.readable).arrayBuffer()) }
+function evcCanUnzip(){ return true }   // luôn giải nén được: có bản JS dự phòng
 async function evcUnzip(bytes, max){ // chặn bom nén: dừng khi vượt trần
+  if(typeof DecompressionStream==='undefined') return evcInflateJS(bytes, max);
   const ds=new DecompressionStream('deflate'); const w=ds.writable.getWriter();
   w.write(bytes).catch(()=>{}); w.close().catch(()=>{});   // huỷ giữa chừng sẽ làm hai lệnh này báo lỗi — bắt lại
   const rd=ds.readable.getReader(), parts=[]; let n=0;
@@ -14406,7 +14453,7 @@ async function evcVerify(code, keys, T){
   if(m[1]!==T) return {ok:false, err:({E:'Đây là mã sự kiện',G:'Đây là mã quà tặng',K:'Đây là key mở game'})[m[1]]+', không dùng ở đây.'};
   let bytes, sig;
   try{ const raw=evcUnB64u(p[1]); sig=evcUnB64u(p[2]);
-    if(m[2]==='2'){ if(!evcCanZip()) return {ok:false, err:'Trình duyệt này không giải nén được mã — cập nhật Safari hoặc Chrome.'};
+    if(m[2]==='2'){
       bytes=await evcUnzip(raw, 400000) } else bytes=raw;
   }catch(e){ return {ok:false, err:'Mã bị hỏng — có thể dán thiếu.'} }
   for(const k of keys){
@@ -14437,7 +14484,7 @@ async function evcArtUnpack(code){
   const m=/^PDA([12])\.([A-Za-z0-9_-]+)$/.exec(code);
   if(!m) throw new Error('Đây không phải mã hình (mã hình bắt đầu bằng PDA).');
   let b=evcUnB64u(m[2]);
-  if(m[1]==='2'){ if(!evcCanZip()) throw new Error('Trình duyệt này không giải nén được.'); b=await evcUnzip(b, 400000) }
+  if(m[1]==='2'){ b=await evcUnzip(b, 400000) }
   const o=JSON.parse(new TextDecoder().decode(b));
   return Array.isArray(o) ? o : [o];
 }
@@ -15455,6 +15502,8 @@ DB.skills.push(
   SK('w_dautay','Gai dâu rừng',1.05,15,{species:'dautay',fx:{bleed:4,turns:3,lifesteal:0.15},stage:0,desc:'Gây chảy máu 4% HP mỗi lượt, hút 15% sát thương.'})
 );
 DB.skills.slice(-6).forEach(s=>{ DB.skillById[s.id]=s });
+// v1.1.1: biểu tượng — thiếu cái này thì cây kỹ năng hiện chữ "undefined"
+Object.entries({w_robu:'🌱',w_suong:'🌫️',w_shan:'🍵',w_dua:'🥥',w_mia:'🎋',w_dautay:'🍓'}).forEach(([id,ic])=>{ if(DB.skillById[id]) DB.skillById[id].ic=ic });
 [['w_robu','nourish'],['w_suong','peeldodge'],['w_shan','zen'],['w_dua','crema'],['w_mia','doubleshot'],['w_dautay','leafcut']]
   .forEach(([id,base])=>{ if(DB.skillFx && DB.skillFx[base]) DB.skillFx[id]=DB.skillFx[base];
     if(typeof FXG!=='undefined' && FXG[base] && !FXG[id]) FXG[id]=FXG[base] });
@@ -15545,14 +15594,14 @@ async function channelPull(force){
       if(kind==='E'){
         const r=await evImport(code);
         if(r.ok) out.events.push({ name:r.e.d.name, upd:!!r.upd, e:r.e });
-        else if(!/đã có/.test(r.msg||'')) out.bad++;
+        else if(!/đã có/.test(r.msg||'')){ out.bad++; out.why=r.msg||'' }
       } else if(kind==='G'){
         const r=await giftRedeem(code);
         if(r.ok) out.gifts.push(r);
         else if(!/rồi|hết hạn|người chơi khác/.test(r.msg||'')) out.bad++;
       } else out.bad++;
     }
-    st.at=Date.now(); st.ok=true; st.n=lines.length; save();
+    st.at=Date.now(); st.ok=true; st.n=lines.length; st.bad=out.bad; st.why=out.why||''; save();
   }catch(e){ st.at=Date.now(); st.ok=false; save(); out.error=String(e&&e.message||e) }
   finally{ CH_BUSY=false }
   // báo người chơi: sự kiện MỚI và quà — cập nhật bản sửa thì im lặng
@@ -15572,6 +15621,7 @@ function channelHTML(){
   return `<h3 class="sec">Kênh sự kiện</h3>
     <div class="kv"><span>${st.at ? (st.ok ? `Đã kiểm lúc ${new Date(st.at).toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'})}` : 'Lần kiểm gần nhất không kết nối được') : 'Chưa kiểm'}</span>
       <button class="btn ghost" style="width:auto;padding:6px 12px;min-height:40px" onclick="channelPull(true).then(r=>{toast(r.error?'Không kết nối được kênh sự kiện.':(r.events&&r.events.length||r.gifts&&r.gifts.length)?'Đã nhận nội dung mới.':'Chưa có gì mới.');mount()})">Kiểm tra ngay</button></div>
+    ${st.bad?`<div class="note" style="color:var(--warn)">${st.bad} dòng không đọc được${st.why?': '+evcEsc(st.why):''}. Báo cho người phát hành.</div>`:''}
     <div class="note">Game tự kiểm khi mở, lúc có mạng. Sự kiện và quà chung tự đến — không cần dán mã.</div>`;
 }
 document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) setTimeout(()=>channelPull(false), 1500) });
