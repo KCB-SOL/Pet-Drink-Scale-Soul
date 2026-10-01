@@ -1871,7 +1871,7 @@ body.nofx .actor .in{animation:none}
   <div class="hibbar hide" id="hibbar">Đang ngủ đông — hao hụt tạm dừng</div>
   <header class="hdr">
     <div class="brandmark" id="brandmark"></div>
-    <div><h1>Pet Drink</h1><div class="sub" id="hdrsub">Scale &amp; Soul · v1.1.1</div></div>
+    <div><h1>Pet Drink</h1><div class="sub" id="hdrsub">Scale &amp; Soul · v1.1.2</div></div>
     <div class="purse">
       <div class="chip agechip" title="Dành cho người chơi từ 12 tuổi trở lên">12+</div>
       <div class="chip" id="chipCoin">0 xu</div>
@@ -1917,6 +1917,41 @@ body.nofx .actor .in{animation:none}
 </div>
 
 <nav class="nav" id="nav"></nav>
+<script>
+/* v1.1.2 — LỚP CANH LỖI KHỞI ĐỘNG. Khối riêng, chạy trước game: game hỏng ngay
+   từ đầu thì khối này vẫn chạy. Chỉ hiện khi game CHƯA khởi động xong. */
+(function(){
+  var errs=[], shown=false;
+  function info(){ return 'Pet Drink · '+new Date().toISOString()+'\n'+navigator.userAgent+'\n\n'+(errs.join('\n')||'(không bắt được nội dung lỗi — game dừng giữa chừng)') }
+  function show(){
+    if(shown || window.__booted) return; shown=true;
+    var d=document.createElement('div'); d.id='booterr';
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:#0f2a24;color:#f3ead4;padding:22px;overflow:auto;font:15px/1.5 system-ui,sans-serif';
+    d.innerHTML='<h2 style="margin:8px 0 6px;font-size:22px">Game chưa mở được</h2>'+
+      '<p style="opacity:.85;margin:0 0 12px">Tiến độ của bạn vẫn còn nguyên trên máy. Thử lần lượt các cách dưới đây, và chụp màn hình này gửi người phát hành.</p>'+
+      '<pre id="bootinfo" style="white-space:pre-wrap;background:rgba(0,0,0,.3);border-radius:10px;padding:10px;font-size:12px;max-height:38vh;overflow:auto"></pre>'+
+      '<button id="be1" style="display:block;width:100%;margin:10px 0 0;min-height:48px;border:0;border-radius:12px;background:#c8973f;color:#2a1a08;font:600 16px system-ui">Tải lại</button>'+
+      '<button id="be2" style="display:block;width:100%;margin:8px 0 0;min-height:48px;border:1px solid #c8973f;border-radius:12px;background:none;color:#f3ead4;font:600 15px system-ui">Khôi phục bản sao lưu gần nhất</button>'+
+      '<button id="be3" style="display:block;width:100%;margin:8px 0 0;min-height:48px;border:1px solid rgba(255,255,255,.3);border-radius:12px;background:none;color:#f3ead4;font:15px system-ui">Chép thông tin lỗi</button>';
+    (document.body||document.documentElement).appendChild(d);
+    document.getElementById('bootinfo').textContent=info();
+    document.getElementById('be1').onclick=function(){ location.reload() };
+    document.getElementById('be2').onclick=function(){
+      try{ var L=JSON.parse(localStorage.getItem('petpocket.v1.bak')||'[]');
+        if(!L.length){ alert('Chưa có bản sao lưu nào trên máy này.'); return }
+        if(!confirm('Khôi phục tiến độ lúc '+new Date(L[0].at).toLocaleString('vi-VN')+'?')) return;
+        var cur=localStorage.getItem('petpocket.v1'); if(cur) localStorage.setItem('petpocket.v1.hong', JSON.stringify({at:Date.now(), data:cur}));
+        localStorage.setItem('petpocket.v1', L[0].data); location.reload();
+      }catch(e){ alert('Không khôi phục được: '+e.message) } };
+    document.getElementById('be3').onclick=function(){ var t=info();
+      if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(function(){ alert('Đã chép.') },function(){ alert(t) });
+      else alert(t) };
+  }
+  window.addEventListener('error', function(e){ errs.push((e.message||'Lỗi')+(e.filename?' · dòng '+e.lineno+':'+e.colno:'')); if(!window.__booted) setTimeout(show,300) });
+  window.addEventListener('unhandledrejection', function(e){ errs.push('Promise: '+((e.reason&&e.reason.message)||e.reason)) });
+  setTimeout(function(){ if(!window.__booted) show() }, 12000);   // không có lỗi mà cũng không xong: vẫn báo
+})();
+</script>
 <script>
 /* ==========================================================
    PET POCKET — DATA LAYER v1.0
@@ -4960,6 +4995,7 @@ function checkStage(p){
   return null;
 }
 function formName(p){
+  if(p.form && DB.evo[p.species] && DB.evo[p.species][p.form]) return DB.evo[p.species][p.form][0];   // tên riêng của loài trước
   if(p.form && DB.evoNames && DB.evoNames[p.form]) return DB.evoNames[p.form][0];
   if(!p.form) return DB.species[p.species].name;
   return DB.evo[p.species][p.form][0];
@@ -12022,6 +12058,7 @@ function boot(){
       : 'Không đọc được tiến độ cũ. Bản hỏng vẫn được cất giữ, chưa bị xoá.'), 2200) }
   if(typeof whatsNewCheck==='function') whatsNewCheck();
   if(typeof replayPending==='function') replayPending();
+  window.__booted=true;
   if(typeof channelPull==='function'){ setTimeout(()=>channelPull(false), 3000);
     setInterval(()=>{ if(!document.hidden) channelPull(false) }, 60000) }   // người mới xong màn mở đầu cũng được kiểm trong vòng một phút
   mmLoad().then(()=>{ if(mmOn() && SND.playing){ musicStop(); musicStart() } });
@@ -15160,7 +15197,7 @@ function evPetLine(p, k){
 /* ==========================================================
    BẢN PHÁT HÀNH 1.0 — số phiên bản game
    ========================================================== */
-const APP_VER='1.1.1';
+const APP_VER='1.1.2';
 
 /* ==========================================================
    QUA NGÀY, QUA TUẦN KHI GAME ĐANG MỞ
@@ -15318,6 +15355,14 @@ window.save=function(){
    CÓ GÌ MỚI — hiện một lần cho người chơi cũ khi lên bản mới
    ========================================================== */
 DB.patchNotes = [
+  { ver:'1.1.2', date:'1/10/2026', title:'Sự kiện Halloween đã đến',
+    lead:'Bản sửa nhanh để mọi người nhận được sự kiện.',
+    items:[
+      ['🎃','Halloween tự đến','Sửa lỗi kênh sự kiện không đọc được file. Mở game có mạng là nhận.'],
+      ['📱','Máy iOS cũ','iPhone, iPad chạy iOS dưới 16.4 nay nhận được sự kiện và mã quà.'],
+      ['🧬','Tên mới cho 3 nhánh','Lữ Hành, Đồng Hành, Linh Hồn có tên riêng cho từng loài — như Ichigo Ichie, Single Origin.'],
+      ['🛟','Báo lỗi khởi động','Nếu game không mở được, màn hình sẽ cho biết lý do và cách khôi phục, thay vì để trống.']
+    ] },
   { ver:'1.1.1', date:'10/2026', title:'Pet lớn lên, quán có chuyện để kể',
     lead:'Bản cập nhật lớn nhất từ khi ra mắt — cảm ơn những góp ý của bạn.',
     items:[
@@ -15572,7 +15617,7 @@ DB.saveVer = DB.migrations[DB.migrations.length-1].to;
    chữ là game bỏ dòng đó. Key mở game KHÔNG đi qua kênh (nằm công khai là ai
    cũng lấy được, mất tác dụng khoá) — dòng key bị bỏ qua.
    ========================================================== */
-DB.channel = { url:'./su-kien/kenh.txt', every:10*60e3 };
+DB.channel = { urls:['./kenh.txt','./su-kien/kenh.txt'], every:10*60e3 };   // v1.1.2: GitHub trên iPad không tải được thư mục — đọc cả thư mục gốc
 function chanState(){ S.chan=S.chan||{ at:0, ok:null, n:0 }; return S.chan }
 let CH_BUSY=false;
 async function channelPull(force){
@@ -15581,13 +15626,18 @@ async function channelPull(force){
   if(!/^https?:$/.test(location.protocol)) return { skipped:'không chạy qua web' };
   if(!S.onboarded || document.getElementById('lockscr') || document.getElementById('termscr')) return { skipped:'chưa vào game' };
   if(!force && Date.now()-st.at < DB.channel.every) return { skipped:'vừa đọc' };
-  if(typeof navigator!=='undefined' && navigator.onLine===false) return { skipped:'mất mạng' };
+  if(typeof navigator!=='undefined' && navigator.onLine===false){ st.at=Date.now(); st.ok=false; st.why='mạng'; save(); return { skipped:'mất mạng', error:'mất mạng' } }   // bấm tay phải báo đúng, không báo "chưa có gì mới"
   CH_BUSY=true;
   const out={ events:[], gifts:[], bad:0, keys:0 };
   try{
-    const res=await fetch(DB.channel.url+'?t='+Date.now(), { cache:'no-store' });
-    if(!res.ok){ st.at=Date.now(); st.ok=false; save(); return { error:'HTTP '+res.status } }
-    const lines=(await res.text()).split(/\r?\n/).map(s=>s.trim()).filter(s=>s && !s.startsWith('#'));
+    // đọc mọi chỗ đặt file; mất mạng và không tìm thấy file là hai lỗi khác nhau
+    let texts=[], net=0, miss=0;
+    for(const u of DB.channel.urls){
+      try{ const res=await fetch(u+'?t='+Date.now(), { cache:'no-store' }); if(res.ok) texts.push(await res.text()); else miss++ }
+      catch(e){ net++ } }
+    if(!texts.length){ st.at=Date.now(); st.ok=false; st.why = net ? 'mạng' : 'không tìm thấy file kenh.txt trên máy chủ'; save();
+      return { error: net ? 'mất mạng' : 'không tìm thấy kenh.txt' } }
+    const lines=[...new Set(texts.join('\n').split(/\r?\n/).map(s=>s.trim()).filter(s=>s && !s.startsWith('#')))];
     for(const code of lines.slice(0,40)){
       const kind=(code.match(/^PD([EGK])/)||[])[1];
       if(kind==='K'){ out.keys++; continue }
@@ -15619,8 +15669,8 @@ function channelHTML(){
   if(!/^https?:$/.test(location.protocol)) return '';
   const st=chanState();
   return `<h3 class="sec">Kênh sự kiện</h3>
-    <div class="kv"><span>${st.at ? (st.ok ? `Đã kiểm lúc ${new Date(st.at).toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'})}` : 'Lần kiểm gần nhất không kết nối được') : 'Chưa kiểm'}</span>
-      <button class="btn ghost" style="width:auto;padding:6px 12px;min-height:40px" onclick="channelPull(true).then(r=>{toast(r.error?'Không kết nối được kênh sự kiện.':(r.events&&r.events.length||r.gifts&&r.gifts.length)?'Đã nhận nội dung mới.':'Chưa có gì mới.');mount()})">Kiểm tra ngay</button></div>
+    <div class="kv"><span>${st.at ? (st.ok ? `Đã kiểm lúc ${new Date(st.at).toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'})}` : (st.why==='mạng' ? 'Lần kiểm gần nhất không có mạng' : `Lần kiểm gần nhất: ${evcEsc(st.why||'không đọc được')}`)) : 'Chưa kiểm'}</span>
+      <button class="btn ghost" style="width:auto;padding:6px 12px;min-height:40px" onclick="channelPull(true).then(r=>{toast(r.error?('Kênh sự kiện: '+r.error+'.'):(r.events&&r.events.length||r.gifts&&r.gifts.length)?'Đã nhận nội dung mới.':'Chưa có gì mới.');mount()})">Kiểm tra ngay</button></div>
     ${st.bad?`<div class="note" style="color:var(--warn)">${st.bad} dòng không đọc được${st.why?': '+evcEsc(st.why):''}. Báo cho người phát hành.</div>`:''}
     <div class="note">Game tự kiểm khi mở, lúc có mạng. Sự kiện và quà chung tự đến — không cần dán mã.</div>`;
 }
@@ -16345,6 +16395,14 @@ DB.saveVer = DB.migrations[DB.migrations.length-1].to;
       if(!document.getElementById('sheet') && !document.getElementById('dlg')){ clearInterval(t); setTimeout(()=>sd.apply(self,args),350) } },500);
   };
 })();
+
+
+/* ==========================================================
+   v1.1.2 — TÊN RIÊNG CHO 3 NHÁNH LỮ HÀNH, ĐỒNG HÀNH, LINH HỒN
+   Ba nhánh thêm từ bản 1.2 chưa từng có tên theo loài — game hiện tên chung
+   "Dạng Lữ Hành…" cho cả sáu loài. 18 tên do người dùng duyệt.
+   ========================================================== */
+Object.entries({"beano": {"explorer": ["Single Origin", "Đi khắp vùng trồng, mang về hương đất"], "worker": ["Double Shot", "Đứng quầy cùng bạn mỗi ca"], "soul": ["Crema Heart", "Giữ trọn hương — như bạn giữ mình"]}, "milku": {"explorer": ["Highland Milk", "Quen gió núi, quen đồng cỏ cao"], "worker": ["Micro Foam", "Lớp bọt mịn của người làm nghề"], "soul": ["Warm Milk", "Ấm như ly sữa cuối ngày"]}, "matcha": {"explorer": ["Tea Trail", "Theo những đồi trà xa"], "worker": ["Chasen Hand", "Tay đánh trà không ngơi"], "soul": ["Ichigo Ichie", "Một đời, một lần gặp"]}, "cacao": {"explorer": ["Bean Hunter", "Săn hạt ở những vùng xa"], "worker": ["Chocolatier", "Thợ làm sô-cô-la của quán"], "soul": ["Warm Cocoa", "Ly ca cao nóng cho ngày mưa"]}, "citrus": {"explorer": ["Wild Lime", "Chanh rừng — lang thang và tươi"], "worker": ["Fresh Squeeze", "Vắt tươi từng ly cùng bạn"], "soul": ["Honey Citron", "Dịu và ấm như trà chanh mật ong"]}, "glacio": {"explorer": ["Glacier Walker", "Đi qua những dòng sông băng"], "worker": ["Shake Master", "Lắc ly đều tay nhất quán"], "soul": ["Snow Globe", "Giữ một mùa đông nhỏ trong lòng"]}}).forEach(([sp,forms])=>{ Object.assign(DB.evo[sp], forms) });
 
 boot();
 if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>{});
