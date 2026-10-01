@@ -3311,7 +3311,7 @@ DB.region = {
    Nằm ngoài speciesList nên trứng không bao giờ nở ra. Chỉ gặp
    ngoài vùng nguyên liệu, và chỉ khi vùng đó đã đủ thân. */
 const WILD = (id,name,vi,hue,base,quirk,likes,hates,evoName,evoNote)=>
-  ({id,name,vi,hue:[hue-8,hue+8],base,quirk,likes,hates,wild:true,evoName,evoNote});
+  ({id,name,vi,hue:[hue-8,hue+8],base,decay:{},quirk,likes,hates,wild:true,evoName,evoNote});   // decay:{} = tụt như bình thường
 Object.assign(DB.species, {
   robu:   WILD('robu','Rôbu','Hạt robusta già',18,   {hp:126,atk:48,def:42,spd:24,int:20,luck:20},
     'Lớn lên trên đất bazan, chịu nắng tốt. Hao hụt Năng lượng chậm hơn 20%.','train','sleep',
@@ -4883,7 +4883,8 @@ function refreshSkills(p){
 /* ---------- 7. OFFLINE CARE SIMULATION ---------- */
 function decayMult(p,key){
   const sp=DB.species[p.species], P=DB.persById[p.pers], st=stageOf(p);
-  let m = (sp.decay[key]||1) * (st.decay||1);
+  // v1.1.2: loài hoang (và loài sự kiện) không có bảng tốc độ tụt — từng làm sập game lúc khởi động khi pet hoang là pet chính
+  let m = ((sp && sp.decay && sp.decay[key]) || 1) * (st.decay||1);
   if(P.dmod&&P.dmod[key]) m*=P.dmod[key];
   p.traits.forEach(t=>{const T=DB.traitById[t]; if(T&&T.dmod&&T.dmod[key]) m*=T.dmod[key]});
   m *= 1 + Math.min(0.2, p.gen*0.01);   // đời càng cao càng khó nuôi (chống lạm phát)
