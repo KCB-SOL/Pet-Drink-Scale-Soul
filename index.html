@@ -1796,6 +1796,114 @@ body.stagefull .hero,body.stagefull #acts{opacity:.25;pointer-events:none;transi
 .jdays i.ok{background:var(--teal-2);color:#fff}
 .jg{display:flex;justify-content:space-between;align-items:center;gap:10px}
 .jg .jt{font-size:14px;font-weight:600}.jg small{color:var(--ink-3);font-size:11.5px}
+
+.pgear{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pgear button{text-align:left;border:1px solid var(--line);background:none;border-radius:12px;padding:8px 10px;font:inherit;color:var(--ink);min-height:56px;cursor:pointer}
+.pgear small{display:block;font-size:10.5px;color:var(--ink-3);letter-spacing:.04em}
+.pgear b{display:block;font-size:13.5px;font-weight:600}
+.pgear i{display:block;font-style:normal;font-size:11px;color:var(--teal)}
+
+/* ---- khoảnh khắc tuyệt chiêu ---- */
+.ultfx{position:absolute;inset:0;z-index:8;pointer-events:none;overflow:hidden;border-radius:inherit}
+.u-dim{position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,transparent 0,rgba(0,0,0,.72) 60%);animation:udim 1.9s ease both}
+@keyframes udim{0%{opacity:0}12%{opacity:1}85%{opacity:1}100%{opacity:0}}
+.u-band{position:absolute;left:-10%;right:-10%;top:17%;transform:translateY(-50%) skewY(-4deg);background:linear-gradient(90deg,transparent,var(--uc) 18%,var(--uc) 82%,transparent);
+  padding:8px 0;text-align:center;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.6);animation:uband 1.9s cubic-bezier(.2,.9,.3,1) both}
+.u-band span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.3em;opacity:.9}
+.u-band b{display:block;font-family:var(--disp);font-size:26px;font-weight:800;line-height:1.1}
+@keyframes uband{0%{transform:translate(-120%,-50%) skewY(-4deg)}18%{transform:translate(0,-50%) skewY(-4deg)}80%{transform:translate(0,-50%) skewY(-4deg);opacity:1}100%{transform:translate(120%,-50%) skewY(-4deg);opacity:0}}
+.u-pose{position:relative;z-index:9;animation:upose 1.9s ease both}
+@keyframes upose{0%{transform:scale(1)}15%{transform:scale(1.28);filter:drop-shadow(0 0 14px var(--uc)) brightness(1.15)}80%{transform:scale(1.22);filter:drop-shadow(0 0 18px var(--uc))}100%{transform:scale(1);filter:none}}
+.u-shake{animation:ushake .5s .9s ease both}
+@keyframes ushake{0%,100%{transform:translateX(0)}20%{transform:translateX(-9px)}40%{transform:translateX(8px)}60%{transform:translateX(-6px)}80%{transform:translateX(4px)}}
+.ultfx i{position:absolute;font-style:normal;color:var(--uc)}
+.u-heart{font-size:20px;animation:uheart 1.4s ease-out both}
+@keyframes uheart{0%{opacity:0;transform:translateY(0) scale(.4)}25%{opacity:1}100%{opacity:0;transform:translateY(-110px) scale(1.2)}}
+.u-slash{width:190px;height:6px;margin:-3px 0 0 -95px;background:linear-gradient(90deg,transparent,#fff,var(--uc),transparent);border-radius:9px;transform:rotate(35deg) scaleX(0);animation:uslash .55s .75s ease-out both;box-shadow:0 0 14px var(--uc)}
+.u-slash.b{transform:rotate(-35deg) scaleX(0);animation-delay:.95s}
+@keyframes uslash{0%{transform:rotate(var(--r,35deg)) scaleX(0);opacity:1}60%{transform:rotate(var(--r,35deg)) scaleX(1);opacity:1}100%{transform:rotate(var(--r,35deg)) scaleX(1.05);opacity:0}}
+.u-slash.b{--r:-35deg}
+.u-ring{width:20px;height:20px;margin:-10px 0 0 -10px;border:3px solid var(--uc);border-radius:50%;animation:uring 1.2s .5s ease-out both;box-shadow:0 0 12px var(--uc)}
+@keyframes uring{0%{opacity:0;transform:scale(.3) rotate(0)}20%{opacity:1}100%{opacity:0;transform:scale(7) rotate(240deg)}}
+.u-wind{left:-30%;width:45%;height:3px;border-radius:9px;background:linear-gradient(90deg,transparent,var(--uc),#fff);animation:uwind .8s ease-in both}
+@keyframes uwind{0%{transform:translateX(0);opacity:0}20%{opacity:1}100%{transform:translateX(320%);opacity:0}}
+.u-compass{font-size:46px;margin:-23px 0 0 -23px;animation:ucomp 1.5s ease both;text-shadow:0 0 14px var(--uc)}
+@keyframes ucomp{0%{opacity:0;transform:scale(.3) rotate(0)}30%{opacity:1;transform:scale(1.2) rotate(180deg)}100%{opacity:0;transform:scale(.8) rotate(360deg)}}
+.u-bean{width:12px;height:17px;margin:-8px 0 0 -6px;border-radius:50%;background:#5a3519;box-shadow:inset 3px 0 0 -1px #2a1a0e;animation:ubean .9s ease-in both}
+@keyframes ubean{0%{opacity:0;transform:translate(0,0) rotate(0)}15%{opacity:1}100%{opacity:1;transform:translate(var(--dx),var(--dy)) rotate(540deg)}}
+.u-pillar{top:0;bottom:0;width:26px;margin-left:-13px;background:linear-gradient(transparent,var(--uc),transparent);opacity:0;animation:upill 1.3s ease both;filter:blur(1px)}
+@keyframes upill{0%{opacity:0;transform:scaleY(.2)}35%{opacity:.85;transform:scaleY(1)}100%{opacity:0;transform:scaleY(1.1)}}
+.u-star{font-size:16px;animation:ustar 1.1s ease both;text-shadow:0 0 10px var(--uc)}
+@keyframes ustar{0%{opacity:0;transform:scale(0) rotate(0)}40%{opacity:1;transform:scale(1.4) rotate(90deg)}100%{opacity:0;transform:scale(.5) rotate(180deg)}}
+.ultstage{position:relative;height:180px;border-radius:14px;background:linear-gradient(#1f4a40,#12302a);display:flex;justify-content:space-between;align-items:center;padding:0 18px;overflow:hidden}
+.ultstage .us-me{width:120px;height:120px}.ultstage .us-foe{width:96px;height:96px;opacity:.85}
+.ultstage svg{width:100%;height:100%}
+@media(prefers-reduced-motion:reduce){.u-band,.u-pose,.u-shake,.ultfx i,.u-dim{animation-duration:.01s !important}}
+
+.slot.slotempty{opacity:.55;border-style:dashed}
+.eggstore{display:flex;flex-direction:column;gap:8px}
+.est{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:8px 10px}
+.est .ea{width:52px;height:60px;flex:0 0 52px}.est .ea svg{width:100%;height:100%}
+.est .en{font-weight:600;font-size:14px}.est .eh{font-size:11.5px;color:var(--ink-3)}
+.ebtns{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+
+/* ---- minh hoạ đồ uống ---- */
+.rc.rcpic{position:relative;padding-left:72px;min-height:96px}
+.rc.rcpic .dkthumb{position:absolute;left:8px;top:10px;width:56px;height:68px}
+.dkthumb svg,.dkmini svg,.rcart svg{width:100%;height:100%;display:block}
+.tag.tagdk{display:inline-flex;align-items:center;gap:4px;cursor:pointer}
+.dkmini{display:inline-block;width:18px;height:22px}
+.rcard{display:flex;gap:12px;align-items:center}
+.rcart{width:110px;height:132px;flex:0 0 110px}
+.rdl{border:1px dashed var(--line);border-radius:12px;padding:8px 12px;font-size:14px;line-height:1.8}
+.rdl div{border-bottom:1px dotted var(--line)}.rdl div:last-child{border-bottom:0}
+#sheet .mt2{display:flex;flex-wrap:wrap;gap:6px}
+#sheet .mt2 .mm{border:1px solid var(--line);border-radius:99px;padding:2px 10px;font-size:13px}
+#sheet .mt2 .mm.no{color:var(--warn);border-color:rgba(194,90,60,.4)}
+
+/* ---- quán chuyển động ---- */
+.shopscene{overflow:hidden}
+.sspot.has .sp2{transform-origin:50% 90%}
+.sspot.has[data-role="barista"] .sp2{animation:sbar 1.6s ease-in-out infinite}
+@keyframes sbar{0%,100%{transform:rotate(0)}25%{transform:rotate(-6deg) translateY(-2px)}75%{transform:rotate(6deg) translateY(-2px)}}
+.sspot.has[data-role="cashier"] .sp2{animation:scash 2.4s ease-in-out infinite}
+@keyframes scash{0%,60%,100%{transform:translateY(0)}70%{transform:translateY(-4px)}80%{transform:translateY(0)}90%{transform:translateY(-3px)}}
+.sspot.has[data-role="server"]{animation:sserv 9s ease-in-out infinite}
+@keyframes sserv{0%,100%{transform:translateX(0)}40%{transform:translateX(-60px)}50%{transform:translateX(-60px)}90%{transform:translateX(0)}}
+.sspot.has[data-role="server"] .sp2{animation:sservf 9s steps(1) infinite}            /* chỉ lật hình pet, không lật tên */
+@keyframes sservf{0%,45%{transform:scaleX(1)}46%,95%{transform:scaleX(-1)}96%,100%{transform:scaleX(1)}}
+.sspot.has[data-role="server"]::after{content:'🍹';position:absolute;top:-6px;right:-4px;font-size:15px}
+.sspot.has[data-role="shipper"]{animation:sship 14s ease-in-out infinite}
+@keyframes sship{0%,55%,100%{transform:translateX(0);opacity:1}65%{transform:translateX(70px);opacity:0}80%{transform:translateX(70px);opacity:0}92%{transform:translateX(0);opacity:1}}
+.sspot.has[data-role="manager"]{animation:smgr 11s ease-in-out infinite}
+@keyframes smgr{0%,100%{transform:translateX(0)}50%{transform:translateX(-28px)}}
+.sspot.has[data-role="manager"]::after{content:'📋';position:absolute;top:-4px;right:-6px;font-size:13px}
+.sspot.has[data-role="qc"] .sp2{animation:sqc 3.2s ease-in-out infinite}
+@keyframes sqc{0%,100%{transform:rotate(0)}40%{transform:rotate(8deg) translateX(3px)}60%{transform:rotate(8deg) translateX(3px)}}
+.sguest{position:absolute;bottom:6%;right:-60px;width:52px;z-index:4;animation:sgin 7.6s ease-in-out both}
+.sguest .gpet{width:52px;height:52px}.sguest .gpet svg{width:100%;height:100%}
+.sguest .gbub{position:absolute;left:10px;top:-18px;width:34px;height:40px;background:#fff;border-radius:12px;padding:2px;box-shadow:0 2px 6px rgba(0,0,0,.2);animation:sgbub 7.6s ease both}
+.sguest .gbub svg{width:100%;height:100%}
+.sguest.paid .gbub{opacity:0;transition:opacity .4s}
+@keyframes sgin{0%{right:-60px}30%{right:52%}62%{right:52%}100%{right:110%}}
+@keyframes sgbub{0%,25%{opacity:0;transform:scale(.6)}32%{opacity:1;transform:scale(1)}}
+.scoin{position:absolute;left:46%;bottom:44%;z-index:5;font-weight:800;color:#f2c94c;text-shadow:0 1px 3px rgba(0,0,0,.5);animation:scoin 1.4s ease-out both}
+@keyframes scoin{0%{opacity:0;transform:translateY(0)}20%{opacity:1}100%{opacity:0;transform:translateY(-34px)}}
+.shours{position:absolute;left:8px;top:8px;z-index:5;font-family:var(--mono);font-size:10px;letter-spacing:.08em;background:rgba(0,0,0,.35);color:#f3ead4;border-radius:99px;padding:3px 9px}
+.shopscene.closed{filter:brightness(.62) saturate(.7)}
+@media(prefers-reduced-motion:reduce){.sspot.has,.sspot.has .sp2{animation:none !important}}
+
+/* ---- câu hỏi đào tạo ---- */
+.quizcard{border:1.5px solid var(--teal-2);border-radius:14px;padding:10px 12px;margin:12px 0;background:rgba(47,155,134,.06)}
+.quizcard .qh{display:flex;justify-content:space-between;align-items:baseline}.quizcard .qh span{font-family:var(--mono);font-size:11px;color:var(--teal-2)}
+.qsks{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.qsk{font-size:11.5px;border:1px solid var(--line);border-radius:99px;padding:2px 8px}
+.qtop{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--teal-2);text-transform:uppercase}
+.qopts{display:flex;flex-direction:column;gap:8px}
+.qopts button{text-align:left;border:1.5px solid var(--line);background:none;border-radius:12px;padding:10px 12px;font:inherit;font-size:14.5px;color:var(--ink);min-height:48px;cursor:pointer}
+.qopts button.right{border-color:var(--teal-2);background:rgba(47,155,134,.12);font-weight:600}
+.qopts button.wrong{border-color:var(--warn);background:rgba(194,90,60,.1)}
+.qexp{margin-top:12px;border-radius:12px;padding:10px 12px}.qexp.ok{background:rgba(47,155,134,.1)}.qexp.no{background:rgba(194,90,60,.08)}
+.qexp p{margin:4px 0;font-size:14px;line-height:1.5}.qexp small{color:var(--teal-2)}
 /* ---- bảng tên ---- */
 .np{display:inline-block;position:relative;padding:1px 14px 3px;border-radius:12px;border:2px solid;line-height:1.15}
 .np.npc{padding:0 8px 1px;border-width:1.5px;border-radius:8px;font-size:.92em}
@@ -1871,7 +1979,7 @@ body.nofx .actor .in{animation:none}
   <div class="hibbar hide" id="hibbar">Đang ngủ đông — hao hụt tạm dừng</div>
   <header class="hdr">
     <div class="brandmark" id="brandmark"></div>
-    <div><h1>Pet Drink</h1><div class="sub" id="hdrsub">Scale &amp; Soul · v1.1.2</div></div>
+    <div><h1>Pet Drink</h1><div class="sub" id="hdrsub">Scale &amp; Soul · v1.1.3</div></div>
     <div class="purse">
       <div class="chip agechip" title="Dành cho người chơi từ 12 tuổi trở lên">12+</div>
       <div class="chip" id="chipCoin">0 xu</div>
@@ -4971,7 +5079,8 @@ function expNeed(lv){ return 40+lv*22 }
 function addExp(p,n){
   let mult=1; p.ailments.forEach(a=>{const D=DB.diseaseById[a.id];if(D&&D.expMult)mult*=D.expMult});
   p.exp+=Math.round(n*mult);
-  while(p.level<30 && p.exp>=expNeed(p.level)){ p.exp-=expNeed(p.level); p.level++ }
+  while(p.level<((typeof lvCap==='function')?lvCap(p):30) && p.exp>=expNeed(p.level)){   // v1.1.3: trần cấp theo giai đoạn
+ p.exp-=expNeed(p.level); p.level++ }
 }
 function checkStage(p){
   if(p.species==='automa' || p.evpet) return null;   // máy không lớn lên, không tiến hoá
@@ -5049,7 +5158,7 @@ function act(at,df,L,turn){
   let pool=at.pet.equipped.map(id=>DB.skillById[id]).filter(Boolean)
     .filter(s=>s.cost<=at.st && !(s.fx&&s.fx.once&&at.usedOnce[s.id]));
   let sk, fromTeam=null;
-  if(at.ultNow && at.ult){ at.ultNow=false; at.rage=0; sk=at.ult;
+  if(at.ultNow && at.ult){ at.ultNow=false; at.rage=0; at.__ultUsed=true; sk=at.ult;
     L({t:'sys', a:at.side, sk:sk.id, m:`${at.name} tung tuyệt chiêu: ${sk.name}`, kind:'ult'}); }
   else if(at.teamSkills && at.teamSkills.length && at.hp/at.max < DB.team.trigger){
     const t=at.teamSkills.shift(); sk=t.sk; fromTeam=t.from;
@@ -6467,8 +6576,10 @@ function bhp(res,ev){
 const BD=ms=>wait(ms/BSPEED);
 async function playEv(res, ev, f1, f2){
     const side=ev.a, me = side==='A'?f1:f2, foe = side==='A'?f2:f1;
-    if(ev.kind==='ult'){ const r=$('ring'); if(r){ const t=document.createElement('div'); t.className='bult'; t.textContent=(DB.skillById[ev.sk]||{}).name||'Tuyệt chiêu';
-        r.appendChild(t); setTimeout(()=>t.remove(),1300) } sfx('crit'); await BD(700) }
+    if(ev.kind==='ult'){ const r=$('ring'); sfx('crit');
+      // thời gian thật, không tua theo tốc độ trận; bỏ qua trận thì bỏ qua luôn
+      if(r && !BSKIP && typeof ultFX==='function') await ultFX(r, ultFormOf(ev.sk), (DB.skillById[ev.sk]||{}).name||'Tuyệt chiêu', me, foe);
+      return }
     if(ev.kind==='warn'){ const r=$('ring'); if(r){ const t=document.createElement('div'); t.className='bwarn'; t.textContent='⚠ '+ev.m;
         r.appendChild(t); setTimeout(()=>t.remove(),1800) } await BD(650); return }
     const dirCls = side==='A'?'left':'right';
@@ -7250,8 +7361,8 @@ function openCraft(){
       <h3 class="sec">Nhóm ${g}</h3>
       ${DB.recipes.filter(r=>r.group===g).map(r=>{
         const ok=canMake(r), n=made[r.id]||0;
-        return `<div class="rc">
-          <div class="top"><span class="n">${r.name}</span><span class="g" style="color:${tasteColor(g)}">${g}</span></div>
+        return `<div class="rc rcpic">${(typeof drinkThumb==='function')?`<span onclick="openRecipe('${r.id}')" style="cursor:pointer">${drinkThumb(r)}</span>`:''}
+          <div class="top"><span class="n" onclick="openRecipe('${r.id}')" style="cursor:pointer;text-decoration:underline dotted;text-underline-offset:4px">${r.name}</span><span class="g" style="color:${tasteColor(g)}">${g}</span></div>
           <div class="rbuff">${buffText(r.buff)}</div>
           <div class="mt2">${Object.entries(r.mats).map(([k,q])=>
             `<span class="mm ${haveMat(k)>=q?'':'no'}">${matName(k)} ${haveMat(k)}/${q}</span>`).join('')}</div>
@@ -10428,6 +10539,7 @@ function openPetInfo(i){
     ${t.like?kv('Khẩu vị', `thích ${t.like} · ngại ${t.hate}`):''}
     <div class="note">${sp.quirk}</div>
     ${(typeof houseHTML==='function')?houseHTML(p):''}
+    ${(typeof petGearHTML==='function' && p.species!=='automa' && !p.evpet)?petGearHTML(i):''}
     ${(typeof platePickHTML==='function')?platePickHTML(p):''}
     ${(typeof expBoxHTML==='function')?(EXPN=1,expBoxHTML(i)):''}
     ${(typeof lifePathHTML==='function')?lifePathHTML(p):''}
@@ -10510,6 +10622,7 @@ function shopHTML(){
         </div>
         <div class="ra">${p?renderPet(p,{scale:.8,static:1,mood:'ok',tag:'rl'+r.id}):'<span class="rplus">+</span>'}</div>
       </div>`}).join('')}</div>
+    ${(typeof quizHTML==='function')?quizHTML():''}
     <h3 class="sec">Quán đang được lợi gì</h3>
     ${Object.entries(P).filter(([,v])=>v>0).map(([k,v])=>{
       const L={recipe:'Ly chế biến giữ lâu hơn',coin:'Xu nhận thêm',quest:'Thưởng nhiệm vụ thêm',
@@ -11299,7 +11412,7 @@ function shopSceneHTML(){
   const spots = DB.shopRoles.map(r=>{
     const sp=DB.shopSpot[r.id], p=petById(st.roles[r.id]);
     const ok=roleMatch(r,p);
-    return `<div class="sspot ${p?'has':''} ${ok?'fit':''} ${sp.back?'back':''}" style="left:${sp.x}%;bottom:${sp.y}%"
+    return `<div class="sspot ${p?'has':''} ${ok?'fit':''} ${sp.back?'back':''}" data-role="${r.id}" style="left:${sp.x}%;bottom:${sp.y}%"
       onclick="openRolePick('${r.id}')">
       ${p ? `<div class="sp2">${renderPet(p,{scale:.8,static:1,mood:'ok',tag:'ss'+r.id})}</div>
              <div class="sname">${p.name}</div>`
@@ -11316,6 +11429,7 @@ function shopSceneHTML(){
         const p=petById(st.roles[r.id]);
         return `<span>${DB.shopSpot[r.id].ic} ${p?p.name:r.name}</span>`}).join('')}</div>
     </div>
+    ${(typeof quizHTML==='function')?quizHTML():''}
     <h3 class="sec">Quán đang được lợi gì</h3>
     ${Object.entries(P).filter(([,v])=>v>0).map(([k,v])=>{
       const L={recipe:'Ly chế biến giữ lâu hơn',coin:'Xu nhận thêm',quest:'Thưởng nhiệm vụ thêm',
@@ -12157,10 +12271,11 @@ function applyAct(k){
     c.energy=clamp(c.energy-24); c.happy=clamp(c.happy-3);
     // Rèn nay cấp điểm cốt để người chơi tự chọn, thay vì cộng bừa vào hai chỉ số ngẫu nhiên
     const cs=coreState();
-    const gain=Math.max(1, Math.round(DB.core.perTrain*g('train')*traitGain('train')*(p.species==='beano'?1.2:1)));
-    cs.pool+=gain;
-    p.hist.train++; p.streakTrain=(p.streakTrain||0)+1; exp=12;
-    floaty('+'+gain+' điểm cốt','#c25a3c'); say(pick(['Mạnh hơn chút rồi.','Một hiệp nữa!','Cơ bắp đâu rồi?']));
+    const tired = (typeof trainLeft==='function') && trainLeft()<=0;      // v1.1.3: rèn có hiệu quả tối đa 6 lần/ngày
+    const gain = tired ? 0 : Math.max(1, Math.round(DB.core.perTrain*g('train')*traitGain('train')*(p.species==='beano'?1.2:1)));
+    cs.pool+=gain; if(!tired && typeof trainDay==='function') trainDay().n++;
+    p.hist.train++; p.streakTrain=(p.streakTrain||0)+1; exp = tired ? Math.round(12*DB.trainCap.expAfter) : 12;
+    floaty(tired ? 'Mệt rồi — mai rèn tiếp' : '+'+gain+' điểm cốt','#c25a3c'); say(pick(['Mạnh hơn chút rồi.','Một hiệp nữa!','Cơ bắp đâu rồi?']));
   }
   if(k==='explore'){
     c.energy=clamp(c.energy-20); c.hunger=clamp(c.hunger-10); p.hist.explore++;
@@ -12557,7 +12672,7 @@ function bumpQuest(per,id){
 function hatchHours(t){ let h=DB.eggById[t].hours; if(S.perks.includes('hatch20')) h*=0.8; return h*perkOf('hatch') }
 function hatchTick(){
   S.eggs=S.eggs||[];
-  S.eggs.forEach(e=>{ e.ready = (Date.now()-e.start)/36e5 >= hatchHours(e.type) });
+  S.eggs.forEach(e=>{ e.ready = !!e.start && (Date.now()-e.start)/36e5 >= hatchHours(e.type) });   // trứng trong kho (chưa ấp) KHÔNG được nở
 }
 function renderEgg(){
   hatchTick();
@@ -12569,18 +12684,8 @@ function renderEgg(){
 }
 function incubatorHTML(){
   const shop=DB.eggs.filter(e=>e.cost && (e.id!=='golden'||S.perks.includes('goldshop')));
-  return `<p class="lead">Trứng nở theo thời gian thật. Đóng app vẫn chạy.</p>
-    ${S.eggs.length? `<div class="incub">${S.eggs.map(e=>{
-      const need=hatchHours(e.type), left=Math.max(0,need-(Date.now()-e.start)/36e5);
-      const pct=Math.round(Math.min(100,(1-left/need)*100));
-      return `<div class="slot ${e.ready?'ready':''}">
-        <div class="glassdome"><div class="warm"></div>${eggArt(e.type, e.ready)}</div>
-        <div class="sl">${DB.eggById[e.type].name}</div>
-        <div class="sp">${e.ready?'Sẵn sàng nở':(left<1?Math.ceil(left*60)+' phút':left.toFixed(1)+' giờ')}</div>
-        <div class="pbar"><i style="width:${pct}%"></i></div>
-        ${e.ready?`<button class="btn gold" style="margin-top:7px;padding:8px" onclick="hatchEvent('${e.id}')">Nở</button>`:''}
-      </div>`}).join('')}</div>`
-      : `<div class="note">Chưa có trứng nào. Khám phá, giữ chuỗi nhiệm vụ, hoặc mua bên dưới.</div>`}
+  return `<p class="lead">Trứng nở theo thời gian thật, đóng app vẫn chạy. Trứng mới vào kho — bạn chọn lúc bỏ vào lò.</p>
+    ${eggBlocksHTML()}
     <h3 class="sec">Cửa hàng trứng</h3>
     <div class="eggshop">${shop.map(e=>`<div class="es">
       <div class="ea">${eggArt(e.id,false)}</div>
@@ -13243,7 +13348,7 @@ function renderTeam(head){
     <div class="tm">${card(S.pet,'main')}${teamPets().map(p=>card(p,'sub')).join('')}
       ${Array.from({length:teamSize()-teamPets().length}).map(()=>
         `<div class="tmc" style="display:grid;place-items:center;color:var(--ink-3);font-family:var(--mono);font-size:22px">+</div>`).join('')}</div>
-    ${(typeof supGearHTML==='function')?supGearHTML():''}
+    ${teamPets().length?'<div class="note">Mặc đồ cho pet phụ trợ: chạm vào pet trong Chuồng.</div>':''}
     <div class="grid2" style="margin-top:10px">
       <div class="mini"><div class="l">Sức mạnh cộng thêm</div><div class="v">+${boost}</div></div>
       <div class="mini"><div class="l">Kỹ năng tiếp ứng</div><div class="v">${teamPets().length}</div></div>
@@ -13450,7 +13555,7 @@ function corePanelHTML(){
         <span class="cv">+${cur}/${cap}</span>
         <button ${(c.pool<1||full)?'disabled':''} onclick="spendCore('${s.k}')">+</button>
       </div>`}).join('')}
-    <div class="note">Lên cấp +${DB.core.perLevel} điểm · Rèn +${DB.core.perTrain}.
+    <div class="note">Lên cấp +${DB.core.perLevel} điểm · Rèn +${DB.core.perTrain} (tối đa ${DB.trainCap.perDay} lần mỗi ngày — hôm nay còn ${trainLeft()}). Cấp tối đa của ${(DB.stages.find(s=>s.id===S.pet.stage)||{}).name||''}: ${lvCap(S.pet)}.
       Trần theo giai đoạn: ${DB.stages.filter(s=>s.id!=='egg').map(s=>s.name+' '+Math.round(DB.core.capByStage[s.id]*100)+'%').join(' · ')}.</div>
     ${(()=>{ const sp=coreSpare(); if(sp<DB.core.trade[1].cost) return '';
       return `<div class="sparebox"><div class="sh">Dư ${sp} điểm không tiêu hết được</div>
@@ -15084,7 +15189,7 @@ function storeHTML(){
     `<button class="btn ghost" style="margin-top:9px" onclick="openExpSheet(-1)">Cho pet ăn hạt kinh nghiệm</button>
      <div class="note">Pet khác trong chuồng: chạm vào pet để cho ăn.</div>`);
   // mục thẻ công thức hiện mã nội bộ (cam_muoi…) và ghi chú lỗi thời "dùng ở bản sau"
-  s=s.replace(/<span class="tag">([^<]+)<\/span>/g,(m,id)=>`<span class="tag">${(DB.recipeById[id]||{}).name||id}</span>`)
+  s=s.replace(/<span class="tag">([^<]+)<\/span>/g,(m,id)=>DB.recipeById[id]?`<span class="tag tagdk" onclick="openRecipe('${id}','store')">${(typeof drinkThumb==='function')?drinkThumb(DB.recipeById[id],'dkmini'):''}${DB.recipeById[id].name}</span>`:`<span class="tag">${id}</span>`)
      .replace('<div class="note">Thẻ công thức dùng để chế đồ uống ở bản sau.</div>','<div class="note">Pha ở Bếp trong quán.</div>');
   return `<p class="lead">Hạt giống, nguyên liệu, đồ uống và hạt kinh nghiệm.</p>`+s;
 }
@@ -15198,7 +15303,7 @@ function evPetLine(p, k){
 /* ==========================================================
    BẢN PHÁT HÀNH 1.0 — số phiên bản game
    ========================================================== */
-const APP_VER='1.1.2';
+const APP_VER='1.1.3';
 
 /* ==========================================================
    QUA NGÀY, QUA TUẦN KHI GAME ĐANG MỞ
@@ -15356,6 +15461,18 @@ window.save=function(){
    CÓ GÌ MỚI — hiện một lần cho người chơi cũ khi lên bản mới
    ========================================================== */
 DB.patchNotes = [
+  { ver:'1.1.3', date:'10/2026', title:'Quán sống động hơn',
+    lead:'Pet làm việc, khách ghé quán, và mỗi ngày một buổi đào tạo nhỏ.',
+    items:[
+      ['🏪','Quán chuyển động','Nhân sự làm việc theo vai trò. Khách ghé theo giờ thật — sáng gọi cà phê, chiều gọi trà sữa. Bán ly thừa là có khách vào nhận.'],
+      ['📚','Đào tạo mỗi ngày','3 câu về pha chế, phục vụ, vận hành, quản trị. Trả lời đúng được xu và lên tay nghề cho vị trí trong quán.'],
+      ['🥤','42 ly có hình','Mỗi món một ly riêng. Chạm vào ly để xem công thức thật: định lượng, giá vốn, giá bán.'],
+      ['🔥','Tuyệt chiêu đáng xem','Khung đấu tối lại, mỗi nhánh một hiệu ứng riêng, không bị tua nhanh. Nộ đầy thường xuyên hơn.'],
+      ['🎒','Mặc đồ trong bảng pet','Chạm vào pet nào là thấy ô đồ của pet đó.'],
+      ['🥚','Kho trứng và ghép trứng','Trứng mới vào kho, bạn chọn lúc ấp (lò 3 ô). Ghép 3 trứng cùng loại thành 1 trứng cao hơn.'],
+      ['⚖️','Cân bằng lại việc rèn','Rèn có hiệu quả tối đa 6 lần mỗi ngày; mỗi giai đoạn có cấp tối đa; đổi điểm ra xu 3 lần mỗi ngày. Điểm cốt dư do rèn liên tục được đưa về mức hợp lệ — cấp của pet giữ nguyên.'],
+      ['🔧','Sửa lỗi','Pet hoang làm pet chính khiến game không mở được. Vài công thức có định lượng chưa khớp.']
+    ] },
   { ver:'1.1.2', date:'1/10/2026', title:'Sự kiện Halloween đã đến',
     lead:'Bản sửa nhanh để mọi người nhận được sự kiện.',
     items:[
@@ -15798,7 +15915,7 @@ function evoLayers(p, behind){ const a=evoArt(p); if(!a) return ''; return (behi
    nhánh. Tuyệt chiêu gây tối đa 25% máu tối đa của đối thủ — không hạ boss
    trong một đòn. Quái và boss không có thanh nộ; boss báo trước chiêu lớn.
    ========================================================== */
-DB.rage = { hit:10, taken:0.6, capPct:0.25, waitMs:1600 };
+DB.rage = { act:10, hit:4, taken:0.7, capPct:0.25, waitMs:1600 };   // v1.1.3: mọi lượt hành động đều tăng nộ — trước chỉ đánh trúng mới tăng, 6/30 trận kịp đầy
 DB.tactics = {
   bal:  { name:'Cân bằng',  note:'Không cộng trừ gì.' },
   atk:  { name:'Tấn công',  note:'ATK +10%, DEF −10%.', buffs:[['atk',1.10],['def',0.90]] },
@@ -15902,6 +16019,7 @@ function battleStep(c){
     if(at.stun){ at.stun=false; L({t:'sys', a:at.side, m:`${at.name} không cử động được`, kind:'stun'}); continue }
     if(at.ult && at.rage>=100 && (at.autoUlt || at.ultQueued)){ at.ultNow=true; at.ultQueued=false }
     act(at,df,L,turn);
+    if(at.rage!=null){ if(at.__ultUsed) at.__ultUsed=false; else at.rage=Math.min(100, at.rage+DB.rage.act*(at.rageMul||1)) }
     if(df.hp<=0){
       if(df.revive){ df.revive=false; df.hp=Math.round(df.max*0.35);
         L({t:'heal', a:df.side, m:`${df.name} gượng dậy nhờ sợi dây gắn bó`, kind:'revive'}); }
@@ -16041,14 +16159,16 @@ function openPetDetail(){
   openSheet(`<div class="pdhead"><div class="pdpet">${renderPet(p,{scale:1,static:1,mood:'happy',tag:'pd'})}</div>
       <div><div class="pdname">${(typeof plateWrap==='function')?plateWrap(p,evcEsc(p.name)):evcEsc(p.name)}</div>
       <div class="sub">${formName(p)} · ${DB.species[p.species].vi} · ${petPower(p)} PP</div>
-      <button class="btn ghost" style="width:auto;padding:4px 12px;min-height:36px;margin-top:6px" onclick="closeSheet();startRename()">Đổi tên</button></div></div>
-    <div id="pdbody">${(typeof platePickHTML==='function')?platePickHTML(p)+plateLockedHTML():''}${petDetailInner()}</div>`);
+      <button class="btn ghost" style="width:auto;padding:4px 12px;min-height:36px;margin-top:6px" onclick="closeSheet();startRename()">Đổi tên</button>
+      ${(typeof ultOf==='function'&&ultOf(p))?`<button class="btn ghost" style="width:auto;padding:4px 12px;min-height:36px;margin:6px 0 0 6px" onclick="ultPreview()">Xem trước tuyệt chiêu</button>`:''}</div></div>
+    <div id="pdbody">${(typeof petGearHTML==='function')?petGearHTML(-1):''}${(typeof platePickHTML==='function')?platePickHTML(p)+plateLockedHTML():''}${petDetailInner()}</div>`);
 }
 (function(){
   const cs=window.closeSheet; if(typeof cs==='function') window.closeSheet=function(){ PD_OPEN=false; return cs.apply(this,arguments) };
   const mt=window.mount; if(typeof mt==='function') window.mount=function(){ const r=mt.apply(this,arguments);
-    if(PD_OPEN){ const b=document.getElementById('pdbody'); if(b) b.innerHTML=((typeof platePickHTML==='function')?platePickHTML(S.pet)+plateLockedHTML():'')+petDetailInner(); else PD_OPEN=false }
+    if(PD_OPEN){ const b=document.getElementById('pdbody'); if(b) b.innerHTML=((typeof petGearHTML==='function')?petGearHTML(-1):'')+((typeof platePickHTML==='function')?platePickHTML(S.pet)+plateLockedHTML():'')+petDetailInner(); else PD_OPEN=false }
     if(typeof plateCheck==='function') plateCheck(false);
+    if(typeof eggNormalize==='function') eggNormalize();
     if(typeof guideTick==='function') setTimeout(guideTick, 1200);
     setTimeout(()=>{ if(typeof mileCheck==='function') mileCheck(); if(typeof letterCheck==='function') letterCheck() }, 2600);
     return r };
@@ -16404,6 +16524,466 @@ DB.saveVer = DB.migrations[DB.migrations.length-1].to;
    "Dạng Lữ Hành…" cho cả sáu loài. 18 tên do người dùng duyệt.
    ========================================================== */
 Object.entries({"beano": {"explorer": ["Single Origin", "Đi khắp vùng trồng, mang về hương đất"], "worker": ["Double Shot", "Đứng quầy cùng bạn mỗi ca"], "soul": ["Crema Heart", "Giữ trọn hương — như bạn giữ mình"]}, "milku": {"explorer": ["Highland Milk", "Quen gió núi, quen đồng cỏ cao"], "worker": ["Micro Foam", "Lớp bọt mịn của người làm nghề"], "soul": ["Warm Milk", "Ấm như ly sữa cuối ngày"]}, "matcha": {"explorer": ["Tea Trail", "Theo những đồi trà xa"], "worker": ["Chasen Hand", "Tay đánh trà không ngơi"], "soul": ["Ichigo Ichie", "Một đời, một lần gặp"]}, "cacao": {"explorer": ["Bean Hunter", "Săn hạt ở những vùng xa"], "worker": ["Chocolatier", "Thợ làm sô-cô-la của quán"], "soul": ["Warm Cocoa", "Ly ca cao nóng cho ngày mưa"]}, "citrus": {"explorer": ["Wild Lime", "Chanh rừng — lang thang và tươi"], "worker": ["Fresh Squeeze", "Vắt tươi từng ly cùng bạn"], "soul": ["Honey Citron", "Dịu và ấm như trà chanh mật ong"]}, "glacio": {"explorer": ["Glacier Walker", "Đi qua những dòng sông băng"], "worker": ["Shake Master", "Lắc ly đều tay nhất quán"], "soul": ["Snow Globe", "Giữ một mùa đông nhỏ trong lòng"]}}).forEach(([sp,forms])=>{ Object.assign(DB.evo[sp], forms) });
+
+
+/* ==========================================================
+   v1.1.3 — TRANG BỊ NGAY TRONG BẢNG THÔNG TIN PET
+   Người dùng thấy mặc đồ cho pet phụ ở thẻ Tổ đội vẫn rối. Nay chạm vào pet nào
+   là thấy ô đồ của pet đó: pet chính 4 ô, pet khác 2 ô (vũ khí, giáp).
+   Chọn món xong quay lại đúng bảng đang xem.
+   ========================================================== */
+function gearSlotName(sl){ const S_=DB.gearSlots.find(s=>s.id===sl); return S_?S_.name:sl }
+function gearBuffText(id){ const g=DB.gearById[id]; if(!g) return ''; const S_=DB.gearSlots.find(s=>s.id===g.slot), mt=DB.gearMatById[g.mat];
+  const lv=1+DB.fuse.bonusPerLv*((typeof gearLv==='function')?gearLv(id):0);
+  const nm={hp:'Máu',atk:'Công',def:'Thủ',spd:'Tốc',luck:'May mắn',int:'Trí'};
+  return Object.entries(S_.buff).map(([k,v])=>`${nm[k]||k} +${Math.round(v*mt.mult*lv*100)}%`).join(' · ') }
+/* ref: -1 = pet chính, còn lại là chỉ số trong chuồng */
+function petGearHTML(ref){
+  const main = ref===-1, p = main ? S.pet : (S.stash||[])[ref]; if(!p) return '';
+  const slots = main ? DB.gearSlots.map(s=>s.id) : DB.supGearSlots;
+  const cur = main ? gearState().equip : (p.gearSet||{});
+  return `<h3 class="sec">Trang bị</h3><div class="pgear">${slots.map(sl=>{ const id=cur[sl], g=id&&DB.gearById[id];
+      return `<button onclick="gearPick(${ref},'${sl}')"><small>${gearSlotName(sl)}</small><b>${g?g.name:'Trống'}</b>${g?`<i>${gearBuffText(id)}</i>`:''}</button>` }).join('')}</div>
+    <div class="note">${main?'Pet chính có 4 ô.':'Pet phụ trợ có 2 ô — góp vào trận khi ở trong tổ đội.'} Một món mặc cho nhiều pet thì cần đủ số lượng.</div>`;
+}
+function gearReturn(ref){ if(ref===-1){ if(typeof openPetDetail==='function') openPetDetail() } else if(typeof openPetInfo==='function') openPetInfo(ref) }
+function gearPick(ref, slot){
+  const main=ref===-1, p=main?S.pet:(S.stash||[])[ref]; if(!p) return;
+  const g=gearState(), cur=main?g.equip[slot]:(p.gearSet||{})[slot];
+  const list=Object.keys(g.owned).map(id=>DB.gearById[id]).filter(m=>m && m.slot===slot && g.owned[m.id].n>0);
+  openSheet(`<h3>${evcEsc(p.name)} · ${gearSlotName(slot)}</h3><div class="sub">Chọn món để mặc</div>
+    ${list.length ? list.map(m=>{ const on=cur===m.id, free=gearFree(m.id,p);
+      return `<div class="kv"><span>${m.name}<br><small style="color:var(--ink-3)">${gearBuffText(m.id)}${on?' · đang mặc':free>0?` · còn ${free} món rảnh`:' · pet khác đang mặc hết'}</small></span>
+        <button class="btn ${on?'gold':'ghost'}" style="width:auto;padding:6px 12px;min-height:40px" ${!on&&free<1?'disabled':''} onclick="gearPut(${ref},'${slot}',${on?'null':`'${m.id}'`})">${on?'Tháo':'Mặc'}</button></div>` }).join('')
+      : '<div class="note">Chưa có món nào cho ô này. Mua hoặc chế ở Đấu → Trang bị.</div>'}
+    <button class="btn ghost" style="margin-top:10px" onclick="gearReturn(${ref})">Quay lại</button>`);
+}
+function gearPut(ref, slot, id){
+  if(ref===-1){
+    const g=gearState();
+    if(id===null){ g.equip[slot]=null; save(); mount() }
+    else if(g.equip[slot]!==id) equipGear(id);
+  } else {
+    const p=(S.stash||[])[ref]; if(!p) return; p.gearSet=p.gearSet||{};
+    if(id && p.gearSet[slot]!==id && gearFree(id,p)<1) return toast('Món này đang được pet khác mặc hết — cần thêm một món.');
+    p.gearSet[slot]=id||null; save(); mount();
+  }
+  gearReturn(ref);
+}
+
+
+/* ==========================================================
+   v1.1.3 — TUYỆT CHIÊU THÀNH KHOẢNH KHẮC RIÊNG
+   Trước: dòng chữ 1,3 giây + hiệu ứng mượn của chiêu thường, và bị tua theo tốc
+   độ trận — ở 4× chỉ còn chưa tới nửa giây; đòn đó hạ quái là quái gục ngay.
+   Nay: tối khung, pet phóng to sáng viền, dải tên chạy ngang, 7 hiệu ứng riêng
+   theo nhánh. Chạy theo THỜI GIAN THẬT, không tua; đòn đánh tới sau khi xong.
+   ========================================================== */
+DB.ultFX = {
+  care:    { c:'#f28ab0', kind:'hearts'  },
+  battle:  { c:'#e0553e', kind:'slash'   },
+  mind:    { c:'#8b7cf6', kind:'spiral'  },
+  explorer:{ c:'#3fb07a', kind:'wind'    },
+  worker:  { c:'#c8973f', kind:'beans'   },
+  soul:    { c:'#f2c94c', kind:'pillars' },
+  hidden:  { c:'#8be0ff', kind:'stars'   }
+};
+DB.ultMs = 1900;
+function ultFormOf(sk){ return Object.keys(DB.ult||{}).find(f=>DB.ult[f].id===sk) || 'battle' }
+function ultFX(host, form, name, meEl, foeEl){
+  const F=DB.ultFX[form]||DB.ultFX.battle, c=F.c;
+  const L=document.createElement('div'); L.className='ultfx'; L.style.setProperty('--uc', c);
+  const rnd=(a,b)=>a+Math.random()*(b-a);
+  let parts='';
+  const fx=foeEl? (foeEl.offsetLeft+foeEl.offsetWidth/2) : host.offsetWidth*0.72, fy=foeEl? (foeEl.offsetTop+foeEl.offsetHeight*0.45) : host.offsetHeight*0.45;
+  const mx=meEl? (meEl.offsetLeft+meEl.offsetWidth/2) : host.offsetWidth*0.28, my=meEl? (meEl.offsetTop+meEl.offsetHeight*0.45) : host.offsetHeight*0.45;
+  if(F.kind==='hearts')  for(let i=0;i<14;i++) parts+=`<i class="u-heart" style="left:${mx+rnd(-60,60)}px;top:${my+rnd(0,40)}px;animation-delay:${rnd(0,.6)}s">♥</i>`;
+  if(F.kind==='slash')   parts+=`<i class="u-slash" style="left:${fx}px;top:${fy}px"></i><i class="u-slash b" style="left:${fx}px;top:${fy}px"></i>`;
+  if(F.kind==='spiral')  for(let i=0;i<4;i++) parts+=`<i class="u-ring" style="left:${fx}px;top:${fy}px;animation-delay:${i*.18}s"></i>`;
+  if(F.kind==='wind')    { for(let i=0;i<9;i++) parts+=`<i class="u-wind" style="top:${rnd(15,85)}%;animation-delay:${rnd(0,.5)}s"></i>`; parts+=`<i class="u-compass" style="left:${mx}px;top:${my}px">✦</i>` }
+  if(F.kind==='beans')   for(let i=0;i<12;i++) parts+=`<i class="u-bean" style="left:${mx}px;top:${my}px;--dx:${fx-mx+rnd(-40,40)}px;--dy:${fy-my+rnd(-40,40)}px;animation-delay:${i*.06}s"></i>`;
+  if(F.kind==='pillars') for(let i=0;i<5;i++) parts+=`<i class="u-pillar" style="left:${rnd(10,90)}%;animation-delay:${rnd(0,.5)}s"></i>`;
+  if(F.kind==='stars')   for(let i=0;i<18;i++) parts+=`<i class="u-star" style="left:${fx+rnd(-80,80)}px;top:${fy+rnd(-60,60)}px;animation-delay:${rnd(0,.7)}s">✦</i>`;
+  L.innerHTML=`<div class="u-dim"></div>${parts}<div class="u-band"><span>TUYỆT CHIÊU</span><b>${name}</b></div>`;
+  host.appendChild(L);
+  if(meEl){ meEl.classList.add('u-pose'); meEl.style.setProperty('--uc', c) }
+  if(F.kind==='slash' && foeEl) foeEl.classList.add('u-shake');
+  return new Promise(res=>setTimeout(()=>{ L.remove(); if(meEl) meEl.classList.remove('u-pose'); if(foeEl) foeEl.classList.remove('u-shake'); res() }, DB.ultMs));
+}
+function ultPreview(){
+  const u=(typeof ultOf==='function')?ultOf(S.pet):null; if(!u) return toast('Pet tiến hoá mới có tuyệt chiêu.');
+  openSheet(`<h3>${u.ic} ${u.name}</h3><div class="sub">${u.desc}</div>
+    <div class="ultstage" id="ultstage"><div class="us-me" id="usme">${renderPet(S.pet,{scale:.9,static:1,mood:'happy',tag:'usm'})}</div>
+      <div class="us-foe" id="usfoe">${renderPet(tunePet(10,{species:'milku'}),{scale:.75,static:1,mood:'ok',tag:'usf'})}</div></div>
+    <button class="btn gold" style="margin-top:10px" onclick="ultPreviewPlay()">Xem lại</button>`);
+  setTimeout(ultPreviewPlay, 350);
+}
+function ultPreviewPlay(){ const st=$('ultstage'); if(!st) return; const u=ultOf(S.pet); sfx('crit'); ultFX(st, S.pet.form, u.name, $('usme'), $('usfoe')) }
+
+
+/* ==========================================================
+   v1.1.3 — KHO TRỨNG VÀ GHÉP TRỨNG
+   Trước: trứng tự ấp ngay khi nhận. Nay trứng mới vào kho; người chơi tự chọn
+   lúc bỏ vào lò (3 ô). Ghép 3 → 1 theo giá trị cửa hàng: mất khoảng 17%.
+   Có 8 chỗ cấp trứng — thay vì sửa cả 8, game nhận ra trứng chưa từng thấy và
+   đưa vào kho. Trứng đang ấp của người chơi cũ giữ nguyên, kể cả khi hơn 3 quả.
+   ========================================================== */
+DB.incSlots = 3;
+DB.eggFuse = { common:'rare', rare:'ancient', ancient:'golden' };
+function eggSeen(){ S.eggSeen=S.eggSeen||{}; return S.eggSeen }
+function eggNormalize(){
+  const seen=eggSeen(); let ch=false;
+  (S.eggs||[]).forEach(e=>{ if(!e.id){ e.id=uid(); ch=true }
+    if(!seen[e.id]){ seen[e.id]=1; e.start=null; e.ready=false; ch=true } });
+  if(ch) save();
+}
+function eggActive(){ return (S.eggs||[]).filter(e=>e.start) }
+function eggStored(){ return (S.eggs||[]).filter(e=>!e.start) }
+function eggIncubate(type){
+  eggNormalize();
+  if(eggActive().length>=DB.incSlots) return toast(`Lò ấp chỉ có ${DB.incSlots} ô — chờ một trứng nở đã.`);
+  const e=eggStored().find(x=>x.type===type); if(!e) return;
+  e.start=Date.now(); e.ready=false; save(); sfx('tap'); mount();
+}
+function eggFuse(type){
+  eggNormalize();
+  const nx=DB.eggFuse[type], st=eggStored().filter(e=>e.type===type);
+  if(!nx || st.length<3) return;
+  if(!confirm(`Ghép 3 ${DB.eggById[type].name} thành 1 ${DB.eggById[nx].name}?`)) return;
+  const drop=new Set(st.slice(0,3).map(e=>e.id));
+  S.eggs=S.eggs.filter(e=>!drop.has(e.id));
+  const n={ id:uid(), type:nx, start:null }; S.eggs.push(n); eggSeen()[n.id]=1;
+  save(); sfx('hatch'); toast(`Ghép xong: 1 ${DB.eggById[nx].name} vào kho.`); mount();
+}
+function eggBlocksHTML(){
+  eggNormalize();
+  const act=eggActive(), sto=eggStored();
+  const slot=e=>{ const need=hatchHours(e.type), left=Math.max(0,need-(Date.now()-e.start)/36e5), pct=Math.round(Math.min(100,(1-left/need)*100));
+    return `<div class="slot ${e.ready?'ready':''}"><div class="glassdome"><div class="warm"></div>${eggArt(e.type, e.ready)}</div>
+      <div class="sl">${DB.eggById[e.type].name}</div>
+      <div class="sp">${e.ready?'Sẵn sàng nở':(left<1?Math.ceil(left*60)+' phút':left.toFixed(1)+' giờ')}</div>
+      <div class="pbar"><i style="width:${pct}%"></i></div>
+      ${e.ready?`<button class="btn gold" style="margin-top:7px;padding:8px" onclick="hatchEvent('${e.id}')">Nở</button>`:''}</div>` };
+  const empty=Math.max(0, DB.incSlots-act.length);
+  const groups=DB.eggs.map(t=>({ t, n:sto.filter(e=>e.type===t.id).length })).filter(g=>g.n>0);
+  return `<h3 class="sec">Lò ấp · ${act.length}/${DB.incSlots}</h3>
+    <div class="incub">${act.map(slot).join('')}${Array.from({length:empty},()=>`<div class="slot slotempty"><div class="glassdome"></div><div class="sl">Ô trống</div><div class="sp">${sto.length?'Chọn trứng trong kho':'—'}</div></div>`).join('')}</div>
+    ${act.length>DB.incSlots?`<div class="note">Bạn đang ấp ${act.length} trứng từ trước khi lò có giới hạn — cứ để chúng nở bình thường.</div>`:''}
+    <h3 class="sec">Kho trứng · ${sto.length}</h3>
+    ${groups.length ? `<div class="eggstore">${groups.map(g=>{ const nx=DB.eggFuse[g.t.id];
+      return `<div class="est"><div class="ea">${eggArt(g.t.id,false)}</div><div><div class="en">${g.t.name} <b>×${g.n}</b></div>
+        <div class="eh">ấp ${hatchHours(g.t.id).toFixed(0)} giờ</div>
+        <div class="ebtns"><button class="btn gold" style="width:auto;padding:6px 12px;min-height:40px" ${empty?'':'disabled'} onclick="eggIncubate('${g.t.id}')">Ấp</button>
+        ${nx?`<button class="btn ghost" style="width:auto;padding:6px 12px;min-height:40px" ${g.n>=3?'':'disabled'} onclick="eggFuse('${g.t.id}')">Ghép 3 → 1 ${DB.eggById[nx].name}</button>`:''}</div></div></div>` }).join('')}</div>
+      <div class="note">Ghép 3 trứng cùng loại thành 1 trứng loại cao hơn. Mỗi lần ghép mất khoảng 17% giá trị so với giá cửa hàng — hãy cân nhắc.</div>`
+      : `<div class="note">Kho trống. Trứng nhận từ chuỗi ngày, hộp bí ẩn, cửa hàng sẽ vào đây.</div>`}`;
+}
+/* người chơi cũ: trứng đang có giữ nguyên trạng thái (đang ấp vẫn ấp tiếp) */
+DB.migrations.push({ to:5, name:'Kho trứng: trứng đang có giữ nguyên trạng thái',
+  run:()=>{ const seen=eggSeen(); (S.eggs||[]).forEach(e=>{ if(!e.id) e.id=uid(); seen[e.id]=1; if(!e.start) e.start=Date.now() }) } });
+DB.saveVer = DB.migrations[DB.migrations.length-1].to;
+
+
+/* ==========================================================
+   v1.1.3 — MINH HOẠ 42 ĐỒ UỐNG + THẺ CÔNG THỨC THẬT
+   Mỗi ly dựng từ chính công thức: kiểu ly theo loại món, lớp màu theo nguyên
+   liệu, topping theo thành phần. Phong cách biểu tượng shop: khối phẳng, viền
+   màu cùng tông, nét dày, không viền đen.
+   ========================================================== */
+/* Ly đồ uống — phong cách biểu tượng shop: khối phẳng, viền màu cùng tông, nét dày, không viền đen.
+   v1.1.3b: bảng thiết kế riêng từng món — để không món nào trông giống món nào. */
+const DK_COL={ black:'#1c110b', robusta:'#3a2214', arabica:'#4a2c18', foam:'#b98a5c', cond:'#ecd6a4', milk:'#f4ecdc', cream:'#fff7ea',
+  green:'#9cc45a', matcha:'#7fb54a', oolong:'#c08a3e', hojicha:'#8a5a34', blacktea:'#b8702e', orange:'#f39a2e', lemon:'#f3eaa8',
+  lime:'#c9e07a', berry:'#dc4f66', cacao:'#6b3a22', mint:'#8fd6a0', honey:'#e2a64a', bo:'#b4cf66', saurieng:'#edd07a', dua:'#f6f1e3',
+  dao:'#f6ad84', hong:'#ee8648', shan:'#d2ab50', xoai:'#f5b02e', mangoGreen:'#cfe08a', buoi:'#f2a0a0', atiso:'#9a2440', atisoHot:'#7a1c34',
+  soda:'#e3f2f3', boba:'#3b2416', sugar:'#b9772e', yogurt:'#fbf1ee', ginger:'#e8c27a' };
+const DK_GL='#c9d6d6', DK_ICE='#d6ebf2', DK_ICEB='#9cc3d4';
+const C_=DK_COL;
+/* [kiểu ly, lớp màu từ đáy lên, dấu hiệu] */
+const DK_DESIGN={
+  cam_muoi:      ['tall', [[C_.orange,1]], 'ice slice:orange saltrim'],
+  chanh_sa:      ['tall', [[C_.lemon,1]], 'ice slice:lemon lemongrass'],
+  espresso_tonic:['tall', [[C_.soda,.6],[C_.arabica,.4]], 'ice bubbles'],
+  dau_chanh:     ['dome', [[C_.berry,1]], 'fruit:berry slice:lemon'],
+  robusta_da:    ['rocks',[[C_.black,1]], 'ice'],
+  cacao_nguyen:  ['mug',  [[C_.cacao,1]], 'steam dust'],
+  ca_phe_muoi:   ['tall', [[C_.black,.84],[C_.cream,.16]], 'ice saltdots'],
+  bac_xiu:       ['tall', [[C_.milk,.45],[C_.cond,.15],[C_.robusta,.4]], 'ice'],
+  matcha_latte:  ['tall', [[C_.milk,.55],[C_.matcha,.45]], 'ice'],
+  oolong_sua:    ['tall', [[C_.oolong,.62],[C_.milk,.38]], 'ice creamcap'],
+  tra_tran_chau: ['dome', [[C_.green,1]], 'boba'],
+  hojicha_da:    ['tall', [[C_.hojicha,1]], 'ice roastleaf'],
+  sua_chua_dau:  ['dome', [[C_.berry,.3],[C_.yogurt,.7]], 'fruit:berry'],
+  cacao_kem:     ['dome', [[C_.cacao,.8],[C_.cream,.2]], 'creamcap dust'],
+  tra_dao_cam_sa:['tall', [[C_.blacktea,1]], 'ice fruit:dao slice:orange lemongrass'],
+  sua_tuoi_tcdd: ['dome', [[C_.sugar,.22],[C_.milk,.78]], 'boba tiger'],
+  bac_ha_soda:   ['tall', [[C_.mint,.4],[C_.soda,.6]], 'ice bubbles slice:lemon'],
+  mojito:        ['tall', [[C_.lime,.22],[C_.soda,.78]], 'ice mintin mint slice:lime bubbles'],
+  tra_bac_ha:    ['tall', [[C_.green,1]], 'ice mint'],
+  chanh_bac_ha:  ['rocks',[[C_.lemon,1]], 'ice mint slice:lemon'],
+  gung_mat_ong:  ['teacup',[[C_.honey,1]], 'steam ginger'],
+  cacao_gung:    ['tall', [[C_.milk,.4],[C_.cacao,.6]], 'ice ginger'],
+  tra_gung_sa:   ['tall', [[C_.ginger,1]], 'ice ginger lemongrass'],
+  ca_phe_gung:   ['rocks',[[C_.cond,.3],[C_.robusta,.7]], 'ice ginger'],
+  sinhto_bo:     ['dome', [[C_.bo,1]], ''],
+  bo_caphe:      ['dome', [[C_.bo,.72],[C_.robusta,.28]], 'drizzle'],
+  kem_saurieng:  ['dome', [[C_.saurieng,1]], 'creamcap'],
+  saurieng_dua:  ['tall', [[C_.dua,.55],[C_.saurieng,.45]], 'ice coco'],
+  tra_dao_moi:   ['tall', [[C_.green,1]], 'ice fruit:dao'],
+  dao_soda:      ['tall', [[C_.dao,.45],[C_.soda,.55]], 'ice bubbles fruit:dao'],
+  hong_sua:      ['tall', [[C_.hong,.45],[C_.milk,.55]], 'ice hongchunk'],
+  tra_hong:      ['tall', [[C_.oolong,1]], 'ice cinnamon hongchunk'],
+  shan_moc:      ['teacup',[[C_.shan,1]], 'steam leaf'],
+  shan_sua:      ['tall', [[C_.shan,.6],[C_.milk,.4]], 'ice leaf'],
+  dua_dam:       ['dome', [[C_.dua,1]], 'coco creamcap'],
+  dua_caphe:     ['dome', [[C_.dua,.76],[C_.foam,.24]], 'foamtop'],
+  sinhto_xoai:   ['dome', [[C_.xoai,1]], ''],
+  xoai_muoi:     ['rocks',[[C_.mangoGreen,1]], 'ice chilisalt'],
+  buoi_matong:   ['tall', [[C_.honey,.25],[C_.green,.75]], 'ice pulp slice:buoi'],
+  buoi_soda:     ['tall', [[C_.buoi,.4],[C_.soda,.6]], 'bubbles slice:buoi'],
+  atiso_do:      ['tall', [[C_.atiso,1]], 'ice hibiscus'],
+  atiso_nong:    ['teacup',[[C_.atisoHot,1]], 'steam hibiscus']
+};
+function drinkPlan(r){
+  const d=DK_DESIGN[r.id];
+  if(d) return { cup:d[0], L:d[1], top:d[2].split(' ').filter(Boolean) };
+  return { cup:'tall', L:[[C_.blacktea,1]], top:['ice'] };          // món mới chưa có thiết kế
+}
+let DK_UID=0;
+function drinkSVG(r){
+  const P=drinkPlan(r), id='dk'+(DK_UID++);
+  const CUPS={
+    tall:{ body:'M29 24 L71 24 L66 106 L34 106 Z', top:24, bot:106, lip:'M26 24 L74 24', l:29, r:71 },
+    dome:{ body:'M27 36 L73 36 L67 108 L33 108 Z', top:36, bot:108, lid:'M24 36 Q50 6 76 36 Z', lip:'M22 36 L78 36', l:27, r:73 },
+    rocks:{ body:'M25 52 L75 52 L71 106 L29 106 Z', top:52, bot:106, lip:'M22 52 L78 52', l:25, r:75 },
+    mug:{ body:'M23 46 L65 46 L63 104 Q44 110 25 104 Z', top:46, bot:106, lip:'M20 46 L68 46', handle:'M64 58 Q84 60 82 75 Q80 90 62 88', l:23, r:65 },
+    teacup:{ body:'M22 58 L70 58 L66 100 Q46 108 26 100 Z', top:58, bot:104, lip:'M19 58 L73 58', handle:'M69 66 Q86 67 84 80 Q82 92 66 90', l:22, r:70 } };
+  const C=CUPS[P.cup], glass=P.cup!=='mug';
+  const fill=C.top+(C.bot-C.top)*({dome:.07,mug:.12,teacup:.1,rocks:.12}[P.cup]||.15);
+  let y=C.bot, layers='';
+  P.L.forEach(([c,f])=>{ const h=(C.bot-fill)*f; y-=h; layers+=`<rect x="0" y="${y.toFixed(1)}" width="100" height="${(h+.6).toFixed(1)}" fill="${c}"/>` });
+  const topC=P.L[P.L.length-1][0], mid=(C.l+C.r)/2;
+  let deco='', front='';
+  P.top.forEach(t=>{
+    if(t==='ice') [[mid-13,fill+5,-12],[mid+1,fill+3,14],[mid-7,fill+17,6]].forEach(([x,yy,a])=>deco+=`<rect x="${x}" y="${yy}" width="13" height="13" rx="3" fill="${DK_ICE}" fill-opacity=".85" stroke="${DK_ICEB}" stroke-width="3" transform="rotate(${a} ${x+6} ${yy+6})"/>`);
+    if(t==='boba') for(let i=0;i<11;i++){ const x=37+(i*8.1)%26, yy=C.bot-7-((i*6)%11); deco+=`<circle cx="${x.toFixed(1)}" cy="${yy}" r="4.6" fill="${C_.boba}"/>` }
+    if(t==='tiger') [34,45,57].forEach(x=>deco+=`<path d="M${x} ${fill+4} q4 14 -2 30 q-5 14 2 34" fill="none" stroke="${C_.sugar}" stroke-width="5" stroke-linecap="round" opacity=".85"/>`);
+    if(t==='creamcap') deco+=`<path d="M${C.l-2} ${fill+2} Q${C.l+4} ${fill-9} ${mid-10} ${fill-2} Q${mid-3} ${fill-13} ${mid+5} ${fill-3} Q${mid+13} ${fill-11} ${C.r+2} ${fill+2} Z" fill="${C_.cream}" stroke="#e8dcc0" stroke-width="3"/>`;
+    if(t==='foamtop') for(let i=0;i<8;i++) deco+=`<circle cx="${C.l+4+i*6}" cy="${fill+3+(i%2)*3}" r="3" fill="#d8b48a"/>`;
+    if(t==='drizzle') deco+=`<path d="M${C.l+2} ${fill+6} q8 8 14 0 q8-8 14 0 q8 8 14 0" fill="none" stroke="${C_.robusta}" stroke-width="4" stroke-linecap="round"/>`;
+    if(t==='dust') for(let i=0;i<9;i++) deco+=`<circle cx="${C.l+5+i*5.5}" cy="${fill+(P.cup==='dome'?-6:2)+(i%3)}" r="1.6" fill="#5a3018"/>`;
+    if(t==='saltdots') for(let i=0;i<7;i++) deco+=`<circle cx="${C.l+6+i*6}" cy="${fill+4}" r="1.5" fill="#fff" stroke="#d8d0c0" stroke-width=".6"/>`;
+    if(t==='bubbles') for(let i=0;i<7;i++){ deco+=`<circle cx="${C.l+7+(i*9)%(C.r-C.l-12)}" cy="${fill+12+(i*13)%62}" r="${2+(i%3)*.8}" fill="#fff" fill-opacity=".7" stroke="${DK_ICEB}" stroke-width="1.6"/>` }
+    if(t==='mintin') [[mid-8,fill+30],[mid+6,fill+44],[mid-4,fill+56]].forEach(([x,yy])=>deco+=`<path d="M${x} ${yy} q-7-7-1-12 q6 4 1 12Z" fill="#4f9e50"/>`);
+    if(t==='coco') [[mid-10,fill+22],[mid+4,fill+34],[mid-4,fill+48]].forEach(([x,yy])=>deco+=`<rect x="${x}" y="${yy}" width="11" height="6" rx="2" fill="#fffdf6" stroke="#e2d8c2" stroke-width="2"/>`);
+    if(t==='hongchunk') [[mid-10,fill+24],[mid+5,fill+36]].forEach(([x,yy])=>deco+=`<rect x="${x}" y="${yy}" width="10" height="10" rx="2" fill="#e8742e" stroke="#c95a1c" stroke-width="2"/>`);
+    if(t==='pulp') for(let i=0;i<10;i++) deco+=`<path d="M${C.l+6+(i*7)%(C.r-C.l-10)} ${fill+14+(i*11)%60} l3 -6" stroke="#f08a8a" stroke-width="3" stroke-linecap="round"/>`;
+    if(t==='fruit:dao') [[mid-11,fill+22],[mid+4,fill+33]].forEach(([x,yy])=>deco+=`<path d="M${x} ${yy} q7-7 14 0 q-7 8-14 0Z" fill="#f59a62" stroke="#d97a44" stroke-width="2.4"/>`);
+    if(t==='fruit:berry') [[mid-9,fill+18],[mid+5,fill+28],[mid-3,fill+40]].forEach(([x,yy])=>deco+=`<path d="M${x} ${yy} q6-2 8 2 q-1 7-4 8 q-3-1-4-10Z" fill="#c8324a" stroke="#a52238" stroke-width="2"/>`);
+    if(t.startsWith('slice:')){ const k=t.split(':')[1], c={orange:'#f39a2e',lemon:'#eedc6a',lime:'#9ccf4e',buoi:'#f29a9a'}[k], s={orange:'#d97e1a',lemon:'#c9b640',lime:'#6fa52e',buoi:'#d97a7a'}[k];
+      front+=`<g transform="translate(${C.r-5} ${C.top-3}) rotate(-25)"><circle r="10" fill="${c}" stroke="${s}" stroke-width="3"/>${[0,60,120].map(a=>`<path d="M0 -6.5 L0 6.5" stroke="${s}" stroke-width="2" transform="rotate(${a})"/>`).join('')}</g>` }
+    if(t==='ginger') front+=`<g transform="translate(${C.l+6} ${C.top-2})"><ellipse rx="9" ry="6.5" fill="#f1d79a" stroke="#c9a457" stroke-width="2.6"/><ellipse rx="4.5" ry="3" fill="none" stroke="#c9a457" stroke-width="1.4"/></g>`;
+    if(t==='lemongrass') front+=`<path d="M${mid-4} ${C.top-18} L${mid+2} ${C.top+22}" stroke="#7fb04a" stroke-width="6" stroke-linecap="round"/><path d="M${mid-4} ${C.top-18} q-6-6-4-12" stroke="#7fb04a" stroke-width="3" fill="none" stroke-linecap="round"/>`;
+    if(t==='mint') front+=`<g transform="translate(${C.l+10} ${C.top-4})"><path d="M0 0 q-9-9-2-16 q8 5 2 16Z" fill="#5eae5e"/><path d="M2 0 q7-10 15-6 q-3 9-15 6Z" fill="#7cc46c"/></g>`;
+    if(t==='leaf') front+=`<g transform="translate(${C.l+8} ${C.top-3}) rotate(-20)"><path d="M0 0 q10-11 22-4 q-10 12-22 4Z" fill="#6aa84f"/><path d="M2 0 q9-3 18-4" stroke="#4a8a34" stroke-width="1.6" fill="none"/></g>`;
+    if(t==='roastleaf') front+=`<g transform="translate(${C.l+8} ${C.top-3}) rotate(-20)"><path d="M0 0 q10-11 22-4 q-10 12-22 4Z" fill="#8a5a34"/><path d="M2 0 q9-3 18-4" stroke="#5a3a1e" stroke-width="1.6" fill="none"/></g>`;
+    if(t==='hibiscus') front+=`<g transform="translate(${C.r-6} ${C.top-4})">${[0,72,144,216,288].map(a=>`<ellipse cx="0" cy="-6" rx="4.6" ry="6.5" fill="#d23a5c" transform="rotate(${a})"/>`).join('')}<circle r="2.6" fill="#f5d36a"/></g>`;
+    if(t==='saltrim') front+=[...Array(9)].map((_,i)=>`<circle cx="${C.l-1+i*(C.r-C.l+2)/8}" cy="${C.top-1}" r="2.2" fill="#fff" stroke="#c9c9c9" stroke-width="1"/>`).join('');
+    if(t==='chilisalt') front+=[...Array(9)].map((_,i)=>`<circle cx="${C.l-1+i*(C.r-C.l+2)/8}" cy="${C.top-1}" r="2.2" fill="${i%2?'#e0453a':'#fff'}" stroke="#c9c9c9" stroke-width="1"/>`).join('');
+    if(t==='cinnamon') front+=`<path d="M${mid+9} ${C.top-15} L${mid+3} ${C.top+16}" stroke="#8a4e2a" stroke-width="6" stroke-linecap="round"/>`;
+    if(t==='steam') front+=[mid-12,mid-2,mid+8].map((x,i)=>`<path d="M${x} ${C.top-6} q-5-7 0-13 q5-6 0-12" fill="none" stroke="#c4b49c" stroke-width="3.4" stroke-linecap="round"><animate attributeName="opacity" values=".3;1;.3" dur="${2.4+i*.4}s" repeatCount="indefinite"/></path>`).join('');
+  });
+  const straw = ['mug','teacup'].includes(P.cup) ? '' : P.cup==='dome'
+    ? `<path d="M59 2 L53 92" stroke="#e0784a" stroke-width="9" stroke-linecap="round"/>`
+    : P.cup==='tall' ? `<path d="M61 6 L55 98" stroke="#f3f0ea" stroke-width="6" stroke-linecap="round"/><path d="M60.2 12 L55.8 92" stroke="#e05a4a" stroke-width="3" stroke-dasharray="4 5"/>` : '';
+  const edge = glass ? DK_GL : '#d8c9b0';
+  return `<svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+    <defs><clipPath id="${id}"><path d="${C.body}"/></clipPath></defs>
+    <ellipse cx="${C.handle?46:50}" cy="113" rx="28" ry="4" fill="#000" opacity=".12"/>
+    ${P.cup==='dome'?`<path d="${C.lid}" fill="#fff" fill-opacity=".45" stroke="${DK_GL}" stroke-width="4.5"/>`:''}
+    ${straw}
+    ${C.handle?`<path d="${C.handle}" fill="none" stroke="${edge}" stroke-width="7" stroke-linecap="round"/>`:''}
+    <g clip-path="url(#${id})"><rect x="0" y="0" width="100" height="120" fill="${glass?'#fff':'#f6efe2'}" fill-opacity="${glass?.4:1}"/>
+      ${glass?layers:''}${deco}
+      ${glass?`<path d="M${C.l+5} ${C.top+7} L${C.l+8} ${C.bot-9}" stroke="#fff" stroke-opacity=".6" stroke-width="4" stroke-linecap="round"/>`:`<path d="M28 62 h30" stroke="#c8973f" stroke-width="4"/>`}</g>
+    ${glass?'':`<ellipse cx="44" cy="${C.top+1}" rx="20" ry="3.6" fill="${topC}"/>`}
+    <path d="${C.body}" fill="none" stroke="${edge}" stroke-width="5" stroke-linejoin="round"/>
+    <path d="${C.lip}" stroke="${edge}" stroke-width="6" stroke-linecap="round"/>
+    ${front}</svg>`;
+}
+
+/* soát 42 công thức — 6 chỗ sửa (người dùng giao soát và sửa luôn) */
+(function(){
+  const F={
+    tra_dao_cam_sa:{ mats:{orange:1, dao:1, syrup:1}, dl:'Trà đen 160ml · syrup đào 25ml · cam lát 30g · sả đập 1 cây · đào miếng 40g · đá 150g' },
+    tra_gung_sa:{ dl:'Trà xanh 160ml · gừng 6g · sả 1 cây · mật ong 20ml · đá 140g' },
+    cacao_kem:{ dl:'Cacao 12g · sữa tươi 200ml · kem tươi 40ml · đường 12g · đá 100g' },
+    matcha_latte:{ dl:'Matcha 4g · nước 75°C 50ml · sữa tươi 130ml · đá 130g' },
+    espresso_tonic:{ group:'đắng' },
+    bac_xiu:{ dl:'Cà phê 40ml · sữa đặc 20ml · sữa tươi 80ml · đá 140g', von:9000 }
+  };
+  Object.entries(F).forEach(([id,f])=>{ const r=DB.recipeById[id]; if(!r) return;
+    if(f.mats){ const ok=Object.keys(f.mats).every(k=>DB.seeds.some(s=>s.id===k)||DB.mats.some(m=>m.id===k)); if(ok) r.mats=f.mats }
+    if(f.group) r.group=f.group; r.real=r.real||{}; if(f.dl) r.real.dl=f.dl; if(f.von) r.real.von=f.von; });
+})();
+DB.buffLabel.luck = v=>`LUCK +${Math.round((v>1?v-1:v)*100)}%`;   // trước đây thiếu nhãn — hiện chữ "luck" trơn
+function drinkThumb(r, cls){ return `<span class="${cls||'dkthumb'}">${drinkSVG(r)}</span>` }
+function openRecipe(id, back){
+  const r=DB.recipeById[id]; if(!r) return; const re=r.real||{};
+  const nums=String(re.ban||'').match(/[\d.]+/g)||[]; const bans=nums.map(x=>+x.replace(/\./g,'')).filter(Boolean);
+  const mid=bans.length?(bans.reduce((a,b)=>a+b,0)/bans.length):0, fc=(mid&&re.von)?Math.round(re.von/mid*100):null;
+  openSheet(`<div class="rcard"><div class="rcart">${drinkSVG(r)}</div>
+      <div><h3 style="margin:0">${r.name}</h3>
+      <div class="sub"><span style="color:${tasteColor(r.group)}">${r.group}</span>${re.ml?` · ${re.ml}ml`:''}</div>
+      <div class="rbuff">${buffText(r.buff)}</div></div></div>
+    <h3 class="sec">Công thức thật</h3>
+    <div class="rdl">${(re.dl||'').split('·').map(x=>`<div>${x.trim()}</div>`).join('')}</div>
+    <div class="grid2" style="margin-top:10px">
+      <div class="mini"><div class="l">Giá vốn</div><div class="v">${re.von?re.von.toLocaleString('vi-VN')+'đ':'—'}</div></div>
+      <div class="mini"><div class="l">Giá bán</div><div class="v" style="font-size:14px">${re.ban?re.ban+'đ':'—'}</div></div></div>
+    ${fc?`<div class="note">Tỉ lệ giá vốn khoảng <b>${fc}%</b> giá bán trung bình. Quán đồ uống thường giữ ở mức 25–35%.</div>`:''}
+    <h3 class="sec">Nguyên liệu trong game</h3>
+    <div class="mt2">${Object.entries(r.mats).map(([k,q])=>`<span class="mm ${haveMat(k)>=q?'':'no'}">${matName(k)} ${haveMat(k)}/${q}</span>`).join('')}</div>
+    <button class="btn ghost" style="margin-top:12px" onclick="${back==='store'?'closeSheet()':'openCraft()'}">${back==='store'?'Đóng':'Quay lại bàn chế biến'}</button>`);
+}
+
+
+/* ==========================================================
+   v1.1.3 — QUÁN CHUYỂN ĐỘNG
+   Nhân sự chuyển động theo vai; khách (pet nhỏ) đến theo giờ thật, gọi đúng loại
+   đồ uống của giờ đó; bán ly thừa thì có khách vào nhận đúng ly đó.
+   ========================================================== */
+DB.shopHours = [   // [từ giờ, tới giờ, khách mỗi phút, loại đồ uống hay gọi]
+  [6,10, 5, ['robusta_da','bac_xiu','ca_phe_muoi','ca_phe_gung','espresso_tonic','dua_caphe']],
+  [10,14,3, ['cam_muoi','tra_dao_cam_sa','chanh_bac_ha','tra_bac_ha','sinhto_bo','sinhto_xoai']],
+  [14,18,5, ['sua_tuoi_tcdd','tra_tran_chau','oolong_sua','matcha_latte','hong_sua','dao_soda']],
+  [18,22,3, ['cacao_kem','kem_saurieng','dua_dam','buoi_matong','atiso_do','mojito']],
+  [22,24,0, []], [0,6,0, []] ];
+var SHOP_LIVE={ t:null, crowd:[] };
+function shopNow(){ const h=new Date().getHours(); return DB.shopHours.find(([a,b])=>h>=a&&h<b) || DB.shopHours[0] }
+function shopCrowd(){ if(!SHOP_LIVE.crowd.length) SHOP_LIVE.crowd=['beano','milku','matcha','cacao','citrus','glacio'].map(sp=>{ const p=makePet({species:sp}); p.stage='teen'; p.traits=[]; return p }); return SHOP_LIVE.crowd }
+function shopGuest(recipeId, sold){
+  const sc=document.querySelector('.shopscene'); if(!sc) return;
+  const r=DB.recipeById[recipeId]; if(!r) return;
+  const g=document.createElement('div'); g.className='sguest'+(sold?' sold':'');
+  g.innerHTML=`<div class="gbub">${drinkSVG(r)}</div><div class="gpet">${renderPet(pick(shopCrowd()),{scale:.6,static:1,mood:'happy',tag:'g'+Math.random().toString(36).slice(2,6)})}</div>`;
+  sc.appendChild(g);
+  setTimeout(()=>{ g.classList.add('paid'); if(sold){ const c=document.createElement('div'); c.className='scoin'; c.textContent='+xu'; sc.appendChild(c); setTimeout(()=>c.remove(),1400) } }, 3200);
+  setTimeout(()=>g.remove(), 7600);
+}
+function shopTick(){
+  if(document.hidden || !document.querySelector('.shopscene')) return shopStop();
+  const [, , rate, list]=shopNow(); if(!rate || !list.length) return;
+  if(Math.random() < rate/15) shopGuest(pick(list.filter(id=>DB.recipeById[id])));
+}
+function shopStart(){
+  shopStop();
+  const sc=document.querySelector('.shopscene'); if(!sc) return;
+  const [a,b,rate]=shopNow();
+  const tag=document.createElement('div'); tag.className='shours';
+  tag.textContent = rate ? (a<10?'Sáng — khách gọi cà phê':a<14?'Trưa — trà trái cây, sinh tố':a<18?'Chiều — trà sữa đông khách':'Tối — khách thưa dần') : 'Quán đã đóng cửa';
+  sc.appendChild(tag); if(!rate) sc.classList.add('closed');
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){ SHOP_LIVE.t=setInterval(shopTick, 4000); setTimeout(shopTick, 600) }
+}
+function shopStop(){ if(SHOP_LIVE.t){ clearInterval(SHOP_LIVE.t); SHOP_LIVE.t=null } }
+(function(){
+  const mt=window.mount; if(typeof mt==='function') window.mount=function(){ const r=mt.apply(this,arguments);
+    if(document.querySelector('.shopscene') && !document.querySelector('.shours')) shopStart(); else if(!document.querySelector('.shopscene')) shopStop(); return r };
+  const sd=window.sellDrink; if(typeof sd==='function') window.sellDrink=function(id){ const c0=S.coin; const r=sd.apply(this,arguments);
+    if(S.coin>c0) setTimeout(()=>shopGuest(id,true),150); return r };
+})();
+
+
+/* ==========================================================
+   v1.1.3 — CÂU HỎI ĐÀO TẠO MỖI NGÀY
+   3 câu một ngày, không lặp tới khi hết bộ. Đúng +15 xu và +1 tay nghề cho vị trí
+   tương ứng; cứ 5 điểm tay nghề thì tác dụng vị trí đó +1 điểm %, tối đa +10.
+   Nội dung soạn từ kiến thức phổ biến; người dùng soát trước khi phát hành.
+   ========================================================== */
+DB.quizBank = {"pha": [["Một shot espresso thường được chiết xuất trong khoảng bao lâu?", "25–30 giây", "5–10 giây", "60–90 giây", "Càng lâu càng đậm, không có mốc", "Chiết quá nhanh thì chua, nhạt; quá lâu thì đắng, chát. Khoảng 25–30 giây là mốc tham chiếu phổ biến."], ["Vì sao không nên pha trà xanh bằng nước sôi 100°C?", "Trà dễ đắng chát, mất hương", "Trà sẽ không ra màu", "Nước sôi làm trà nhạt đi", "Trà xanh chỉ pha được bằng nước lạnh", "Nước quá nóng rút nhanh chất chát. Trà xanh hợp với nước khoảng 70–80°C."], ["Vì sao nên ủ (cho nở) bột cà phê phin vài chục giây trước khi rót đầy nước?", "Để bột ngấm nước, thoát khí, chiết đều hơn", "Để cà phê nguội bớt", "Để giảm lượng cà phê cần dùng", "Không có tác dụng gì, chỉ là thói quen", "Bột mới xay còn khí CO2; ủ trước giúp nước ngấm đều, ly cà phê ổn định hơn."], ["Sữa đánh nóng cho latte nên dừng ở khoảng nhiệt độ nào?", "Khoảng 60–65°C", "Khoảng 30–35°C", "Khoảng 90–95°C", "Đánh tới khi sữa sôi", "Quá 70°C sữa mất vị ngọt tự nhiên và dễ có mùi khét; dưới 50°C thì ly nguội nhanh."], ["Vì sao cần dùng dụng cụ định lượng (cân, ly đong) khi pha?", "Để mọi ly giống nhau và kiểm soát giá vốn", "Để pha nhanh hơn", "Để khách thấy chuyên nghiệp", "Chỉ cần khi đào tạo người mới", "Định lượng chuẩn giữ chất lượng đồng đều giữa các ca và giúp tính đúng giá vốn."], ["Vì sao nên rây bột matcha trước khi đánh?", "Để bột không bị vón cục", "Để matcha xanh hơn", "Để giảm vị đắng", "Để tiết kiệm bột", "Matcha rất mịn và dễ vón; rây trước giúp hoà tan đều, ly mịn hơn."], ["Mục đích chính của việc lắc (shake) đồ uống với đá là gì?", "Làm lạnh nhanh, hoà trộn đều, tạo chút bọt", "Làm tan hết đá", "Tăng thể tích ly", "Chỉ để trình diễn với khách", "Lắc giúp nguyên liệu hoà đều và lạnh nhanh; với một số món còn tạo lớp bọt nhẹ."], ["Nước cốt chanh vắt sẵn để quá lâu thường bị làm sao?", "Đắng và mất hương", "Ngọt hơn", "Chua gắt hơn gấp đôi", "Không thay đổi gì", "Vỏ và hạt tiết chất đắng, hương tươi bay dần. Nên vắt theo ca và bảo quản lạnh."], ["Khi pha đồ uống nhiều tầng màu, nên rót chất lỏng nào xuống dưới cùng?", "Chất đặc, ngọt hơn (nặng hơn)", "Chất loãng nhất", "Chất có màu đậm nhất", "Thứ tự nào cũng được", "Chất lỏng có tỉ trọng cao hơn (nhiều đường, đặc hơn) nằm dưới; rót chậm để giữ tầng."], ["Lớp kem muối của cà phê muối nên được đánh tới mức nào?", "Bông mềm, đủ sánh để nổi trên mặt", "Đánh tới khi tách nước", "Không cần đánh, rót thẳng kem lỏng", "Đánh cứng như kem trang trí bánh", "Kem đánh vừa đủ sánh sẽ nổi thành lớp riêng; đánh quá tay sẽ tách nước, bị lợn cợn."], ["Vì sao không nên đánh nóng lại sữa đã đánh trước đó?", "Sữa mất ngọt và bọt kém, chất lượng giảm", "Sữa sẽ đông đặc ngay", "Máy sẽ hỏng", "Không sao, đánh lại vẫn như mới", "Sữa đã gia nhiệt một lần thì cấu trúc bọt và vị không còn tốt; nên đánh lượng vừa đủ mỗi lần."], ["Cà phê sau khi xay nên được dùng như thế nào?", "Càng sớm càng tốt vì hương bay nhanh", "Để vài ngày cho dịu", "Xay sẵn cả tuần cho tiện", "Bảo quản trong tủ đông vô thời hạn", "Bột cà phê mất hương nhanh hơn hạt rất nhiều; xay vừa đủ dùng là tốt nhất."], ["Hạt cà phê rang nên bảo quản ra sao?", "Hộp kín, tránh ánh sáng, nhiệt và ẩm", "Để ngoài túi mở cho thoáng", "Để cạnh máy pha cho tiện", "Trong tủ mát cùng trái cây", "Ánh sáng, nhiệt, không khí và độ ẩm làm hạt nhanh mất hương."], ["Syrup đường tự nấu cơ bản (simple syrup) thường theo tỉ lệ nào?", "1 phần đường : 1 phần nước", "1 phần đường : 5 phần nước", "5 phần đường : 1 phần nước", "Không cần nước", "Tỉ lệ 1:1 là công thức cơ bản phổ biến; một số quán dùng 2:1 cho syrup đặc hơn."], ["Trà ủ lạnh (cold brew) khác trà pha nóng ở điểm nào?", "Ủ lâu trong lạnh nhiều giờ, vị dịu hơn", "Pha bằng nước sôi rồi cho đá", "Chỉ ủ trong vài phút", "Không cần lá trà", "Ủ lạnh chiết chậm nên ít chát, vị dịu; đổi lại cần nhiều giờ chuẩn bị."], ["Đồ uống đá xay bị tách nước nhanh thường do đâu?", "Thiếu chất tạo sánh hoặc tỉ lệ đá, nước chưa đúng", "Do dùng ly quá to", "Do xay quá lâu một chút", "Do pha vào buổi chiều", "Base hoặc bột tạo sánh giữ các thành phần liên kết; thiếu nó, đá xay nhanh tách lớp."], ["Vòi đánh sữa của máy espresso nên được vệ sinh khi nào?", "Ngay sau mỗi lần đánh sữa — lau và xả hơi", "Cuối tuần một lần", "Khi thấy sữa bám nhiều", "Không cần, hơi nóng tự làm sạch", "Sữa bám lại khô rất nhanh, vừa mất vệ sinh vừa làm nghẹt vòi. Lau và xả ngay sau mỗi lần."], ["Nhiệt độ nước pha espresso thường nằm trong khoảng nào?", "Khoảng 90–96°C", "Khoảng 60–70°C", "Đúng 100°C", "Khoảng 75–80°C", "Nước nằm trong khoảng 90–96°C giúp chiết xuất cân bằng giữa chua, ngọt và đắng."], ["Trân châu đã nấu xong nên được sử dụng trong khoảng thời gian nào?", "Trong vài giờ, thường khoảng 4 giờ", "Trong một tuần", "Để qua đêm dùng tiếp", "Không có giới hạn", "Để lâu trân châu cứng lại, mất độ dai; nhiều quán nấu theo mẻ nhỏ trong ngày."], ["Vì sao các quán cần một công thức chuẩn cho từng món?", "Để ai pha cũng ra cùng một ly", "Để khách không được tuỳ chỉnh", "Để giảm số món trên menu", "Chỉ để làm hồ sơ", "Công thức chuẩn giúp chất lượng không phụ thuộc vào người đứng quầy."]], "phuc": [["Khi mang ly ra cho khách, nên cầm ở đâu?", "Phần thân dưới hoặc đáy ly", "Miệng ly cho chắc tay", "Ống hút", "Chỗ nào cũng được", "Miệng ly là chỗ khách đặt môi; chạm vào là mất vệ sinh và mất thiện cảm."], ["Khách phàn nàn đồ uống quá ngọt, việc đầu tiên nên làm?", "Lắng nghe, xin lỗi và đề nghị làm lại", "Giải thích công thức là chuẩn", "Bảo khách thêm đá", "Đổi sang món khác ngay mà không hỏi", "Khách cần được lắng nghe trước. Đề nghị làm lại theo khẩu vị thường giữ được khách."], ["Nên chào khách vào lúc nào?", "Ngay khi khách bước vào, nhìn và mỉm cười", "Khi khách tới quầy gọi món", "Khi khách thanh toán", "Chỉ chào khách quen", "Lời chào sớm cho khách biết họ đã được nhìn thấy, kể cả khi quán đang bận."], ["Khách chưa biết chọn món gì, nên làm gì?", "Hỏi khẩu vị rồi gợi ý một, hai món", "Giới thiệu món đắt nhất", "Đưa menu rồi để khách tự chọn", "Gợi ý món dễ pha nhất", "Hỏi khách thích ngọt, đắng hay chua giúp gợi ý trúng ý, khách hài lòng hơn."], ["Trước khi thanh toán, nên làm gì với order của khách?", "Nhắc lại món, size, mức đường đá", "Không cần, khách tự kiểm", "Chỉ nhắc lại tổng tiền", "In hoá đơn rồi đưa khách đọc", "Nhắc lại order giúp phát hiện nhầm lẫn sớm, tránh làm lại ly."], ["Khi đặt ly có quai lên bàn, quai ly nên quay về phía nào?", "Về phía tay khách, dễ cầm", "Về phía giữa bàn", "Về phía người phục vụ", "Không quan trọng", "Quai ly quay về phía khách để khách cầm ngay, không phải xoay ly."], ["Khách đang nghe điện thoại tại quầy, phục vụ nên?", "Chờ, ra hiệu nhẹ nhàng, không cắt ngang", "Hỏi to để khách gọi món nhanh", "Phục vụ khách sau trước", "Nhắc khách tắt máy", "Tôn trọng cuộc gọi của khách; ra hiệu cho khách biết mình đang chờ."], ["Món khách gọi đã hết, nên làm gì?", "Báo ngay và gợi ý món tương tự thay thế", "Nhận order rồi báo sau", "Pha món khác mà không hỏi", "Chỉ nói là hết", "Báo sớm tránh khách chờ vô ích; gợi ý món tương tự giữ được đơn hàng."], ["Khi biết khách sẽ phải chờ lâu hơn bình thường, nên làm gì?", "Báo trước thời gian chờ dự kiến", "Không nói gì, cứ pha", "Pha vội cho nhanh", "Đợi khách hỏi mới nói", "Khách dễ chấp nhận chờ khi được báo trước; im lặng khiến chờ cảm giác lâu hơn."], ["Khách để quên đồ ở quán, nên xử lý thế nào?", "Giữ lại, ghi thời gian, báo quản lý", "Để nguyên tại bàn", "Mang về nhà giữ hộ", "Vứt đi nếu không có giá trị", "Ghi nhận và bàn giao rõ ràng tránh thất lạc và tranh cãi về sau."], ["Khi nào nên dọn ly của khách đang ngồi?", "Khi khách rời đi, hoặc hỏi ý khách nếu ly còn dở", "Ngay khi ly vơi một nửa", "Dọn tất cả ly mỗi 15 phút", "Không bao giờ dọn khi khách còn ngồi", "Dọn ly còn dở mà không hỏi dễ làm khách khó chịu."], ["Phát hiện ly bị mẻ miệng, nên làm gì?", "Loại bỏ ngay, không dùng phục vụ", "Dùng cho khách quen", "Xoay chỗ mẻ ra phía sau", "Dùng tạm hết ca", "Ly mẻ có thể gây đứt môi khách — rủi ro an toàn, không đáng đánh đổi."], ["Gợi ý bán thêm (upsell) thế nào là hợp lý?", "Gợi ý topping hoặc bánh hợp với món khách chọn", "Gợi ý mọi món đắt tiền", "Tự thêm topping vào hoá đơn", "Nài nỉ khách mua thêm", "Gợi ý đúng nhu cầu làm khách thấy được tư vấn, không thấy bị ép."], ["Khách hỏi món có chứa thứ họ dị ứng không, nếu không chắc nên?", "Hỏi lại pha chế hoặc công thức, không đoán", "Nói không có để khách yên tâm", "Khuyên khách gọi món khác cho chắc", "Bảo khách tự xem menu", "Dị ứng có thể nguy hiểm; trả lời sai còn tệ hơn không trả lời."], ["Khi giao đơn mang đi hoặc giao hàng, cần kiểm tra gì?", "Đủ món, đúng ghi chú, đóng gói kín", "Chỉ cần đủ số ly", "Chỉ cần đúng tên khách", "Không cần kiểm, đã pha đúng", "Kiểm lần cuối tránh thiếu món, đổ ly — những lỗi khách thấy ngay."], ["Về ngoại hình khi đứng quầy, điều nào quan trọng?", "Tóc gọn, tay và móng sạch", "Đeo nhiều phụ kiện cho đẹp", "Tuỳ phong cách cá nhân", "Chỉ cần đồng phục", "Vệ sinh cá nhân vừa là an toàn thực phẩm vừa là hình ảnh của quán."], ["Khách yêu cầu chỉnh món (ít đá, ít đường), nên làm gì?", "Ghi rõ lên ly hoặc phiếu order", "Nhớ trong đầu là đủ", "Pha bình thường cho chuẩn công thức", "Báo khách không chỉnh được", "Ghi lại giúp pha chế làm đúng, đặc biệt lúc đông khách."], ["Quán đang đông, khách mới vào chưa được phục vụ ngay, nên?", "Chào và báo khách sẽ được phục vụ ngay", "Phớt lờ tới khi rảnh", "Bảo khách quay lại sau", "Chỉ phục vụ khách gọi nhiều món", "Một lời chào giúp khách yên tâm chờ thay vì bỏ đi."], ["Khách góp ý không tốt về quán trên mạng xã hội, nên phản hồi thế nào?", "Lịch sự, cảm ơn góp ý, đề nghị liên hệ để xử lý", "Phản bác cho rõ đúng sai", "Xoá bình luận", "Không trả lời", "Người khác đọc cách quán phản hồi; thái độ cầu thị gỡ điểm cho quán."], ["Khi khách ra về, nên làm gì?", "Cảm ơn và mời khách quay lại", "Không cần, khách đã trả tiền", "Chỉ cảm ơn khách quen", "Nhắc khách đánh giá quán", "Lời cảm ơn cuối cùng là ấn tượng khách mang về."]], "van": [["Nguyên tắc 'nhập trước, xuất trước' (FIFO) dùng để làm gì?", "Dùng hàng nhập trước, giảm hư hỏng, hết hạn", "Nhập hàng nhanh hơn", "Giảm giá nhập", "Bán hàng nhanh hơn", "Hàng cũ được dùng trước nên ít hết hạn trong kho."], ["Mở một hộp sữa tươi rồi cất tủ mát, cần ghi gì lên hộp?", "Ngày giờ mở và hạn dùng sau khi mở", "Tên người mở", "Giá tiền", "Không cần ghi gì", "Sữa đã mở có hạn dùng ngắn hơn hạn in trên bao bì; ghi rõ để ca sau biết."], ["Tủ mát bảo quản sữa, kem nên giữ ở khoảng nhiệt độ nào?", "Khoảng 0–5°C", "Khoảng 10–15°C", "Dưới −10°C", "Nhiệt độ phòng", "Dưới 5°C vi khuẩn phát triển chậm; quá lạnh thì sữa có thể đông đá."], ["Kiểm kho cuối ngày nhằm mục đích chính là gì?", "Đối chiếu tồn kho, phát hiện hao hụt, lên đơn nhập", "Để có việc cho ca tối", "Chỉ để báo cáo chủ quán", "Để dọn kho", "Kiểm kho đều đặn giúp phát hiện thất thoát sớm và nhập hàng đúng lượng."], ["Nhân viên cần rửa tay vào những lúc nào?", "Trước khi pha, sau khi cầm tiền hoặc đi vệ sinh", "Chỉ đầu ca", "Chỉ khi tay bẩn thấy rõ", "Cuối ca", "Tiền và tay nắm cửa mang nhiều vi khuẩn; rửa tay là bước an toàn thực phẩm cơ bản."], ["Vì sao dao, thớt cho trái cây nên dùng riêng?", "Tránh nhiễm chéo vi khuẩn và mùi", "Cho đẹp quầy", "Để dao bén lâu", "Không cần thiết", "Dụng cụ dùng chung dễ mang vi khuẩn và mùi từ thực phẩm này sang thực phẩm khác."], ["Việc nào nên làm khi mở ca?", "Kiểm máy móc, nguyên liệu, vệ sinh quầy", "Mở cửa đón khách trước rồi tính sau", "Chỉ bật nhạc và đèn", "Đếm tiền két của ca trước", "Chuẩn bị đủ trước giờ mở cửa giúp ca chạy trơn tru khi khách đến."], ["Việc nào thuộc đóng ca?", "Vệ sinh máy, kiểm két, kiểm kho, khoá thiết bị", "Chỉ tắt đèn", "Để nguyên cho ca sáng làm", "Chỉ đổ rác", "Đóng ca kỹ để ca sau bắt đầu sạch sẽ, số liệu khớp."], ["Trái cây đã cắt nên bảo quản thế nào?", "Hộp kín trong tủ mát, dùng trong ngày", "Để ngoài quầy cho tiện lấy", "Ngâm nước ở nhiệt độ phòng", "Cấp đông rồi rã dần", "Trái cây cắt sẵn hỏng nhanh; hộp kín và lạnh giúp giữ tươi và an toàn."], ["Khi lấy đá, nên dùng dụng cụ gì?", "Xẻng xúc đá chuyên dụng", "Ly thuỷ tinh", "Tay đeo găng", "Bất kỳ ly nào", "Dùng ly xúc đá có thể làm vỡ ly lẫn mảnh vào đá — rất nguy hiểm."], ["Hoá chất vệ sinh nên được cất ở đâu?", "Xa khu nguyên liệu, có nhãn rõ ràng", "Cạnh nguyên liệu cho tiện", "Trong tủ lạnh", "Dưới quầy pha chế", "Tránh nhầm lẫn và nhiễm hoá chất vào thực phẩm."], ["Định lượng chuẩn cho từng món giúp quán điều gì?", "Đồng nhất chất lượng, tính giá vốn, kiểm soát hao hụt", "Chỉ để đào tạo", "Chỉ để in menu", "Giảm số nhân viên", "Có định lượng thì mới so được thực tế với lý thuyết để biết hao hụt ở đâu."], ["Nguyên liệu sắp hết hạn, nên xử lý thế nào?", "Ưu tiên dùng trước; quá hạn thì huỷ và ghi hao hụt", "Dùng tiếp vài ngày sau hạn", "Bán giảm giá cho khách", "Trộn vào nguyên liệu mới", "Không dùng hàng quá hạn; ghi hao hụt để biết nhập dư ở đâu."], ["Khi nhận hàng từ nhà cung cấp, cần kiểm tra gì trước khi ký?", "Số lượng, hạn dùng, nhiệt độ hàng lạnh", "Chỉ cần đủ số thùng", "Chỉ cần hoá đơn đúng giá", "Không cần, đã quen nhà cung cấp", "Ký nhận rồi mới phát hiện sai thì khó đổi trả."], ["Máy hỏng giữa giờ cao điểm, nên làm gì?", "Báo quản lý, chuyển món thay thế, ghi lại sự cố", "Đóng cửa quán", "Cố sửa máy trong lúc khách chờ", "Không nói với khách", "Giữ dòng phục vụ bằng món thay thế, ghi sự cố để xử lý triệt để sau ca."], ["Checklist mở, đóng ca giúp quán điều gì?", "Không bỏ sót việc, ai làm cũng ra cùng kết quả", "Chỉ để kiểm tra nhân viên", "Làm ca dài hơn", "Không cần nếu nhân viên có kinh nghiệm", "Checklist biến kinh nghiệm thành quy trình — ca nào cũng như ca nào."], ["Vệ sinh sâu máy espresso (xả ngược với hoá chất) nên làm khi nào?", "Theo khuyến nghị nhà sản xuất, thường cuối ngày", "Mỗi năm một lần", "Chỉ khi máy hỏng", "Không bao giờ dùng hoá chất", "Dầu cà phê bám lâu làm cà phê đắng khét và hại máy."], ["Rác ở quầy pha chế nên xử lý thế nào?", "Phân loại, thùng có nắp, đổ cuối ca hoặc khi đầy", "Để chung một túi hở", "Đổ một tuần một lần", "Để dưới quầy cho kín", "Rác hở thu hút côn trùng và tạo mùi trong khu pha chế."], ["Chai syrup đã mở nên bảo quản thế nào?", "Đậy kín, theo hướng dẫn nhãn, ghi ngày mở", "Mở nắp cho dễ rót", "Pha thêm nước cho đủ dùng", "Không cần lưu ý", "Syrup mở lâu có thể lên men hoặc mốc; ghi ngày mở để kiểm soát."], ["Khi bàn giao ca, nên ghi lại những gì?", "Tiền, tồn kho, sự cố trong ca", "Không cần ghi, nói miệng là đủ", "Chỉ ghi số tiền", "Chỉ ghi khi có sự cố lớn", "Sổ bàn giao giúp ca sau nắm tình hình và xác định trách nhiệm rõ ràng."]], "quan": [["Ly có giá vốn 9.500đ, bán 35.000đ. Tỉ lệ giá vốn khoảng bao nhiêu?", "27%", "37%", "73%", "3,7%", "9.500 ÷ 35.000 ≈ 0,27. Quán đồ uống thường giữ tỉ lệ giá vốn khoảng 25–35%."], ["Nguyên liệu hao hụt nên được ghi lại khi nào?", "Ngay khi phát sinh, ghi rõ lý do", "Cuối tháng", "Khi kiểm kho thấy thiếu", "Không cần ghi", "Ghi ngay thì nhớ đúng lý do; dồn cuối tháng thì không biết hao hụt từ đâu."], ["Giá vốn hàng bán của một ly đồ uống gồm những gì?", "Nguyên liệu và vật tư đi kèm ly như ly, nắp, ống hút", "Tiền thuê mặt bằng", "Lương nhân viên", "Tiền điện cả tháng", "Giá vốn là chi phí trực tiếp tạo ra ly; mặt bằng, lương là chi phí vận hành."], ["Điểm hoà vốn của quán là gì?", "Mức doanh thu vừa đủ bù toàn bộ chi phí", "Ngày quán khai trương", "Doanh thu cao nhất trong tháng", "Khi quán bán hết hàng", "Dưới điểm hoà vốn là lỗ; vượt qua mới bắt đầu có lãi."], ["Khoản nào là chi phí cố định?", "Tiền thuê mặt bằng", "Nguyên liệu pha chế", "Ly nhựa mang đi", "Phí giao hàng theo đơn", "Chi phí cố định không đổi theo số ly bán ra trong ngắn hạn."], ["Khoản nào là chi phí biến đổi?", "Nguyên liệu, thay đổi theo số ly bán", "Tiền thuê nhà", "Khấu hao máy móc", "Phí bản quyền nhạc cả năm", "Bán càng nhiều ly, chi phí nguyên liệu càng tăng."], ["Lợi nhuận gộp được tính thế nào?", "Doanh thu trừ giá vốn hàng bán", "Doanh thu trừ tất cả chi phí", "Doanh thu cộng chi phí", "Số tiền trong két cuối ngày", "Lợi nhuận gộp cho biết mỗi đồng doanh thu còn lại bao nhiêu sau nguyên liệu."], ["Một món bán chạy nhưng lãi thấp, quán nên làm gì?", "Xem lại định lượng, giá bán hoặc nhà cung cấp", "Bỏ món đó ngay", "Tăng khuyến mãi cho món đó", "Không làm gì vì bán chạy là tốt", "Món bán chạy là thế mạnh; cải thiện biên lãi của nó tác động lớn tới lợi nhuận."], ["Trong phân tích menu, món vừa bán chạy vừa lãi cao được gọi là gì?", "Món ngôi sao", "Món ngựa kéo", "Món câu đố", "Món chó", "Món ngôi sao nên được giữ chất lượng và đặt ở vị trí nổi bật trên menu."], ["Giá trị trung bình mỗi hoá đơn được tính thế nào?", "Doanh thu chia cho số hoá đơn", "Doanh thu chia số ngày", "Tổng số ly chia số khách", "Doanh thu chia số nhân viên", "Tăng giá trị mỗi hoá đơn (gợi ý thêm món hợp lý) là cách tăng doanh thu không cần thêm khách."], ["Vì sao nên chốt số liệu bán hàng mỗi ngày?", "Phát hiện sai lệch sớm khi còn nhớ nguyên nhân", "Để nộp thuế mỗi ngày", "Để nhân viên bận rộn", "Không cần, cuối tháng chốt một lần", "Sai lệch phát hiện trong ngày thì dễ tìm nguyên nhân hơn nhiều."], ["Xếp ca nhân sự hợp lý nên dựa vào đâu?", "Lượng khách theo từng khung giờ", "Mong muốn của nhân viên", "Chia đều mọi ca", "Ngẫu nhiên", "Đông người lúc vắng khách là lãng phí; thiếu người lúc đông là mất khách."], ["Chỉ số nào phù hợp để đánh giá nhân viên pha chế?", "Thời gian ra món và độ đồng đều chất lượng", "Số lần đi muộn", "Số món biết pha", "Số khách quen", "Khách cảm nhận trực tiếp tốc độ và chất lượng ly; đó là thứ nên đo."], ["Tồn kho quá nhiều gây hại gì?", "Đọng vốn và tăng nguy cơ hết hạn", "Không hại gì, càng nhiều càng an toàn", "Giúp được giá nhập rẻ hơn mãi mãi", "Chỉ tốn chỗ", "Tiền nằm trong kho là tiền không sinh lời, và hàng có hạn dùng."], ["Khi tăng giá bán, quán nên làm gì?", "Giải thích giá trị, cải thiện trải nghiệm, theo dõi phản ứng", "Tăng một lần thật mạnh", "Giảm định lượng thay vì tăng giá", "Không báo trước", "Khách chấp nhận giá mới khi thấy giá trị tương xứng."], ["Đối thủ gần đó giảm giá mạnh, quán nhỏ nên ưu tiên gì?", "Tập trung vào khác biệt và trải nghiệm", "Giảm giá thấp hơn đối thủ", "Đóng cửa tạm thời", "Sao chép menu đối thủ", "Đua giá thì quán lớn thắng; quán nhỏ thắng bằng điều khách không tìm được ở nơi khác."], ["Cách đào tạo nhân viên mới hiệu quả là gì?", "Có tài liệu quy trình chuẩn và kèm cặp thực hành", "Cho tự xem người cũ làm", "Đọc tài liệu là đủ", "Cho làm ngay giờ cao điểm để quen", "Quy trình viết ra giúp đào tạo đồng đều; kèm cặp giúp sửa sai ngay."], ["Theo dõi chi phí theo tuần, tháng giúp gì?", "Phát hiện chi phí tăng bất thường sớm", "Không cần nếu doanh thu tốt", "Chỉ để báo cáo thuế", "Để cắt lương nhân viên", "Chi phí tăng âm thầm là cách phổ biến khiến quán đông khách vẫn lỗ."], ["Tỉ lệ khách quay lại cao cho thấy điều gì?", "Sản phẩm và trải nghiệm đang giữ được khách", "Quán đang giảm giá nhiều", "Quán ở vị trí đẹp", "Không nói lên điều gì", "Khách quay lại là dấu hiệu sức khoẻ bền vững hơn lượng khách mới."], ["Hiệu quả một chương trình khuyến mãi nên đo bằng gì?", "Lợi nhuận tăng thêm so với chi phí khuyến mãi", "Số lượt khách tăng lên", "Số lượt thích trên mạng", "Số ly bán ra trong ngày khuyến mãi", "Bán được nhiều ly mà lãi giảm thì khuyến mãi đang lấy tiền của quán."]]};
+DB.quizTopics = { pha:{name:'Pha chế', roles:['barista']}, phuc:{name:'Phục vụ', roles:['server']},
+  van:{name:'Vận hành', roles:['qc','shipper']}, quan:{name:'Quản trị', roles:['manager','cashier']} };
+DB.quiz = { perDay:3, coin:15, ptsPerStep:5, stepPct:0.01, maxPct:0.10 };
+function quizState(){
+  S.quiz=S.quiz||{ day:null, list:[], ans:[], seen:{} }; S.skill=S.skill||{};
+  const q=S.quiz, d=today();
+  if(q.day!==d){
+    const order=Object.keys(DB.quizTopics), start=(q.rot||0)%4; q.rot=(q.rot||0)+1;
+    const topics=[0,1,2].map(i=>order[(start+i)%4]);
+    q.list=topics.map(t=>{ q.seen[t]=q.seen[t]||[]; let pool=DB.quizBank[t].map((_,i)=>i).filter(i=>!q.seen[t].includes(i));
+      if(!pool.length){ q.seen[t]=[]; pool=DB.quizBank[t].map((_,i)=>i) }
+      const i=pick(pool); q.seen[t].push(i); return {t,i} });
+    q.ans=[]; q.day=d; save();
+  }
+  return q;
+}
+function quizOpts(t,i){   // thứ tự đáp án cố định trong ngày (mở lại không đổi chỗ)
+  const x=DB.quizBank[t][i], o=[x[1],x[2],x[3],x[4]]; let s=0; for(const ch of today()+t+i) s=(s*31+ch.charCodeAt(0))>>>0;
+  for(let k=o.length-1;k>0;k--){ s=(s*1103515245+12345)>>>0; const j=s%(k+1); [o[k],o[j]]=[o[j],o[k]] } return o }
+function quizPct(role){ const p=(S.skill||{})[role]||0; return Math.min(DB.quiz.maxPct, Math.floor(p/DB.quiz.ptsPerStep)*DB.quiz.stepPct) }
+function quizHTML(){
+  const q=quizState(), n=q.ans.length, right=q.ans.filter(a=>a.ok).length;
+  const sk=DB.shopRoles.map(r=>`<span class="qsk">${r.ic} ${r.name} <b>${(S.skill||{})[r.id]||0}</b>${quizPct(r.id)?` · +${Math.round(quizPct(r.id)*100)}%`:''}</span>`).join('');
+  return `<div class="quizcard"><div class="qh"><b>Đào tạo hôm nay</b><span>${n}/${DB.quiz.perDay}</span></div>
+    <div class="note" style="margin:4px 0 8px">${n<DB.quiz.perDay?`3 câu về pha chế, phục vụ, vận hành, quản trị. Mỗi câu đúng +${DB.quiz.coin} xu và lên tay nghề cho vị trí tương ứng.`:`Xong buổi hôm nay: đúng ${right}/${DB.quiz.perDay}. Mai có câu mới.`}</div>
+    ${n<DB.quiz.perDay?`<button class="btn gold" onclick="quizOpen()">${n?'Tiếp tục':'Bắt đầu'} câu ${n+1}</button>`:''}
+    <div class="qsks">${sk}</div><div class="note" style="margin-top:6px">Cứ ${DB.quiz.ptsPerStep} điểm tay nghề, tác dụng của vị trí đó tăng thêm 1% (tối đa +10%) — khi có pet đứng vị trí.</div></div>`;
+}
+function quizOpen(){
+  const q=quizState(), n=q.ans.length; if(n>=DB.quiz.perDay) return;
+  const {t,i}=q.list[n], x=DB.quizBank[t][i], o=quizOpts(t,i);
+  openSheet(`<div class="qtop"><span>${DB.quizTopics[t].name}</span><span>Câu ${n+1}/${DB.quiz.perDay}</span></div>
+    <h3 style="margin:6px 0 12px;line-height:1.35">${x[0]}</h3>
+    <div class="qopts">${o.map((a,k)=>`<button onclick="quizAnswer(${k})">${a}</button>`).join('')}</div><div id="qres"></div>`);
+}
+function quizAnswer(k){
+  const q=quizState(), n=q.ans.length; if(n>=DB.quiz.perDay) return;
+  const {t,i}=q.list[n], x=DB.quizBank[t][i], o=quizOpts(t,i), ok=o[k]===x[1];
+  q.ans.push({t,i,ok});
+  if(ok){ S.coin+=DB.quiz.coin; DB.quizTopics[t].roles.forEach(r=>S.skill[r]=(S.skill[r]||0)+1); sfx('coin') } else sfx('tap');
+  save();
+  document.querySelectorAll('.qopts button').forEach((b,j)=>{ b.disabled=true; if(o[j]===x[1]) b.classList.add('right'); else if(j===k) b.classList.add('wrong') });
+  const last=q.ans.length>=DB.quiz.perDay;
+  $('qres').innerHTML=`<div class="qexp ${ok?'ok':'no'}"><b>${ok?`Đúng rồi! +${DB.quiz.coin} xu`:'Chưa đúng'}</b><p>${x[5]}</p>
+    ${ok?`<small>Tay nghề ${DB.quizTopics[t].roles.map(r=>DB.shopRoleById[r].name).join(', ')} +1</small>`:''}</div>
+    <button class="btn ${last?'ghost':'gold'}" style="margin-top:10px" onclick="${last?'closeSheet();mount()':'quizOpen()'}">${last?'Xong buổi hôm nay':'Câu tiếp theo'}</button>`;
+  mount();
+}
+(function(){   // tay nghề cộng vào tác dụng của vị trí có pet đứng
+  const sp=window.shopPerks; if(typeof sp!=='function') return;
+  window.shopPerks=function(){ const P=sp.apply(this,arguments); const st=shopState();
+    DB.shopRoles.forEach(r=>{ if(st.roles[r.id] && quizPct(r.id)) P[r.perk.type]=(P[r.perk.type]||0)+quizPct(r.id) }); return P };
+})();
+
+
+/* ==========================================================
+   v1.1.3 — CHẶN LỖ HỔNG "RÈN – NGỦ – RÈN"
+   Người dùng phát hiện người chơi spam rèn: 2 ngày gom 417 điểm cốt, đổi ra gần
+   10.000 xu. [đo] 400 lần chạm: cấp 1 → 17, +294 điểm, không có gì chặn.
+   Chặn ở ba chỗ, nhẹ tay: rèn có hiệu quả 6 lần/ngày (theo tài khoản — đổi pet
+   chính không lách được); trần cấp theo giai đoạn; đổi điểm ra xu 3 lần/ngày.
+   ========================================================== */
+DB.trainCap = { perDay:6, expAfter:0.2 };
+DB.levelCap = { egg:8, baby:8, teen:15, adult:25, evo:30 };
+DB.tradeCap = { coin:3 };
+function trainDay(){ const d=today(); if(!S.trainDay || S.trainDay.d!==d) S.trainDay={ d, n:0 }; return S.trainDay }
+function trainLeft(){ return Math.max(0, DB.trainCap.perDay - trainDay().n) }
+function lvCap(p){ if(!p) return 30; if(p.evpet || p.species==='automa' || (DB.species[p.species]&&DB.species[p.species].wild)) return 30;
+  return DB.levelCap[p.stage] || 30 }
+function tradeDay(){ const d=today(); if(!S.tradeDay || S.tradeDay.d!==d) S.tradeDay={ d, coin:0 }; return S.tradeDay }
+(function(){
+  const tc=window.tradeCore; if(typeof tc!=='function') return;
+  window.tradeCore=function(id){ if(id==='coin' && tradeDay().coin>=DB.tradeCap.coin) return toast(`Hôm nay đã đổi xu ${DB.tradeCap.coin} lần. Mai đổi tiếp.`);
+    const c0=S.coin; const r=tc.apply(this,arguments); if(id==='coin' && S.coin>c0){ tradeDay().coin++; save() } return r };
+})();
+/* người chơi đã spam: điểm chưa tiêu đưa về mức hợp lệ theo cấp và số ngày; cấp giữ nguyên */
+DB.migrations.push({ to:6, name:'Điểm cốt dư từ rèn liên tục đưa về mức hợp lệ',
+  run:()=>{ const days=Math.max(1,(typeof dayNo==='function')?dayNo():1);
+    [S.pet].concat(S.stash||[]).forEach(p=>{ if(!p || !p.core) return; const c=p.core;
+      const spent=Object.values(c.spent||{}).reduce((a,b)=>a+(+b||0),0);
+      const allowed=DB.core.perLevel*Math.max(0,(p.level||1)-1) + DB.trainCap.perDay*days;
+      const cap=Math.max(0, allowed-spent); if((c.pool||0)>cap){ c.trimmed=(c.pool||0)-cap; c.pool=cap } }) } });
+DB.saveVer = DB.migrations[DB.migrations.length-1].to;
 
 boot();
 if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>{});

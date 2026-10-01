@@ -1,4 +1,4 @@
-# Pet Drink: Scale & Soul — v1.1.2
+# Pet Drink: Scale & Soul — v1.1.3
 
 Trò chơi nuôi thú ảo gắn với công việc vận hành quán đồ uống. Bản trải nghiệm dành cho cộng đồng ngành F&B.
 
