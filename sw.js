@@ -7,7 +7,7 @@
      mất mạng mới dùng bản trong bộ đệm — vẫn chạy offline được
    - ảnh, manifest vẫn lấy bộ đệm trước cho nhanh
    KHI PHÁT HÀNH BẢN MỚI: tăng VER dưới đây. */
-const VER='1.1.4';
+const VER='1.1.4-c';
 const C='petdrink-'+VER;
 const ASSETS=['./','./index.html','./manifest.webmanifest','./icon.svg'];
 self.addEventListener('install',e=>{
@@ -36,9 +36,12 @@ self.addEventListener('fetch',e=>{
   }
   if(isPage(req)){
     // mạng trước cho trang chính
+    // v1.1.4-c: mỗi trang lưu vào đúng chỗ của nó — trước đây mọi trang đè lên index.html,
+    // mở một trang khác (vd. bản thử) thì lúc mất mạng game chính hiện ra trang đó
+    const key=req.url.split('?')[0].split('#')[0];
     e.respondWith(fetch(req).then(res=>{
-      const cp=res.clone(); caches.open(C).then(c=>c.put('./index.html',cp)); return res;
-    }).catch(()=>caches.match('./index.html').then(r=>r||caches.match('./'))));
+      if(res.ok){ const cp=res.clone(); caches.open(C).then(c=>c.put(key,cp)) } return res;
+    }).catch(()=>caches.match(key).then(r=>r||caches.match('./index.html')).then(r=>r||caches.match('./'))));
     return;
   }
   // bộ đệm trước cho phần còn lại
