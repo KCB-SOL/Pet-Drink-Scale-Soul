@@ -2058,6 +2058,19 @@ body.stagefull .hero,body.stagefull #acts{opacity:.25;pointer-events:none;transi
   background:linear-gradient(#0b1d18,#0b1d18) 50% 0/2px 26px no-repeat, radial-gradient(circle at 50% 70%,#0b1d18 0 9px,transparent 10px), radial-gradient(ellipse at 30% 86%,#0f2a22 0 8px,transparent 9px), radial-gradient(ellipse at 72% 88%,#0f2a22 0 8px,transparent 9px)}
 @keyframes shSway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
 @media(prefers-reduced-motion:reduce){.ring>*:first-child,.arnear,.shhang,.ring.rshake{animation:none !important}}
+
+/* ---- v1.1.6 lời khách, nhật ký kinh doanh ---- */
+.spsay{margin-top:6px;font-size:13px;font-style:italic;color:var(--ink-2)}
+.spsay.good{color:var(--teal-2)}.spsay.low{color:var(--warn)}
+.gsay{position:absolute;left:50%;bottom:58px;transform:translateX(-50%);white-space:nowrap;max-width:170px;overflow:hidden;text-overflow:ellipsis;
+  background:#fff;color:#2a211c;font-size:10.5px;border-radius:10px;padding:3px 8px;box-shadow:0 2px 6px rgba(0,0,0,.2);animation:dpin .3s ease both}
+.gsay.low{background:#fff2ea}
+.bizrow{border-bottom:1px dashed var(--line);padding:6px 0}.bizrow:last-of-type{border-bottom:0}
+.bizrow .bh{display:flex;justify-content:space-between;font-size:13.5px}.bizrow .bm{font-size:12px;color:var(--ink-3)}
+.bq{font-size:12.5px;font-style:italic;color:var(--ink-2);margin-top:2px}.bq.good{color:var(--teal-2)}.bq.low{color:var(--warn)}
+
+.cgift{border:1.5px solid var(--gold);border-radius:14px;padding:10px 12px;margin:8px 0 12px;background:rgba(200,151,63,.08)}
+.cgt{font-weight:700;font-size:15px}.cgift p{font-size:13.5px;line-height:1.55;margin:6px 0}.cgl{font-weight:600;color:var(--gold)}.cgs{text-align:right;font-style:italic;color:var(--ink-3)}
 /* ---- bảng tên ---- */
 .np{display:inline-block;position:relative;padding:1px 14px 3px;border-radius:12px;border:2px solid;line-height:1.15}
 .np.npc{padding:0 8px 1px;border-width:1.5px;border-radius:8px;font-size:.92em}
@@ -2133,7 +2146,7 @@ body.nofx .actor .in{animation:none}
   <div class="hibbar hide" id="hibbar">Đang ngủ đông — hao hụt tạm dừng</div>
   <header class="hdr">
     <div class="brandmark" id="brandmark"></div>
-    <div><h1>Pet Drink</h1><div class="sub" id="hdrsub">Scale &amp; Soul · v1.1.5</div></div>
+    <div><h1>Pet Drink</h1><div class="sub" id="hdrsub">Scale &amp; Soul · v1.1.6</div></div>
     <div class="purse">
       <div class="chip agechip" title="Dành cho người chơi từ 12 tuổi trở lên">12+</div>
       <div class="chip" id="chipCoin">0 xu</div>
@@ -9104,7 +9117,7 @@ let HATCH={ taps:0, pet:null, egg:null };
 function hatchEvent(eggId){
   const i=(S.eggs||[]).findIndex(e=>e.id===eggId); if(i<0) return;
   const egg=S.eggs[i];
-  const rar=distPick(DB.eggById[egg.type].dist);
+  const rar=distPick((typeof eggDist==='function')?eggDist(egg):DB.eggById[egg.type].dist);
   const p=makePet({rarity:rar});
   HATCH={ taps:0, pet:p, egg, idx:i };
   const e=document.createElement('div'); e.className='intro hatch'; e.id='hatchscene';
@@ -12151,7 +12164,8 @@ function climbOne(floor, live){
   const optA = Object.assign({ team: teamPets(), gearCrit:gb.crit, gearCleanse:gb.cleanse,
     autoPassive: automaPassive(),
     regionFit: (typeof petFitsFloor==='function') ? petFitsFloor(S.pet, floor) : false }, drinkOpt(floor));
-  const pr = DB.tower.pressure ? DB.tower.pressure(floor) : 1;
+  // v1.1.6: quái tạo ra tối đa ~pet cấp 30 tiến hoá (~450–560 sức mạnh) — mục tiêu cao hơn thì nhân chỉ số cho đủ
+  const pr = (DB.tower.pressure ? DB.tower.pressure(floor) : 1) * (foe._scale || 1);
   const optB = b ? { mech:b.mech, mechP:b.mechP, mult:(b.mult||1)*pr, name:b.name,
                      bossSkill: DB.bossSkills[b.name] || null }
                  : (pr>1 ? { mult:pr, name:foe.name } : {});
@@ -12184,7 +12198,8 @@ function fastClimb(n){
   for(let i=0;i<n && !stop;i++){
     const f=t.floor;
     if(f>DB.tower.openStages*10){ toast('Đã hết phần tháp đang mở.'); break }
-    t.tickets--;
+    if(t.tickets<DB.tower.ticketCost(f)){ toast('Tầng trên 80 cần 2 vé mỗi tầng.'); break }
+    t.tickets-=DB.tower.ticketCost(f);
     S.pet.care.energy=clamp(S.pet.care.energy-6);
     const dk=drinkBuffFor(f);
     const {res, boss}=climbOne(f);
@@ -12934,7 +12949,7 @@ function buyEgg(t){
 function hatch(id){
   const i=S.eggs.findIndex(e=>e.id===id); if(i<0)return;
   const e=S.eggs[i]; S.eggs.splice(i,1);
-  const rar=distPick(DB.eggById[e.type].dist);
+  const rar=distPick((typeof eggDist==='function')?eggDist(e):DB.eggById[e.type].dist);
   const p=makePet({rarity:rar});
   S.stash.push(p);
   statsOf(); S.stats.hatched=(S.stats.hatched||0)+1; noteRarity(p);
@@ -13640,7 +13655,8 @@ async function climbAnimated(){
   if(S.pet.care.energy<10) return toast('Pet quá mệt.');
   if(t.floor>DB.tower.openStages*10) return toast('Đã hết phần tháp đang mở.');
   const f=t.floor;
-  t.tickets--; S.pet.care.energy=clamp(S.pet.care.energy-6);
+  if(t.tickets<DB.tower.ticketCost(f)) return toast('Tầng trên 80 cần 2 vé mỗi tầng.');
+  t.tickets-=DB.tower.ticketCost(f); S.pet.care.energy=clamp(S.pet.care.energy-6);
   const dk=drinkBuffFor(f);
   const {res, foe, boss}=climbOne(f, true);
   if(dk) consumeDrink();
@@ -14454,7 +14470,7 @@ const EVC = {
     now:'Ngay khi đồng ý' },
   BUFFS:{ hp:'Máu', atk:'Tấn công', def:'Phòng thủ', spd:'Tốc độ', int:'Trí', luck:'May mắn', crit:'Chí mạng' },
   LEVEL:{ easy:0.85, normal:1, hard:1.15 },
-  LIM:{ coin:3000, tickets:5, passes:3, expSeed:5, seedEach:10, seedKinds:5,
+  LIM:{ coin:3000, tickets:5, passes:5, expSeed:5, seedEach:10, seedKinds:5,
     quests:8, wishes:6, lines:30, recipes:4, goalN:200, perDay:5,
     arts:10, pathsPerArt:16, pathLen:3000, ladder:6 },
   /* v1.4: tác dụng của pet sự kiện — KHÁC LOẠI, mạnh ngang Automa tốt nhất,
@@ -15451,7 +15467,7 @@ function evPetLine(p, k){
 /* ==========================================================
    BẢN PHÁT HÀNH 1.0 — số phiên bản game
    ========================================================== */
-const APP_VER='1.1.5';
+const APP_VER='1.1.6';
 
 /* ==========================================================
    QUA NGÀY, QUA TUẦN KHI GAME ĐANG MỞ
@@ -15609,6 +15625,17 @@ window.save=function(){
    CÓ GÌ MỚI — hiện một lần cho người chơi cũ khi lên bản mới
    ========================================================== */
 DB.patchNotes = [
+  { ver:'1.1.6', date:'10/2026', title:'Cân bằng tháp và quán',
+    lead:'Tháp 110 tầng giờ hoàn thành được trong khoảng 3 tháng chơi đều — kèm một món quà nhỏ.',
+    items:[
+      ['🗼','Tháp cân bằng lại','Sửa lỗi quái tầng cao không mạnh đúng mức. Chơi đều: khoảng tầng 45 sau 2 tuần, tầng 60 sau 1 tháng, tầng 80 sau 2 tháng, hết 110 tầng khoảng 3 tháng.'],
+      ['🎯','Không còn kẹt vì khắc chế','Từ tầng 81 quái đủ 6 loài, phó boss nhẹ hơn — loài pet nào cũng lên được đỉnh.'],
+      ['🎟️','Đường lên đỉnh','Từ tầng 81, mỗi tầng cần 2 vé.'],
+      ['🥚','Trứng vàng từ boss','Boss tầng 30, 60, 90 mỗi boss tặng 1 trứng vàng, ít nhất Cực hiếm. Ai đã qua các tầng này được nhận bù.'],
+      ['💬','Khách nói gì','Khách nhận ly sẽ cảm ơn hoặc góp ý — đúng điều quán đang thiếu.'],
+      ['📓','Nhật ký kinh doanh','Mỗi ngày: số ly, thu, chi, lãi, độ hài lòng, lời khách. Xem ở Quán hoặc Cuốn đời. Sáng hôm sau có tóm tắt.'],
+      ['📘','Hướng dẫn Quán','Pet kể về độ hài lòng, tiền bo, chi phí và sổ thu chi.']
+    ] },
   { ver:'1.1.5', date:'10/2026', title:'Quán vận hành như thật',
     lead:'Bàn ghế, khách hài lòng, sổ thu chi — và mọi cảnh có chiều sâu hơn.',
     items:[
@@ -17677,6 +17704,152 @@ const SH_NEAR=`<svg xmlns='http://www.w3.org/2000/svg' width='400' height='70' v
       .replace('<div class="scounter"></div>', `<div class="shfar" style="background-image:url(&quot;data:image/svg+xml,${SH_FAR.replace(/\n\s*/g,'')}&quot;)"></div><div class="scounter"></div>`)
       .replace('<div class="sdoor"></div>', `<div class="sdoor"></div><div class="shnear" style="background-image:url(&quot;data:image/svg+xml,${SH_NEAR.replace(/\n\s*/g,'')}&quot;)"></div><div class="shhang"></div>`);
   };
+})();
+
+
+/* ==========================================================
+   v1.1.6 — CÂN BẰNG THÁP + TRỨNG VÀNG TỪ BOSS
+   - chặng 9, 10 (tầng 81–100) trộn đủ 6 loài như chặng 11: trước đây chỉ 2 loài,
+     pet chính bị khắc chế (vd. Trà xanh) kẹt vĩnh viễn dù đầu tư tối đa
+   - boss tầng 30, 60, 90: mỗi boss tặng 1 trứng vàng, bảo đảm ít nhất Cực hiếm
+   ========================================================== */
+[9,10].forEach(id=>{ const st=DB.tower.stages.find(s=>s.id===id); if(st) st.pool=['beano','matcha','cacao','citrus','glacio','milku'] });
+DB.goldBoss = [30,60,90];
+DB.rarOrder = ['common','uncommon','rare','epic','legendary','mythic'];
+function eggDist(e){
+  const d=Object.assign({}, DB.eggById[e.type].dist); if(!e.minRar) return d;
+  const k=DB.rarOrder.indexOf(e.minRar); DB.rarOrder.slice(0,k).forEach(r=>{ d[r]=0 }); return d;
+}
+function goldBossGive(floor){
+  S.goldBoss=S.goldBoss||{}; if(!DB.goldBoss.includes(floor) || S.goldBoss[floor]) return false;
+  S.goldBoss[floor]=1; S.eggs=S.eggs||[]; const n={ id:uid(), type:'golden', start:null, minRar:'epic', from:'boss'+floor }; S.eggs.push(n); eggSeen()[n.id]=1; save();
+  setTimeout(()=>toast(`Boss tầng ${floor} để lại 1 trứng vàng — ít nhất Cực hiếm. Đã cất vào kho trứng.`), 900);
+  return true;
+}
+(function(){ const fr=window.floorReward; if(typeof fr==='function') window.floorReward=function(floor){ const out=fr.apply(this,arguments); try{ if(goldBossGive(floor)) out.goldEgg=1 }catch(e){} return out } })();
+/* người chơi đã qua boss 30/60/90 trước bản này: nhận bù */
+DB.migrations.push({ to:7, name:'Trứng vàng cho boss tầng 30, 60, 90 đã qua', run:()=>{ const b=(towerState().best||0); DB.goldBoss.filter(f=>f<=b).forEach(f=>goldBossGive(f)) } });
+DB.saveVer = DB.migrations[DB.migrations.length-1].to;
+
+/* v1.1.6: đường cong tháp cho mục tiêu "chơi đều mỗi ngày khoảng 3 tháng xong 110 tầng".
+   Đo bằng trận thật (ngưỡng thắng 50%): pet hiếm + inox ~474 (tầng thường), Huyền thoại đời 5 ~1.050.
+   Boss khó hơn quái thường nhiều và mỗi boss một khác → boss có hệ số riêng. Bỏ hệ số áp lực. */
+DB.towerCurve = {
+  normal: f => f<=35 ? Math.round(108*Math.pow(1.039,f-1))
+             : f<=50 ? Math.round(397+(f-35)*4.87)
+             : f<=80 ? Math.round(470+(f-50)*20)
+             : Math.round(865+(f-80)*1),   // chặng cuối hạ ~8%: loài yếu nhất vẫn có cơ hội; nhịp giữ bằng 2 vé/tầng
+  boss: { 40:0.70, 50:0.62, 60:0.80, 70:0.72, 80:0.70, 90:0.74, 100:0.76, 110:0.95 }
+};
+DB.tower.ticketCost = f => f>80 ? 2 : 1;   // đường lên đỉnh: từ tầng 81 mỗi tầng 2 vé
+DB.tower.power = f => { const n=DB.towerCurve.normal(f), k=DB.isBossFloor(f) && DB.towerCurve.boss[f]; if(k) return Math.round(n*k);
+  if(f>80 && DB.isMiniFloor(f)) return Math.round(n*0.70);   // phó boss chặng cuối có loài cố định — nới để loài bị khắc chế vẫn qua được
+  return n };
+DB.tower.pressure = f => 1;
+
+/* v1.1.6: quái tháp đạt đúng sức mạnh mục tiêu của tầng */
+(function(){ const mf=window.makeFloorFoe; if(typeof mf==='function') window.makeFloorFoe=function(floor){
+  const f=mf.apply(this,arguments); const pp=petPower(f)||1; f._scale=Math.max(1, DB.tower.power(floor)/pp); return f } })();
+
+
+/* ==========================================================
+   v1.1.6 — HƯỚNG DẪN QUÁN · LỜI KHÁCH · NHẬT KÝ KINH DOANH
+   ========================================================== */
+DB.guide.push({ id:'quan', title:'Quán của bạn vận hành ra sao',
+  when:()=>typeof navLocked==='function' && !navLocked('battle') && S.started && dayNo()>=2,
+  lines:()=>[
+    {who:'pet', text:`Quán mình giờ vận hành như thật rồi đó! Vào <b>Đấu → Quán</b> xem nhé.`},
+    {who:'pet', text:`Khách có <b>độ hài lòng</b> từ 0 tới 100 — tính từ <b>chỗ ngồi</b>, có người <b>Phục vụ</b> và <b>Thu ngân</b>, quán <b>sạch</b>, và <b>menu</b> nhiều món.`},
+    {who:'pet', text:`Hài lòng trên 60 thì mỗi ly bán ra có thêm <b>tiền bo</b>, tới +10%. Khách cũng ghé <b>đông hơn</b>. Muốn kiếm nhiều xu từ bán ly thì chăm cho khách vui trước đã.`},
+    {who:'pet', text:`Bàn ghế mua ở <b>Shop → Nội thất → Bàn ghế</b>. Cần khoảng 10 chỗ ngồi là đủ.`},
+    {who:'pet', text:`Hài lòng từ 75 trở lên, tay nghề từ đào tạo tăng <b>gấp đôi</b>. Dưới 40 thì chỉ tăng một nửa.`},
+    {who:'pet', text:`Quán cũng có <b>chi phí</b>: tiền thuê, lương, điện nước mỗi tuần; thuế mỗi tháng. Luôn báo trước 2 ngày, 7 ngày đầu miễn phí, và không bao giờ làm bạn âm xu. Xem ở <b>Sổ thu chi</b>.`},
+    {who:'pet', text:`Cuối mỗi ngày, mình ghi <b>Nhật ký kinh doanh</b>: bán bao nhiêu ly, thu chi ra sao, khách nói gì. Đọc ở trang Quán hoặc Cuốn đời → Nhật ký quán.`} ] });
+
+/* ---------- lời khách ---------- */
+DB.fb = {
+  good:['Ly này ngon quá, mai mình quay lại!','Quán xinh ghê, ngồi lâu cũng được.','Pha đúng vị luôn, cảm ơn quán nha!','Phục vụ nhanh, dễ thương.','Chỗ ngồi thoải mái quá.'],
+  ok:  ['Cảm ơn quán nha.','Ổn áp, lần sau gọi thêm món khác.','Vị ổn, giá hợp lý.'],
+  low: { 'Chỗ ngồi':['Hết chỗ ngồi rồi, mang đi vậy…','Quán đông mà ít bàn quá.'],
+         'Phục vụ':['Chờ hơi lâu mới có người ra.','Không thấy ai tính tiền…'],
+         'Sạch sẽ':['Bàn chưa được lau…','Quán hơi bừa một chút.'],
+         'Menu':['Menu ít món quá.','Muốn thử món mới mà chưa có.'] } };
+function guestSay(){
+  const s=shopSat(); if(s.total>=70) return { t:pick(DB.fb.good), k:'good' };
+  if(s.total>=45) return { t:pick(DB.fb.ok), k:'ok' };
+  const weak=s.parts.filter(p=>p[2]>0).map(p=>[p[0], p[1]/p[2]]).sort((a,b)=>a[1]-b[1])[0];
+  return { t:pick((DB.fb.low[weak&&weak[0]])||DB.fb.ok), k:'low' };
+}
+/* ---------- nhật ký kinh doanh ---------- */
+function bizDay(d){ const L=ledgerState(); L.days=L.days||{}; d=d||today(); if(!L.days[d]) L.days[d]={ n:0, rev:0, sat:0, satN:0, fb:[] };
+  const ks=Object.keys(L.days).sort(); if(ks.length>35) delete L.days[ks[0]]; return L.days[d] }
+function bizCost(d){ return ledgerState().paid.filter(p=>dStr(p.at)===d).reduce((a,p)=>a+p.paid,0) }
+function bizRowHTML(d, B){
+  const cost=bizCost(d), lai=B.rev-cost, sat=B.satN?Math.round(B.sat/B.satN):null;
+  const dt=new Date(d+'T12:00:00').toLocaleDateString('vi-VN',{weekday:'short',day:'numeric',month:'numeric'});
+  return `<div class="bizrow"><div class="bh"><b>${dt}</b><span style="color:${lai>=0?'var(--teal-2)':'var(--warn)'}">${lai>=0?'+':''}${lai} xu</span></div>
+    <div class="bm">${B.n} ly · thu ${B.rev} · chi ${cost}${sat!=null?` · hài lòng ${sat}`:''}</div>
+    ${B.fb.slice(-2).map(f=>`<div class="bq ${f.k}">“${evcEsc(f.t)}”</div>`).join('')}</div>`;
+}
+function bizHTML(lim){
+  const L=ledgerState(), days=Object.keys(L.days||{}).sort().reverse().slice(0,lim||7);
+  if(!days.length) return '<div class="note">Chưa có ngày kinh doanh nào. Bán ly đầu tiên để mở nhật ký.</div>';
+  return days.map(d=>bizRowHTML(d, L.days[d])).join('') + '<div class="note">Thu gồm tiền bán ly và tiền bo; chi gồm chi phí quán, sự cố, khuyến mãi trả trong ngày.</div>';
+}
+/* tóm tắt ngày hôm qua — một lần, lần mở đầu tiên trong ngày */
+function bizYesterday(){
+  const L=ledgerState(); if(!S.onboarded || L.bizSeen===today()) return;
+  const y=dStr(Date.now()-864e5), B=(L.days||{})[y]; L.bizSeen=today(); save();
+  if(!B || !B.n) return;
+  const lai=B.rev-bizCost(y);
+  setTimeout(()=>toast(`Hôm qua quán bán ${B.n} ly, ${lai>=0?'lãi':'lỗ'} ${Math.abs(lai)} xu${B.fb.length?` — khách nói: “${B.fb[B.fb.length-1].t}”`:''}.`), 3200);
+}
+(function(){
+  /* ghi nhận mỗi ly bán: số ly, thu, độ hài lòng, lời khách */
+  const sd=window.sellDrink; if(typeof sd==='function') window.sellDrink=function(id){
+    const c0=S.coin; const r=sd.apply(this,arguments);
+    if(S.coin>c0){ const B=bizDay(), s=shopSat().total, f=guestSay(); B.n++; B.rev+=S.coin-c0; B.sat+=s; B.satN++; B.fb.push(f); if(B.fb.length>12) B.fb.shift(); window.__lastSay=f; save() }
+    return r };
+  /* khoảnh khắc bán hàng: khách nói một câu */
+  const sp=window.salePop; if(typeof sp==='function') window.salePop=function(){ const r=sp.apply(this,arguments);
+    setTimeout(()=>{ const c=document.querySelector('.spop .spcard'); const f=window.__lastSay; if(c && f && !c.querySelector('.spsay')) c.insertAdjacentHTML('beforeend', `<div class="spsay ${f.k}">“${evcEsc(f.t)}”</div>`) }, 0); return r };   // lời khách được ghi ngay sau khi bán
+  /* khách trong cảnh quán: nói khi nhận ly */
+  const sg=window.shopGuest; if(typeof sg==='function') window.shopGuest=function(rid, sold){ sg.apply(this,arguments);
+    const g=[...document.querySelectorAll('.sguest')].pop(); if(!g) return; const f=sold&&window.__lastSay?window.__lastSay:guestSay();
+    setTimeout(()=>{ if(!g.isConnected) return; g.insertAdjacentHTML('beforeend', `<div class="gsay ${f.k}">${evcEsc(f.t)}</div>`) }, 3300) };
+  /* trang Quán: khối gập Nhật ký kinh doanh */
+  const se=window.shopExtrasHTML; if(typeof se==='function') window.shopExtrasHTML=function(P){
+    const B=bizDay(); return se.apply(this,arguments) + panelFold('shopbiz', `Nhật ký kinh doanh · hôm nay ${B.n} ly`, bizHTML(7), false) };
+  /* Cuốn đời → Nhật ký quán: thêm phần kinh doanh */
+  const sl=window.shopLogHTML; if(typeof sl==='function') window.shopLogHTML=function(){ return `<h3 class="sec">Nhật ký kinh doanh</h3>${bizHTML(7)}` + sl.apply(this,arguments) };
+  const mt=window.mount; if(typeof mt==='function') window.mount=function(){ try{ bizYesterday() }catch(e){} return mt.apply(this,arguments) };
+})();
+
+
+/* ==========================================================
+   v1.1.6 — QUÀ XIN LỖI VÀ CẢM ƠN (mã quà thật, gắn trong ghi chú cập nhật)
+   Không phát qua kênh tự động: máy còn chạy bản cũ (giới hạn 3 lượt đi) sẽ nhận thiếu.
+   ========================================================== */
+DB.compGift = { id:'den-bu-v116', code:'PDG1.eyJpZCI6ImRlbi1idS12MTE2IiwibmFtZSI6IlF1w6AgeGluIGzhu5dpIHbDoCBj4bqjbSDGoW4g4oCUIHYxLjEuNiIsInJld2FyZCI6eyJjb2luIjo0OTksInRpY2tldHMiOjUsInBhc3NlcyI6NSwic2VlZHMiOnsibWludCI6MSwiYXJhYmljYSI6MSwiaG9uZyI6MSwiZGFvIjoxLCJncmVlbiI6MX0sImJveCI6InZhbmcifSwidCI6ImdpZnQifQ.q72IlOO4fNYshHSIW31htcHl-6As-yA2Xbw-vuPlPQSMNeufKw9-9acitSCh_2S3y1atVJEzg-Hf3Qc4IVwqBw' };
+function compGiftClaimed(){ return !!(giftState().used||{})[DB.compGift.id] }   // mã quà ghi nhận ở giftState().used
+function compGiftHTML(){
+  if(compGiftClaimed()) return '';
+  return `<div class="cgift"><div class="cgt">🎁 Quà xin lỗi và cảm ơn</div>
+    <p>Cảm ơn bạn đã đồng hành cùng Pet Drink suốt những ngày đầu. Chỉ trong vài tuần, game cập nhật liên tục nhiều bản — có lúc phiền, có lúc phải mở lại game. Mình xin lỗi vì sự bất tiện đó, và cảm ơn bạn đã kiên nhẫn chơi tiếp, góp ý từng chút một.</p>
+    <p class="cgl">499 xu · 5 vé tháp · 5 lượt phiêu lưu · 5 hạt giống · 1 hộp vàng</p>
+    <p class="cgs">— Minh Đào · KCB SOL</p>
+    <button class="btn gold" onclick="compGiftClaim()">Nhận quà</button></div>`;
+}
+async function compGiftClaim(){
+  if(compGiftClaimed()) return toast('Bạn đã nhận quà này rồi.');
+  const r=await giftRedeem(DB.compGift.code);   // mã quà đi qua giftRedeem, không phải evImport (mã sự kiện)
+  if(r && r.ok){ toast('Đã nhận quà. Cảm ơn bạn!'); document.querySelectorAll('.cgift').forEach(e=>e.remove()); mount() }
+  else toast((r&&r.msg)||'Chưa nhận được quà — thử lại sau.');
+}
+(function(){
+  const on=window.openNotes; if(typeof on==='function') window.openNotes=function(){ const r=on.apply(this,arguments);
+    const sh=$('sheet'); if(sh && !compGiftClaimed()){ const h3=sh.querySelector('h3'); if(h3) h3.insertAdjacentHTML('afterend', compGiftHTML()) } return r };
+  const ns=window.notesSettingsHTML; if(typeof ns==='function') window.notesSettingsHTML=function(){ return ns.apply(this,arguments) + compGiftHTML() };
 })();
 
 boot();
