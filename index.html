@@ -13292,7 +13292,7 @@ function renderShop(){
   const setOff = (activeSet()==='paper') ? (1-DB.gearSets.paper.shopOff) : 1;
   let body='';
   if(grp==='furn'){
-    const cats=['Trên quầy','Sàn','Tường','Đèn','Nền'];
+    const cats=['Trên quầy','Sàn','Tường','Đèn','Nền','Bàn ghế'];   // v1.1.5: thêm nhóm Bàn ghế — thiếu nhóm này thì 5 món mới không bao giờ hiện
     const cat=S._scat||cats[0];
     const list=DB.furniture.filter(f=>f.cat===cat);
     body=`<p class="lead">Đồ đã mua bật hoặc tắt bất cứ lúc nào. Mỗi vị trí chỉ nhận một món.</p>
@@ -17542,10 +17542,12 @@ DB.seats = [
   { id:'sofa',     name:'Sofa góc',         cost:520, seat:4, spot:{x:50,y:22}, art:'<rect x="2" y="8" width="20" height="6" rx="2" fill="#5f8a7a"/><rect x="1" y="12" width="22" height="6" rx="2" fill="#4c7466"/><rect x="3" y="18" width="2" height="2" fill="#2b3733"/><rect x="19" y="18" width="2" height="2" fill="#2b3733"/>' },
   { id:'ban_hien', name:'Bàn hiên ngoài trời', cost:480, seat:4, spot:{x:92,y:30}, art:'<path d="M12 2 3 8h18z" fill="#e0784a"/><rect x="11.5" y="8" width="1" height="5" fill="#5a4a3a"/><rect x="5" y="13" width="14" height="2" rx="1" fill="#c9a06a"/><rect x="6" y="15" width="1.5" height="5" fill="#7a5230"/><rect x="16.5" y="15" width="1.5" height="5" fill="#7a5230"/>' }
 ];
-DB.seats.forEach(s=>{
-  if(!DB.furnById[s.id]){ const f={ id:s.id, name:s.name, cat:'Bàn ghế', slot:'seat', cost:s.cost, x:0, perk:{ type:'seat', val:s.seat }, note:`${s.seat} chỗ ngồi cho khách — tăng độ hài lòng` };
+DB.seats.forEach((s,i)=>{
+  // mỗi món một toạ độ riêng (x) — luật "mỗi vị trí một món" so theo nhóm + toạ độ; cùng toạ độ thì mua món thứ hai sẽ cất món thứ nhất
+  if(!DB.furnById[s.id]){ const f={ id:s.id, name:s.name, cat:'Bàn ghế', slot:'seat', cost:s.cost, x:i+1, perk:{ type:'seat', val:s.seat }, note:`${s.seat} chỗ ngồi cho khách — tăng độ hài lòng` };
     DB.furniture.push(f); DB.furnById[s.id]=f }
   DB.shopFurnSpot[s.id]=s.spot; FURN_ART[s.id]=s.art;
+  FS[s.id]=`<svg viewBox="0 0 24 24">${s.art}</svg>`;   // hình xem trước trong Shop
 });
 function shopSeats(){ return (S.placed||[]).reduce((n,id)=>n+(((DB.furnById[id]||{}).perk||{}).type==='seat' ? DB.furnById[id].perk.val : 0), 0) }
 /* ---------- độ hài lòng của khách ---------- */
