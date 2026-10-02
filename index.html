@@ -2001,6 +2001,63 @@ body.stagefull .hero,body.stagefull #acts{opacity:.25;pointer-events:none;transi
 .pcq{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;border:2px dashed var(--line);font-size:22px;color:var(--ink-3)}
 .pcn b{display:block;font-size:11.5px;line-height:1.2}.pcn small{display:block;font-size:9.5px;color:var(--ink-3)}
 .pcar{color:var(--pc);font-size:20px;font-weight:700}
+
+#stalescr{position:fixed;inset:0;z-index:99990;display:grid;place-items:center;background:rgba(10,24,20,.86);padding:20px}
+#stalescr .stbox{max-width:340px;background:#fbf8f0;color:#2a211c;border-radius:18px;padding:18px;text-align:center}
+#stalescr h3{margin:0 0 8px;font-family:var(--disp)}#stalescr p{font-size:14px;line-height:1.5;margin:0 0 12px}
+
+/* ---- v1.1.5 thử nghiệm: chiều sâu trang Nhà ---- */
+.dfar{position:absolute;left:-60%;top:0;bottom:22%;width:320%;pointer-events:none;background-repeat:repeat-x;background-position:0 100%;background-size:260px auto;z-index:0;will-change:transform}
+.dnear{position:absolute;left:-40%;bottom:-2px;height:22%;width:340%;pointer-events:none;background-repeat:repeat-x;background-position:0 100%;background-size:auto 100%;z-index:6;opacity:.92;will-change:transform}
+.dshaft{position:absolute;left:4%;top:0;width:46%;height:100%;pointer-events:none;opacity:var(--shaft,0);transition:opacity 2s;
+  background:linear-gradient(115deg,transparent 18%,rgba(255,236,190,.38) 30%,rgba(255,236,190,.12) 52%,transparent 64%);mix-blend-mode:screen}
+.dshaft i{position:absolute;top:30%;width:3px;height:3px;border-radius:50%;background:#fff4d6;opacity:.7;animation:dmote 9s ease-in-out infinite}
+@keyframes dmote{0%,100%{transform:translate(0,0);opacity:0}20%{opacity:.8}50%{transform:translate(14px,-38px)}80%{opacity:.6}}
+.dpool{position:absolute;left:30%;bottom:6%;width:46%;height:26%;pointer-events:none;opacity:var(--pool,0);transition:opacity 2s;
+  background:radial-gradient(ellipse at 50% 60%,rgba(255,205,120,.45),transparent 70%);mix-blend-mode:screen}
+.dshadow{position:absolute;left:50%;bottom:2px;width:64px;height:12px;margin-left:-32px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(0,0,0,var(--sho,.2)),transparent 72%);transform:skewX(var(--shx,0deg)) translateX(6px);transition:transform .4s,opacity .4s;pointer-events:none}
+.actor.cheer .dshadow,.actor.spin .dshadow{transform:skewX(var(--shx,0deg)) scale(.62);opacity:.6}
+.calmring{width:70px;height:70px;border-radius:50%;border:2px solid rgba(180,230,210,.6);animation:calmr 2.6s ease-out forwards}
+@keyframes calmr{0%{transform:scale(.4);opacity:0}30%{opacity:1}100%{transform:scale(1.5);opacity:0}}
+@keyframes pRoll{0%{transform:translate(-40px,0) rotate(0);opacity:1}100%{transform:translate(70px,0) rotate(540deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){.dshaft i{animation:none;display:none}.dfar,.dnear{transition:none !important}}
+/* ---- gập gọn khối chữ ---- */
+.hftog{margin-left:auto;border:1px solid var(--line);background:none;border-radius:99px;padding:2px 10px;font:inherit;font-size:11px;color:var(--ink-3);cursor:pointer;white-space:nowrap}
+#wishbox .wtop,#receipt .rhead{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+#wishbox.hfold .wquote,#wishbox.hfold .wchips,#wishbox.hfold .wbtns{display:none}
+#wishbox.hfold .wact{margin-bottom:0}
+#receipt.hfold > *:not(.rhead):not(.gauges){display:none !important}
+#receipt.hfold .rhead .meta,#receipt.hfold .rhead .tags{display:none}
+#receipt.hfold .gauges{grid-template-columns:repeat(6,1fr);gap:6px}
+#receipt.hfold .gau{padding:2px 0}
+#receipt.hfold .gau .l,#receipt.hfold .gau small{font-size:8.5px;letter-spacing:0}
+#receipt.hfold .gau .v,#receipt.hfold .gau b{font-size:15px}
+
+.pnd{margin-top:6px}.pnd>summary{cursor:pointer;list-style:none;font-size:13px;color:var(--teal-2);padding:6px 0}
+.pnd>summary::-webkit-details-marker{display:none}.pnd>summary::after{content:' ▾'}.pnd[open]>summary::after{content:' ▴'}
+
+/* ---- v1.1.5 quán vận hành ---- */
+.sfurn.seat{width:52px;height:52px;z-index:3}
+.incard{border:1.5px solid #e0a44f;border-radius:14px;padding:10px 12px;margin:10px 0;background:rgba(224,164,79,.08)}
+.lgh{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:10px 0 4px}
+.lgb{border:1px dashed var(--line);border-radius:10px;padding:4px 10px;margin-bottom:6px}
+.lgi{display:flex;justify-content:space-between;gap:8px;font-size:12.5px;color:var(--ink-2);padding:2px 0}
+
+/* ---- v1.1.5 chiều sâu trận đấu, quán ---- */
+.ring>*:first-child{animation:arDrift 16s ease-in-out infinite;transform-origin:50% 60%}
+@keyframes arDrift{0%,100%{transform:scale(1.06) translateX(-6px)}50%{transform:scale(1.06) translateX(6px)}}
+.arnear{position:absolute;left:-12%;right:-12%;bottom:-2px;height:26%;background-repeat:repeat-x;background-size:auto 100%;background-position:0 100%;
+  z-index:4;pointer-events:none;opacity:.95;animation:arNear 16s ease-in-out infinite}
+@keyframes arNear{0%,100%{transform:translateX(10px)}50%{transform:translateX(-10px)}}
+.ring.rshake{animation:rshake .32s ease}
+@keyframes rshake{0%,100%{transform:translate(0,0)}20%{transform:translate(-5px,2px)}40%{transform:translate(5px,-2px)}60%{transform:translate(-3px,1px)}80%{transform:translate(2px,0)}}
+.shfar{position:absolute;left:0;right:0;top:4%;height:52%;background-repeat:no-repeat;background-size:100% 100%;pointer-events:none;z-index:0}
+.shnear{position:absolute;left:-2%;right:-2%;bottom:-2px;height:22%;background-repeat:no-repeat;background-size:100% 100%;pointer-events:none;z-index:7}
+.shhang{position:absolute;right:16%;top:0;width:34px;height:58px;pointer-events:none;z-index:7;transform-origin:50% 0;animation:shSway 5s ease-in-out infinite;
+  background:linear-gradient(#0b1d18,#0b1d18) 50% 0/2px 26px no-repeat, radial-gradient(circle at 50% 70%,#0b1d18 0 9px,transparent 10px), radial-gradient(ellipse at 30% 86%,#0f2a22 0 8px,transparent 9px), radial-gradient(ellipse at 72% 88%,#0f2a22 0 8px,transparent 9px)}
+@keyframes shSway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@media(prefers-reduced-motion:reduce){.ring>*:first-child,.arnear,.shhang,.ring.rshake{animation:none !important}}
 /* ---- bảng tên ---- */
 .np{display:inline-block;position:relative;padding:1px 14px 3px;border-radius:12px;border:2px solid;line-height:1.15}
 .np.npc{padding:0 8px 1px;border-width:1.5px;border-radius:8px;font-size:.92em}
@@ -2076,7 +2133,7 @@ body.nofx .actor .in{animation:none}
   <div class="hibbar hide" id="hibbar">Đang ngủ đông — hao hụt tạm dừng</div>
   <header class="hdr">
     <div class="brandmark" id="brandmark"></div>
-    <div><h1>Pet Drink</h1><div class="sub" id="hdrsub">Scale &amp; Soul · v1.1.4</div></div>
+    <div><h1>Pet Drink</h1><div class="sub" id="hdrsub">Scale &amp; Soul · v1.1.5</div></div>
     <div class="purse">
       <div class="chip agechip" title="Dành cho người chơi từ 12 tuổi trở lên">12+</div>
       <div class="chip" id="chipCoin">0 xu</div>
@@ -8316,6 +8373,7 @@ function initBridge(){
   window.addEventListener('message', ev=>{
     const d=ev.data;
     if(!d || typeof d!=='object') return;
+    if(window.parent!==window && ev.source!==window.parent) return;   // chỉ nhận từ trang đang nhúng game
     if(d.type==='pp:ops') handleOps(d);
     if(d.type==='pp:ping') postStatus();
   });
@@ -11502,10 +11560,10 @@ function shopWall(){
 function shopSceneHTML(){
   const st=shopState(), placed=(S.placed||[]).filter(Boolean);
   const P=shopPerks();
-  const furn = placed.map(id=>{
+  const furn = placed.filter(id=>(typeof furnPlace!=='function')||furnPlace(id)==='shop').map(id=>{   // v1.1.5: quán chỉ bày đồ của quán
     const sp=DB.shopFurnSpot[id], f=DB.furnById[id];
     if(!sp || !f) return '';
-    return `<div class="sfurn" style="left:${sp.x}%;bottom:${sp.y}%" title="${f.name}"
+    return `<div class="sfurn ${f.slot==='seat'?'seat':''}" style="left:${sp.x}%;bottom:${sp.y}%" title="${f.name}"
       onclick="toast('${f.name} — ${(f.note||'').replace(/'/g,'')}')">${furnArt(id)}</div>`;
   }).join('');
   const spots = DB.shopRoles.map(r=>{
@@ -12771,7 +12829,7 @@ function renderEgg(){
     ${tab==='inc'?incubatorHTML():(tab==='store'?storeHTML():barnPetsHTML())}</div>`;
 }
 function incubatorHTML(){
-  const shop=DB.eggs.filter(e=>e.cost && (e.id!=='golden'||S.perks.includes('goldshop')));
+  const shop=DB.eggs.filter(e=>e.cost && !((DB.eggShopHide||[]).includes(e.id) && !(S.perks||[]).includes('goldshop')) && (e.id!=='golden'||S.perks.includes('goldshop')));
   return `<p class="lead">Trứng nở theo thời gian thật, đóng app vẫn chạy. Trứng mới vào kho — bạn chọn lúc bỏ vào lò.</p>
     ${eggBlocksHTML()}
     <h3 class="sec">Cửa hàng trứng</h3>
@@ -12780,6 +12838,7 @@ function incubatorHTML(){
       <div class="en">${e.name}</div><div class="eh">ấp ${hatchHours(e.id).toFixed(0)} giờ</div>
       <button class="btn ghost" style="padding:7px" ${S.coin<e.cost?'disabled':''} onclick="buyEgg('${e.id}')">${e.cost} xu</button>
     </div>`).join('')}</div>
+    <div class="note">Trứng vàng không bán ở cửa hàng: ghép 5 trứng cổ trong kho, hoặc nhận từ phần thưởng lớn.</div>
     <h3 class="sec">Tỉ lệ ra độ hiếm</h3>
     <div style="overflow:auto"><table style="width:100%;border-collapse:collapse;font-family:var(--mono);font-size:10.5px">
       <tr><th style="text-align:left">Loại</th>${DB.rarity.map(r=>`<th style="color:${r.color}">${r.name}</th>`).join('')}</tr>
@@ -15185,6 +15244,7 @@ async function licApplyUI(code){
 /* chạy lúc khởi động: người đang chơi từ bản trước được miễn */
 function licGate(){
   if(!DB.license.required) return;
+  if(typeof kcbHost==='function' && kcbHost()){ if(!S.lic || !S.lic.grand){ S.lic={ grand:true, at:Date.now(), via:'kcb-tool' }; save() } return }   // trong tool KCB SOL cùng địa chỉ: không đòi key
   if(!S.lic){
     if(S.onboarded){ S.lic={ grand:true, at:Date.now() }; save(); return }
     return showLock('new');
@@ -15391,7 +15451,7 @@ function evPetLine(p, k){
 /* ==========================================================
    BẢN PHÁT HÀNH 1.0 — số phiên bản game
    ========================================================== */
-const APP_VER='1.1.4';
+const APP_VER='1.1.5';
 
 /* ==========================================================
    QUA NGÀY, QUA TUẦN KHI GAME ĐANG MỞ
@@ -15549,6 +15609,18 @@ window.save=function(){
    CÓ GÌ MỚI — hiện một lần cho người chơi cũ khi lên bản mới
    ========================================================== */
 DB.patchNotes = [
+  { ver:'1.1.5', date:'10/2026', title:'Quán vận hành như thật',
+    lead:'Bàn ghế, khách hài lòng, sổ thu chi — và mọi cảnh có chiều sâu hơn.',
+    items:[
+      ['🪑','Bàn ghế cho quán','5 món bàn ghế mới trong Shop. Chỗ ngồi đủ thì khách hài lòng hơn.'],
+      ['😊','Khách hài lòng','Từ chỗ ngồi, phục vụ, sạch sẽ, menu. Hài lòng cao: bán ly có tiền bo, khách đông, tay nghề đào tạo tăng nhanh gấp đôi.'],
+      ['📒','Sổ thu chi','Tiền thuê, lương nhân sự, điện nước mỗi tuần; thuế mỗi tháng. Luôn báo trước 2 ngày, 7 ngày đầu miễn phí, không bao giờ âm xu. Có thể chạy khuyến mãi để đông khách.'],
+      ['🌄','Chiều sâu','Trang Nhà, Quán và Trận đấu có lớp xa lớp gần; nắng xiên ban ngày, đèn vàng ban đêm.'],
+      ['🐾','Mỗi tính cách một nết','Pet tự làm việc riêng theo tính cách — nấp rồi ló ra, tập đấm, ngồi ngắm cửa sổ…'],
+      ['🥚','Ghép trứng 5 → 1','Trứng vàng không còn bán ở cửa hàng — ghép 5 trứng cổ, hoặc nhận từ phần thưởng lớn.'],
+      ['🏠','Nội thất không chồng nhau','Đồ của quán bày trong Quán, đồ của pet bày ở sảnh trang Nhà.'],
+      ['📋','Gọn hơn','Khối chữ trên trang Nhà và ghi chú cập nhật gập lại được, mở ra khi cần.']
+    ] },
   { ver:'1.1.4', date:'10/2026', title:'Những khoảnh khắc đáng nhớ',
     lead:'Tiến hoá, nở trứng, pha chế, bán hàng — mỗi lúc đều có màn riêng.',
     items:[
@@ -15625,7 +15697,7 @@ function openNotes(all, prev){
   let L=DB.patchNotes;
   if(!all) L = (prev===APP_VER) ? [] : DB.patchNotes.slice(0,1);   // chỉ bản mới nhất — nhảy nhiều bản thì danh sách quá dài
   if(!L.length) return;
-  openSheet(`<h3>${all?'Các bản cập nhật':'Có gì mới'}</h3>${L.map(notesHTML).join('<hr class="pnsep">')}
+  openSheet(`<h3>${all?'Các bản cập nhật':'Có gì mới'}</h3>${L.map(n=>notesFold(notesHTML(n), n)).join('<hr class="pnsep">')}
     ${!all && DB.patchNotes.length>1 ? `<button class="btn ghost" style="margin-top:12px" onclick="openNotes(true)">Xem các bản trước</button>` : ''}
     <button class="btn gold" style="margin-top:8px" onclick="closeSheet()">Vào chơi</button>`);
 }
@@ -15851,8 +15923,8 @@ async function channelPull(force){
     for(const u of DB.channel.urls){
       try{ const res=await fetch(u+'?t='+Date.now(), { cache:'no-store' }); if(res.ok) texts.push(await res.text()); else miss++ }
       catch(e){ net++ } }
-    if(!texts.length){ st.at=Date.now(); st.ok=false; st.why = net ? 'mạng' : 'không tìm thấy file kenh.txt trên máy chủ'; save();
-      return { error: net ? 'mất mạng' : 'không tìm thấy kenh.txt' } }
+    if(!texts.length){ st.at=Date.now(); st.ok=false; st.why = miss ? 'không tìm thấy file kenh.txt trên máy chủ' : 'mạng'; save();   // có chỗ trả lời "không có file" thì báo thiếu file
+      return { error: miss ? 'không tìm thấy kenh.txt' : 'mất mạng' } }
     const lines=[...new Set(texts.join('\n').split(/\r?\n/).map(s=>s.trim()).filter(s=>s && !s.startsWith('#')))];
     for(const code of lines.slice(0,40)){
       const kind=(code.match(/^PD([EGK])/)||[])[1];
@@ -16746,10 +16818,10 @@ function eggIncubate(type){
 }
 function eggFuse(type){
   eggNormalize();
-  const nx=DB.eggFuse[type], st=eggStored().filter(e=>e.type===type);
-  if(!nx || st.length<3) return;
-  if(!confirm(`Ghép 3 ${DB.eggById[type].name} thành 1 ${DB.eggById[nx].name}?`)) return;
-  const drop=new Set(st.slice(0,3).map(e=>e.id));
+  const nx=DB.eggFuse[type], st=eggStored().filter(e=>e.type===type), N=DB.fuseN||5;
+  if(!nx || st.length<N) return;
+  if(!confirm(`Ghép ${N} ${DB.eggById[type].name} thành 1 ${DB.eggById[nx].name}?`)) return;
+  const drop=new Set(st.slice(0,N).map(e=>e.id));
   S.eggs=S.eggs.filter(e=>!drop.has(e.id));
   const n={ id:uid(), type:nx, start:null }; S.eggs.push(n); eggSeen()[n.id]=1;
   save(); sfx('hatch'); toast(`Ghép xong: 1 ${DB.eggById[nx].name} vào kho.`); mount();
@@ -16773,8 +16845,8 @@ function eggBlocksHTML(){
       return `<div class="est"><div class="ea">${eggArt(g.t.id,false)}</div><div><div class="en">${g.t.name} <b>×${g.n}</b></div>
         <div class="eh">ấp ${hatchHours(g.t.id).toFixed(0)} giờ</div>
         <div class="ebtns"><button class="btn gold" style="width:auto;padding:6px 12px;min-height:40px" ${empty?'':'disabled'} onclick="eggIncubate('${g.t.id}')">Ấp</button>
-        ${nx?`<button class="btn ghost" style="width:auto;padding:6px 12px;min-height:40px" ${g.n>=3?'':'disabled'} onclick="eggFuse('${g.t.id}')">Ghép 3 → 1 ${DB.eggById[nx].name}</button>`:''}</div></div></div>` }).join('')}</div>
-      <div class="note">Ghép 3 trứng cùng loại thành 1 trứng loại cao hơn. Mỗi lần ghép mất khoảng 17% giá trị so với giá cửa hàng — hãy cân nhắc.</div>`
+        ${nx?`<button class="btn ghost" style="width:auto;padding:6px 12px;min-height:40px" ${g.n>=(DB.fuseN||5)?'':'disabled'} onclick="eggFuse('${g.t.id}')">Ghép ${DB.fuseN||5} → 1 ${DB.eggById[nx].name}</button>`:''}</div></div></div>` }).join('')}</div>
+      <div class="note">Ghép ${DB.fuseN||5} trứng cùng loại thành 1 trứng cao hơn — cách tận dụng trứng nhận từ chuỗi ngày, hộp bí ẩn, hành trình. Trứng vàng chỉ có qua ghép trứng cổ.</div>`
       : `<div class="note">Kho trống. Trứng nhận từ chuỗi ngày, hộp bí ẩn, cửa hàng sẽ vào đây.</div>`}`;
 }
 /* người chơi cũ: trứng đang có giữ nguyên trạng thái (đang ấp vẫn ấp tiếp) */
@@ -16973,7 +17045,7 @@ function shopGuest(recipeId, sold){
 function shopTick(){
   if(document.hidden || !document.querySelector('.shopscene')) return shopStop();
   const [, , rate, list]=shopNow(); if(!rate || !list.length) return;
-  if(Math.random() < rate/15) shopGuest(pick(list.filter(id=>DB.recipeById[id])));
+  if(Math.random() < rate/15*((typeof satGuests==='function')?satGuests():1)) shopGuest(pick(list.filter(id=>DB.recipeById[id])));
 }
 function shopStart(){
   shopStop();
@@ -17022,7 +17094,7 @@ function quizOpts(t,i){   // thứ tự đáp án cố định trong ngày (mở
 function quizPct(role){ const p=(S.skill||{})[role]||0; return Math.min(DB.quiz.maxPct, Math.floor(p/DB.quiz.ptsPerStep)*DB.quiz.stepPct) }
 function quizHTML(){
   const q=quizState(), n=q.ans.length, right=q.ans.filter(a=>a.ok).length;
-  const sk=DB.shopRoles.map(r=>`<span class="qsk">${r.ic} ${r.name} <b>${(S.skill||{})[r.id]||0}</b>${quizPct(r.id)?` · +${Math.round(quizPct(r.id)*100)}%`:''}</span>`).join('');
+  const sk=DB.shopRoles.map(r=>`<span class="qsk">${r.ic} ${r.name} <b>${Math.floor((S.skill||{})[r.id]||0)}</b>${quizPct(r.id)?` · +${Math.round(quizPct(r.id)*100)}%`:''}</span>`).join('');
   return `<div class="quizcard"><div class="qh"><b>Đào tạo hôm nay</b><span>${n}/${DB.quiz.perDay}</span></div>
     <div class="note" style="margin:4px 0 8px">${n<DB.quiz.perDay?`3 câu về pha chế, phục vụ, vận hành, quản trị. Mỗi câu đúng +${DB.quiz.coin} xu và lên tay nghề cho vị trí tương ứng.`:`Xong buổi hôm nay: đúng ${right}/${DB.quiz.perDay}. Mai có câu mới.`}</div>
     ${n<DB.quiz.perDay?`<button class="btn gold" onclick="quizOpen()">${n?'Tiếp tục':'Bắt đầu'} câu ${n+1}</button>`:''}
@@ -17039,12 +17111,12 @@ function quizAnswer(k){
   const q=quizState(), n=q.ans.length; if(n>=DB.quiz.perDay) return;
   const {t,i}=q.list[n], x=DB.quizBank[t][i], o=quizOpts(t,i), ok=o[k]===x[1];
   q.ans.push({t,i,ok});
-  if(ok){ S.coin+=DB.quiz.coin; DB.quizTopics[t].roles.forEach(r=>S.skill[r]=(S.skill[r]||0)+1); sfx('coin') } else sfx('tap');
+  if(ok){ S.coin+=DB.quiz.coin; DB.quizTopics[t].roles.forEach(r=>S.skill[r]=(S.skill[r]||0)+((typeof satSkill==='function')?satSkill():1)); sfx('coin') } else sfx('tap');
   save();
   document.querySelectorAll('.qopts button').forEach((b,j)=>{ b.disabled=true; if(o[j]===x[1]) b.classList.add('right'); else if(j===k) b.classList.add('wrong') });
   const last=q.ans.length>=DB.quiz.perDay;
   $('qres').innerHTML=`<div class="qexp ${ok?'ok':'no'}"><b>${ok?`Đúng rồi! +${DB.quiz.coin} xu`:'Chưa đúng'}</b><p>${x[5]}</p>
-    ${ok?`<small>Tay nghề ${DB.quizTopics[t].roles.map(r=>DB.shopRoleById[r].name).join(', ')} +1</small>`:''}</div>
+    ${ok?`<small>Tay nghề ${DB.quizTopics[t].roles.map(r=>DB.shopRoleById[r].name).join(', ')} +${satSkill()}</small>`:''}</div>
     <button class="btn ${last?'ghost':'gold'}" style="margin-top:10px" onclick="${last?'closeSheet();mount()':'quizOpen()'}">${last?'Xong buổi hôm nay':'Câu tiếp theo'}</button>`;
   mount();
 }
@@ -17250,6 +17322,360 @@ function openPetCard(ref){
   </div>
   <div class="row" style="margin-top:10px"><button class="btn ghost" onclick="closeSheet();if(typeof shareLifeCard==='function')shareLifeCard()">Chia sẻ</button><button class="btn gold" onclick="closeSheet()">Đóng</button></div>`);
 }
+
+
+/* ==========================================================
+   v1.1.4 — CẦU NỐI VỚI BỘ TOOL VẬN HÀNH KCB SOL (bản cập nhật)
+   Tool nhúng game trong khung ở tab Master → 🐾 Pet Drink, gửi pp:ops.
+   - nhận nhiệm vụ ngày, tuần, tháng (trước chỉ nhận ngày)
+   - việc cuối ngày tool báo trước giờ chốt: giữ lại, tự ghi nhận khi tới giờ (trong ngày)
+   - chỉ nhận tin từ đúng trang đang nhúng game
+   - nằm trong tool KCB SOL cùng địa chỉ: tự mở khoá, không đòi key
+   ========================================================== */
+DB.channel.urls.push('https://kcb-sol.github.io/Pet-Drink-Scale-Soul/kenh.txt');   // game trong thư mục tool vẫn nhận sự kiện
+function kcbHost(){ try{ return window.parent!==window && window.parent.location.origin===location.origin && !!window.parent.KCBGAME }catch(e){ return false } }
+function kcbList(v){ if(!Array.isArray(v)) return []; return v.map(x=> typeof x==='string' ? x : (x && x.id && x.done!==false ? x.id : null)).filter(Boolean) }
+function kcbPend(){ const o=opsState(); if(!o.pend || o.pend.d!==today()) o.pend={ d:today(), ids:[] }; return o.pend }
+function kcbTimeLock(id){ return DB.qrule.eod.includes(id) && new Date().getHours()<eodHour() }   // khoá giờ chốt: chờ được trong ngày
+/* trả false = đang khoá giờ chốt → giữ chờ; true = đã xử lý xong (ghi nhận, đã tính rồi, hoặc khoá loại khác → bỏ qua) */
+function kcbApply(per, id){
+  if(kcbTimeLock(id)) return false;
+  if(per==='D'){ if(!S.quest.done.includes(id) && !questLock(id)) claim(id); return true }
+  const st=per==='W'?S.questW:S.questM; if(!st || st.done.includes(id) || questLock(id)) return true;   // đã tính hôm nay / chưa mở — bỏ qua, không dồn sang hôm sau
+  bumpQuest(per,id); return true;
+}
+function kcbPendTick(){ const p=kcbPend(); if(!p.ids.length) return; p.ids=p.ids.filter(k=>{ const [per,id]=k.includes(':')?k.split(':'):['D',k]; return !kcbApply(per,id) }); save() }
+(function(){
+  const ho=window.handleOps; if(typeof ho!=='function') return;
+  window.handleOps=function(d){
+    const q=d.quests, nested=q && !Array.isArray(q) && typeof q==='object';
+    const D=kcbList(nested?q.D:q), W=kcbList(d.questsW||d.W||(nested&&q.W)), M=kcbList(d.questsM||d.M||(nested&&q.M));
+    const p=kcbPend();
+    D.forEach(id=>{ if(!DB.quests.find(x=>x.id===id)) return; if(!kcbApply('D',id) && !p.ids.includes(id)) p.ids.push(id) });
+    W.forEach(id=>{ if(!(DB.questsW||[]).find(x=>x.id===id)) return; if(!kcbApply('W',id) && !p.ids.includes('W:'+id)) p.ids.push('W:'+id) });
+    M.forEach(id=>{ if((DB.questsM||[]).find(x=>x.id===id)) kcbApply('M',id) });
+    save();
+    return ho.call(this, Object.assign({}, d, { quests:[] }));   // phần giá vốn, doanh thu, checklist, gửi trạng thái giữ nguyên
+  };
+  setInterval(()=>{ try{ kcbPendTick() }catch(e){} }, 60000);
+  const mt=window.mount; if(typeof mt==='function') window.mount=function(){ try{ kcbPendTick() }catch(e){} return mt.apply(this,arguments) };
+})();
+
+
+/* ==========================================================
+   v1.1.4 — CHẶN HAI CỬA SỔ GHI ĐÈ TIẾN ĐỘ CỦA NHAU
+   Hai cửa sổ cùng mở game (hai tab, hoặc tab Pet Drink trong tool + tab game
+   riêng cùng địa chỉ) cùng lưu định kỳ → cửa sổ cũ âm thầm ghi đè tiến độ mới.
+   [đo] tìm ra khi soi một bộ kiểm lúc đạt lúc sập: dữ liệu bị thay bằng người chơi mới.
+   Nay: cửa sổ khác vừa lưu thì cửa sổ này tạm dừng ghi và báo cho người chơi.
+   ========================================================== */
+var SAVE_STALE=false;
+function staleShow(){
+  if(document.getElementById('stalescr')) return;
+  const d=document.createElement('div'); d.id='stalescr';
+  d.innerHTML=`<div class="stbox"><h3>Pet Drink đang mở ở cửa sổ khác</h3>
+    <p>Để không ghi đè tiến độ, cửa sổ này đã tạm dừng. Mọi thay đổi đang được lưu ở cửa sổ kia.</p>
+    <button class="btn gold" onclick="location.reload()">Dùng ở cửa sổ này</button></div>`;
+  document.body.appendChild(d);
+}
+/* quyền lưu thuộc cửa sổ mở sau cùng, hoặc cửa sổ người chơi vừa chuyển vào.
+   Cửa sổ ở nền tự lưu định kỳ KHÔNG cướp quyền. Cửa sổ đã mất quyền phải tải lại
+   dữ liệu mới nhất trước — không ghi bộ nhớ cũ đè lên. */
+const TAB_ID=Math.random().toString(36).slice(2,10);
+var CLAIM_AT=Date.now(), BOOT_AT=Date.now();
+try{ localStorage.setItem('petpocket.owner', TAB_ID+'|'+CLAIM_AT) }catch(e){}   // báo nhận quyền ngay, TRƯỚC khi nạp dữ liệu — cửa sổ cũ dừng lưu sớm nhất
+/* vừa mở mà cửa sổ cũ kịp lưu thêm: tự tải lại một lần thay vì báo người chơi */
+function staleOrReload(){
+  let n=0; try{ n=+(sessionStorage.getItem('pp.relo')||0) }catch(e){}
+  if(Date.now()-BOOT_AT<6000 && n<2){ try{ sessionStorage.setItem('pp.relo', n+1) }catch(e){} location.reload(); return }
+  SAVE_STALE=true; staleShow();
+}
+setTimeout(()=>{ try{ sessionStorage.removeItem('pp.relo') }catch(e){} }, 8000);
+function storedRev(){ try{ const s=JSON.parse(localStorage.getItem('petpocket.v1')||'null'); return (s&&s._rev)||0 }catch(e){ return 0 } }
+/* lớp 2: bộ nhớ cũ hơn dữ liệu đã lưu thì không được nhận quyền — phải tải lại trước */
+function ownerClaim(){
+  if(SAVE_STALE) return;
+  if(S && storedRev() > (S._rev||0)){ staleOrReload(); return }
+  CLAIM_AT=Date.now();
+  try{ localStorage.setItem('petpocket.owner', TAB_ID+'|'+CLAIM_AT) }catch(e){}
+}
+/* lớp 1: chỉ nhường quyền cho lần nhận quyền MỚI HƠN của mình */
+window.addEventListener('storage', e=>{
+  if(e.key!=='petpocket.owner' || !e.newValue) return;
+  const [id,ts]=e.newValue.split('|');
+  if(id!==TAB_ID && +ts>=CLAIM_AT){ SAVE_STALE=true; staleShow() }
+});
+document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='visible') ownerClaim() });
+window.addEventListener('focus', ownerClaim);
+(function(){ const sv=window.save; if(typeof sv==='function') window.save=function(){
+  if(SAVE_STALE) return;
+  if(S && storedRev() > (S._rev||0)){ staleOrReload(); return }   // chốt chặn cuối: không bao giờ ghi đè dữ liệu mới hơn
+  S._rev=(S._rev||0)+1; return sv.apply(this,arguments) } })();
+setTimeout(ownerClaim, 0);   // nhận quyền sau khi boot() đã nạp dữ liệu
+
+
+/* ==========================================================
+   v1.1.5 (thử nghiệm) — TRANG NHÀ CÓ CHIỀU SÂU · HÀNH VI THEO TÍNH CÁCH · GẬP GỌN
+   Chỉ dùng SVG và CSS, không ảnh bitmap. Chỉ dịch chuyển (transform) — nhẹ máy.
+   ========================================================== */
+/* ---------- 1. ba lớp chiều sâu, trôi theo máy quay ---------- */
+DB.depth = { far:0.32, near:1.28 };
+const DEPTH_FAR_SVG = `<svg xmlns='http://www.w3.org/2000/svg' width='260' height='240' viewBox='0 0 260 240'>
+  <g fill='%23ffffff' fill-opacity='.045'><path d='M18 240V92a52 52 0 01104 0v148z'/><path d='M150 240V120h92v120z'/></g>
+  <g fill='%23ffffff' fill-opacity='.06'><rect x='156' y='132' width='80' height='5' rx='2'/><rect x='156' y='168' width='80' height='5' rx='2'/></g>
+  <g fill='%23ffffff' fill-opacity='.05'><rect x='162' y='118' width='9' height='14' rx='2'/><rect x='176' y='122' width='8' height='10' rx='2'/><rect x='200' y='154' width='10' height='14' rx='2'/><rect x='216' y='157' width='8' height='11' rx='2'/></g>
+  <path d='M70 0v34' stroke='%23ffffff' stroke-opacity='.08' stroke-width='1.5'/><path d='M58 34h24l-5 10H63z' fill='%23ffffff' fill-opacity='.08'/>
+  <circle cx='70' cy='50' r='18' fill='%23ffd88a' fill-opacity='.07'/></svg>`;
+const DEPTH_NEAR_SVG = `<svg xmlns='http://www.w3.org/2000/svg' width='620' height='80' viewBox='0 0 620 80'>
+  <g fill='%230b1d18'><path d='M20 80l6-26h40l6 26z'/><path d='M46 56c-18-8-30-24-26-40 12 8 20 20 26 40zm0 0c4-20 14-34 30-40 2 16-12 32-30 40zm0 0c-6-22-2-40 8-52 8 14 4 34-8 52z'/>
+  <rect x='300' y='60' width='170' height='20' rx='4'/><rect x='312' y='48' width='22' height='14' rx='3'/><rect x='338' y='52' width='16' height='10' rx='3'/>
+  <path d='M560 80l4-18h30l4 18z'/><path d='M578 62c-10-6-16-16-12-28 8 6 12 16 12 28zm0 0c4-14 12-22 22-24 0 12-10 20-22 24z'/></g></svg>`;
+function depthBuild(){
+  const st=$('stage'), pb=$('petbox'); if(!st||!pb||$('dfar')) return;
+  const far=document.createElement('div'); far.id='dfar'; far.className='dfar';
+  far.style.backgroundImage=`url("data:image/svg+xml,${DEPTH_FAR_SVG.replace(/\n\s*/g,'')}")`;
+  const room=$('room'); room.insertAdjacentElement('afterend', far);
+  const near=document.createElement('div'); near.id='dnear'; near.className='dnear';
+  near.style.backgroundImage=`url("data:image/svg+xml,${DEPTH_NEAR_SVG.replace(/\n\s*/g,'')}")`;
+  const dim=$('dim'); pb.insertBefore(near, dim);
+  // vệt nắng, vũng đèn, bụi lơ lửng — nằm trong khu Quầy chính nên trôi cùng dải phòng
+  const z=$('strip') && $('strip').children[HOME_ZONE];
+  if(z && !z.querySelector('.dshaft')) z.insertAdjacentHTML('afterbegin', `<div class="dshaft">${Array.from({length:7},(_,i)=>`<i style="left:${12+i*11}%;animation-delay:${(i*1.3).toFixed(1)}s"></i>`).join('')}</div><div class="dpool"></div>`);
+  const a=$('actor'); if(a && !a.querySelector('.dshadow')) a.insertAdjacentHTML('afterbegin','<div class="dshadow"></div>');
+  depthLight(); depthFollow(0);
+}
+function depthFollow(dur){
+  const cx=(typeof camX==='function')?camX():0, t=dur?`transform ${dur}ms cubic-bezier(.35,0,.25,1)`:'none';
+  const f=$('dfar'), n=$('dnear');
+  if(f){ f.style.transition=t; f.style.transform=`translateX(${(cx*DB.depth.far).toFixed(1)}px)` }
+  if(n){ n.style.transition=t; n.style.transform=`translateX(${(cx*DB.depth.near).toFixed(1)}px)` }
+}
+/* ánh sáng theo giờ thật: nắng xiên từ cửa sổ ban ngày, đèn vàng ban đêm; bóng pet nghiêng theo nắng */
+function depthLight(){
+  const st=$('stage'); if(!st) return; const h=new Date().getHours()+new Date().getMinutes()/60;
+  const day = h>=6 && h<18, sun = day ? Math.sin((h-6)/12*Math.PI) : 0;
+  st.style.setProperty('--shaft', (day? (0.18+0.42*sun) : 0).toFixed(2));
+  st.style.setProperty('--pool', (day? 0.12 : 0.55).toFixed(2));
+  st.style.setProperty('--shx', (day? ((12-h)/6*-26) : -6).toFixed(0)+'deg');   // sáng: bóng ngả phải; chiều: ngả trái
+  st.style.setProperty('--sho', (day? 0.20+0.12*sun : 0.16).toFixed(2));
+}
+(function(){
+  const ac=window.applyCam; if(typeof ac==='function') window.applyCam=function(dur){ const r=ac.apply(this,arguments); try{ depthFollow(dur) }catch(e){} return r };
+  const bs=window.buildScene; if(typeof bs==='function') window.buildScene=function(){ const r=bs.apply(this,arguments); try{ depthBuild() }catch(e){} return r };
+  const ps=window.paintSky; if(typeof ps==='function') window.paintSky=function(){ const r=ps.apply(this,arguments); try{ depthLight() }catch(e){} return r };
+})();
+
+/* ---------- 2. hành vi theo tính cách: khoảng 1/3 lần rảnh ---------- */
+const emo=(e,sz)=>`<div style="font-size:${sz||20}px;line-height:1">${e}</div>`;
+DB.persAct = {
+  curious:  { t:'Ngó nghiêng đồ vật', energy:30, run:async()=>{ const z=curZone(),[lo,hi]=zoneBounds(z); setPose('walk'); await moveTo(lo+(hi-lo)*(Math.random()<.5?.15:.85)); setPose('idle'); setFacing(-SC.dir); spawnAt(emo('❓'),112,'pUp 1.2s ease-out forwards',1250); await wait(500); setPose('stretch'); say(pick(['Cái gì đây ta?','Để mình xem thử…','Ơ, cái này mới à?'])); await wait(1100); setPose('idle') } },
+  loyal:    { t:'Ngồi nhìn bạn', energy:0, run:async()=>{ setPose('sit'); paintPet('happy'); spawnAt(emo('💗',18),112,'pUp 1.3s ease-out forwards',1350); say(pick(['Mình ở đây nè.','Bạn làm việc đi, mình ngồi đây.','Có mình rồi.'])); await wait(2200); paintPet(); setPose('idle') } },
+  playful:  { t:'Đuổi nắp chai', energy:35, run:async()=>{ spawnAt(emo('🟠',14),40,'pRoll 1.4s ease-out forwards',1450); setPose('spin'); paintPet('happy'); await wait(700); setPose('cheer'); await wait(620); setPose('cheer'); await wait(620); paintPet(); setPose('idle') } },
+  lazy:     { t:'Nằm dài giữa giờ', energy:0, run:async()=>{ setPose('rest'); paintPet('sleepy'); spawnAt(PROP.zzz,116,'pUp 1.6s ease-out forwards',1650); if(Math.random()<.5) say(pick(['Năm phút nữa thôi…','Nằm chút thôi mà.'])); await wait(2800); paintPet(); setPose('idle') } },
+  brave:    { t:'Tập đấm', energy:30, run:async()=>{ for(let i=0;i<3;i++){ setPose('hit'); await wait(260); setPose('idle'); await wait(160) } spawnAt(emo('💪',18),110,'pUp 1.1s ease-out forwards',1150); say(pick(['Hự! Hự!','Sẵn sàng cho trận tới.','Đối thủ nào cũng được.'])); await wait(500) } },
+  timid:    { t:'Nấp rồi ló ra', energy:0, run:async()=>{ const [lo]=zoneBounds(curZone()); setPose('walk'); await moveTo(lo+8); setFacing(1); setPose('sad'); await wait(1300); setPose('idle'); setFacing(-1); say(pick(['…có ai không?','Mình… ra được chưa?','Từ từ đã…'])); await wait(900) } },
+  greedy:   { t:'Ngửi đồ ăn', energy:0, run:async()=>{ setPose('eat'); spawnAt(emo(pick(['🍪','🥐','🍮'])),104,'pUp 1.3s ease-out forwards',1350); say(pick(['Thơm quá…','Còn gì ăn nữa không?','Bếp nấu gì vậy?'])); await wait(1500); setPose('idle') } },
+  calm:     { t:'Ngồi ngắm cửa sổ', energy:0, run:async()=>{ setPose('sit'); spawnAt(`<div class="calmring"></div>`,90,'none',2600); if(Math.random()<.4) say(pick(['Không có gì phải vội.','Nắng đẹp ghê.'])); await wait(2600); setPose('idle') } },
+  stubborn: { t:'Quay lưng làm mình', energy:0, run:async()=>{ setFacing(-SC.dir); setPose('wig'); say(pick(['Hứ, mình tự làm được.','Không cần giúp đâu.','Để đó mình lo.'])); await wait(1200); setPose('idle'); await wait(500); setFacing(-SC.dir) } },
+  lucky:    { t:'Thấy cỏ bốn lá', energy:0, run:async()=>{ setPose('stretch'); spawnAt(emo('🍀',20),108,'pUp 1.4s ease-out forwards',1450); paintPet('happy'); say(pick(['Hôm nay chắc gặp chuyện hay.','Ơ, cỏ bốn lá!'])); await wait(1300); paintPet(); setPose('idle') } }
+};
+DB.persActRate = 0.35;
+(function(){
+  const ia=window.idleAction; if(typeof ia!=='function') return;
+  window.idleAction=async function(){
+    const p=S.pet, A=DB.persAct[p.pers];
+    if(A && Math.random()<DB.persActRate && p.care.energy>=A.energy){ try{ SC.persLast=p.pers; await A.run(); return }catch(e){ setPose('idle') } }
+    return ia.apply(this,arguments);
+  };
+})();
+
+/* ---------- 3. gập gọn khối chữ trên trang Nhà ---------- */
+function homeFoldState(){ S.homeFold=S.homeFold||{ wishbox:false, receipt:true }; return S.homeFold }
+function homeFoldToggle(id){ const f=homeFoldState(); f[id]=!f[id]; save(); homeFoldApply() }
+function homeFoldApply(){
+  const f=homeFoldState();
+  [['wishbox','.wtop'],['receipt','.rhead']].forEach(([id,head])=>{
+    const el=$(id); if(!el) return; el.classList.toggle('hfold', !!f[id]);
+    const h=el.querySelector(head); if(!h) return;
+    let b=h.querySelector('.hftog'); if(!b){ b=document.createElement('button'); b.className='hftog'; h.appendChild(b) }
+    b.setAttribute('onclick', `event.stopPropagation();homeFoldToggle('${id}')`);
+    b.textContent = f[id] ? 'Xem thêm ▾' : 'Thu gọn ▴';
+  });
+}
+(function(){ const rh=window.renderHome; if(typeof rh==='function') window.renderHome=function(){ const r=rh.apply(this,arguments); try{ homeFoldApply() }catch(e){} return r } })();
+
+
+/* v1.1.5: ghi chú cập nhật gập gọn — tiêu đề và tóm tắt luôn thấy, danh sách thay đổi chạm mới mở */
+function notesFold(html, n){
+  const i=html.indexOf('<div class="pnit'); if(i<0) return html;
+  return html.slice(0,i)+`<details class="pnd"><summary>Xem ${(n.items||[]).length} thay đổi</summary>`+html.slice(i)+'</details>';
+}
+/* v1.1.5: ghép 5 → 1; trứng vàng rời cửa hàng — chỉ có qua ghép 5 trứng cổ và phần thưởng lớn */
+DB.fuseN = 5;
+DB.eggShopHide = ['golden'];
+(function(){
+  const be=window.buyEgg; if(typeof be==='function') window.buyEgg=function(t){
+    if(DB.eggShopHide.includes(t) && !(S.perks||[]).includes('goldshop')) return toast('Trứng vàng không bán ở cửa hàng — ghép 5 trứng cổ để có.');   // người hoàn thành 100% Sổ sưu tầm vẫn mua được, như trước
+    const c0=S.coin; const r=be.apply(this,arguments); if(S.coin<c0){ eggNormalize(); toast('Đã cất vào kho trứng.') } return r };
+})();
+
+
+/* ==========================================================
+   v1.1.5 — QUÁN VẬN HÀNH NHƯ THẬT
+   1) đồ của quán bày trong Quán, đồ của pet bày ở sảnh trang Nhà — không chồng nhau
+   2) bàn ghế → chỗ ngồi → độ hài lòng của khách
+   3) sổ thu chi: chi phí báo trước, không bao giờ âm xu, không nợ
+   ========================================================== */
+/* ---------- 1. tách nội thất ---------- */
+DB.furnHome = ['vase','plant','rug','stool','clock','frame','string','brick','wood','tile'];   // đồ của pet + nền tường
+function furnPlace(id){ return DB.furnHome.includes(id) ? 'home' : 'shop' }
+(function(){
+  const pf=window.paintFurn; if(typeof pf==='function') window.paintFurn=function(){
+    const all=S.placed; S.placed=(all||[]).filter(id=>furnPlace(id)==='home');
+    try{ return pf.apply(this,arguments) } finally { S.placed=all } };
+})();
+/* ---------- 2. bàn ghế ---------- */
+DB.seats = [
+  { id:'ban_doi',  name:'Bàn gỗ đôi',      cost:320, seat:2, spot:{x:58,y:13},  art:'<rect x="5" y="9" width="14" height="3" rx="1" fill="#a0703f"/><rect x="7" y="12" width="2" height="7" fill="#7a5230"/><rect x="15" y="12" width="2" height="7" fill="#7a5230"/><rect x="1" y="13" width="4" height="2" rx="1" fill="#c9a06a"/><rect x="2" y="15" width="1.5" height="4" fill="#7a5230"/><rect x="19" y="13" width="4" height="2" rx="1" fill="#c9a06a"/><rect x="20.5" y="15" width="1.5" height="4" fill="#7a5230"/>' },
+  { id:'ghe_bar',  name:'Dãy ghế quầy bar', cost:260, seat:3, spot:{x:30,y:30}, art:'<g fill="#3c4a44"><rect x="2" y="8" width="5" height="2" rx="1"/><rect x="9.5" y="8" width="5" height="2" rx="1"/><rect x="17" y="8" width="5" height="2" rx="1"/></g><g fill="#7a8a82"><rect x="4" y="10" width="1" height="9"/><rect x="11.5" y="10" width="1" height="9"/><rect x="19" y="10" width="1" height="9"/></g>' },
+  { id:'ban_tron', name:'Bàn tròn nhỏ',     cost:240, seat:2, spot:{x:79,y:12},  art:'<ellipse cx="12" cy="10" rx="7" ry="2.4" fill="#e8dcc0"/><rect x="11" y="11" width="2" height="7" fill="#8a7a60"/><rect x="8" y="18" width="8" height="1.6" rx=".8" fill="#8a7a60"/><circle cx="3" cy="14" r="2.2" fill="#c9a06a"/><circle cx="21" cy="14" r="2.2" fill="#c9a06a"/>' },
+  { id:'sofa',     name:'Sofa góc',         cost:520, seat:4, spot:{x:50,y:22}, art:'<rect x="2" y="8" width="20" height="6" rx="2" fill="#5f8a7a"/><rect x="1" y="12" width="22" height="6" rx="2" fill="#4c7466"/><rect x="3" y="18" width="2" height="2" fill="#2b3733"/><rect x="19" y="18" width="2" height="2" fill="#2b3733"/>' },
+  { id:'ban_hien', name:'Bàn hiên ngoài trời', cost:480, seat:4, spot:{x:92,y:30}, art:'<path d="M12 2 3 8h18z" fill="#e0784a"/><rect x="11.5" y="8" width="1" height="5" fill="#5a4a3a"/><rect x="5" y="13" width="14" height="2" rx="1" fill="#c9a06a"/><rect x="6" y="15" width="1.5" height="5" fill="#7a5230"/><rect x="16.5" y="15" width="1.5" height="5" fill="#7a5230"/>' }
+];
+DB.seats.forEach(s=>{
+  if(!DB.furnById[s.id]){ const f={ id:s.id, name:s.name, cat:'Bàn ghế', slot:'seat', cost:s.cost, x:0, perk:{ type:'seat', val:s.seat }, note:`${s.seat} chỗ ngồi cho khách — tăng độ hài lòng` };
+    DB.furniture.push(f); DB.furnById[s.id]=f }
+  DB.shopFurnSpot[s.id]=s.spot; FURN_ART[s.id]=s.art;
+});
+function shopSeats(){ return (S.placed||[]).reduce((n,id)=>n+(((DB.furnById[id]||{}).perk||{}).type==='seat' ? DB.furnById[id].perk.val : 0), 0) }
+/* ---------- độ hài lòng của khách ---------- */
+DB.sat = { seatNeed:10 };
+function shopSat(){
+  const st=shopState(), seats=shopSeats(), r=id=>petById(st.roles[id]);
+  const parts=[
+    ['Chỗ ngồi', Math.round(40*Math.min(1, seats/DB.sat.seatNeed)), 40, `${seats}/${DB.sat.seatNeed} chỗ`],
+    ['Phục vụ',  (r('server')?20:0)+(r('cashier')?10:0), 30, `${r('server')?'có':'thiếu'} Phục vụ · ${r('cashier')?'có':'thiếu'} Thu ngân`],
+    ['Sạch sẽ',  (r('qc')?10:0)+(shopPerks().waste>0?5:0), 15, r('qc')?'có Kiểm đồ':'thiếu Kiểm đồ'],
+    ['Menu',     Math.round(15*Math.min(1, ((invOf().recipes||[]).length)/24)), 15, `${(invOf().recipes||[]).length} món đã biết`]
+  ];
+  let total=parts.reduce((a,p)=>a+p[1],0);
+  const L=ledgerState(), now=Date.now();
+  if(L.morale>now){ total-=15; parts.push(['Nhân sự buồn vì chậm lương',-15,0,'tới '+new Date(L.morale).toLocaleDateString('vi-VN')]) }
+  if(L.inc && L.inc.later>now){ total-=10; parts.push(['Máy hỏng chưa sửa',-10,0,'']) }
+  if(L.mkt>now){ total+=5; parts.push(['Đang chạy khuyến mãi',5,0,'']) }
+  return { total:Math.max(0,Math.min(100,total)), parts };
+}
+function satTip(){ return Math.max(0, shopSat().total-60)/400 }                     // tiền bo khi bán ly: tới +10%
+function satSkill(){ const t=shopSat().total; return t>=75 ? 2 : t<40 ? 0.5 : 1 }   // tay nghề từ đào tạo
+function satGuests(){ return (0.6+shopSat().total/250) * (ledgerState().mkt>Date.now()?1.4:1) }
+/* ---------- 3. sổ thu chi ---------- */
+DB.costs = { rent:500, staff:60, util:100, taxPct:0.05, graceDays:7, warnDays:2, mkt:{ cost:300, days:3, cap:4 } };
+function ledgerState(){ if(!S.ledger) S.ledger={ since:Date.now(), sales:{}, paid:[], log:[], morale:0, mkt:0, inc:null, incAt:0 }; return S.ledger }
+function dStr(t){ const d=new Date(t); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0') }
+function weekStart(t){ const d=new Date(t); d.setHours(0,0,0,0); d.setDate(d.getDate()-((d.getDay()+6)%7)); return d.getTime() }
+function monthStart(t){ const d=new Date(t); return new Date(d.getFullYear(), d.getMonth(), 1).getTime() }
+function salesBetween(a,b){ const L=ledgerState(); return Object.entries(L.sales).filter(([k])=>{ const t=new Date(k+'T12:00:00').getTime(); return t>=a && t<b }).reduce((s,[,v])=>s+v,0) }
+function staffCount(){ const st=shopState(); return DB.shopRoles.filter(r=>petById(st.roles[r.id])).length }
+function weeklyBill(){ return [['Thuê mặt bằng',DB.costs.rent],[`Lương nhân sự (${staffCount()} pet)`,DB.costs.staff*staffCount()],['Điện nước',DB.costs.util]] }
+function billsUpcoming(){
+  const now=Date.now(), nw=weekStart(now)+7*864e5, nm=new Date(new Date(now).getFullYear(), new Date(now).getMonth()+1, 1).getTime();
+  const lastMonth=salesBetween(monthStart(now), now);
+  return [ { key:'w:'+dStr(nw), at:nw, items:weeklyBill() },
+           { key:'m:'+dStr(nm), at:nm, items:[[`Thuế ${Math.round(DB.costs.taxPct*100)}% doanh thu bán ly tháng này`, Math.round(DB.costs.taxPct*lastMonth)]] } ];
+}
+function ledgerPay(key, items, why){
+  const L=ledgerState(); if(L.paid.some(p=>p.key===key)) return;
+  const total=items.reduce((a,i)=>a+i[1],0);
+  if(Date.now()-L.since < DB.costs.graceDays*864e5){ L.paid.push({ key, at:Date.now(), total, paid:0, waived:1, items }); save(); return }
+  const pay=Math.min(S.coin,total); S.coin-=pay;
+  L.paid.push({ key, at:Date.now(), total, paid:pay, items }); if(L.paid.length>30) L.paid=L.paid.slice(-30);
+  if(pay<total){ L.morale=Date.now()+7*864e5; toast(`${why}: trả ${pay}/${total} xu — thiếu tiền, nhân sự buồn 7 ngày.`) }
+  else toast(`${why}: đã trả ${total} xu. Xem Sổ thu chi trong Quán.`);
+  save();
+}
+function ledgerTick(){
+  if(!S || !S.onboarded) return; const L=ledgerState(), now=Date.now();
+  // kỳ vừa qua: tuần (sáng thứ Hai), tháng (ngày 1) — trả ở lần mở game đầu tiên sau mốc
+  const ws=weekStart(now), ms=monthStart(now);
+  if(ws > L.since) ledgerPay('w:'+dStr(ws), weeklyBill(), 'Chi phí tuần');
+  if(ms > L.since) ledgerPay('m:'+dStr(ms), [[`Thuế ${Math.round(DB.costs.taxPct*100)}% doanh thu tháng trước`, Math.round(DB.costs.taxPct*salesBetween(monthStart(ms-864e5), ms))]], 'Thuế tháng');
+  // báo trước 2 ngày, mỗi ngày một lần
+  const up=billsUpcoming().filter(b=>b.at-now < DB.costs.warnDays*864e5 && !L.paid.some(p=>p.key===b.key));
+  if(up.length && L.warned!==today() && now-L.since >= (DB.costs.graceDays-DB.costs.warnDays)*864e5){
+    L.warned=today(); save(); const b=up[0], tot=b.items.reduce((a,i)=>a+i[1],0);
+    setTimeout(()=>toast(`Sắp tới hạn: ${tot} xu chi phí quán vào ${new Date(b.at).toLocaleDateString('vi-VN',{weekday:'long'})}.`), 2500);
+  }
+  // sự cố hiếm: tối thiểu 10 ngày một lần, sau 7 ngày đầu
+  if(!L.inc && now-L.since > DB.costs.graceDays*864e5 && now-L.incAt > 10*864e5 && L.incDay!==today()){ L.incDay=today(); if(Math.random()<0.15){ L.inc={ k:pick(['Máy pha cà phê kêu lạ','Máy làm đá chảy nước','Vỡ một chồng ly']), cost:80+Math.floor(Math.random()*7)*10, at:now }; save() } }
+}
+function incidentHTML(){ const L=ledgerState(); if(!L.inc || L.inc.later) return '';
+  return `<div class="incard"><b>⚠️ ${L.inc.k}</b><div class="note" style="margin:4px 0 8px">Sửa ngay tốn ${L.inc.cost} xu. Để sau thì khách kém hài lòng 3 ngày.</div>
+    <div class="row"><button class="btn gold" onclick="incFix(1)">Sửa ngay</button><button class="btn ghost" onclick="incFix(0)">Để sau</button></div></div>` }
+function incFix(now){ const L=ledgerState(); if(!L.inc) return;
+  if(now){ if(S.coin<L.inc.cost) return toast('Không đủ xu — để sau vậy.'); S.coin-=L.inc.cost; L.paid.push({ key:'i:'+L.inc.at, at:Date.now(), total:L.inc.cost, paid:L.inc.cost, items:[[L.inc.k, L.inc.cost]] }); L.inc=null; L.incAt=Date.now(); toast('Đã sửa xong.') }
+  else { L.inc.later=Date.now()+3*864e5; L.incAt=Date.now(); setTimeout(()=>{ const l=ledgerState(); if(l.inc&&l.inc.later&&l.inc.later<Date.now()) l.inc=null },0) }
+  save(); mount() }
+function mktRun(){ const L=ledgerState(), c=DB.costs.mkt; if(L.mkt>Date.now()) return; if(S.coin<c.cost) return toast('Không đủ xu.');
+  if(!confirm(`Chạy khuyến mãi ${c.days} ngày với ${c.cost} xu? Khách đông hơn, bán thêm ${c.cap} ly mỗi ngày.`)) return;
+  S.coin-=c.cost; L.mkt=Date.now()+c.days*864e5; L.paid.push({ key:'k:'+Date.now(), at:Date.now(), total:c.cost, paid:c.cost, items:[['Chiến dịch khuyến mãi',c.cost]] }); save(); toast('Đã chạy khuyến mãi.'); mount() }
+function ledgerHTML(){
+  const L=ledgerState(), now=Date.now(), ws=weekStart(now), inW=salesBetween(ws, now+864e5);
+  const outW=L.paid.filter(p=>p.at>=ws).reduce((a,p)=>a+p.paid,0);
+  const up=billsUpcoming(), grace=now-L.since < DB.costs.graceDays*864e5;
+  return `<div class="kv"><span>Thu bán ly tuần này</span><b>+${inW} xu</b></div><div class="kv"><span>Đã chi tuần này</span><b>−${outW} xu</b></div>
+    <div class="kv"><span><b>Lãi tuần này</b></span><b style="color:${inW-outW>=0?'var(--teal-2)':'var(--warn)'}">${inW-outW>=0?'+':''}${inW-outW} xu</b></div>
+    <h4 class="lgh">Sắp tới hạn</h4>${up.map(b=>`<div class="lgb"><div class="kv"><span>${new Date(b.at).toLocaleDateString('vi-VN',{weekday:'long',day:'numeric',month:'numeric'})}</span><b>${b.items.reduce((a,i)=>a+i[1],0)} xu</b></div>
+      ${b.items.map(i=>`<div class="lgi"><span>${i[0]}</span><span>${i[1]}</span></div>`).join('')}</div>`).join('')}
+    ${grace?`<div class="note">7 ngày đầu quán được miễn chi phí — còn ${Math.ceil((L.since+DB.costs.graceDays*864e5-now)/864e5)} ngày.</div>`:''}
+    <h4 class="lgh">Đã chi gần đây</h4>${L.paid.slice(-6).reverse().map(p=>`<div class="lgi"><span>${new Date(p.at).toLocaleDateString('vi-VN')} · ${p.items.map(i=>i[0]).join(', ')}</span><span>${p.waived?'miễn':'−'+p.paid}</span></div>`).join('')||'<div class="note">Chưa có khoản chi nào.</div>'}
+    <div class="note">Chi phí tuần trả vào sáng thứ Hai, thuế trả ngày 1 hằng tháng — báo trước 2 ngày. Không bao giờ âm xu: thiếu tiền thì nhân sự buồn 7 ngày.</div>
+    <button class="btn ghost" style="margin-top:6px" ${L.mkt>now?'disabled':''} onclick="mktRun()">${L.mkt>now?'Khuyến mãi đang chạy tới '+new Date(L.mkt).toLocaleDateString('vi-VN'):`Chạy khuyến mãi ${DB.costs.mkt.days} ngày — ${DB.costs.mkt.cost} xu`}</button>`;
+}
+function satHTML(){ const s=shopSat();
+  return s.parts.map(p=>`<div class="kv"><span>${p[0]}${p[3]?` <small style="color:var(--ink-3)">· ${p[3]}</small>`:''}</span><b>${p[2]?`${p[1]}/${p[2]}`:(p[1]>0?'+':'')+p[1]}</b></div>`).join('')
+    + `<div class="note">Hài lòng từ 75 trở lên: tay nghề đào tạo tăng gấp đôi. Dưới 40: tăng chậm một nửa. Trên 60 thì bán ly có thêm tiền bo (tới +10%).</div>`;
+}
+/* ---------- gắn vào game ---------- */
+(function(){
+  const se=window.shopExtrasHTML; if(typeof se==='function') window.shopExtrasHTML=function(P){
+    const s=shopSat(), L=ledgerState(), now=Date.now(), ws=weekStart(now), lai=salesBetween(ws,now+864e5)-L.paid.filter(p=>p.at>=ws).reduce((a,p)=>a+p.paid,0);
+    return incidentHTML()
+      + panelFold('shopsat', `Khách hài lòng · ${s.total}/100`, satHTML(), false)
+      + panelFold('shopledger', `Sổ thu chi · lãi tuần ${lai>=0?'+':''}${lai} xu`, ledgerHTML(), false)
+      + se.apply(this,arguments) };
+  const dp=window.drinkPrice; if(typeof dp==='function') window.drinkPrice=function(r){ return Math.round(dp.apply(this,arguments)*(1+satTip())) };
+  const sd=window.sellDrink; if(typeof sd==='function') window.sellDrink=function(id){ const c0=S.coin; const r=sd.apply(this,arguments); if(S.coin>c0){ const L=ledgerState(), d=today(); L.sales[d]=(L.sales[d]||0)+(S.coin-c0); const ks=Object.keys(L.sales).sort(); if(ks.length>70) delete L.sales[ks[0]]; save() } return r };
+  const mt=window.mount; if(typeof mt==='function') window.mount=function(){ try{ DB.sellDrink.capDay = 12 + (ledgerState().mkt>Date.now()?DB.costs.mkt.cap:0); ledgerTick() }catch(e){} return mt.apply(this,arguments) };
+})();
+
+
+/* ==========================================================
+   v1.1.5 — CHIỀU SÂU CHO TRẬN ĐẤU VÀ QUÁN (SVG + CSS, chỉ transform)
+   ========================================================== */
+const AR_NEAR=`<svg xmlns='http://www.w3.org/2000/svg' width='420' height='60' viewBox='0 0 420 60'><g fill='%230a1c17'>
+  <path d='M0 60c10-22 18-30 26-36 2 12-2 24-6 36zm14 0c6-26 20-38 32-44-2 18-10 32-20 44zm30 0c2-16 8-26 16-30 2 12 0 22-4 30z'/>
+  <path d='M300 60c6-18 16-26 26-30 0 12-6 22-12 30zm20 0c10-24 24-34 38-38-4 18-14 30-26 38zm34 0c4-14 10-20 18-22 0 10-4 16-8 22z'/></g></svg>`;
+const SH_FAR=`<svg xmlns='http://www.w3.org/2000/svg' width='400' height='140' viewBox='0 0 400 140'>
+  <g fill='%23ffffff' fill-opacity='.05'><rect x='40' y='20' width='70' height='80' rx='6'/><rect x='290' y='20' width='70' height='80' rx='6'/></g>
+  <g fill='%23ffd88a' fill-opacity='.06'><rect x='46' y='26' width='58' height='68' rx='4'/><rect x='296' y='26' width='58' height='68' rx='4'/></g>
+  <g fill='%23ffffff' fill-opacity='.05'><rect x='150' y='40' width='100' height='4' rx='2'/><rect x='150' y='70' width='100' height='4' rx='2'/>
+  <rect x='158' y='26' width='10' height='14' rx='2'/><rect x='174' y='30' width='9' height='10' rx='2'/><rect x='214' y='56' width='12' height='14' rx='2'/><rect x='232' y='59' width='9' height='11' rx='2'/></g></svg>`;
+const SH_NEAR=`<svg xmlns='http://www.w3.org/2000/svg' width='400' height='70' viewBox='0 0 400 70'><g fill='%230b1d18'>
+  <path d='M4 70l5-22h32l5 22z'/><path d='M25 48c-14-6-22-18-20-32 10 6 16 16 20 32zm0 0c4-16 12-26 24-30 0 14-10 24-24 30z'/>
+  <path d='M352 70l5-20h30l5 20z'/><path d='M372 50c-10-6-14-14-12-24 8 4 12 12 12 24zm0 0c4-12 10-18 20-20-2 10-8 16-20 20z'/></g></svg>`;
+(function(){
+  const rh=window.ringHTML; if(typeof rh==='function') window.ringHTML=function(){
+    const s=rh.apply(this,arguments);
+    return s.replace('<div class="bf left"', `<div class="arnear" style="background-image:url(&quot;data:image/svg+xml,${AR_NEAR.replace(/\n\s*/g,'')}&quot;)"></div><div class="bf left"`);
+  };
+  const bp=window.bpop; if(typeof bp==='function') window.bpop=function(side,text,color,small,scale,crit){
+    const r=bp.apply(this,arguments); if(crit){ const g=$('ring'); if(g){ g.classList.remove('rshake'); void g.offsetWidth; g.classList.add('rshake') } } return r };
+  const ss=window.shopSceneHTML; if(typeof ss==='function') window.shopSceneHTML=function(){
+    return ss.apply(this,arguments)
+      .replace('<div class="scounter"></div>', `<div class="shfar" style="background-image:url(&quot;data:image/svg+xml,${SH_FAR.replace(/\n\s*/g,'')}&quot;)"></div><div class="scounter"></div>`)
+      .replace('<div class="sdoor"></div>', `<div class="sdoor"></div><div class="shnear" style="background-image:url(&quot;data:image/svg+xml,${SH_NEAR.replace(/\n\s*/g,'')}&quot;)"></div><div class="shhang"></div>`);
+  };
+})();
 
 boot();
 if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>{});
