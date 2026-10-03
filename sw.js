@@ -7,7 +7,7 @@
      mất mạng mới dùng bản trong bộ đệm — vẫn chạy offline được
    - ảnh, manifest vẫn lấy bộ đệm trước cho nhanh
    KHI PHÁT HÀNH BẢN MỚI: tăng VER dưới đây. */
-const VER='1.1.6';
+const VER='1.1.7';
 const C='petdrink-'+VER;
 const ASSETS=['./','./index.html','./manifest.webmanifest','./icon.svg'];
 self.addEventListener('install',e=>{
