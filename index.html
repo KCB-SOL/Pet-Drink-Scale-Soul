@@ -2164,6 +2164,32 @@ body.stagefull .hero,body.stagefull #acts{opacity:.25;pointer-events:none;transi
 .bosscard .bl{font-style:italic;text-align:center;margin-bottom:8px}
 .rwpage{margin-top:12px}.rwh{font-family:var(--disp);font-size:15px;color:#5a3b24;text-align:center;margin:4px 0 6px}.rwh~.rwh{margin-top:12px;border-top:1px solid #d8c4a0;padding-top:10px}
 .rwpage .kv{border-bottom:1px dotted #c9b48a;padding:3px 0}
+
+/* ---- v1.2.0 thanh 5 khu, thẻ khu, Sổ quái, chăm pet ---- */
+nav.nav.nav5{display:grid;grid-template-columns:repeat(5,1fr)}
+.zbtn{background:none;border:0;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 0 4px;color:var(--ink-3,#9fb3ab);font:inherit;cursor:pointer}
+.zbtn .zi{position:relative;width:30px;height:30px;filter:grayscale(.75) opacity(.62);transition:filter .2s,transform .2s}.zbtn .zi svg{width:100%;height:100%}
+.zbtn.on .zi{filter:none;transform:translateY(-2px) scale(1.08)}.zbtn .zl{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase}.zbtn.on .zl{color:var(--gold,#c8973f)}
+.zbtn.lk .zi{filter:grayscale(1) opacity(.3)}
+.zbd{position:absolute;right:-8px;top:-4px;min-width:16px;height:16px;border-radius:9px;background:#e0614a;color:#fff;font:700 10px/16px var(--sans,system-ui);font-style:normal;text-align:center;padding:0 3px}
+.zbar{display:flex;gap:8px;overflow-x:auto;padding:2px 0 12px;margin-bottom:4px;scrollbar-width:none}.zbar::-webkit-scrollbar{display:none}
+.zt{flex:none;border:1.5px solid var(--line);background:none;border-radius:99px;padding:8px 14px;font:inherit;font-size:14px;color:var(--ink-2);cursor:pointer;display:inline-flex;align-items:center;gap:4px}
+.zt.on{background:var(--ink,#16302a);color:#fff;border-color:var(--ink,#16302a)}.zt.lk{opacity:.45}
+.hdr .brand,.hdr h1,.hdr .bt{white-space:nowrap}
+#v-home .zbar{padding-left:14px;padding-right:14px}
+#v-home .zt{color:#f3ead4;border-color:rgba(243,234,212,.35);background:rgba(10,24,20,.35)}#v-home .zt.on{background:#f3ead4;color:#16302a;border-color:#f3ead4}
+@media(max-width:430px){.hdr .chip{padding-left:8px;padding-right:8px;font-size:12px}.hset{width:32px!important;height:32px!important;margin-left:4px!important}.hdr #hdrsub{font-size:9px}}
+.hset{width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(243,234,212,.25);background:none;color:#f3ead4;display:grid;place-items:center;cursor:pointer;margin-left:6px;flex:none}.hset svg{width:20px;height:20px}
+.careico{width:30px;height:30px}
+.bsthead{margin-bottom:10px}.bsthead .bar2{margin:6px 0}
+.bstbook{margin-bottom:12px}.bstbook .bkl,.bstbook .bkr{min-height:0}
+.bst{text-align:center;padding:2px 2px 6px}.bst.off{opacity:.45}
+.bstk{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#8a7a60}
+.bstp{width:96px;height:96px;margin:4px auto;border-radius:50%;background:radial-gradient(#f3e4c4,#e2cfa6);box-shadow:inset 0 0 0 3px #c9a06a;overflow:hidden}.bstp svg{width:100%;height:100%}
+.bstp.sil svg{filter:brightness(0) opacity(.55)}.bst.boss .bstp{box-shadow:inset 0 0 0 3px #a6563a,0 0 0 3px rgba(166,86,58,.15)}
+.bstn{font-family:var(--disp);font-size:15px;color:#3a2f26}.bsta{font-family:var(--mono);font-size:10.5px;color:#8a7a60;margin-bottom:4px}
+.bstl{font-style:italic;font-size:12px;color:#5a4a3a;margin:4px 0}.bstm{font-size:11.5px;text-align:left;margin:2px 0;color:#3a2f26}.bstd{font-size:10.5px;color:#8a7a60;margin-top:4px;font-family:var(--mono)}
+.bstev{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;background:#fbf3e0;border-radius:8px;padding:10px}
 /* ---- bảng tên ---- */
 .np{display:inline-block;position:relative;padding:1px 14px 3px;border-radius:12px;border:2px solid;line-height:1.15}
 .np.npc{padding:0 8px 1px;border-width:1.5px;border-radius:8px;font-size:.92em}
@@ -2239,7 +2265,7 @@ body.nofx .actor .in{animation:none}
   <div class="hibbar hide" id="hibbar">Đang ngủ đông — hao hụt tạm dừng</div>
   <header class="hdr">
     <div class="brandmark" id="brandmark"></div>
-    <div><h1>Pet Drink</h1><div class="sub" id="hdrsub">Scale &amp; Soul · v1.1.8</div></div>
+    <div><h1>Pet Drink</h1><div class="sub" id="hdrsub">Scale &amp; Soul · v1.2.0</div></div>
     <div class="purse">
       <div class="chip agechip" title="Dành cho người chơi từ 12 tuổi trở lên">12+</div>
       <div class="chip" id="chipCoin">0 xu</div>
@@ -8498,7 +8524,7 @@ function bridgeDemo(kind){
 const TUT=[
   { id:'feed',  sel:"#acts .act:nth-child(1)", text:'Chạm <b>Cho ăn</b>. Pet sẽ đi bộ sang Bếp và ăn.' },
   { id:'play',  sel:"#acts .act:nth-child(2)", text:'Giờ chạm <b>Chơi</b>. Vui tăng thì Gắn bó cũng tăng theo.' },
-  { id:'quest', sel:"#nav button:nth-child(2)", text:'Cuối cùng, mở <b>Việc</b>. Mỗi việc ở quán bạn làm xong là một ngày lớn lên của nó.' }
+  { id:'quest', sel:"#nextbox .nxr[data-k=quest]", text:'Cuối cùng, chạm <b>Xem việc</b>. Mỗi việc ở quán bạn làm xong là một ngày lớn lên của nó.' }
 ];
 function tutState(){ S.tut = S.tut || { step:0, done:false }; return S.tut }
 function tutShow(){
@@ -15549,7 +15575,7 @@ function evPetLine(p, k){
 /* ==========================================================
    BẢN PHÁT HÀNH 1.0 — số phiên bản game
    ========================================================== */
-const APP_VER='1.1.8';
+const APP_VER='1.2.0';
 
 /* ==========================================================
    QUA NGÀY, QUA TUẦN KHI GAME ĐANG MỞ
@@ -15707,6 +15733,17 @@ window.save=function(){
    CÓ GÌ MỚI — hiện một lần cho người chơi cũ khi lên bản mới
    ========================================================== */
 DB.patchNotes = [
+  { ver:'1.2.0', date:'10/2026', title:'Năm khu, một cuốn sổ quái',
+    lead:'Game gọn lại thành 5 khu: Nhà, Khám phá, Quán, Pet, Cuốn đời. Mọi thứ cũ vẫn ở đó.',
+    items:[
+      ['🏠','Nhà','Cảnh nhà, chăm pet và việc hôm nay ở cùng một chỗ.'],
+      ['🗺️','Khám phá','Phiêu lưu, đấu nhanh, leo tháp, tổ đội, sự kiện.'],
+      ['🏪','Quán','Vận hành, mua hàng (Shop cũ), công thức, quản trị.'],
+      ['🐾','Pet','Chuồng, lò ấp, kho, trang bị, thời trang, gia phả, bộ sưu tập.'],
+      ['📖','Cuốn đời & Sổ quái','Sổ quái ghi lại mọi boss và phó boss bạn từng gặp — hạ đủ 22 trang để nhận bảng tên Người ghi sổ.'],
+      ['⚙️','Cài đặt','Chuyển lên nút bánh răng ở góc trên.'],
+      ['✨','Biểu tượng mới','5 khu và 6 hành động chăm pet vẽ lại cùng phong cách game.']
+    ] },
   { ver:'1.1.8', date:'10/2026', title:'Mỗi kỹ năng một hình',
     lead:'Kỹ năng các loài không còn trùng hình; truyện tháp thành cuốn sách.',
     items:[
@@ -18157,7 +18194,7 @@ function nextTasks(){
 }
 function nextHTML(){
   const L=nextTasks(); if(!L.length) return `<div class="nxt done"><span class="ico">${icoSVG('happy')}</span><span>Hôm nay ổn cả rồi. Ngồi chơi với ${evcEsc(S.pet.name)} một lát nhé.</span></div>`;
-  return `<div class="nxt"><div class="nxh">Việc nên làm tiếp</div>${L.map(x=>`<button class="nxr" onclick="${x.go}"><span class="nxi">${icoSVG(x.ic)}</span><span class="nxt1">${x.t}</span><span class="nxb">${x.b} ›</span></button>`).join('')}</div>`;
+  return `<div class="nxt"><div class="nxh">Việc nên làm tiếp</div>${L.map(x=>`<button class="nxr" data-k="${x.ic==='board'?'quest':x.ic}" onclick="${x.go}"><span class="nxi">${icoSVG(x.ic)}</span><span class="nxt1">${x.t}</span><span class="nxb">${x.b} ›</span></button>`).join('')}</div>`;
 }
 (function(){ const rh=window.renderHome; if(typeof rh==='function') window.renderHome=function(){ const r=rh.apply(this,arguments);
   try{ const v=$('v-home'), w=$('wishbox'); let n=$('nextbox'); if(!n){ n=document.createElement('div'); n.id='nextbox'; (w?w.parentNode.insertBefore(n,w):v.appendChild(n)) } n.innerHTML=nextHTML() }catch(e){} return r } })();
@@ -18318,6 +18355,153 @@ function sheetFold(root, openDefault){
   });
 }
 (function(){ const op=window.openPetDetail; if(typeof op==='function') window.openPetDetail=function(){ const r=op.apply(this,arguments); try{ sheetFold($('sheet'), ['Con đường']) }catch(e){} return r } })();
+
+
+/* ==========================================================
+   v1.2.0 — SỔ QUÁI · 5 KHU CHÍNH · BIỂU TƯỢNG KHU VÀ CHĂM PET
+   ========================================================== */
+/* v1.2.0: bảng "Hết một ngày" chờ tới khi không còn bảng/hội thoại nào đang mở.
+   Trước đây nó hẹn mở 3,4 giây sau khi vào game và đè lên "Có gì mới" — người vừa cập nhật có thể không bao giờ thấy ghi chú. */
+function uiBusy(){ const sh=$('sheet'); const shOpen=!!(sh && sh.isConnected && sh.textContent.trim() && sh.getBoundingClientRect().height>0 && getComputedStyle(sh).visibility!=='hidden' && getComputedStyle(sh).display!=='none');   // bảng nổi cố định: offsetParent luôn null, phải đo kích thước
+  return !!(shOpen || $('dlg') || document.querySelector('.bnr,#termscr,#lockscr,#intro')) }
+(function(){ const orc=window.openRecap; if(typeof orc!=='function') return; let tries=0;
+  window.openRecap=function(){ if(uiBusy() && tries<120){ tries++; setTimeout(()=>{ if(typeof dayRecapDue!=='function' || dayRecapDue()) window.openRecap() }, 1500); return } tries=0; return orc.apply(this,arguments) } })();
+
+/* ---------- biểu tượng mới: 5 khu, 6 hành động chăm ---------- */
+(function(){ const s=(st,w)=>`stroke="${st}" stroke-width="${w||2.4}" stroke-linejoin="round" stroke-linecap="round"`;
+Object.assign(ICS, {
+  zhome:`<path d="M5 19L20 6l15 13" fill="none" ${s('#a6563a',3)}/><path d="M9 17v17h22V17L20 8z" fill="#f2dfc2" ${s('#b07d45')}/><rect x="16" y="23" width="8" height="11" rx="1.5" fill="#c99a35"/><rect x="25" y="10" width="4" height="6" fill="#a6563a"/>`,
+  zexplore:`<path d="M5 9l9-3 12 4 9-3v24l-9 3-12-4-9 3z" fill="#dff0ea" ${s('#6fae9a')}/><path d="M14 6v24M26 10v24" ${s('#6fae9a',1.6)}/><circle cx="23" cy="19" r="5" fill="#fff" ${s('#e0614a',2.2)}/><path d="M23 14v-2M23 26v-2" ${s('#e0614a',2)}/><path d="M23 16l1.6 3-1.6 3-1.6-3z" fill="#e0614a"/>`,
+  zshop:`<path d="M6 16h28v18H6z" fill="#f2dfc2" ${s('#b07d45')}/><path d="M4 9h32l-2 8H6z" fill="#e0784a" ${s('#b5532c')}/><path d="M11 9l-1 8M20 9v8M29 9l1 8" ${s('#fff',1.8)}/><rect x="10" y="22" width="9" height="8" rx="1.5" fill="#a7dcc9" ${s('#5f9e8a',2)}/><path d="M24 34V23h6v11" fill="#c99a35"/>`,
+  zpet:`<ellipse cx="20" cy="27" rx="9" ry="7.5" fill="#f6c79a" ${s('#c9935e')}/><circle cx="9" cy="17" r="4" fill="#f6c79a" ${s('#c9935e',2)}/><circle cx="16" cy="10" r="4" fill="#f6c79a" ${s('#c9935e',2)}/><circle cx="24" cy="10" r="4" fill="#f6c79a" ${s('#c9935e',2)}/><circle cx="31" cy="17" r="4" fill="#f6c79a" ${s('#c9935e',2)}/><path d="M17 27q3 2 6 0" fill="none" ${s('#c9935e',2)}/>`,
+  zlife:`<path d="M5 9q7-3 15 1v25q-8-4-15-1z" fill="#fbf3e0" ${s('#a6563a')}/><path d="M35 9q-7-3-15 1v25q8-4 15-1z" fill="#f3e4c4" ${s('#a6563a')}/><path d="M9 15h7M9 20h7M24 15h7M24 20h7M24 25h5" ${s('#c9b48a',1.8)}/><path d="M28 5v10l2-2 2 2V5" fill="#e0614a"/>`,
+  cfeed:`<path d="M6 20h28a14 11 0 0 1-28 0z" fill="#f6c79a" ${s('#c9935e')}/><path d="M9 20c1-5 6-7 11-7s10 2 11 7" fill="#f39a2e" ${s('#c97c1e',2)}/><circle cx="15" cy="16" r="1.6" fill="#fff"/><circle cx="23" cy="15" r="1.6" fill="#fff"/><path d="M27 6l-4 9" ${s('#8a6a4a',2.4)}/>`,
+  cplay:`<circle cx="20" cy="20" r="13" fill="#f6d36a" ${s('#c99a35')}/><path d="M7.5 17q12.5 6 25 0M9 26q11-5 22 0" fill="none" ${s('#e0614a',2.4)}/><path d="M20 7q-5 13 0 26" fill="none" ${s('#5fae96',2.4)}/>`,
+  cclean:`<path d="M5 20h30v4a10 10 0 0 1-10 10H15A10 10 0 0 1 5 24z" fill="#cfe8f5" ${s('#6f9fc0')}/><path d="M10 34l-2 3M30 34l2 3" ${s('#6f9fc0',2.4)}/><circle cx="14" cy="13" r="4" fill="#fff" ${s('#9fc4e0',1.8)}/><circle cx="22" cy="9" r="3" fill="#fff" ${s('#9fc4e0',1.8)}/><circle cx="27" cy="15" r="2.4" fill="#fff" ${s('#9fc4e0',1.6)}/>`,
+  csleep:`<rect x="5" y="20" width="30" height="12" rx="5" fill="#cbd8f0" ${s('#7f95c0')}/><path d="M25 7a8 8 0 1 0 6 12A7 7 0 0 1 25 7z" fill="#f3d37b" ${s('#c9a33f',2)}/><path d="M9 12h5l-5 5h5" fill="none" ${s('#7f95c0',2)}/>`,
+  ctrain:`<rect x="13" y="17" width="14" height="6" rx="1.5" fill="#9aa8a3" ${s('#5d6b66',2)}/><rect x="6" y="10" width="7" height="20" rx="2.5" fill="#e0614a" ${s('#a8402c')}/><rect x="27" y="10" width="7" height="20" rx="2.5" fill="#e0614a" ${s('#a8402c')}/><rect x="3" y="14" width="3" height="12" rx="1.5" fill="#5d6b66"/><rect x="34" y="14" width="3" height="12" rx="1.5" fill="#5d6b66"/>`,
+  cexplore:`<rect x="9" y="12" width="22" height="23" rx="6" fill="#7fb07a" ${s('#4f804a')}/><path d="M15 12a5 5 0 0 1 10 0" fill="none" ${s('#4f804a')}/><rect x="13" y="21" width="14" height="8" rx="2" fill="#a9d6a3" ${s('#4f804a',2)}/><circle cx="31" cy="9" r="5" fill="#fff" ${s('#e0614a',2)}/><path d="M31 6l1.2 3-1.2 3-1.2-3z" fill="#e0614a"/>`
+});
+})();
+const CARE_ICO={ feed:'cfeed', play:'cplay', clean:'cclean', sleep:'csleep', train:'ctrain', explore:'cexplore' };
+function careIcons(){
+  const v=$('v-home'); if(!v) return;
+  Object.entries(ACT).forEach(([k,a])=>{ [...v.querySelectorAll(`.act[onclick="doAct('${k}')"], button`)].filter(b=>b.textContent.trim().startsWith(a.t)).forEach(b=>{   // nút chăm là div.act
+    const sv=b.querySelector('svg'); if(sv && !sv.dataset.care){ const t=document.createElement('span'); t.innerHTML=icoSVG(CARE_ICO[k]); const n=t.firstChild; n.dataset.care=1; n.setAttribute('class','careico'); sv.replaceWith(n) } }) });
+}
+/* ---------- Sổ quái ---------- */
+function sqList(){
+  const L=[];
+  DB.tower.stages.forEach(st=>{
+    const mf=st.id*10-5, m=DB.isMiniFloor(mf)&&DB.miniOf(mf);
+    if(m) L.push({ id:'m'+mf, kind:'mini', floor:mf, st, name:m.name, alias:m.alias, line:m.line, mech:m.mechNote, weak:((DB.species[m.species]||{}).name||m.species), sp:m.species });
+    const b=st.boss; L.push({ id:'b'+st.id, kind:'boss', floor:st.id*10, st, name:b.name, alias:b.alias, line:b.line, mech:b.mechNote, weak:b.weakNote, sp:b.species });
+  });
+  return L;
+}
+function sqState(){ S.sqbook=S.sqbook||{}; return S.sqbook }
+function sqMark(id, won, info){
+  const B=sqState(), e=B[id]||(B[id]={ met:Date.now(), day:dayNo(), wins:0 }); if(info) Object.assign(e,info);
+  if(won){ if(!e.beat){ e.beat=Date.now(); e.beatDay=dayNo(); setTimeout(()=>toast('Sổ quái có trang mới.'),1200) } e.wins++ }
+  save(); try{ sqPlateCheck() }catch(x){}
+}
+const SQ_ART={};
+function sqArt(x){
+  if(SQ_ART[x.id]) return SQ_ART[x.id];
+  try{ const f=x.kind==='event'?makePet({species:x.sp||'beano'}):makeFloorFoe(x.floor); if(x.kind==='event'){ f.stage='adult' }
+    SQ_ART[x.id]=renderPet(f,{scale:1.6,static:1,mood:'happy',tag:'bst'+x.id.replace(/\W/g,'')}) }catch(e){ SQ_ART[x.id]='' }
+  return SQ_ART[x.id];
+}
+function sqEntryHTML(x){
+  const e=sqState()[x.id], met=!!e, beat=!!(e&&e.beat), open=x.st?x.st.open:true;
+  if(!open) return `<div class="bst off"><div class="bstp sil"></div><div class="bstn">Chưa mở</div><div class="bsta">bản sau</div></div>`;
+  return `<div class="bst ${x.kind}"><div class="bstk">${x.kind==='boss'?'Boss':x.kind==='mini'?'Phó boss':'Khách mùa lễ'}${x.floor?' · tầng '+x.floor:''}</div>
+    <div class="bstp ${met?'':'sil'}">${sqArt(x)}</div>
+    <div class="bstn">${met?evcEsc(x.name):'???'}</div><div class="bsta">${met?evcEsc(x.alias||''):'chưa gặp'}</div>
+    ${met?`<div class="bstl">“${evcEsc(x.line||'')}”</div><div class="bstm"><b>Cơ chế:</b> ${evcEsc(x.mech||'chưa rõ')}</div>
+      <div class="bstm"><b>${x.kind==='mini'?'Loài':'Điểm yếu'}:</b> ${beat?evcEsc(x.weak||'chưa rõ'):'<i>hạ để biết</i>'}</div>
+      <div class="bstd">${beat?`Hạ lần đầu ${e.beatDay?'ngày '+e.beatDay:'trước bản 1.2'} · thắng ${e.wins} lần`:'Đã gặp, chưa hạ'}</div>`:''}</div>`;
+}
+function sqEvents(){ const out=[]; try{ Object.values(evState().list).forEach(ev=>{ const B=ev.d.boss; if(!B) return; out.push({ id:'e:'+ev.d.id, kind:'event', name:B.name, alias:ev.d.name, line:B.line||B.quote||'', mech:B.mechNote||'', weak:B.weakNote||'', sp:B.species }) }) }catch(e){} return out }
+function sqBookHTML(){
+  const L=sqList(), B=sqState(), met=L.filter(x=>B[x.id]).length, beat=L.filter(x=>B[x.id]&&B[x.id].beat).length;
+  const pages=DB.tower.stages.map(st=>{ const m=L.find(x=>x.id==='m'+(st.id*10-5)), b=L.find(x=>x.id==='b'+st.id);
+    return `<div class="book bstbook"><div class="bkl"><div class="bkh">Chặng ${st.id} · ${st.open?evcEsc(st.name):'Chưa mở'}</div>${m?sqEntryHTML(m):''}</div><div class="bkr"><div class="bkh">&nbsp;</div>${sqEntryHTML(b)}</div></div>` }).join('');
+  const ev=sqEvents().filter(x=>B[x.id]);
+  return `<div class="bsthead"><div><b>${met}</b>/${L.length} đã gặp · <b>${beat}</b>/${L.length} đã hạ</div><div class="bar2"><i style="width:${Math.round(beat/L.length*100)}%"></i></div>
+    <div class="note">Hạ đủ ${L.length} trang để nhận bảng tên <b>Người ghi sổ</b>.</div></div>${pages}
+    ${ev.length?`<div class="bkh" style="margin-top:14px">Khách mùa lễ</div><div class="bstev">${ev.map(sqEntryHTML).join('')}</div>`:''}`;
+}
+DB.plates.push({ id:'nguoi-ghi-so', name:'Người ghi sổ', from:'Hạ đủ boss và phó boss trong Sổ quái', buff:['int',0.02], cls:'kraft', has:()=>{ const L=sqList(), B=sqState(); return L.every(x=>B[x.id]&&B[x.id].beat) } });
+DB.plateById['nguoi-ghi-so']=DB.plates[DB.plates.length-1];
+function sqPlateCheck(){ const p=DB.plateById['nguoi-ghi-so'], ps=plateState(); if(p.has() && !ps.owned.includes(p.id)){ ps.owned.push(p.id); ps.at[p.id]=Date.now(); save(); toast('Nhận bảng tên: Người ghi sổ') } }
+(function(){
+  const co=window.climbOne; if(typeof co==='function') window.climbOne=function(floor){ const r=co.apply(this,arguments);
+    try{ const won=r.res.winner==='A'; if(DB.isBossFloor(floor)) sqMark('b'+(floor/10), won); else if(DB.isMiniFloor(floor)) sqMark('m'+floor, won) }catch(e){} return r };
+  const eb=window.evBossRun; if(typeof eb==='function') window.evBossRun=async function(eid){ const e=evState().list[eid], w0=e?e.boss.wins:0; const r=await eb.apply(this,arguments);
+    try{ const e2=evState().list[eid]; sqMark('e:'+eid, e2.boss.wins>w0) }catch(x){} return r };
+})();
+DB.migrations.push({ to:8, name:'Sổ quái: ghi bù boss, phó boss đã vượt', run:()=>{ const best=(towerState().best||0), B=sqState();
+  sqList().forEach(x=>{ if(x.floor<=best && !B[x.id]) B[x.id]={ met:0, beat:1, wins:1 } }) } });
+DB.saveVer = DB.migrations[DB.migrations.length-1].to;
+
+/* ---------- 5 khu chính ---------- */
+DB.zones = [
+  { id:'home', name:'Nhà', ic:'zhome', tabs:[ { t:'Nhà', v:'home' }, { t:'Việc', v:'quest', st:{_qtab:'d'}, keep:1, badge:()=>{ try{ return DB.quests.filter(q=>!S.quest.done.includes(q.id)).length }catch(e){ return 0 } } } ] },
+  { id:'explore', name:'Khám phá', ic:'zexplore', lock:()=>navLocked('battle'), lockV:'battle', tabs:[
+      { t:'Phiêu lưu', v:'battle', st:{_btab:'adv'}, sub:'adv' }, { t:'Đấu nhanh', v:'battle', st:{_btab:'quick'} }, { t:'Leo tháp', v:'battle', st:{_btab:'tower'} },
+      { t:'Tổ đội', v:'battle', st:{_btab:'team'}, sub:'team' }, { t:'Sự kiện', v:'quest', st:{_qtab:'ev'}, show:()=>{ try{ return Object.keys(evState().list).length>0 }catch(e){ return false } } } ] },
+  { id:'quan', name:'Quán', ic:'zshop', lock:()=>navLocked('battle'), lockV:'battle', tabs:[
+      { t:'Vận hành', v:'battle', st:{_btab:'shop'}, sub:'shop' }, { t:'Mua hàng', v:'shop', lockV:'shop' }, { t:'Công thức', v:'dex', st:{_dtab:'rec'} }, { t:'Quản trị', v:'dex', st:{_dtab:'ops'} } ] },
+  { id:'pet', name:'Pet', ic:'zpet', tabs:[
+      { t:'Chuồng', v:'egg', st:{_etab:'barn'}, lockV:'egg' }, { t:'Lò ấp', v:'egg', st:{_etab:'inc'}, lockV:'egg' }, { t:'Kho', v:'egg', st:{_etab:'store'}, lockV:'egg' },
+      { t:'Trang bị', v:'battle', st:{_btab:'gear'}, sub:'gear' }, { t:'Thời trang', v:'battle', st:{_btab:'fash'}, sub:'fash' }, { t:'Gia phả', v:'dex', st:{_dtab:'tree'} }, { t:'Bộ sưu tập', v:'dex', st:{_dtab:'dex'} } ] },
+  { id:'life', name:'Cuốn đời', ic:'zlife', tabs:[
+      { t:'Cuốn đời', v:'dex', st:{_dtab:'life'} }, { t:'Sổ quái', v:'dex', st:{_dtab:'beast'} }, { t:'Thành tựu', v:'dex', st:{_dtab:'ach'} }, { t:'Cốt truyện', v:'dex', st:{_dtab:'lore'} }, { t:'Tri thức', v:'dex', st:{_dtab:'know'} } ] }
+];
+function ztabLocked(t){ if(t.sub && DB.unlockSub[t.sub] && subLocked(t.sub)) return true; if(t.lockV && navLocked(t.lockV)) return true; if(t.v==='battle' && navLocked('battle')) return true; return false }
+function zoneNow(){
+  if(VIEW==='dex' && S._dtab==='set') return null;
+  const key={ battle:'_btab', egg:'_etab', dex:'_dtab', quest:'_qtab' }[VIEW];
+  for(const z of DB.zones) for(let i=0;i<z.tabs.length;i++){ const t=z.tabs[i]; if(t.v!==VIEW) continue;
+    if(!t.st || (key && t.st[key]===S[key]) || (VIEW==='quest' && z.id==='home' && S._qtab!=='ev')) return { z, i } }
+  return null;
+}
+function zoneGo(zid, i){
+  const z=DB.zones.find(x=>x.id===zid); if(!z) return;
+  if(z.lock && z.lock()) return navLockToast(z.lockV);
+  S.zoneLast=S.zoneLast||{}; if(i==null) i=S.zoneLast[zid]||0;
+  let t=z.tabs[i]; if(!t || (t.show && !t.show()) || ztabLocked(t)){ i=z.tabs.findIndex(x=>(!x.show||x.show()) && !ztabLocked(x)); t=z.tabs[i] }
+  if(!t) return; S.zoneLast[zid]=i; Object.assign(S, t.st||{}); go(t.v);
+}
+function ztabTap(zid,i){ const t=DB.zones.find(x=>x.id===zid).tabs[i]; if(ztabLocked(t)){ const d=(t.sub&&DB.unlockSub[t.sub])||DB.unlockNav[t.lockV||t.v]; return toast(`${t.t} chưa mở. ${d?lockHint(d):''}`) } zoneGo(zid,i) }
+function zoneNav(){
+  const n=document.querySelector('nav.nav'); if(!n) return; const cur=zoneNow();
+  n.innerHTML=DB.zones.map(z=>{ const lk=z.lock&&z.lock(), on=cur&&cur.z.id===z.id; const bd=z.id==='home'?(z.tabs[1].badge()||0):0;
+    return `<button class="zbtn ${on?'on':''} ${lk?'lk':''}" data-z="${z.id}" onclick="zoneGo('${z.id}')"><span class="zi">${icoSVG(z.ic)}${bd?`<i class="zbd">${bd}</i>`:''}</span><span class="zl">${z.name}</span></button>` }).join('');
+  n.classList.add('nav5');
+}
+function zoneBar(){
+  const v=$('v-'+VIEW); if(!v) return; const cur=zoneNow();
+  document.querySelectorAll('.zbar').forEach(x=>x.remove());   // dọn ở mọi màn, tránh tích tụ
+  // chỉ ẩn hàng thẻ điều hướng của màn (nút chuyển S._btab/_etab/_dtab/_qtab); hàng chọn nhóm (vd. nhóm nội thất ở Mua hàng) giữ nguyên
+  const isNav=c=>[...c.querySelectorAll('[onclick]')].some(x=>/S\._(b|e|d|q)tab=/.test(x.getAttribute('onclick')));
+  if(!(VIEW==='quest' && cur && cur.z.id==='home')) v.querySelectorAll('.cats').forEach(c=>{ if(isNav(c)) c.style.display='none' });
+  if(!cur){ return }
+  const z=cur.z; const tabs=z.tabs.map((t,i)=>[t,i]).filter(([t])=>!t.show||t.show());
+  const html=`<div class="zbar">${tabs.map(([t,i])=>{ const lk=ztabLocked(t), b=t.badge?t.badge():0; return `<button class="zt ${i===cur.i?'on':''} ${lk?'lk':''}" onclick="ztabTap('${z.id}',${i})">${lk?`<span class="ico">${icoSVG('lock')}</span>`:''}${t.t}${b?` · ${b}`:''}</button>` }).join('')}</div>`;
+  const anchor=[...v.querySelectorAll('.cats')].find(isNav)||v.querySelector('h2'); if(anchor) anchor.insertAdjacentHTML(anchor.classList&&anchor.classList.contains('cats')?'beforebegin':'afterend', html); else v.insertAdjacentHTML('afterbegin', html);
+}
+function hdrGear(){ const h=document.querySelector('header.hdr'); if(!h || h.querySelector('.hset')) return;
+  const c=$('chipDay'); const b=document.createElement('button'); b.className='hset'; b.setAttribute('aria-label','Cài đặt'); b.innerHTML='<svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
+  b.onclick=()=>{ S._dtab='set'; go('dex') }; (c&&c.parentNode?c.after(b):h.appendChild(b)) }
+/* nội dung thẻ Sổ quái trong màn Cuốn đời */
+function sqMount(){ if(VIEW!=='dex' || S._dtab!=='beast') return; const v=$('v-dex'), c=v&&v.querySelector('.cats'); if(!c) return;
+  let n=c.nextSibling; while(n){ const x=n.nextSibling; if(!(n.nodeType===1 && n.classList.contains('zbar'))) n.remove(); n=x }
+  c.insertAdjacentHTML('afterend', `<div class="bstwrap">${sqBookHTML()}</div>`); const h=v.querySelector('h2'); if(h) h.textContent='Sổ quái' }
+function setTitle(){ if(VIEW==='dex' && S._dtab==='set'){ const h=$('v-dex').querySelector('h2'); if(h) h.textContent='Cài đặt' } }
+(function(){ const mt=window.mount; if(typeof mt==='function') window.mount=function(){ const r=mt.apply(this,arguments);
+  try{ sqMount(); zoneNav(); zoneBar(); hdrGear(); setTitle(); if(VIEW==='home') careIcons() }catch(e){ console.warn(e) } return r } })();
 
 boot();
 if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>{});
