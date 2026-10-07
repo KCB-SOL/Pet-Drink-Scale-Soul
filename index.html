@@ -2265,7 +2265,7 @@ body.nofx .actor .in{animation:none}
   <div class="hibbar hide" id="hibbar">Đang ngủ đông — hao hụt tạm dừng</div>
   <header class="hdr">
     <div class="brandmark" id="brandmark"></div>
-    <div><h1>Pet Drink</h1><div class="sub" id="hdrsub">Scale &amp; Soul · v1.2.0</div></div>
+    <div><h1>Pet Drink</h1><div class="sub" id="hdrsub">Scale &amp; Soul · v1.2.1</div></div>
     <div class="purse">
       <div class="chip agechip" title="Dành cho người chơi từ 12 tuổi trở lên">12+</div>
       <div class="chip" id="chipCoin">0 xu</div>
@@ -13720,7 +13720,7 @@ function towerSheet(kind){
   if(kind==='boss'){
     openSheet(`<h3>Canh giữ chặng ${st.id}</h3>
       <div class="sub">${st.name}</div>
-      <div class="bosscard"><div class="bportrait">${(()=>{ try{ const f=makeFloorFoe(st.id*10); return renderPet(f,{scale:1.6,static:1,mood:"happy",tag:"bossp"+st.id}) }catch(e){ return "" } })()}</div><div class="bn">${b.name}</div>
+      <div class="bosscard"><div class="bportrait">${(()=>{ try{ const f=makeFloorFoe(st.id*10); return renderPet(f,{scale:1.6,static:1,mood:"happy",industrial:true,tag:"bossp"+st.id}) }catch(e){ return "" } })()}</div><div class="bn">${b.name}</div>
         <div class="ba">${b.alias} · tầng ${st.id*10}</div>
         <div class="bl">${b.line||''}</div>
         <div class="bm"><b>Cơ chế:</b> ${b.mechNote||'chưa rõ'}</div>
@@ -15575,7 +15575,7 @@ function evPetLine(p, k){
 /* ==========================================================
    BẢN PHÁT HÀNH 1.0 — số phiên bản game
    ========================================================== */
-const APP_VER='1.2.0';
+const APP_VER='1.2.1';
 
 /* ==========================================================
    QUA NGÀY, QUA TUẦN KHI GAME ĐANG MỞ
@@ -15733,6 +15733,15 @@ window.save=function(){
    CÓ GÌ MỚI — hiện một lần cho người chơi cũ khi lên bản mới
    ========================================================== */
 DB.patchNotes = [
+  { ver:'1.2.1', date:'10/2026', title:'Mỗi pet một cá tính',
+    lead:'Pet giờ phản ứng, nhớ chuyện và nói theo cách của riêng mình.',
+    items:[
+      ['🐾','Phản ứng theo tính cách','Cùng là cho ăn, pet Tham ăn đòi thêm, pet Bướng bảo tự ăn được, pet Nhút nhát rụt rè cảm ơn.'],
+      ['🍵','Khẩu vị','Cho ăn món hợp vị thì pet mừng, món không hợp thì nhăn mặt, món ruột có câu riêng.'],
+      ['💬','Nói đúng chuyện vừa xảy ra','Thua tháp, hạ boss, có em mới, quán lỗ hay lãi đậm, bạn vắng mấy ngày — pet nhắc khi bạn về Nhà.'],
+      ['📖','Ký ức riêng','Thỉnh thoảng pet nhắc ngày gặp nhau, boss đầu tiên hạ được, ngày quán bán đắt nhất.'],
+      ['🏭','Sổ quái đúng hình','Boss và phó boss vẽ kiểu công nghiệp như trong trận đấu.']
+    ] },
   { ver:'1.2.0', date:'10/2026', title:'Năm khu, một cuốn sổ quái',
     lead:'Game gọn lại thành 5 khu: Nhà, Khám phá, Quán, Pet, Cuốn đời. Mọi thứ cũ vẫn ở đó.',
     items:[
@@ -18502,6 +18511,89 @@ function sqMount(){ if(VIEW!=='dex' || S._dtab!=='beast') return; const v=$('v-d
 function setTitle(){ if(VIEW==='dex' && S._dtab==='set'){ const h=$('v-dex').querySelector('h2'); if(h) h.textContent='Cài đặt' } }
 (function(){ const mt=window.mount; if(typeof mt==='function') window.mount=function(){ const r=mt.apply(this,arguments);
   try{ sqMount(); zoneNav(); zoneBar(); hdrGear(); setTitle(); if(VIEW==='home') careIcons() }catch(e){ console.warn(e) } return r } })();
+
+
+/* ==========================================================
+   v1.2.1 — MỖI PET MỘT CÁ TÍNH
+   phản ứng theo tính cách · khẩu vị · thoại theo ngữ cảnh · ký ức riêng
+   ========================================================== */
+/* ---------- 1. phản ứng khi chăm, theo tính cách ---------- */
+DB.persReact = {
+  curious:  { feed:'Món này làm từ gì vậy?', play:'Chơi trò mới đi!', clean:'Bọt này bay được không?', sleep:'Mai kể mình nghe chuyện quán nha.', train:'Đòn này học ở đâu vậy?', explore:'Ngoài kia có gì mới không?' },
+  loyal:    { feed:'Bạn cho là mình ăn hết.', play:'Chơi với bạn là vui nhất.', clean:'Sạch rồi, đứng cạnh bạn cho thơm.', sleep:'Bạn ở đây thì mình ngủ ngon.', train:'Mạnh lên để giữ quán cho bạn.', explore:'Đi chút rồi về liền với bạn.' },
+  playful:  { feed:'Ăn nhanh còn đi chơi!', play:'Nữa! Nữa đi!', clean:'Té nước nè!', sleep:'Chưa buồn ngủ… thôi được.', train:'Tập như chơi ấy mà!', explore:'Đi khám phá thôiii!' },
+  lazy:     { feed:'Ăn xong được nằm không?', play:'Chơi… nhẹ nhàng thôi nha.', clean:'Tắm xong nằm tiếp.', sleep:'Cuối cùng cũng tới giờ này.', train:'Mệt quá… nhưng thôi, vì bạn.', explore:'Đi bộ hả… xa không?' },
+  brave:    { feed:'Nạp sức cho trận tới!', play:'Đấu tay đôi không?', clean:'Sạch sẽ mới oai.', sleep:'Nghỉ để mai đánh tiếp.', train:'Thêm hiệp nữa!', explore:'Có quái nào thì cứ để mình.' },
+  timid:    { feed:'Cảm ơn bạn… ngon lắm.', play:'Mình chơi được không?', clean:'Nước… ấm chứ?', sleep:'Bạn để đèn giúp mình nha.', train:'Mình cố… mình cố mà.', explore:'Đi cùng mình nha, đừng bỏ mình.' },
+  greedy:   { feed:'Thêm chén nữa được không?', play:'Chơi xong có bánh không?', clean:'Tắm xong ăn nhẹ nha.', sleep:'Mơ thấy bánh flan…', train:'Tập xong ăn gấp đôi.', explore:'Ngoài kia chắc có đồ ngon.' },
+  calm:     { feed:'Ăn chậm thì ngon hơn.', play:'Chơi một chút là đủ.', clean:'Dễ chịu ghê.', sleep:'Ngủ ngon, mai tính tiếp.', train:'Từng bước một.', explore:'Đi để thấy, không cần vội.' },
+  stubborn: { feed:'Tự ăn được mà… nhưng ngon.', play:'Mình thắng chắc luôn.', clean:'Không cần tắm… thôi được.', sleep:'Mình chưa mệt. Chỉ nhắm mắt thôi.', train:'Không cần chỉ, mình biết rồi.', explore:'Đường này mình tự tìm.' },
+  lucky:    { feed:'Hôm nay ăn gì cũng ngon.', play:'Thắng nữa rồi!', clean:'Tắm xong chắc gặp may.', sleep:'Mai chắc là ngày đẹp.', train:'Đòn này chắc trúng.', explore:'Linh cảm có quà ngoài kia.' }
+};
+(function(){ const aa=window.applyAct; if(typeof aa!=='function') return;
+  window.applyAct=function(k){ const r=aa.apply(this,arguments);
+    try{ const L=(DB.persReact[S.pet.pers]||{})[k]; if(L && SC.built && VIEW==='home' && Math.random()<0.75) setTimeout(()=>say(L), 350) }catch(e){} return r };
+})();
+/* ---------- 2. khẩu vị khi cho ăn món cụ thể ---------- */
+DB.tasteLines = { like:['Vị này đúng gu mình!','Ngon quá, cho thêm đi!','Món này mình mê lắm.'], hate:['Ư… không hợp vị mình lắm.','Mình ăn vì bạn thôi đó.','Vị này… thôi lần sau đổi nha.'], fav:['Món ruột của mình đây rồi!','Bạn nhớ món mình thích nhất!'] };
+(function(){ const fc=window.feedCrop; if(typeof fc!=='function') return;
+  window.feedCrop=function(id){ const busy=SC.busy, has=(invCrop()[id]||0)>0; const tag=tagOfFood(id), t=tasteOf(S.pet), fav=(typeof favFood==='function')?favFood():null;
+    const r=fc.apply(this,arguments);
+    try{ if(!busy && has){ let k=null; if(fav && fav.id===id) k='fav'; else if(t.like && tag===t.like) k='like'; else if(t.hate && tag===t.hate) k='hate';
+      if(k){ setTimeout(()=>{ say(pick(DB.tasteLines[k])); try{ paintFace(k==='hate'?'sad':'happy') }catch(e){} }, 400) } } }catch(e){}
+    return r };
+})();
+/* ---------- 3. thoại theo ngữ cảnh: chuyện vừa xảy ra, nhắc khi về Nhà, mỗi chuyện một lần ---------- */
+DB.ctxLines = {
+  loseTower:{ _:['Lần trước thua… mình chưa quên đâu.','Tầng {f} khó thật. Mai thử lại nha?'], brave:['Lần sau mình đấm mạnh hơn! Tầng {f} đợi đó.'], timid:['Tầng {f}… họ mạnh quá. Bạn đừng buồn nha.'], stubborn:['Mình không thua. Chỉ là chưa thắng thôi.'], lazy:['Thua cũng được… nghỉ chút rồi tính.'] },
+  beatBoss:{ _:['Hạ được {n} rồi! Bạn thấy không?','Nhớ hôm nay nha — mình hạ {n}.'], brave:['{n} cũng chỉ có vậy!'], timid:['Mình… mình hạ được {n} thật hả?'], calm:['{n} xong. Bước tiếp thôi.'] },
+  hatch:{ _:['Nhà mình có thêm {n} rồi đó!','Em {n} dễ thương ghê.'], loyal:['Có {n} rồi, nhưng bạn vẫn nhất nha.'], greedy:['Có thêm {n}… mong là em không giành phần ăn.'], playful:['Có {n} rồi, thêm người chơi cùng!'] },
+  shopLoss:{ _:['Tuần này quán lỗ… mình lo quá.','Lỗ tuần này rồi. Mình bán thêm ly được không?'], calm:['Lỗ một tuần thôi. Mình xem sổ cùng nha.'], stubborn:['Tuần sau gỡ lại, chắc chắn.'] },
+  shopGood:{ _:['Tuần này quán lãi đậm đó!','Khách khen nhiều ghê, tuần này vui thật.'], greedy:['Lãi đậm rồi, thưởng mình bánh nha?'], lucky:['Biết ngay tuần này may mà!'] },
+  back:{ _:['Bạn đi đâu {d} ngày vậy… mình nhớ bạn.','{d} ngày rồi đó. Mình vẫn giữ quán.'], loyal:['{d} ngày… mình ngồi cửa đợi bạn hoài.'], stubborn:['Mình đâu có nhớ… mà thôi, bạn về rồi.'], playful:['Bạn về rồi! Chơi bù {d} ngày nha!'], lazy:['Bạn đi {d} ngày, mình ngủ {d} ngày luôn.'] }
+};
+function ctxState(){ S.ctx=S.ctx||{ q:[], seen:0 }; return S.ctx }
+function ctxPush(k, data){ const C=ctxState(); C.q=C.q.filter(x=>x.k!==k); C.q.push({ k, data:data||{}, at:Date.now() }); if(C.q.length>4) C.q.shift(); save() }
+function ctxLine(k, data){ const D=DB.ctxLines[k]; if(!D) return null; const L=D[S.pet.pers]||D._; return pick(L).replace(/\{(\w)\}/g,(m,x)=>data[x]!=null?data[x]:'') }
+function ctxTick(){
+  if(VIEW!=='home' || !SC.built || SC.busy) return; const C=ctxState(); C.q=C.q.filter(x=>Date.now()-x.at<3*864e5); if(!C.q.length) return;
+  if(Date.now()-(C.last||0)<20000) return; const e=C.q.shift(); C.last=Date.now(); save();
+  const t=ctxLine(e.k, e.data); if(t){ say(t); try{ paintFace(['loseTower','shopLoss','back'].includes(e.k)?'ok':'happy') }catch(x){} }
+}
+(function(){
+  const ac=window.applyClimb; if(typeof ac==='function') window.applyClimb=function(floor, won){ const r=ac.apply(this,arguments);
+    try{ if(!won) ctxPush('loseTower',{ f:floor }); else if(DB.isBossFloor(floor)) ctxPush('beatBoss',{ n:(DB.towerStage(floor).boss||{}).name||'boss' }) }catch(e){} return r };
+  const ht=window.hatch; if(typeof ht==='function') window.hatch=function(){ const n0=(S.stash||[]).length; const r=ht.apply(this,arguments);
+    try{ const L=S.stash||[]; if(L.length>n0) ctxPush('hatch',{ n:L[L.length-1].name }) }catch(e){} return r };
+  const lp=window.ledgerPay; if(typeof lp==='function') window.ledgerPay=function(key, items){ const r=lp.apply(this,arguments);
+    try{ if(String(key).startsWith('w:')){ const L=ledgerState(), ws=weekStart(Date.now())-7*864e5, inW=salesBetween(ws, ws+7*864e5), out=L.paid.filter(p=>p.at>=ws&&p.at<ws+7*864e5+864e5).reduce((a,p)=>a+p.paid,0);
+      if(inW-out<0) ctxPush('shopLoss',{}); else if(inW-out>1500) ctxPush('shopGood',{}) } }catch(e){} return r };
+  /* vắng lâu quay lại — mốc "lần cuối thấy" ở ô nhớ riêng, KHÔNG gọi save():
+     ghi cả dữ liệu game lúc này có thể đè lên bản sao lưu người chơi vừa khôi phục (tv10 bắt được) */
+  const SEEN_KEY='petpocket.seen';
+  window.ctxBackCheck=function(){ try{ if(!S || !S.onboarded) return; const last=+(localStorage.getItem(SEEN_KEY)||0), gap=Math.floor((Date.now()-last)/864e5); if(last && gap>=2) ctxPush('back',{ d:gap }) }catch(e){} };
+  setTimeout(ctxBackCheck, 2500);
+  const mark=()=>{ try{ localStorage.setItem(SEEN_KEY, String(Date.now())) }catch(e){} }; setTimeout(mark, 6000); setInterval(mark, 60000); document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='hidden') mark() });
+  setInterval(()=>{ try{ ctxTick() }catch(e){} }, 6000);
+})();
+/* ---------- 4. ký ức riêng: pet nhắc đúng chuyện của chính nó ---------- */
+function memFacts(){
+  const p=S.pet, out=[];
+  try{ const d=Math.max(1, Math.floor(((p.born||S.started)-S.started)/864e5)+1); out.push(`Nhớ ngày thứ ${d} không? Hôm đó mình gặp bạn.`) }catch(e){}
+  try{ const B=sqState(); const first=Object.entries(B).filter(([,v])=>v.beatDay).sort((a,b)=>a[1].beat-b[1].beat)[0];
+    if(first){ const x=sqList().find(y=>y.id===first[0]); if(x) out.push(`Hôm hạ ${x.name}, ngày ${first[1].beatDay} ấy, mình run mà vui lắm.`) } }catch(e){}
+  try{ const D=ledgerState().days||{}; const best=Object.entries(D).sort((a,b)=>b[1].n-a[1].n)[0]; if(best && best[1].n>=5) out.push(`Cái hôm quán bán ${best[1].n} ly ấy, mệt mà vui ghê.`) }catch(e){}
+  try{ const f=(typeof favFood==='function')?favFood():null; if(f && f.name) out.push(`Món ruột của mình vẫn là ${f.name} nha.`) }catch(e){}
+  try{ const M=memState(); const m=M.filter(x=>x.pet===p.name).slice(-1)[0]; const def=m&&DB.memoryById[m.id]; if(def&&def.t) out.push(`Mình vẫn nhớ chuyện “${def.t}”.`) }catch(e){}
+  try{ const n=(S.stash||[]).length; if(n>=2) out.push(`Nhà mình giờ có ${n+1} đứa rồi. Hồi đầu chỉ có mình với bạn.`) }catch(e){}
+  return out;
+}
+(function(){ const ia=window.idleAction; if(typeof ia!=='function') return;
+  window.idleAction=async function(){ if(Math.random()<0.08 && SC.built && VIEW==='home'){ const F=memFacts(); if(F.length){ setPose('sit'); say(pick(F)); await wait(2600); setPose('idle'); return } } return ia.apply(this,arguments) } })();
+/* ---------- 5. chân dung boss kiểu công nghiệp ---------- */
+(function(){ const sa=window.sqArt; if(typeof sa!=='function') return;
+  window.sqArt=function(x){ if(x.kind==='event') return sa.apply(this,arguments); if(SQ_ART[x.id]) return SQ_ART[x.id];
+    try{ const f=makeFloorFoe(x.floor); SQ_ART[x.id]=renderPet(f,{scale:1.6,static:1,mood:'happy',industrial:true,tag:'bst'+x.id.replace(/\W/g,'')}) }catch(e){ SQ_ART[x.id]='' } return SQ_ART[x.id] } })();
 
 boot();
 if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>{});
