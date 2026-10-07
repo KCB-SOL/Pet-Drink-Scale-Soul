@@ -2190,6 +2190,27 @@ nav.nav.nav5{display:grid;grid-template-columns:repeat(5,1fr)}
 .bstn{font-family:var(--disp);font-size:15px;color:#3a2f26}.bsta{font-family:var(--mono);font-size:10.5px;color:#8a7a60;margin-bottom:4px}
 .bstl{font-style:italic;font-size:12px;color:#5a4a3a;margin:4px 0}.bstm{font-size:11.5px;text-align:left;margin:2px 0;color:#3a2f26}.bstd{font-size:10.5px;color:#8a7a60;margin-top:4px;font-family:var(--mono)}
 .bstev{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;background:#fbf3e0;border-radius:8px;padding:10px}
+/* ---- v1.2.2 quán sống · v1.2.3 thời tiết, che khuất ---- */
+.hset{padding:0!important;box-sizing:border-box!important;-webkit-appearance:none;appearance:none;line-height:0}.hset svg{display:block;width:18px;height:18px;margin:auto}
+.slv .slvc{display:flex;align-items:center;gap:6px;margin-bottom:8px;font-size:12.5px}.slv .slvc span{padding:4px 10px;border-radius:99px;border:1.5px solid var(--line);color:var(--ink-3)}.slv .slvc span.on{background:var(--ink);color:#fff;border-color:var(--ink)}.slv .slvc i{flex:1;height:2px;background:var(--line)}
+.slvtag{position:absolute;right:10px;top:10px;z-index:8;background:rgba(10,24,20,.7);color:#f3d37b;font:600 11px var(--mono);letter-spacing:.08em;padding:4px 9px;border-radius:99px}
+.shopscene.lv2::before{content:'';position:absolute;left:4%;right:4%;top:6%;height:14px;z-index:1;pointer-events:none;background:radial-gradient(circle,#ffd88a 0 3px,transparent 4px) 0 50%/34px 14px repeat-x;opacity:.8}
+.shopscene.lv3::before{content:'';position:absolute;left:4%;right:4%;top:6%;height:14px;z-index:1;pointer-events:none;background:radial-gradient(circle,#ffd88a 0 3px,transparent 4px) 0 50%/26px 14px repeat-x;opacity:.95}
+.shopscene.lv3::after{content:'';position:absolute;left:38%;top:14%;width:24%;height:9%;z-index:1;pointer-events:none;border-radius:8px;box-shadow:0 0 14px #ff8fb0,inset 0 0 0 2px #ff8fb0;opacity:.7}
+.sspot.owner{z-index:6}.obub{position:absolute;left:50%;bottom:78px;transform:translateX(-50%) scale(.6);opacity:0;white-space:nowrap;background:#fff;color:#2a211c;font-size:11px;padding:3px 8px;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,.2);transition:opacity .25s,transform .25s;pointer-events:none}
+.obub.on{opacity:1;transform:translateX(-50%) scale(1);animation:obub 3s forwards}@keyframes obub{0%,80%{opacity:1}100%{opacity:0}}
+.wxrain{position:absolute;inset:0;pointer-events:none;z-index:5;opacity:0;background:repeating-linear-gradient(105deg,transparent 0 9px,rgba(200,225,245,.35) 9px 10px);background-size:120px 120px;display:none}
+.wxtint{position:absolute;inset:0;pointer-events:none;z-index:4;opacity:0;background:rgba(40,60,80,.18);transition:opacity 1s}
+.wx-rain .wxrain{opacity:0}.wx-rain .wxtint{opacity:1}.wx-cloud .wxtint{opacity:.5}.wx-rain .dshaft,.wx-cloud .dshaft{opacity:calc(var(--shaft,0)*.25)!important}
+@keyframes wxr{from{background-position:0 0}to{background-position:-20px 120px}}
+.swxrain{position:absolute;right:1.5%;bottom:34%;width:8%;height:42%;pointer-events:none;z-index:2;border-radius:4px;background:repeating-linear-gradient(105deg,transparent 0 6px,rgba(200,225,245,.55) 6px 7px);background-size:60px 60px;animation:wxr .5s linear infinite}
+.win .wxw{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(105deg,transparent 0 5px,rgba(220,235,250,.7) 5px 6px);background-size:50px 50px;animation:wxr .45s linear infinite;border-radius:inherit}
+.wxi{display:inline-flex;align-items:center;gap:4px;margin-left:10px;font-size:11px;color:var(--ink-3,#9fb3ab)}.wxi .ico,.wxi svg{width:20px;height:20px}.wxi b{font-weight:500;letter-spacing:.06em}
+.occl{position:absolute;bottom:0;z-index:7;pointer-events:none}
+.occl.tall{width:58px;height:118px;margin-left:-29px;background:linear-gradient(#0f2a22,#0f2a22) 50% 100%/34px 30px no-repeat,radial-gradient(ellipse at 30% 30%,#1d4a3a 0 18px,transparent 19px),radial-gradient(ellipse at 70% 42%,#1a4434 0 20px,transparent 21px),radial-gradient(ellipse at 45% 62%,#163c2e 0 22px,transparent 23px)}
+.occl.pillar{width:40px;height:100%;margin-left:-20px;background:linear-gradient(90deg,#3a2a1e,#5a4330 45%,#3a2a1e);box-shadow:4px 0 10px rgba(0,0,0,.25)}
+#actor{transform-origin:50% 100%}#actor>*{transition:transform .6s ease}#actor .face,#actor .in{transform:scale(var(--far,1))}
+@media(prefers-reduced-motion:reduce){.wxrain,.shopscene.wx-rain::after{animation:none}}
 /* ---- bảng tên ---- */
 .np{display:inline-block;position:relative;padding:1px 14px 3px;border-radius:12px;border:2px solid;line-height:1.15}
 .np.npc{padding:0 8px 1px;border-width:1.5px;border-radius:8px;font-size:.92em}
@@ -2265,7 +2286,7 @@ body.nofx .actor .in{animation:none}
   <div class="hibbar hide" id="hibbar">Đang ngủ đông — hao hụt tạm dừng</div>
   <header class="hdr">
     <div class="brandmark" id="brandmark"></div>
-    <div><h1>Pet Drink</h1><div class="sub" id="hdrsub">Scale &amp; Soul · v1.2.1</div></div>
+    <div><h1>Pet Drink</h1><div class="sub" id="hdrsub">Scale &amp; Soul · v1.2.3</div></div>
     <div class="purse">
       <div class="chip agechip" title="Dành cho người chơi từ 12 tuổi trở lên">12+</div>
       <div class="chip" id="chipCoin">0 xu</div>
@@ -15575,7 +15596,7 @@ function evPetLine(p, k){
 /* ==========================================================
    BẢN PHÁT HÀNH 1.0 — số phiên bản game
    ========================================================== */
-const APP_VER='1.2.1';
+const APP_VER='1.2.3';
 
 /* ==========================================================
    QUA NGÀY, QUA TUẦN KHI GAME ĐANG MỞ
@@ -15733,6 +15754,16 @@ window.save=function(){
    CÓ GÌ MỚI — hiện một lần cho người chơi cũ khi lên bản mới
    ========================================================== */
 DB.patchNotes = [
+  { ver:'1.2.3', date:'10/2026', title:'Quán sống, trời có mưa nắng',
+    lead:'Quán lên cấp được, pet ra quán làm chủ, và mỗi ngày một kiểu thời tiết.',
+    items:[
+      ['🏪','Cấp quán','Quán nhỏ → Quán vừa → Quán lớn: khách đông hơn, bán thêm ly mỗi ngày, quán trang trí thêm; tiền thuê tăng theo.'],
+      ['🐾','Pet làm chủ quán','Pet chính đứng trong quán và nói một câu theo tính cách mỗi khi bán được ly.'],
+      ['🧾','Ai pha bao nhiêu ly','Hoá đơn nhật ký kinh doanh ghi ai pha chế, bao nhiêu ly.'],
+      ['🌧️','Thời tiết theo ngày','Nắng, mây hoặc mưa — mưa thấy qua cửa sổ và cửa quán; mưa thì khách thưa hơn chút.'],
+      ['🌿','Chiều sâu','Chậu cây, cột ở tiền cảnh che pet khi đi ngang; ở khu xa pet trông nhỏ hơn.'],
+      ['⚙️','Sửa lỗi','Nút cài đặt căn đúng giữa vòng tròn trên điện thoại.']
+    ] },
   { ver:'1.2.1', date:'10/2026', title:'Mỗi pet một cá tính',
     lead:'Pet giờ phản ứng, nhớ chuyện và nói theo cách của riêng mình.',
     items:[
@@ -17754,7 +17785,7 @@ function weekStart(t){ const d=new Date(t); d.setHours(0,0,0,0); d.setDate(d.get
 function monthStart(t){ const d=new Date(t); return new Date(d.getFullYear(), d.getMonth(), 1).getTime() }
 function salesBetween(a,b){ const L=ledgerState(); return Object.entries(L.sales).filter(([k])=>{ const t=new Date(k+'T12:00:00').getTime(); return t>=a && t<b }).reduce((s,[,v])=>s+v,0) }
 function staffCount(){ const st=shopState(); return DB.shopRoles.filter(r=>petById(st.roles[r.id])).length }
-function weeklyBill(){ return [['Thuê mặt bằng',DB.costs.rent],[`Lương nhân sự (${staffCount()} pet)`,DB.costs.staff*staffCount()],['Điện nước',DB.costs.util]] }
+function weeklyBill(){ return [['Thuê mặt bằng',DB.costs.rent+((typeof shopLvInfo==='function')?shopLvInfo().rent:0)],[`Lương nhân sự (${staffCount()} pet)`,DB.costs.staff*staffCount()],['Điện nước',DB.costs.util]] }
 function billsUpcoming(){
   const now=Date.now(), nw=weekStart(now)+7*864e5, nm=new Date(new Date(now).getFullYear(), new Date(now).getMonth()+1, 1).getTime();
   const lastMonth=salesBetween(monthStart(now), now);
@@ -17824,7 +17855,7 @@ function satHTML(){ const s=shopSat();
       + se.apply(this,arguments) };
   const dp=window.drinkPrice; if(typeof dp==='function') window.drinkPrice=function(r){ return Math.round(dp.apply(this,arguments)*(1+satTip())) };
   const sd=window.sellDrink; if(typeof sd==='function') window.sellDrink=function(id){ const c0=S.coin; const r=sd.apply(this,arguments); if(S.coin>c0){ const L=ledgerState(), d=today(); L.sales[d]=(L.sales[d]||0)+(S.coin-c0); const ks=Object.keys(L.sales).sort(); if(ks.length>70) delete L.sales[ks[0]]; save() } return r };
-  const mt=window.mount; if(typeof mt==='function') window.mount=function(){ try{ DB.sellDrink.capDay = 12 + (ledgerState().mkt>Date.now()?DB.costs.mkt.cap:0); ledgerTick() }catch(e){} return mt.apply(this,arguments) };
+  const mt=window.mount; if(typeof mt==='function') window.mount=function(){ try{ DB.sellDrink.capDay = 12 + (ledgerState().mkt>Date.now()?DB.costs.mkt.cap:0) + ((typeof shopLvInfo==='function')?shopLvInfo().cap:0); ledgerTick() }catch(e){} return mt.apply(this,arguments) };
 })();
 
 
@@ -18594,6 +18625,92 @@ function memFacts(){
 (function(){ const sa=window.sqArt; if(typeof sa!=='function') return;
   window.sqArt=function(x){ if(x.kind==='event') return sa.apply(this,arguments); if(SQ_ART[x.id]) return SQ_ART[x.id];
     try{ const f=makeFloorFoe(x.floor); SQ_ART[x.id]=renderPet(f,{scale:1.6,static:1,mood:'happy',industrial:true,tag:'bst'+x.id.replace(/\W/g,'')}) }catch(e){ SQ_ART[x.id]='' } return SQ_ART[x.id] } })();
+
+
+/* ==========================================================
+   v1.2.2 + v1.2.3 — QUÁN SỐNG · CHIỀU SÂU LỚP HAI
+   cấp quán · pet chính làm chủ quán · đóng góp của pet
+   thời tiết theo ngày · che khuất ở tiền cảnh · xa gần theo khu
+   ========================================================== */
+/* ---------- cấp quán ---------- */
+DB.shopLv = [
+  { lv:1, name:'Quán nhỏ',  guests:1,    cap:0, rent:0 },
+  { lv:2, name:'Quán vừa',  guests:1.2,  cap:4, rent:200, cost:3000, days:7,  sat:55 },
+  { lv:3, name:'Quán lớn',  guests:1.45, cap:8, rent:450, cost:8000, days:21, sat:70 }
+];
+function shopLvInfo(){ return DB.shopLv[Math.min(DB.shopLv.length,(S.shopLv||1))-1] }
+function shopLvNext(){ return DB.shopLv[(S.shopLv||1)] || null }
+function shopLvReady(){ const n=shopLvNext(); if(!n) return { ok:false, why:'Đã là cấp cao nhất' };
+  const d=dayNo(), s=shopSat().total;
+  if(d<n.days) return { ok:false, why:`Cần chơi tới ngày ${n.days} (hiện ngày ${d})` };
+  if(s<n.sat) return { ok:false, why:`Cần khách hài lòng từ ${n.sat} (hiện ${s})` };
+  if(S.coin<n.cost) return { ok:false, why:`Cần ${n.cost} xu (đang có ${S.coin})` };
+  return { ok:true } }
+function shopUpgrade(){ const n=shopLvNext(), r=shopLvReady(); if(!n || !r.ok) return toast(r.why||'Chưa nâng được.');
+  if(!confirm(`Nâng lên ${n.name} với ${n.cost} xu? Khách đông hơn, bán thêm ${n.cap} ly mỗi ngày; tiền thuê tăng ${n.rent} xu mỗi tuần.`)) return;
+  S.coin-=n.cost; S.shopLv=n.lv; ledgerState().paid.push({ key:'u:'+n.lv, at:Date.now(), total:n.cost, paid:n.cost, items:[['Nâng cấp lên '+n.name, n.cost]] });
+  try{ lifeAdd('shop', 'Quán lên '+n.name, null, null) }catch(e){} try{ ctxPush('shopUp',{ n:n.name }) }catch(e){}
+  save(); toast('Quán đã lên '+n.name+'!'); mount() }
+function shopLvHTML(){ const c=shopLvInfo(), n=shopLvNext(), r=shopLvReady();
+  return `<div class="slv"><div class="slvc">${DB.shopLv.map(x=>`<span class="${x.lv<=c.lv?'on':''}">${x.name}</span>`).join('<i></i>')}</div>
+    ${n?`<div class="kv"><span>Lên ${n.name}</span><b>${n.cost} xu</b></div><div class="note">Khách ×${n.guests} · bán thêm ${n.cap} ly/ngày · thuê +${n.rent} xu/tuần. Điều kiện: ngày ${n.days}, hài lòng ${n.sat}.</div>
+      <button class="btn ${r.ok?'gold':'ghost'}" ${r.ok?'':'disabled'} onclick="shopUpgrade()">${r.ok?'Nâng cấp quán':r.why}</button>`:`<div class="note">Quán đã ở cấp cao nhất. Khách ×${c.guests}, bán thêm ${c.cap} ly mỗi ngày.</div>`}</div>`;
+}
+DB.ctxLines.shopUp = { _:['Quán mình lên {n} rồi! Đông khách hơn nha.','{n}… mình phải chăm chỉ hơn mới được.'], greedy:['{n} rồi, bếp to hơn chưa?'], timid:['{n}… đông khách quá mình hơi run.'] };
+/* ---------- pet chính làm chủ quán, nói khi bán được ly ---------- */
+DB.ownerLines = {
+  curious:['Khách ơi, ly này thấy sao?'], loyal:['Cảm ơn khách — quán của bạn mình đó!'], playful:['Ly ngon tới rồi đây!'], lazy:['Cảm ơn… mời khách ngồi chơi.'], brave:['Phục vụ nhanh gọn!'],
+  timid:['Cảm… cảm ơn quý khách.'], greedy:['Ly này ngon lắm, mình thử rồi!'], calm:['Chúc khách một ngày nhẹ nhàng.'], stubborn:['Ly này mình pha chuẩn nhất.'], lucky:['Khách mua ly may mắn đó!']
+};
+(function(){
+  const ss=window.shopSceneHTML; if(typeof ss==='function') window.shopSceneHTML=function(){ let s=ss.apply(this,arguments);
+    try{ const st=shopState(), inRole=Object.values(st.roles||{}).includes(S.pet.id);
+      const lvTag=`<div class="slvtag">${shopLvInfo().name}</div>`;
+      const owner=inRole?'':`<div class="sspot has owner" style="left:55%;bottom:23%"><div class="sp2">${renderPet(S.pet,{scale:.8,static:1,mood:'happy',tag:'sowner'})}</div><div class="sname">${evcEsc(S.pet.name)}</div><div class="obub"></div></div>`;
+      s=s.replace('<div class="sdoor"></div>', lvTag+owner+(weatherToday()==='rain'?'<div class="swxrain"></div>':'')+'<div class="sdoor"></div>').replace('class="shopscene"', `class="shopscene lv${shopLvInfo().lv} wx-${weatherToday()}"`);
+    }catch(e){} return s };
+  const sp=window.salePop; if(typeof sp==='function') window.salePop=function(){ const r=sp.apply(this,arguments);
+    try{ const b=document.querySelector('.shopscene .owner .obub'); if(b){ b.textContent=pick(DB.ownerLines[S.pet.pers]||['Cảm ơn quý khách!']); b.classList.remove('on'); void b.offsetWidth; b.classList.add('on') } }catch(e){} return r };
+  /* đóng góp của pet: ai pha, ai thu ngân */
+  const sd=window.sellDrink; if(typeof sd==='function') window.sellDrink=function(id){ const c0=S.coin; const r=sd.apply(this,arguments);
+    try{ if(S.coin>c0){ const st=shopState(), B=bizDay(); B.ct=B.ct||{}; const maker=petById(st.roles.barista)||S.pet; B.ct[maker.name]=(B.ct[maker.name]||0)+1; save() } }catch(e){} return r };
+  const br=window.bizRowHTML; if(typeof br==='function') window.bizRowHTML=function(d,B){ let s=br.apply(this,arguments);
+    try{ const top=Object.entries(B.ct||{}).sort((a,b)=>b[1]-a[1]); if(top.length){ const line=`<div class="rl sm"><span>Pha chế</span><span>${top.slice(0,2).map(([n,c])=>evcEsc(n)+' '+c).join(' · ')}</span></div>`; s=s.replace('<div class="rthx">', line+'<div class="rthx">') } }catch(e){} return s };
+  const se=window.shopExtrasHTML; if(typeof se==='function') window.shopExtrasHTML=function(P){ return panelFold('shoplv', `Cấp quán · ${shopLvInfo().name}`, shopLvHTML(), false) + se.apply(this,arguments) };
+  const sg=window.satGuests; if(typeof sg==='function') window.satGuests=function(){ return sg.apply(this,arguments)*shopLvInfo().guests*({rain:0.85,cloud:0.95,sun:1}[weatherToday()]||1) };
+})();
+/* ---------- thời tiết theo ngày (tự sinh, cùng một ngày thì như nhau, không cần mạng) ---------- */
+function weatherToday(){ const d=today(); let h=0; for(const ch of d+'pd') h=(h*31+ch.charCodeAt(0))>>>0; const r=(h%100); return r<50?'sun':r<80?'cloud':'rain' }
+DB.wxName={ sun:'Nắng', cloud:'Nhiều mây', rain:'Mưa' };
+DB.wxLines={ rain:['Mưa rồi… khách chắc thưa hơn.','Trời mưa, mình pha ly gì ấm nha?','Nghe mưa rơi buồn ngủ ghê.'], cloud:['Trời âm u ghê.','Mây nhiều, chắc chiều mát.'], sun:['Nắng đẹp, đông khách nè!','Nắng thế này bán đá xay là chuẩn.'] };
+function wxApply(){
+  const st=$('stage'); if(!st) return; const w=weatherToday();
+  st.classList.remove('wx-sun','wx-cloud','wx-rain'); st.classList.add('wx-'+w);
+  if(!st.querySelector('.wxrain')) st.insertAdjacentHTML('beforeend','<div class="wxrain"></div><div class="wxtint"></div>');
+  st.querySelectorAll('.win').forEach(wn=>{ const has=wn.querySelector('.wxw'); if(w==='rain' && !has){ if(getComputedStyle(wn).position==='static') wn.style.position='relative'; wn.insertAdjacentHTML('beforeend','<div class="wxw"></div>') } else if(w!=='rain' && has) has.remove() });   // mưa chỉ thấy qua cửa sổ
+  const ht=document.querySelector('#v-home .hometime'); if(ht && !ht.querySelector('.wxi')) ht.insertAdjacentHTML('beforeend', `<span class="wxi" title="${DB.wxName[w]}">${icoSVG(w==='rain'?'wrain':w==='cloud'?'wcloud':'sun')}<b>${DB.wxName[w]}</b></span>`);
+}
+(function(){ const s=(st,w)=>`stroke="${st}" stroke-width="${w||2.4}" stroke-linejoin="round" stroke-linecap="round"`;
+  Object.assign(ICS,{ wcloud:`<path d="M11 30a7 7 0 0 1 0-14 9 9 0 0 1 17-2 7 7 0 0 1 2 16z" fill="#eef2f5" ${s('#9aa9b6')}/>`,
+    wrain:`<path d="M11 24a7 7 0 0 1 0-14 9 9 0 0 1 17-2 7 7 0 0 1 2 16z" fill="#dfe6ee" ${s('#8394a6')}/><path d="M13 29l-2 5M20 29l-2 5M27 29l-2 5" ${s('#5a9ac0',2.4)}/>` }) })();
+/* ---------- che khuất và xa gần ở trang Nhà ---------- */
+DB.occl = { 2:{ x:18, kind:'tall' }, 4:{ x:78, kind:'pillar' }, 6:{ x:30, kind:'tall' } };   // khu Bếp, Góc chơi, Sân tập
+DB.farZones = [5,7];   // Gác ngủ, Vườn sau
+function occlBuild(){
+  const strip=$('strip'); if(!strip) return;
+  Object.entries(DB.occl).forEach(([zi,o])=>{ const z=strip.children[+zi]; if(!z || z.querySelector('.occl')) return;
+    z.insertAdjacentHTML('beforeend', `<div class="occl ${o.kind}" style="left:${o.x}%"></div>`) });
+}
+let FAR_V=null;
+function depthScale(){ const a=$('actor'); if(!a) return; try{ const v=DB.farZones.includes(curZone())?'.86':'1'; if(v!==FAR_V || a.style.getPropertyValue('--far')!==v){ FAR_V=v; a.style.setProperty('--far', v) } }catch(e){} }   // chỉ đặt khi đổi: tránh tính lại kiểu cho cả hình pet mỗi 0,7 giây
+(function(){
+  const bs=window.buildScene; if(typeof bs==='function') window.buildScene=function(){ const r=bs.apply(this,arguments); try{ occlBuild(); wxApply() }catch(e){} return r };
+  const ps=window.paintSky; if(typeof ps==='function') window.paintSky=function(){ const r=ps.apply(this,arguments); try{ wxApply() }catch(e){} return r };
+  setInterval(()=>{ try{ depthScale() }catch(e){} }, 700);
+  /* thỉnh thoảng nói về thời tiết */
+  const ia=window.idleAction; if(typeof ia==='function') window.idleAction=async function(){ if(Math.random()<0.05 && SC.built && VIEW==='home'){ say(pick(DB.wxLines[weatherToday()])); return } return ia.apply(this,arguments) };
+  const mt=window.mount; if(typeof mt==='function') window.mount=function(){ const r=mt.apply(this,arguments); try{ if(VIEW==='home') wxApply() }catch(e){} return r };
+})();
 
 boot();
 if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>{});
