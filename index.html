@@ -5226,7 +5226,7 @@ function potential(p){
   return _base;
 }
 function _potentialBase(p){
-  const sp=DB.species[p.species], R=DB.rarityById[p.rarity], out={};
+  const sp=DB.species[p.species]||DB.species.milku, R=DB.rarityById[p.rarity]||DB.rarity[0], out={};   // v1.2.4: loài/độ hiếm lạ không làm sập game
   let potAll=0; p.traits.forEach(t=>{const T=DB.traitById[t]; if(T&&T.potAll)potAll+=T.potAll});
   STATK.forEach(k=>{
     let v = sp.base[k] * R.mult * (0.85 + p.dna.genes[k]/100*0.45);
@@ -7949,7 +7949,7 @@ function tapEgg(){
   }
 }
 function finishIntro(){
-  const i=$('iname'); const v=i? i.value.trim().slice(0,14):'';
+  const i=$('iname'); const v=i? cleanName(i.value):'';
   if(v) S.pet.name=v;
   S.onboarded=true; save();
   const e=$('intro'); if(e){ e.classList.add('out'); setTimeout(()=>e.remove(),350) }
@@ -7982,6 +7982,20 @@ function devGrant(id){
   save(); mount(); toast('Đã áp dụng.');
 }
 
+/* ---------- LỌC CHỮ TỪ NGUỒN LẠ (v1.2.4) ----------
+   Năm ký tự mở được thẻ hoặc thuộc tính HTML đổi sang ký tự trông gần giống nhưng
+   không chạy được. Dùng cho mọi chữ đến từ người khác: mã pet, mã sao lưu, ô đặt tên. */
+const SAFE_CH={ '<':'‹', '>':'›', '"':'”', "'":'’', '`':'‘' };
+function safeText(s){ return String(s).replace(/[<>"'`]/g, c=>SAFE_CH[c]) }
+function safeDeep(o, depth){ depth=depth||0; if(depth>40) return null;
+  if(typeof o==='string') return safeText(o);
+  if(Array.isArray(o)) return o.map(x=>safeDeep(x, depth+1));
+  if(o && typeof o==='object'){ const r={};
+    for(const k of Object.keys(o)){ if(k==='__proto__' || k==='constructor' || k==='prototype' || /[<>"'`]/.test(k)) continue; r[k]=safeDeep(o[k], depth+1) }
+    return r }
+  return o }
+function cleanName(v){ return safeText(String(v==null?'':v)).replace(/\s+/g,' ').trim().slice(0,14) }
+
 /* ---------- XUẤT / NHẬP BẢN LƯU ---------- */
 function encodeB64(obj){
   const s=JSON.stringify(obj);
@@ -8001,7 +8015,7 @@ function exportSave(){
 function importSave(){
   const el=$('savebox'); if(!el||!el.value.trim()) return toast('Dán mã vào ô trước.');
   try{
-    const o=decodeB64(el.value);
+    const o=safeDeep(decodeB64(el.value));
     if(!o || !o.pet || !o.pet.species) throw 0;
     if(!confirm('Ghi đè toàn bộ tiến độ hiện tại bằng mã này?')) return;
     S=o; save(); location.reload();
@@ -8015,14 +8029,32 @@ function petCode(p){
             g:p.gen, st:p.stage, f:p.form, l:p.level, b:Math.round(p.bond), tb:p.trainBonus };
   return 'PP1-'+encodeB64(c);
 }
+/* v1.2.4 — mã pet do người khác gửi là dữ liệu lạ: trước đây tên pet đi thẳng vào
+   giao diện (chèn được thẻ HTML chạy mã) và chỉ số nhận bất kỳ (cấp 9999).
+   Nay lọc chữ, chỉ nhận loài/độ hiếm có thật, kẹp mọi chỉ số về khoảng hợp lệ. */
 function parsePetCode(code){
   code=(code||'').trim();
-  if(!code.startsWith('PP1-')) return null;
+  if(!code.startsWith('PP1-') || code.length>8000) return null;
   try{
-    const c=decodeB64(code.slice(4));
-    const p=makePet({species:c.s, rarity:c.r, pers:c.p});
-    Object.assign(p, { name:c.n, dna:c.d, traits:c.t, gen:c.g, stage:c.st, form:c.f,
-      level:c.l, bond:c.b, trainBonus:c.tb||p.trainBonus });
+    const c=safeDeep(decodeB64(code.slice(4)));
+    if(!c || typeof c!=='object' || typeof c.s!=='string' || !DB.species[c.s] || !DB.rarityById[c.r]) return null;
+    const num=(v,lo,hi,d)=>{ v=+v; return isFinite(v) ? Math.max(lo,Math.min(hi,v)) : d };
+    const pers=DB.personality.some(x=>x.id===c.p) ? c.p : undefined;
+    const p=makePet({species:c.s, rarity:c.r, pers});
+    const d=(c.d && typeof c.d==='object') ? c.d : {};
+    const R={ hue:[0,360], sat:[0,100], light:[0,100], pattern:[0,5], size:[0.5,1.5], ear:[0,3], tail:[0,3] };
+    for(const k in R) p.dna[k]=num(d[k], R[k][0], R[k][1], p.dna[k]);
+    ['pattern','ear','tail'].forEach(k=>p.dna[k]=Math.round(p.dna[k]));
+    if(d.genes && typeof d.genes==='object') for(const k in p.dna.genes) p.dna.genes[k]=Math.round(num(d.genes[k],0,100,p.dna.genes[k]));
+    if(Array.isArray(c.t)) p.traits=[...new Set(c.t.filter(t=>DB.traits.some(x=>x.id===t)))].slice(0,8);
+    p.name=cleanName(c.n)||p.name;
+    p.gen=Math.round(num(c.g,0,99,0));
+    if(DB.stages.some(s=>s.id===c.st)) p.stage=c.st;
+    p.form=(typeof c.f==='string' && c.f) ? c.f.slice(0,40) : null;
+    p.level=Math.round(num(c.l,1,lvCap(p),1));
+    p.bond=Math.round(num(c.b,0,100,8));
+    const pot=potential(p), tb=(c.tb && typeof c.tb==='object') ? c.tb : {};
+    for(const k in p.trainBonus) p.trainBonus[k]=Math.round(num(tb[k],0,Math.round((pot[k]||0)*0.20),0));
     Object.keys(p.care).forEach(k=>p.care[k]=88);
     p.ailments=[]; refreshSkills(p);
     return p;
@@ -8526,7 +8558,7 @@ function initBridge(){
   window.addEventListener('message', ev=>{
     const d=ev.data;
     if(!d || typeof d!=='object') return;
-    if(window.parent!==window && ev.source!==window.parent) return;   // chỉ nhận từ trang đang nhúng game
+    if(ev.source!==window.parent) return;   // chỉ nhận từ trang đang nhúng game; v1.2.4: không nhúng thì cửa sổ lạ (mở game bằng window.open) cũng không gửi lệnh vào được
     if(d.type==='pp:ops') handleOps(d);
     if(d.type==='pp:ping') postStatus();
   });
@@ -9315,7 +9347,7 @@ function tapHatch(){
   }
 }
 function finishHatch(){
-  const i=$('hname'); const v=i? i.value.trim().slice(0,14):'';
+  const i=$('hname'); const v=i? cleanName(i.value):'';
   if(v) HATCH.pet.name=v;
   HATCH.step='reveal'; paintHatch();
 }
@@ -12415,6 +12447,7 @@ function load(){
     else { S=fresh(); S.lic={ grand:true, at:Date.now() }; S._loadNote={ kind:'lost' } }
   }
   if(!S || !S.pet) S=fresh();
+  S=safeDeep(S);   // v1.2.4: bản lưu nhập từ mã người khác không được mang theo thẻ HTML
   if(S.frame===undefined) S.frame=null;
   if(S.drink===undefined) S.drink=null;
   if(!S.theme) S.theme='forest';
@@ -12440,8 +12473,28 @@ function floaty(txt,color){
     'pUp 1.2s ease-out forwards', 1250); }
 
 /* ---------- boot: offline simulation ---------- */
+/* v1.2.4 — PET CÓ LOÀI KHÔNG XÁC ĐỊNH KHÔNG ĐƯỢC LÀM SẬP GAME
+   Loài của pet sự kiện chỉ có khi sự kiện được đăng ký (evRegisterAll). Trước đây bước
+   đăng ký chạy SAU nhiều bước dùng tới chỉ số pet (giả lập lúc vắng, chuyến đi, trang bị…),
+   và nếu vì lý do nào đó loài không được đăng ký thì mọi chỗ đọc DB.species[...].base đều
+   hỏng — lỗi "sp.base" trên iPad 12/10, game không mở được. Nay đăng ký sự kiện NGAY sau khi
+   nạp bản lưu; loài nào vẫn chưa rõ thì gán tạm hình và chỉ số của Milku, giữ nguyên mã loài
+   gốc để sự kiện đăng ký lại sau vẫn nhận ra. */
+function speciesGuard(){
+  const src=DB.species.milku, pets=[S.pet].concat(S.stash||[]).filter(p=>p && typeof p==='object');
+  pets.forEach(p=>{
+    if(typeof p.species!=='string' || !p.species) p.species='milku';
+    const sid=p.species; if(DB.species[sid]) return;
+    DB.species[sid]=Object.assign({}, src, { id:sid, name:'Pet lạ', vi:'Chưa rõ loài', orphan:true,
+      quirk:'Loài của pet này chưa có trên máy — có thể sự kiện của nó chưa được nạp. Pet vẫn giữ nguyên.' });
+    if(!BODY[sid]) BODY[sid]=BODY.milku;
+    if(DB.evo && !DB.evo[sid]) DB.evo[sid]=DB.evo.milku;
+  });
+}
 function boot(){
   load();
+  try{ if(typeof evRegisterAll==='function') evRegisterAll() }catch(e){}   // v1.2.4: loài sự kiện có mặt trước mọi bước dùng tới pet
+  try{ speciesGuard() }catch(e){}
   if(typeof saveUpgrade==='function') saveUpgrade();   // sao lưu TRƯỚC mọi bước sửa dữ liệu
   const hib = S.hib && S.hib.on;
   const hours=(Date.now()-S.last)/36e5;
@@ -12850,7 +12903,7 @@ function startRename(){
   box.dataset.edit=1;
   box.innerHTML=`<input id="rnin" maxlength="14" value="${S.pet.name.replace(/"/g,'&quot;')}">`;
   const inp=$('rnin'); inp.focus(); inp.select();
-  const done=()=>{ const v=inp.value.trim().slice(0,14);
+  const done=()=>{ const v=cleanName(inp.value);
     if(v) S.pet.name=v; save(); renderReceipt(); mount(); };
   inp.addEventListener('blur',done);
   inp.addEventListener('keydown',ev=>{ if(ev.key==='Enter') inp.blur(); if(ev.key==='Escape'){ inp.value=S.pet.name; inp.blur() } });
@@ -15596,7 +15649,7 @@ function evPetLine(p, k){
 /* ==========================================================
    BẢN PHÁT HÀNH 1.0 — số phiên bản game
    ========================================================== */
-const APP_VER='1.2.3';
+const APP_VER='1.2.4';
 
 /* ==========================================================
    QUA NGÀY, QUA TUẦN KHI GAME ĐANG MỞ
@@ -15754,6 +15807,15 @@ window.save=function(){
    CÓ GÌ MỚI — hiện một lần cho người chơi cũ khi lên bản mới
    ========================================================== */
 DB.patchNotes = [
+  { ver:'1.2.4', date:'10/2026', title:'Hai anh em Hạt Dẻ · đổi mã an toàn hơn',
+    lead:'Sẵn sàng cho sự kiện tháng 11. Mã pet và mã sao lưu nhận từ người khác giờ được kiểm kỹ trước khi dùng.',
+    items:[
+      ['🛡️','Mã pet để đấu','Tên pet lạ được lọc ký tự, chỉ số kẹp về mức hợp lệ — không còn pet cấp 9999.'],
+      ['💾','Mã sao lưu','Bản lưu nhập từ mã được lọc trước khi nạp.'],
+      ['🔗','Cầu nối công cụ','Game chỉ nhận lệnh từ trang đang nhúng nó.'],
+      ['🎃','Sửa lỗi không mở được game','Pet sự kiện mà sự kiện chưa kịp nạp không còn làm game dừng ở màn "Game chưa mở được" — pet vẫn giữ nguyên.'],
+      ['🌰','Sự kiện tháng 11: Hai anh em Hạt Dẻ','Từ 1/11 đến hết 30/11. Game tự nhận qua kênh sự kiện khi có mạng: 8 nhiệm vụ, 2 pet Hạt Dẻ Cười và Hạt Dẻ Nướng, 5 món thời trang, boss hai anh em.']
+    ] },
   { ver:'1.2.3', date:'10/2026', title:'Quán sống, trời có mưa nắng',
     lead:'Quán lên cấp được, pet ra quán làm chủ, và mỗi ngày một kiểu thời tiết.',
     items:[
@@ -16150,7 +16212,7 @@ async function channelPull(force){
   }catch(e){ st.at=Date.now(); st.ok=false; save(); out.error=String(e&&e.message||e) }
   finally{ CH_BUSY=false }
   // báo người chơi: sự kiện MỚI và quà — cập nhật bản sửa thì im lặng
-  out.events.filter(x=>!x.upd).forEach(x=>{
+  out.events.filter(x=>!x.upd && evStatus(x.e.d)!=='over').forEach(x=>{   // v1.2.4: sự kiện đã hết (vd. Halloween còn trong kenh.txt) không báo "Sự kiện mới"
     showBanner({ sub:'Sự kiện mới', name:x.name, pet:renderPet(S.pet,{scale:1,static:1,mood:'happy',tag:'chev'}), rewards:[],
       note:`${evcEsc(evWhen(x.e.d))}. ${x.e.d.intro?evcEsc(x.e.d.intro):''} Xem ở Việc → Sự kiện.`,
       after:()=>{ S._qtab='ev'; go('quest') } });
@@ -18094,6 +18156,9 @@ const ICS = (()=>{ const s=(st,w)=>`stroke="${st}" stroke-width="${w||2.4}" stro
   dice:`<rect x="7" y="7" width="26" height="26" rx="6" fill="#fff" ${s('#8fa39c')}/><circle cx="14" cy="14" r="2.4" fill="#e0614a"/><circle cx="20" cy="20" r="2.4" fill="#e0614a"/><circle cx="26" cy="26" r="2.4" fill="#e0614a"/>`,
   note:`<path d="M15 28V9l16-4v19" fill="none" ${s('#7a5aa8',2.6)}/><circle cx="11" cy="28" r="4.5" fill="#b49ae0" ${s('#7a5aa8',2)}/><circle cx="27" cy="24" r="4.5" fill="#b49ae0" ${s('#7a5aa8',2)}/>`,
   cal:`<rect x="6" y="9" width="28" height="25" rx="3" fill="#fff" ${s('#d76b58')}/><path d="M6 15h28" stroke="#d76b58" stroke-width="5"/><path d="M13 6v6M27 6v6" ${s('#7a5a3a',2.6)}/><path d="M12 22h4M18 22h4M24 22h4M12 28h4M18 28h4" ${s('#c4b48d',2.2)}/>`,
+  nut:`<path d="M20 6c4 3 11 7 13 15 2 9-4 14-13 14S5 30 7 21c2-8 9-12 13-15z" fill="#8a4a22" ${s('#4a2410')}/><path d="M8.5 27c4 4 19 4 23 0-1 5-6 8-11.5 8S9.5 32 8.5 27z" fill="#ead2a6"/><path d="M17 13l6 6M23 13l-6 6" ${s('#f1d6a8',2)}/><path d="M12 17q2-5 6-7" fill="none" ${s('#c98a5a',1.8)}/>`,
+  disk:`<rect x="7" y="7" width="26" height="26" rx="3" fill="#7fb7d6" ${s('#4d86a6')}/><rect x="12" y="7" width="16" height="9" fill="#e9f3f8" ${s('#4d86a6',2)}/><rect x="11" y="21" width="18" height="12" rx="1.5" fill="#fff8e6" ${s('#4d86a6',2)}/><path d="M24 9v5" ${s('#4d86a6',2.4)}/>`,
+  link:`<rect x="5" y="15" width="16" height="10" rx="5" fill="none" ${s('#5fae96',3)}/><rect x="19" y="15" width="16" height="10" rx="5" fill="none" ${s('#d6a43a',3)}/>`,
   pumpkin:`<ellipse cx="20" cy="23" rx="14" ry="11" fill="#f39a2e" ${s('#c9701e')}/><path d="M20 12q-6 11 0 22M20 12q6 11 0 22" fill="none" ${s('#c9701e',1.8)}/><path d="M20 12q0-5 4-6" fill="none" ${s('#5f9e5a',2.6)}/>`,
   phone:`<rect x="11" y="4" width="18" height="32" rx="4" fill="#e7eef5" ${s('#7f9590')}/><rect x="14" y="8" width="12" height="21" rx="1.5" fill="#a7dcc9"/><circle cx="20" cy="32" r="1.4" fill="#7f9590"/>`,
   paw:`<ellipse cx="20" cy="26" rx="8" ry="7" fill="#c9a06a" ${s('#9a7040',2)}/><circle cx="10" cy="17" r="3.4" fill="#c9a06a"/><circle cx="16" cy="11" r="3.4" fill="#c9a06a"/><circle cx="24" cy="11" r="3.4" fill="#c9a06a"/><circle cx="30" cy="17" r="3.4" fill="#c9a06a"/>`,
@@ -18124,7 +18189,7 @@ const ICO_ALIAS = {
   '☕':'cup','🍵':'cup','🥛':'cup','🥤':'drink','🧋':'drink','🍽️':'tray','🍽':'tray','📋':'board','🛵':'scooter','🔍':'lens','🪑':'chair','🗼':'tower','🥚':'egg',
   '💛':'heart','💞':'heart','❤️':'heart','💗':'heart','✨':'spark','🌟':'spark','⭐':'spark','🏆':'trophy','🗺️':'map','🗺':'map','📖':'book','📘':'book','📓':'book','📒':'book','📚':'book','📜':'letter',
   '🛏️':'bed','🛏':'bed','🎂':'cake','🌿':'leaf','🍃':'leaf','☘️':'leaf','☘':'leaf','🌸':'leaf','🔥':'fire','😤':'fire','🔧':'wrench','⚖️':'scale','⚖':'scale','🎒':'bag','💬':'chat','🏠':'house','💌':'letter',
-  '🏷️':'tag','🏷':'tag','📡':'wave','🎲':'dice','🎵':'note','🌙':'moon','📅':'cal','🗓️':'cal','🗓':'cal','🎃':'pumpkin','📱':'phone','🐾':'paw','🌄':'sun','☀️':'sun','🏪':'store','🧬':'dna','🛟':'buoy','📇':'card',
+  '🏷️':'tag','🏷':'tag','📡':'wave','🎲':'dice','🎵':'note','🌙':'moon','📅':'cal','🗓️':'cal','🗓':'cal','🎃':'pumpkin','🌰':'nut','🥜':'nut','💾':'disk','🔗':'link','📱':'phone','🐾':'paw','🌄':'sun','☀️':'sun','🏪':'store','🧬':'dna','🛟':'buoy','📇':'card',
   '💥':'hit','🔨':'hit','💣':'hit','🦷':'hit','🦴':'hit','🗡️':'hit','🗡':'hit','⚔️':'hit','⚔':'hit','🥥':'hit','🫘':'hit','🛡️':'shield','🛡':'shield','🧱':'shield','🏔️':'shield','🏔':'shield',
   '💨':'wind','🌫️':'wind','🌫':'wind','⚡':'bolt','💧':'drop','🫧':'drop','🍋':'drop','🍦':'ice','🧊':'ice','❄️':'ice','❄':'ice','🥶':'ice','🔮':'crystal','🧘':'crystal','😴':'zzz','🌀':'swirl','🌑':'dark','🧪':'flask','💊':'flask','🍫':'stock','👶':'egg','🧑':'hr','👥':'hr','🔒':'lock','🔓':'lock','🍳':'pan','✎':'pencil','✏️':'pencil','✏':'pencil','🌤️':'sun','🌤':'sun','💦':'drop'
 };
